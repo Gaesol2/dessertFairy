@@ -1,0 +1,35 @@
+@charset "UTF-8";
+ 
+*{
+	margin: 0;
+	padding: 0;
+	font-family: Consolas;
+}
+
+ul{
+	list-style-type: none;
+}
+ 
+.clear{
+	clear: both;
+}
+
+#wrap {
+	background-color: #fefae9;
+	width: 100%;
+	margin: 0 auto;
+}
+
+#top{
+	float: left; 
+	width: 100%;
+	marign: 0 auto;
+}
+ 
+#bottom{
+	float: left;
+	width: 100%;
+	margin: 0 auto;
+	background-color: #042958;
+}
+

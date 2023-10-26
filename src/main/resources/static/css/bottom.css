@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+#footer{
+	padding-top : 50px;
+	margin: 0 auto;
+	width: 1024px;
+	height: 300px;
+	color: white;
+}
+
+.footerlogo{
+	font-size: 33px;
+}
+
+#address li{
+	display: block;
+}
+
+#address{
+	width:40%;
+	font-size: 13px;
+	padding: 10px 0 0 50px;
+	float: left;
+}
+
+#address2{
+	width:20%;
+	font-size: 13px;
+	padding: 15px;
+	float: left;
+}
+
+#address3{
+	width:20%;
+	font-size: 13px;
+	padding: 15px;
+	float: left;
+}
+
+.servicecenter{
+	width : 200px;
+	padding-bottom : 5px;
+	border-bottom: solid 1px white;
+}
+
+.ad1{
+	font-size: 18px;
+}
+
+.insta{
+	width: 25px;
+	height: 25px;
+	padding-right : 15px;
+	filter: invert(99%) sepia(92%) saturate(506%) hue-rotate(301deg) brightness(107%) contrast(103%);
+}
+
+.blog{
+	width: 25px;
+	height: 25px;
+	padding-right : 15px;
+	filter: invert(99%) sepia(92%) saturate(506%) hue-rotate(301deg) brightness(107%) contrast(103%);
+}
+
+.youtube{
+	width: 25px;
+	height: 25px;
+	filter: invert(99%) sepia(92%) saturate(506%) hue-rotate(301deg) brightness(107%) contrast(103%);
+}
