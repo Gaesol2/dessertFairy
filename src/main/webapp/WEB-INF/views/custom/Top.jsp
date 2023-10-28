@@ -17,15 +17,15 @@
 	<div id="mainmenu">
 		<ul>
 			<li><a href="/cakeOrder">주문제작 케이크</a></li>
-			<li><a href="/">디저트</a></li>
-			<li><a href="/">포토후기</a></li>
-			<li><a href="/">마이페이지</a></li>
+			<li><a href="/dessertOrder">디저트</a></li>
+			<li><a href="/photoBoard">포토후기</a></li>
+			<li><a href="/myPage">마이페이지</a></li>
 		</ul>
 	</div>	<!-- mainmenu end -->
 	<div id="topmenu">
 		<ul>
-			<li><a href="/">로그인</a></li>
-			<li><a href="/">회원가입</a></li>
+			<li><a href="/login">로그인</a></li>
+			<li><a href="/register">회원가입</a></li>
 			<li class="search"><a href="/"><img src="../image/search.png"></a></li>
 		</ul>
 	</div>	<!-- topmenu end -->
