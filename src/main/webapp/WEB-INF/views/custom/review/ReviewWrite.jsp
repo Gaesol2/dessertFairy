@@ -5,9 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>포토리뷰</title>
+<script src="/script/commonScript.js"></script>
 </head>
 <body>
-<form action="reviewWriteProc" name="ReviewWriteForm" method="post" enctype="multipart/form-data">
+<form action="reviewWriteProc" name="WriteForm" method="post" enctype="multipart/form-data">
 	<table>
 		<tr>
 			<td>제목</td>
@@ -34,7 +35,7 @@
 			<td><input type="password" name="r_passwd"></td>
 		</tr>
 		<tr>
-			<td><input type="button" value="등록"></td>
+			<td><input type="button" class="WriteSubmit" value="등록"></td>
 		</tr>
 	</table>
 </form>
