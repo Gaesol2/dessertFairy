@@ -9,10 +9,10 @@
 <title>dessertFairy</title>
 </head>
 <body>
-<c:import url="./customcake/Top.jsp" />
+<c:import url="./custom/Top.jsp" />
 <c:import url="./RollingBanner.jsp" />
 <div id="content">
 </div>
-<c:import url="./customcake/Bottom.jsp" />
+<c:import url="./custom/Bottom.jsp" />
 </body>
 </html>

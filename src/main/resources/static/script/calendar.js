@@ -1,16 +1,16 @@
 /**
  * 
  */
-		var today = new Date();
+		let today = new Date();
 		function buildCalendar(){
-		  var row = null
-		  var cnt = 0;
-		  var calendarTable = document.getElementById("calendar");
-		  var calendarTableTitle = document.getElementById("calendarTitle");
+		  let row = null
+		  let cnt = 0;
+		  let calendarTable = document.getElementById("calendar");
+		  let calendarTableTitle = document.getElementById("calendarTitle");
 		  calendarTableTitle.innerHTML = today.getFullYear()+"년"+(today.getMonth()+1)+"월";
 		  
-		  var firstDate = new Date(today.getFullYear(), today.getMonth(), 1);
-		  var lastDate = new Date(today.getFullYear(), today.getMonth()+1, 0);
+		  let firstDate = new Date(today.getFullYear(), today.getMonth(), 1);
+		  let lastDate = new Date(today.getFullYear(), today.getMonth()+1, 0);
 		  while(calendarTable.rows.length > 2){
 		  	calendarTable.deleteRow(calendarTable.rows.length -1);
 		  }

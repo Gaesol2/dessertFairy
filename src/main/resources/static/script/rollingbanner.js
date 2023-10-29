@@ -3,12 +3,12 @@
  */
 
  $(document).ready(function() {
-		var $banner = $(".banner").find("ul");
+		let $banner = $(".banner").find("ul");
 
-		var $bannerWidth = $banner.children().outerWidth();//이미지의 폭
-		var $bannerHeight = $banner.children().outerHeight(); // 높이
-		var $length = $banner.children().length;//이미지의 갯수
-		var rollingId;
+		let $bannerWidth = $banner.children().outerWidth();//이미지의 폭
+		let $bannerHeight = $banner.children().outerHeight(); // 높이
+		let $length = $banner.children().length;//이미지의 갯수
+		let rollingId;
 
 		//정해진 초마다 함수 실행
 		rollingId = setInterval(function() { rollingStart(); }, 6000);//다음 이미지로 롤링 애니메이션 할 시간차
