@@ -14,7 +14,7 @@ public class CakeController {
 			                HttpServletResponse response,
 			                Model model) {
 		
-		model.addAttribute("contentsJsp", "custom/CakeOrder");
+		model.addAttribute("contentsJsp", "customcake/CakeOrder");
 		
 		return "Main";
 	}
