@@ -1,4 +1,4 @@
-package com.shop.dessertFairy;
+package com.shop.dessertFairy.member.dto;
 
 import lombok.Data;
 import lombok.ToString;
@@ -6,7 +6,7 @@ import lombok.ToString;
 @Data
 @ToString
 public class MemberDTO {
-	private String mem_id;
+	private String m_id;
 	private String m_name;
 	private String m_passwd;
 	private String m_email;

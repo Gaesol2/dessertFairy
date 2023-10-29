@@ -1,13 +1,14 @@
 package com.shop.dessertFairy.member.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.shop.dessertFairy.MemberDTO;
-import com.shop.dessertFairy.memberService.MemberService;
+import com.shop.dessertFairy.member.dto.MemberDTO;
+import com.shop.dessertFairy.member.service.MemberService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -18,21 +19,35 @@ public class MemberController {
 	@Autowired
 	MemberService memberService;
 	
-	@RequestMapping("/register")
+	@RequestMapping("register")
 	  public String  join(HttpServletRequest request,
 			              HttpServletResponse response,
 			              Model model,
 			              MemberDTO mdto) {
-		  return "member/MemberJoin";
+		 
+			model.addAttribute("contentsJsp", "member/Register");
+		  return "Main";
 	  }
+
+	@RequestMapping("registerProc")
+	public String  registerProc(HttpServletRequest request,
+			HttpServletResponse response,
+			Model model,
+			MemberDTO mdto) {
+		System.out.println("mdto확인 :"+mdto.getM_id());
+		int r = memberService.memberJoin(mdto);
+		
+		
+		return "redirect:/";
+	}
 	
 	@RequestMapping("login")
 	public String login(HttpServletRequest request,
 						HttpServletResponse response,
 						MemberDTO mdto,
 						Model model) {
-		
-		return "member/Login";
+		model.addAttribute("contentsJsp", "member/Login");
+		return "Main";
 		
 	}
 

@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" type="text/css" href="/css/common.css">
+<script src="/jquery/jquery-3.7.0.min.js"></script>
+<script src="/script/zipCheck.js"></script>
 <script src="/script/MemberJoin.js"></script>
-<form action="registerProc" name="topForm1" method="post">
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+<form action="register" name="joinForm" method="post">
 	<table>
 		<thead>
 			<tr>
@@ -57,7 +61,7 @@
 				<td>우편번호</td>
 				<td>
 					<input type="text" class="chk" name="m_zipcode" title="우편번호" readonly="readonly" 
-					placeholder="우편번호를 검색하시오." id="sample6_address">
+					placeholder="우편번호를 검색하시오." id="sample6_postcode">
 					<button type="button" onclick="zipCheck()">우편번호 찾기</button>
 				</td>
 			</tr>
@@ -69,10 +73,10 @@
 				</td>
 			</tr>
 			<tr>
-				<td>아이디</td>
+				<td>상세주소</td>
 				<td>
 					<input type="text" class="chk" name="m_address2" title="상세주소" 
-					placeholder="아이디를 입력하시오.">
+					placeholder="상세주소를 입력하시오.">
 				</td>
 			</tr>
 		</tbody>
@@ -80,7 +84,7 @@
 		<tfoot>
 			<tr>
 				<td>
-					<button class="submit11" type="button">회원가입</button>
+					<button class="m_join" type="button">회원가입</button>
 					<button type="reset">다시쓰기</button>
 				</td>
 			</tr>

@@ -11,5 +11,6 @@
     <typeAliases>
          <typeAlias alias="hashMap" type="java.util.HashMap" />
          <typeAlias alias="map" type="java.util.Map" />
+         <typeAlias alias="mdto" type="com.shop.dessertFairy.member.dto.MemberDTO" />
      </typeAliases>	
 </configuration>
