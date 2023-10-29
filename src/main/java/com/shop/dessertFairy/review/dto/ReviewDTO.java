@@ -1,5 +1,10 @@
 package com.shop.dessertFairy.review.dto;
 
+import lombok.Data;
+import lombok.ToString;
+
+@Data
+@ToString
 public class ReviewDTO {
 	private int r_no;
 	private String r_subject;

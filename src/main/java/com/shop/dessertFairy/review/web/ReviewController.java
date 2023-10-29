@@ -17,7 +17,8 @@ import jakarta.servlet.http.HttpServletResponse;
 @Controller
 public class ReviewController {
 	
-
+	@Autowired
+	ReviewService reviewService;
 	
 	//실제로 파일이 저장되는 파일 서버 경로를 가져온 것. properties에 있는 주소 불러와 스트링 변수 resourceLocation에 저장
 	@Value("${resources.location}")
@@ -60,8 +61,15 @@ public class ReviewController {
 		String msg = null;
 		String url = null;
 		
+		int result = reviewService.reviewWrite(rdto);
+		
+		if(result>0) {
 			msg = "포토리뷰가 등록되었습니다.";
-			url = "/photoBoard";
+			url = "/reviewList";			
+		} else {
+			msg = "포토리뷰 등록에 실패했습니다.";
+			url = "/reviewList";
+		}
 		
 		model.addAttribute("url",url);
 		model.addAttribute("msg",msg);

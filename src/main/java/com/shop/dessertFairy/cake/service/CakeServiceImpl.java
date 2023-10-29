@@ -7,8 +7,7 @@ import org.springframework.stereotype.Service;
 import com.shop.dessertFairy.cake.dao.CakeDAO;
 @Service
 public class CakeServiceImpl implements CakeService {
-	@Autowired
-	CakeDAO cakeDao;
+	
 
 	
 	
