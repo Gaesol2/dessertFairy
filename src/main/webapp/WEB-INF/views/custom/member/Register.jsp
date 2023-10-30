@@ -20,6 +20,7 @@
 				<td>
 					<input type="text" class="chk idchk" name="m_id" title="아이디" 
 					placeholder="아이디를 입력하시오.">
+					<font id="warning" size="2" color="red"></font>
 				</td>
 			</tr>
 			<tr>
@@ -27,6 +28,7 @@
 				<td>
 					<input type="password" class="chk check1" name="m_passwd" title="비밀번호" 
 					placeholder="비밀번호를 입력하시오.">
+					<font id="check" size="2" color="green"></font>
 				</td>
 			</tr>
 			<tr>
