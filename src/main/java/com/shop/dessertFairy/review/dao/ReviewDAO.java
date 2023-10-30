@@ -7,6 +7,6 @@ import com.shop.dessertFairy.review.dto.ReviewDTO;
 @Mapper
 public interface ReviewDAO {
 
-	int reviewWrite(ReviewDTO rdto);
+   int reviewWrite(ReviewDTO rdto);
 
 }
