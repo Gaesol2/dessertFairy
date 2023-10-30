@@ -23,7 +23,7 @@ $().ready(function(){
 		   async:true,
 		   type:'post',
 		   url:'idCheck',
-		   data:{'mem_id':$('.idchk').val()},
+		   data:{'m_id':$('.idchk').val()},
 		   dataType:"json",
 		   success:function(data){
 			   if(data>0){ //이미 존재하는 id
