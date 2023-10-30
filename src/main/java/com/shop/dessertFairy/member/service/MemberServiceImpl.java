@@ -14,17 +14,17 @@ public class MemberServiceImpl implements MemberService {
 	MemberDAO memberDao;
 	
 	@Override
-	public int memberJoin(MemberDTO mdto) {
+	public int memberJoin(MemberDTO mdto) {			//회원가입
 		return memberDao.memberJoin(mdto);
 	}
 	
 	@Override
-	public int idCheck(String m_id) {
+	public int idCheck(String m_id) {			// 회원가입 시 아이디 중복 체크
 		return memberDao.idCheck(m_id);
 	}
 	
 	@Override
-	public MemberDTO getMember(MemberDTO mdto) {
+	public MemberDTO getMember(MemberDTO mdto) {	// 로그인
 		return memberDao.getMember(mdto);
 	}
 
