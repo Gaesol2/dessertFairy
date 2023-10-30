@@ -4,6 +4,9 @@
 <mapper namespace = "com.shop.dessertFairy.review.dao.ReviewDAO">
 
    <insert id="reviewWrite" parameterType="rdto">
+   <selectKey keyProperty="r_no" order="BEFORE" resultType="int">
+		SELECT NVL(MAX(r_no),0)+1 FROM review
+	</selectKey>
       INSERT INTO review(
          r_no
          ,r_subject
