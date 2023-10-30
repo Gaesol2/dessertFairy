@@ -3,12 +3,8 @@
 #cakecontent{
 	margin: 0 auto;
 	width: 1024px;
-	height: 600px;
-}
-
-.contable{
-	margin: 0 auto;
-	margin-top: 60px;
+	height: 800px;
+	text-align: center;
 }
 
 .noti{
@@ -19,29 +15,17 @@
 	border : solid 1px #ECE4D3;
 }
 
+.notilist{
+	margin-top: 80px;
+}
+
 .detaillist .exp, .detaillist .expdetail{
 	padding: 0 0 20px 20px;
 }
 
-.expdate{
-	font-size: 16px;
-	font-weight: bold;
-}
-
 .exp{
 	font-size: 18px;
-	text-align: right;
 }
-
-.caution th{
-	padding-top: 50px;
-	color: red;
-}
-
-.pronoti{
-	padding: 0 0 25px 30px;
-}
-
 
 
 
