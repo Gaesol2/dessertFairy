@@ -8,9 +8,10 @@ import com.shop.dessertFairy.member.dto.MemberDTO;
 @Mapper
 public interface MemberDAO {
 
-	int memberJoin(MemberDTO mdto);
+	int memberJoin(MemberDTO mdto);		//회원가입
 
-//	MemberDTO getMember();
+	int idCheck(String m_id);			// 회원가입시 아이디 중복
 
+	MemberDTO getMember(MemberDTO mdto);	// 로그인
 
 }
