@@ -1,6 +1,8 @@
 /**
  * 
  */
-$(".WriteSubmit").on("click",function(){
-	$("input[name=WriteForm]").submit();
+$().ready(function(){
+   $(".writeSubmit").on("click",function(){
+      $("form[name=writeForm]").submit();
+   })
 })
