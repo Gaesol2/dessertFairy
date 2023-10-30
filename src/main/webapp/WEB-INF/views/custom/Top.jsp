@@ -5,8 +5,10 @@
 <link rel="stylesheet" type="text/css" href="/css/top.css">
 <link rel="stylesheet" type="text/css" href="/css/common.css">
 <link rel="stylesheet" type="text/css" href="/css/bottom.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@200&display=swap">
 <script src="/jquery/jquery-3.7.0.min.js"></script>
-<script src="/script/commonScript.js"></script>
 <script src="/script/zipCheck.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
