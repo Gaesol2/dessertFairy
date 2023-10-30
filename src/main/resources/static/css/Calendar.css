@@ -1,60 +1,11 @@
 @charset "UTF-8";
 
-#cake{
-	margin: 0 auto;
-	width: 1024px;
-	height: 800px;
-	
-}
-
-
-#cakedetail{
-	float: right;
-	width: 390px;
-	margin-right : 50px;
-	border-bottom: solid 1px black;
-}
-
-#pickdate{
-	float: right;
-	width: 390px;
-	margin-right : 50px;
-}
-
-#cakedetail .cakename{
-	font-size: 32px;
-	color: #80471C;
-}
-
-#cakedetail .namedetail{
-	font-size : 13px;
-	font-weight : bold;
-	width : 390px;
-	padding-bottom : 15px;
-	border-bottom: solid 1px black;
-	color: #a2a2a2;
-}
-
-#cakedetail .detaillist{
-	padding: 7px 7px 7px 0;
-}
-
-.exp{
-	font-size: 15px;
-	font-weight: bold;
-	padding-bottom: 3px;
-}
-
-.detaillist .expdetail{
-	font-size: 14px;
-}
-
- 
-
+/*캘린더 시작*/
 #cal {
     background-color : white;
     height: auto;
     width: 380px;
+    margin-top : 35px;
     margin-left : 80px;
     float : left;
     padding: 25px;
@@ -122,17 +73,3 @@
     cursor: pointer;
 }
 
-
-.orderBtn{
-	margin-top : 15px;
-	width: 390px;
-	height: 60px;
-	float: left;
-	border : solid 1px #ECE4D3;
-	background-color: #F5ECDC;
-}
-
-.month, .day{
-	width: 30px;
-	text-align: center;
-}
