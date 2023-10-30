@@ -5,10 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>포토리뷰</title>
-<script src="/script/commonScript.js"></script>
+<script src="/script/Review.js"></script>
 </head>
 <body>
-<form action="reviewWriteProc" name="WriteForm" method="post" enctype="multipart/form-data">
+<form action="reviewWriteProc" name="writeForm" method="post" enctype="multipart/form-data">
 	<table>
 		<tr>
 			<td>제목</td>
@@ -16,11 +16,11 @@
 		</tr>
 		<tr>
 			<td>작성자</td>
-			<td><input type="text" name="m_id" disabled="disabled"></td>
+			<td><input type="text" name="m_id" value="id" readonly="readonly"></td>
 		</tr>
 		<tr>
 			<td>이미지</td>
-			<td><input type="file" name="m_id"></td>
+			<td><input type="file" name="image2"></td>
 		</tr>
 		<tr>
 			<td>내용</td>
@@ -28,14 +28,14 @@
 		</tr>
 		<tr>
 			<td>별점</td>
-			<td><input type="text" name="r_subject"></td>
+			<td><input type="text" name="r_star"></td>
 		</tr>
 		<tr>
 			<td>비밀번호</td>
 			<td><input type="password" name="r_passwd"></td>
 		</tr>
 		<tr>
-			<td><input type="button" class="WriteSubmit" value="등록"></td>
+			<td><input type="button" class="writeSubmit" value="등록"></td>
 		</tr>
 	</table>
 </form>
