@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="/css/common.css">
-
+<script src="/script/login.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,16 +10,13 @@
 </head>
 <body>
 <H1 style="text-align:center;"><a href="/">DessertFairy</a></H1>
-<div id="login_box">
+<div class="login_box">
 	<form action="loginProc" method="post" name="loginForm">
 		<ul>
-			<li>아이디 : <input type="text" title="아이디"></li>
-			<li>비밀번호 : <input type="password" title="비밀번호"></li>
+			<li>아이디 : <input type="text" title="아이디" name="m_id"></li>
+			<li>비밀번호 : <input type="password" title="비밀번호" name="m_passwd"></li>
 		</ul>
-		<div id="submitTop">
-		<button type="submit">로그인</button>
-		</div>
-		<button type="reset">다시쓰기</button>
+        <button type= "submit" class="loginBtn">로그인</button>
 	</form>
 </div>
 </body>

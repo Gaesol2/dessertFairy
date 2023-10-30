@@ -6,6 +6,10 @@ public interface MemberService {
 
 	int memberJoin(MemberDTO mdto);
 
+	int idCheck(String m_id);
+
+	MemberDTO getMember(MemberDTO mdto);
+
 	/* MemberDTO getMember(); */
 
 

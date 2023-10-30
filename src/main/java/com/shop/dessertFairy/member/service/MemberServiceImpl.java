@@ -12,15 +12,20 @@ public class MemberServiceImpl implements MemberService {
 
 	@Autowired
 	MemberDAO memberDao;
+	
 	@Override
 	public int memberJoin(MemberDTO mdto) {
 		return memberDao.memberJoin(mdto);
 	}
-	/*
-	 * @Autowired MemberDAO memberDao;
-	 * 
-	 * @Override public MemberDTO getMember() { // TODO Auto-generated method stub
-	 * return memberDao.getMember(); }
-	 */
+	
+	@Override
+	public int idCheck(String m_id) {
+		return memberDao.idCheck(m_id);
+	}
+	
+	@Override
+	public MemberDTO getMember(MemberDTO mdto) {
+		return memberDao.getMember(mdto);
+	}
 
 }

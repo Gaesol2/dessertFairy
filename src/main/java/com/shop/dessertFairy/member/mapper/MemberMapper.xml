@@ -30,4 +30,12 @@
 				 			#{m_address2},
 				 			'mem')
 	 </insert>
+	 
+	 <select id="getMember" parameterType="mdto" resultType="mdto">
+	     SELECT M_ID, M_NAME, M_ROLE, M_PASSWD
+				, M_EMAIL, M_PHONE, M_ZIPCODE, M_ADDRESS
+				, M_ADDRESS2, M_ROLE
+	     FROM MEMBER
+	     WHERE M_ID = #{m_id} and M_PASSWD = #{m_passwd}
+  </select>
  </mapper>

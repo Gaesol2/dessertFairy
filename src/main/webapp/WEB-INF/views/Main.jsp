@@ -7,26 +7,25 @@
 <head>
 <meta charset="UTF-8">
 <title>dessertFairy</title>
-<link rel="stylesheet" type="text/css" href="/css/main.css">
 </head>
 <body>
 <div id="wrap">
 
-	<div id="top">
-		<c:import url="./custom/Top.jsp" />
-	</div>
-	
-	<div class="clear"></div>
-	
-	<div id="contents">
-		<c:import url="./${contentsJsp}.jsp"></c:import>
-	</div>
-	
-	<div class="clear"></div>
-	
-	<div id="bottom">
-		<c:import url="./custom/Bottom.jsp" />
-	</div>
+   <div id="top">
+      <c:import url="./custom/Top.jsp" />
+   </div>
+   
+   <div class="clear"></div>
+   
+   <div id="contents">
+      <c:import url="./${contentsJsp}.jsp"></c:import>
+   </div>
+   
+   <div class="clear"></div>
+   
+   <div id="bottom">
+      <c:import url="./custom/Bottom.jsp" />
+   </div>
 
 </div>
 </body>
