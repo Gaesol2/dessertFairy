@@ -94,9 +94,23 @@
 	</div>
 </div>
 <div id="cakecontent">
+	<div class="noti">안내사항</div>
 	<table class="contable">
-	  	<tr>
-	  	  <td class="noti">안내사항</td>
+	  	<tr class="detaillist">
+	  		<th class="exp">유통(소비)기한</th>
+	  	  		<td class="expdetail">냉장 3일/냉동 받으신 날부터 1주일</td>
+	  	</tr>
+	  	<tr class="detaillist">
+	  		<th class="exp">보관방법</th>
+	  	  		<td class="expdetail">영상 3~4℃ 에서 냉장보관</td>
+	  	</tr>
+	  	<tr class="detaillist">
+	  		<th class="exp">조리방법</th>
+	  	  		<td class="expdetail">냉장에 1~2시간 넣어둔 뒤 차갑게 먹으면 맛있습니다.</td>
+	  	</tr>
+	  	<tr class="detaillist">
+	  		<th class="exp">알레르기 정보</th>
+	  	  		<td class="expdetail">이 제품은 우유, 밀, 달걀을 함유하고 있습니다.</td>
 	  	</tr>
 	</table>
 </div>

@@ -12,6 +12,13 @@
 }
 
 .noti{
-	font-size: 32px;
+	font-size: 38px;
 	font-weight: bold;
+	text-align: center;
+	background-color: #fef5d4;
+	border : solid 1px #ECE4D3;
+}
+
+.exp{
+	font-size: 18px;
 }
