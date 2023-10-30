@@ -8,7 +8,7 @@
 
 .contable{
 	margin: 0 auto;
-	margin-top: 20px;
+	margin-top: 60px;
 }
 
 .noti{
@@ -23,13 +23,24 @@
 	padding: 0 0 20px 20px;
 }
 
-.exp{
-	font-size: 18px;
+.expdate{
+	font-size: 16px;
+	font-weight: bold;
 }
 
+.exp{
+	font-size: 18px;
+	text-align: right;
+}
 
+.caution th{
+	padding-top: 50px;
+	color: red;
+}
 
-
+.pronoti{
+	padding: 0 0 25px 30px;
+}
 
 
 

@@ -6,8 +6,8 @@
 <link rel="stylesheet" type="text/css" href="/css/Cakedetail.css">
 <link rel="stylesheet" type="text/css" href="/css/Calendar.css">
 <script src="/script/calendar.js"></script>
-<div id="cake">
-	<div id="cal">
+<div id="cake"><!-- 케이크 예약 시작 -->
+	<div id="cal"><!-- 캘린더 시작 -->
  		<table class="Calendar">
             <thead>
                 <tr class="day">
@@ -32,8 +32,8 @@
             <tbody>
             </tbody>
         </table>
-	</div>
-	<div id="cakedetail">
+	</div><!-- 캘린더 끝 -->
+	<div id="cakedetail"><!-- 옵션 시작 -->
 		<dl>
 			<dt class="cakename">주문 제작 케이크</dt>
 			<dd class="namedetail">고객이 직접 맛과 디자인을 정할 수 있어 <br> 더욱 특별한 수제 케이크</dd>
@@ -83,19 +83,22 @@
 			<label for="file" class="fileBtn">파일업로드</label>
 			<input id="file" type="file">
 		</p>
-	</div>
-	<div id="pickdate">
+	</div><!-- 옵션 끝 -->
+	<div id="pickdate"><!-- 날짜 시작 -->
 		<form action="" method="post">
-		<p class="exp">픽업 날짜</p>
+		<p class="expdate">픽업 날짜</p>
 		월 : <input type="text" name="month" class="month"><br>
 		일 : <input type="text" name="day" class="day">
 		</form>
     	<a href=""><input class="orderBtn" type="button" value="주문하기"></a>
-	</div>
-</div>
-<div id="cakecontent">
+	</div><!-- 날짜 끝 -->
+</div><!-- 케이크 예약 끝 -->
+<div id="cakecontent"><!-- 안내사항 시작 -->
 	<div class="noti">안내사항</div>
 	<table class="contable">
+		<tr>
+			<th class="pronoti">&lt;제품에 대한 안내사항&gt;</th>
+		</tr>
 	  	<tr class="detaillist">
 	  		<th class="exp">유통(소비)기한 </th>
 	  	  		<td class="expdetail"> 냉장 3일/냉동 받으신 날부터 1주일</td>
@@ -112,10 +115,12 @@
 	  		<th class="exp">알레르기 정보 </th>
 	  	  		<td class="expdetail"> 이 제품은 우유, 밀, 달걀을 함유하고 있습니다.</td>
 	  	</tr>
+	  	<tr>
+			<th class="pronoti">&lt;제품에 대한 안내사항&gt;</th>
+	  	</tr>
+	  	<tr class="caution">
+	  	  <th>*주의사항*</th>
+	  	  <td></td>
+	  	</tr>
 	</table>
-</div>
-
-
-
-
-
+</div><!-- 안내사항 끝 -->
