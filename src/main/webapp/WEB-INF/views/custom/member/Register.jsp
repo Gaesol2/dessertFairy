@@ -6,7 +6,7 @@
 <script src="/script/MemberJoin.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
-<form action="register" name="joinForm" method="post">
+<form action="registerProc" name="joinForm" method="post">
 	<table>
 		<thead>
 			<tr>
@@ -18,21 +18,21 @@
 			<tr>
 				<td>아이디</td>
 				<td>
-					<input type="text" id="idchk" class="chk" name="m_id" title="아이디" 
+					<input type="text" class="chk idchk" name="m_id" title="아이디" 
 					placeholder="아이디를 입력하시오.">
 				</td>
 			</tr>
 			<tr>
 				<td>비밀번호</td>
 				<td>
-					<input type="password" id="check1" class="chk" name="m_passwd" title="비밀번호" 
+					<input type="password" class="chk check1" name="m_passwd" title="비밀번호" 
 					placeholder="비밀번호를 입력하시오.">
 				</td>
 			</tr>
 			<tr>
 				<td>비밀번호 확인</td>
 				<td>
-					<input type="password" id="check2" class="chk" name="m_rePasswd" title="비밀번호 확인" 
+					<input type="password" class="chk check2" name="m_rePasswd" title="비밀번호 확인" 
 					placeholder="비밀번호를 확인하시오.">
 				</td>
 			</tr>
@@ -68,15 +68,12 @@
 			<tr>
 				<td>주소</td>
 				<td>
-					<input type="text" class="chk" name="m_address" title="주소" 
-					placeholder="주소">
-				</td>
-			</tr>
-			<tr>
-				<td>상세주소</td>
-				<td>
+					<input type="text" class="chk" name="m_address" title="주소" readonly="readonly"
+					placeholder="주소" id="sample6_address">
+					<br>
 					<input type="text" class="chk" name="m_address2" title="상세주소" 
-					placeholder="상세주소를 입력하시오.">
+					placeholder="상세주소를 입력하시오." id="sample6_detailAddress">
+					<input type="hidden" id="sample6_extraAddress" placeholder="참고항목">
 				</td>
 			</tr>
 		</tbody>
