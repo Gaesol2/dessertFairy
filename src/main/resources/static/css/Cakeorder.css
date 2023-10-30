@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+#cake{
+	margin: 0 auto;
+	width: 1024px;
+	height: 600px;
+	border-bottom: solid 1px #042958;
+	
+}
+
+#cakedetail{
+	float: right;
+	width: 390px;
+	margin-right : 50px;
+	border-bottom: solid 1px black;
+}
+
+#pickdate{
+	float: right;
+	width: 390px;
+	margin-right : 50px;
+}
+
+#cakedetail .cakename{
+	font-size: 32px;
+	font-weight : bold;
+	color: #80471C;
+}
+
+#cakedetail .namedetail{
+	font-size : 13px;
+	font-weight : bold;
+	width : 390px;
+	padding-bottom : 15px;
+	border-bottom: solid 1px black;
+	color: #a2a2a2;
+}
+
+#cakedetail .detaillist{
+	padding: 7px 7px 7px 0;
+}
+
+.exp{
+	font-size: 15px;
+	font-weight: bold;
+	padding-bottom: 3px;
+}
+
+.detaillist .expdetail{
+	font-size: 14px;
+}
+
+.orderBtn{
+	margin-top : 15px;
+	width: 390px;
+	height: 60px;
+	float: left;
+	border : solid 1px #ECE4D3;
+	background-color: #F5ECDC;
+}
+
+.month, .day{
+	width: 30px;
+	text-align: center;
+}
+
+.option{
+	display: block;
+	padding: 10px 10px 10px 0;
+}
+
+.letter{
+	padding: 10px 10px 10px 0;
+}
+
+.lettering{
+	width: 210px;
+}
+
+.fileBtn{
+	display : inline-block;
+	text-align : center;
+	width : 70px;
+	height : 20px;
+	padding : 5px;
+	font-size : 13px;
+	background-color: #F5D042;
+	border-radius: 4px;
+}
+
+#file{
+	display:none;
+}
+
+ 
+
+

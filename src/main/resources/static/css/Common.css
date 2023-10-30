@@ -3,7 +3,10 @@
 *{
 	margin: 0;
 	padding: 0;
-	font-family: Consolas;
+}
+
+#contents{
+	font-family: 'Noto Sans KR', sans-serif;
 }
 
 ul{
@@ -24,6 +27,7 @@ ul{
 	float: left; 
 	width: 100%;
 	marign: 0 auto;
+	font-family: Consolas;
 }
  
 #bottom{
@@ -31,5 +35,6 @@ ul{
 	width: 100%;
 	margin: 0 auto;
 	background-color: #042958;
+	font-family: Consolas;
 }
 
