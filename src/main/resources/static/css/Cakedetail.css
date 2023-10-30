@@ -19,6 +19,18 @@
 	border : solid 1px #ECE4D3;
 }
 
+.detaillist .exp, .detaillist .expdetail{
+	padding: 0 0 20px 20px;
+}
+
 .exp{
 	font-size: 18px;
 }
+
+
+
+
+
+
+
+
