@@ -18,19 +18,24 @@
 
 .reviewtable tr{
        border : solid 1px black;
-      }
+}
+
 .reviewtable th{
        width: 200px;
        height: 45px;
-      }
+}
+
 .reviewtable td{
       width: 400px;
       text-align: center;
       border: solid 1px black;
-      
-      }
+}
 
-   
-   
-   
+textarea {
+	width : 380px;
+    height: 310px;
+    resize: none;
+}
+ 
+  
       

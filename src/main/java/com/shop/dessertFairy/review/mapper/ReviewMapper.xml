@@ -2,22 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace = "com.shop.dessertFairy.review.dao.ReviewDAO">
-
+	<select id="getReviewCnt" resultType="int">
+		SELECT COUNT(R_NO) FROM REVIEW
+	</select>
    <insert id="reviewWrite" parameterType="rdto">
    <selectKey keyProperty="r_no" order="BEFORE" resultType="int">
-		SELECT NVL(MAX(r_no),0)+1 FROM review
+		SELECT NVL(MAX(R_NO),0)+1 FROM REVIEW
 	</selectKey>
-      INSERT INTO review(
-         r_no
-         ,r_subject
-         ,r_content
-         ,r_regdate
-         ,r_readcount
-         ,r_passwd
-         ,r_star
-         ,r_image
-         ,r_path
-         ,m_id)
+      INSERT INTO REVIEW(
+         R_NO
+         ,R_SUBJECT
+         ,R_CONTENT
+         ,R_REGDATE
+         ,R_READCOUNT
+         ,R_PASSWD
+         ,R_STAR
+         ,R_IMAGE
+         ,R_PATH
+         ,M_ID)
       VALUES(
           #{r_no       }
          ,#{r_subject  }
@@ -31,5 +33,27 @@
          ,#{m_id       }
       )
    </insert>
-
+   <select id="getReviewList" resultType="rdto">
+		SELECT * FROM 
+       (SELECT ROWNUM AS RR, A.* 
+        FROM 
+		(SELECT R_NO
+			   ,R_SUBJECT
+			   ,R_CONTENT
+			   ,TO_CHAR(R_REGDATE,'YYYY-MM-DD') AS R_REGDATE
+			   ,R_READCOUNT
+			   ,R_PASSWD
+			   ,R_STAR
+			   ,R_IMAGE
+			   ,M_ID
+			   ,R_PATH
+		FROM REVIEW
+	  ORDER BY R_NO DESC) A)
+     WHERE RR BETWEEN #{start,jdbcType=NUMERIC} and #{end,jdbcType=NUMERIC}
+	</select>
+	<update id="updateReadCnt" parameterType="rdto">
+   UPDATE REVIEW SET R_READCOUNT = R_READCOUNT+1
+   WHERE R_NO = #{r_no}
+   </update>
+	
 </mapper>

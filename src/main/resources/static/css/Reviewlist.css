@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+#review{
+	margin : 0 auto;
+	width : 1024px;
+	height: 800px;
+}
+
+
+.toplist{
+	float: right;
+	text-align: right;
+}
+
+.reviewname{
+	font-size: 32px;
+	text-align: left;
+}
+
+.list li{
+	display: inline-block;
+	font-size: 15px;
+	margin-left: 35px;
+}
+
+.reviewlist{
+	padding-top: 150px;
+}
+
+.reviewtable{
+	width: 600px
+}
+
+.col1{
+	width: 100px;
+	text-align: center;
+}
+
+.col2{
+	width: 100px;
+	text-align: center;
+}
+
+.col3{
+	width: 150px;
+	text-align: center;
+}
+
+.col4{
+	width: 100px;
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+

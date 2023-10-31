@@ -1,5 +1,7 @@
 package com.shop.dessertFairy.review.web;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -8,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.shop.dessertFairy.common.RowInterPage;
+import com.shop.dessertFairy.common.dto.PageDTO;
 import com.shop.dessertFairy.member.dto.MemberDTO;
 import com.shop.dessertFairy.review.dto.ReviewDTO;
 import com.shop.dessertFairy.review.service.ReviewService;
@@ -27,15 +31,34 @@ public class ReviewController {
    String resourcesLocation;
 
    @RequestMapping("/reviewList")
-   public String PhotoList (HttpServletRequest request, HttpServletResponse response,
-         Model model, ReviewDTO rdto) {
+   public String reviewList(HttpServletRequest request, HttpServletResponse response,
+         Model model, ReviewDTO rdto,
+         PageDTO pageDto) {
       
-      String contentsJsp = "/custom/review/ReviewList";
+	    String page = null;
+	    MemberDTO ssKey = null;
+	    String contentsJsp = "/custom/review/ReviewList";
+		HttpSession session = request.getSession();
+		if(session.getAttribute("ssKey")!=null) {
+			ssKey = (MemberDTO) session.getAttribute("ssKey");
+			page = "custom/review/ReviewList";
+		}
+		else {
+			page = "redirect:/login";
+		}
+		Map<String, Object> reSet = reviewService.getReviewList(rdto, pageDto);
+		session.setAttribute("ssKey", ssKey);
+		model.addAttribute("cnt", reSet.get("cnt"));
+		model.addAttribute("reviewList", reSet.get("reviewList"));
+		model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
+		model.addAttribute("contentsJsp",contentsJsp);
+		model.addAttribute("page",page);
+		return "Main";
+	}
+	   
+	   
       
-      model.addAttribute("contentsJsp",contentsJsp);
       
-      return "Main";
-   }
 
    @RequestMapping("/reviewWrite")
    public String ReviewWrite (HttpServletRequest request, HttpServletResponse response,

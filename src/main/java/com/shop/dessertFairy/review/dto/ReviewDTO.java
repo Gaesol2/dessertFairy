@@ -6,6 +6,10 @@ import lombok.ToString;
 @Data
 @ToString
 public class ReviewDTO {
+	private int start;
+	private int end;
+	
+   private int r_rr;
    private int r_no;
    private String r_subject;
    private String r_content;

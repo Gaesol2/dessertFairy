@@ -12,41 +12,43 @@
 <body>
 <div id="review">
 <form action="reviewWriteProc" name="writeForm" id="myform" method="post" enctype="multipart/form-data">
-   <fieldset class="mb-3" >
-		<span class="text-bold">별점을 선택해주세요</span>
-		<input type="radio" name="reviewStar" value="5" id="rate1">
-			<label for="rate1">★</label>
-		<input type="radio" name="reviewStar" value="4" id="rate2">
-			<label for="rate2">★</label>
-		<input type="radio" name="reviewStar" value="3" id="rate3">
-			<label for="rate3">★</label>
-		<input type="radio" name="reviewStar" value="2" id="rate4">
-			<label for="rate4">★</label>
-		<input type="radio" name="reviewStar" value="1" id="rate5">
-			<label for="rate5">★</label>
-	</fieldset>
    <table class="reviewtable">
       <tr>
          <th>제목</th>
-         <td><input type="text" name="r_subject" size="51"></td>
+         <td><input type="text" name="r_subject" title="제목" class="chkb" size="51"></td>
       </tr>
       <tr>
          <th>작성자</th>
-         <td><input type="text" name="m_id" size="51" value="${m_id}" disabled="disabled"></td>
+         <td><input type="text" name="m_id" class="chkb" title="작성자" size="51" value="${m_id}" disabled="disabled"></td>
       </tr>
       <tr>
          <th>이미지</th>
-         <td><input type="file" name="image2"></td>
+         <td><input type="file" name="image2" title="이미지" class="chkb"></td>
       </tr>
       <tr>
          <th>내용</th>
-         <td><textarea name="r_content" rows="20" cols="50"></textarea></td>
+         <td><textarea name="r_content" class="chkb" title="내용" rows="20" cols="50"></textarea></td>
       </tr>
       <tr>
          <th>비밀번호</th>
-         <td><input type="password" name="r_passwd" size="51"></td>
+         <td><input type="password" name="r_passwd" title="비밀번호" class="chkb" size="51"></td>
       </tr>
       <tr>
+         <th>별점</th>
+         <td class="mb-3" title="별점" class="chkb" >
+				<input type="radio" name="r_star" value="5" id="rate1">
+					<label for="rate1">★</label>
+				<input type="radio" name="r_star" value="4" id="rate2">
+					<label for="rate2">★</label>
+				<input type="radio" name="r_star" value="3" id="rate3">
+					<label for="rate3">★</label>
+				<input type="radio" name="r_star" value="2" id="rate4">
+					<label for="rate4">★</label>
+				<input type="radio" name="r_star" value="1" id="rate5">
+					<label for="rate5">★</label>
+         </td>
+      </tr>
+      <tr class="reviewBtn">
          <td colspan="2"><input type="button" class="writeSubmit" value="등록"></td>
       </tr>
    </table>
