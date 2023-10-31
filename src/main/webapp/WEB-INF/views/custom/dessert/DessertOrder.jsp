@@ -24,6 +24,17 @@
     </div>
   </div>
   <div class="productlist">
-   전체에용
+	<table>
+		<tr>
+			<c:forEach var="dessert" items="${dessert}">
+				<a class="abox" href="">
+					<div class="box">
+						<c:out value="${dessert.d_no}"/>
+						<img src="/upload/${dessert.d_image}" height="250px" width="250px">
+					</div>
+				</a>
+			</c:forEach>
+		</tr>
+	</table>
   </div>
 </div>
