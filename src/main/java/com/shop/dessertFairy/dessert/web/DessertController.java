@@ -9,8 +9,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
 public class DessertController {
-		@RequestMapping("/dessertOrder")
-		public String dessertOrder(HttpServletRequest request,
+		@RequestMapping("/dessert")
+		public String dessert(HttpServletRequest request,
 				                HttpServletResponse response,
 				                Model model) {
 			

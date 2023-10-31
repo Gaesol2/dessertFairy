@@ -18,8 +18,8 @@
    </div>   <!-- top logo -->
    <div id="mainmenu">
       <ul>
-         <li><a href="/cakeOrder">주문제작 케이크</a></li>
-         <li><a href="/dessertOrder">디저트</a></li>
+         <li><a href="/cake">주문제작 케이크</a></li>
+         <li><a href="/dessert">디저트</a></li>
          <li><a href="/reviewList">포토후기</a></li>
          <li><a href="/myPage">마이페이지</a></li>
       </ul>
