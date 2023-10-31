@@ -20,10 +20,10 @@
 	   <c:choose>
 		   <c:when test="${ssKey!=null and ssKey.m_role=='admin'}">
 		 	  <ul>
-		   		<li><a href="/cake">상점 관리</a></li>
-		         <li><a href="/dessert">상품 관리</a></li>
-		         <li><a href="/reviewList">주문 관리</a></li>
-		         <li><a href="/myPage">고객 관리</a></li>
+		   		<li><a href="/shopMgt">상점 관리</a></li>
+		        <li><a href="/productMgt">상품 관리</a></li>
+		        <li><a href="/orderMgt">주문 관리</a></li>
+		        <li><a href="/memberMgt">고객 관리</a></li>
 	         </ul>
 		   </c:when>
 		   
