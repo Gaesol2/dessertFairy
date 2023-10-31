@@ -13,4 +13,6 @@ public interface ReviewService {
 
    Map<String, Object> getReviewList(ReviewDTO rdto, PageDTO pageDto);
 
+   ReviewDTO getReviewcontent(ReviewDTO rdto);
+
 }	

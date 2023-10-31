@@ -82,6 +82,12 @@ public class ReviewServiceImpl implements ReviewService {
 		reSet.put("reviewList", reviewList);
 		return reSet;
 	}
+
+	@Override
+	public ReviewDTO getReviewcontent(ReviewDTO rdto) {
+		List<ReviewDTO> reviewList = reviewDao.getReviewList(rdto);
+		return reviewList.get(0);
+	}
 	
 }
    

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "com.shop.dessertFairy.dessert.dao.DessertDAO">
+
+<select id="getDessertList" parameterType="map" resultType="ddto">
+	SELECT 
+		d_no
+		,d_category
+		,d_name
+		,d_detail
+		,d_price
+		,d_stock
+		,d_image
+		,d_path
+		,d_life
+		,d_storage
+		,d_allergy
+	FROM dessert
+	<if test='flag != null and !flag.equals("all")'>
+		WHERE d_category = #{flag}
+	</if>
+</select>
+
+<select id="getDessertCnt" resultType="int">
+	SELECT COUNT(d_no)
+	FROM dessert
+</select>
+
+<select id="getDessert" parameterType="ddto" resultType="ddto">
+	SELECT 
+		d_no
+		,d_category
+		,d_name
+		,d_detail
+		,d_price
+		,d_stock
+		,d_image
+		,d_path
+		,d_life
+		,d_storage
+		,d_allergy
+	FROM dessert
+	WHERE d_no = #{d_no}
+</select>
+
+</mapper>

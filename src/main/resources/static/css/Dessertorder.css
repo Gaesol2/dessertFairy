@@ -31,7 +31,24 @@
 	padding-top: 150px;
 }
 
+.abox {
+	display: inline-block;
+	width: 256px;
+	height: 300px;
+}
 
+.abox:hover {
+	background-color: #fef5d4;
+}
 
+#acategory, #ccategory, #bcategory, #pcategory {
+	display: none;
+}
+
+.acategory, .ccategory, .bcategory, .pcategory {
+	background-color: #fef5d4;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 20px;
+}
 
 

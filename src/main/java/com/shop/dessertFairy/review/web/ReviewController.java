@@ -1,5 +1,6 @@
 package com.shop.dessertFairy.review.web;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -138,14 +139,36 @@ public class ReviewController {
 
    @RequestMapping("/reviewContent")
    public String ReviewContent (HttpServletRequest request, HttpServletResponse response,
-         Model model, ReviewDTO rdto) {
-      
-      String contentsJsp = "/custom/review/ReviewContent";
-      
-      model.addAttribute("contentsJsp",contentsJsp);
-      
-      return "Main";
-   }
+         Model model, ReviewDTO rdto, PageDTO pageDto) {
+	   
+	   HttpSession session = request.getSession();
+	   String contentsJsp = "/custom/review/ReviewContent";
+		String page = null;
+		MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
+		if(mdto!=null && mdto.getM_role().equals("admin")) {
+			ReviewDTO review = reviewService.getReviewcontent(rdto);
+				model.addAttribute("review", review);
+				page = "admin/Main";
+				contentsJsp = "./Notice";
+			}else {
+				//고객용에서도 조회가 되어야 할 듯(조회수 증가)
+				Map<String, Object> reSet
+		            = reviewService.getReviewList(rdto, pageDto);
+				@SuppressWarnings("unchecked")
+				List<ReviewDTO> reviewList 
+				    = (List<ReviewDTO>) reSet.get("reviewList");
+				model.addAttribute("review", reviewList.get(0));
+				
+				page = "Main";
+				contentsJsp = "/custom/review/ReviewContent";
+			}
+		
+		session.setAttribute("ssKey", mdto);
+		model.addAttribute("contentsJsp", contentsJsp);
+		
+		
+		return "Main";
+	}
    
    
    public String myArticle(HttpServletRequest request, HttpServletResponse response,
