@@ -10,9 +10,9 @@
 <script src="/script/Review.js"></script>
 </head>
 <body>
-<div>
-<form action="reviewWriteProc" name="writeForm" class="mb-3" id="myform" method="post" enctype="multipart/form-data">
-   <fieldset>
+<div id="review">
+<form action="reviewWriteProc" name="writeForm" id="myform" method="post" enctype="multipart/form-data">
+   <fieldset class="mb-3" >
 		<span class="text-bold">별점을 선택해주세요</span>
 		<input type="radio" name="reviewStar" value="5" id="rate1">
 			<label for="rate1">★</label>
@@ -25,33 +25,29 @@
 		<input type="radio" name="reviewStar" value="1" id="rate5">
 			<label for="rate5">★</label>
 	</fieldset>
-   <table>
+   <table class="reviewtable">
       <tr>
-         <td>제목</td>
-         <td><input type="text" name="r_subject"></td>
+         <th>제목</th>
+         <td><input type="text" name="r_subject" size="51"></td>
       </tr>
       <tr>
-         <td>작성자</td>
-         <td><input type="text" name="m_id" value="${m_id}" disabled="disabled"></td>
+         <th>작성자</th>
+         <td><input type="text" name="m_id" size="51" value="${m_id}" disabled="disabled"></td>
       </tr>
       <tr>
-         <td>이미지</td>
+         <th>이미지</th>
          <td><input type="file" name="image2"></td>
       </tr>
       <tr>
-         <td>내용</td>
-         <td><textarea name="r_content"></textarea></td>
+         <th>내용</th>
+         <td><textarea name="r_content" rows="20" cols="50"></textarea></td>
       </tr>
       <tr>
-         <td>별점</td>
-         <td><input type="text" name="r_star"></td>
+         <th>비밀번호</th>
+         <td><input type="password" name="r_passwd" size="51"></td>
       </tr>
       <tr>
-         <td>비밀번호</td>
-         <td><input type="password" name="r_passwd"></td>
-      </tr>
-      <tr>
-         <td><input type="button" class="writeSubmit" value="등록"></td>
+         <td colspan="2"><input type="button" class="writeSubmit" value="등록"></td>
       </tr>
    </table>
 </form>

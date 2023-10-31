@@ -5,15 +5,19 @@
 <head>
 <meta charset="UTF-8">
 <title>포토리뷰</title>
+<link rel="stylesheet" type="text/css" href="/css/reviewlist.css">
 </head>
 <body>
-여기는 포토리뷰 리스트
-<a href="/reviewWrite">포토 글쓰기</a>
-<a href="/reviewContent">포토 콘텐츠</a>
+<div id="reviewlist">
+	<div >
+	<a href="/reviewWrite">포토 글쓰기</a>
+	<a href="/reviewContent">포토 콘텐츠</a>
+	</div>
+	
+	<table>
+	
+	</table>
 
-<table>
-
-</table>
-
+</div>
 </body>
 </html>
