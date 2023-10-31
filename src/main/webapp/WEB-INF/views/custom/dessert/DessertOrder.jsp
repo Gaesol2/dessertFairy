@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="/css/DessertOrder.css">
+<script src="/script/Dessert.js"></script>
 </head>
 <div id="dessert">
   <div id="top">
@@ -16,10 +17,10 @@
     </div>
     <div class="toplist">
       <ul class="list">
-        <li><a href="/dessertOrder">전체보기</a></li>
-        <li><a href="/cookieOrder">쿠키</a></li>
-        <li><a href="/breadOrder">브레드</a></li>
-        <li><a href="/puddingOrder">푸딩</a></li>
+        <li><input type="button" onclick="javascript:category('a')" value="전체보기"></li>
+        <li><input type="button" onclick="javascript:category('c')" value="쿠키"></li>
+        <li><input type="button" onclick="javascript:category('b')" value="브레드"></li>
+        <li><input type="button" onclick="javascript:category('p')" value="푸딩"></li>
       </ul>
     </div>
   </div>

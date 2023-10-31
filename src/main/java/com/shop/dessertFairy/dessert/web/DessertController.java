@@ -20,16 +20,6 @@ public class DessertController {
 	DessertService dessertService;
 	
 	@RequestMapping("/dessert")
-	public String dessert(HttpServletRequest request,
-			                HttpServletResponse response,
-			                Model model) {
-		
-		model.addAttribute("contentsJsp", "custom/dessert/DessertOrder");
-		
-		return "Main";
-	}
-	
-	@RequestMapping("/dessertOrder")
 	public String dessertOrder(HttpServletRequest request,
 			HttpServletResponse response,
 			Model model) {			
@@ -37,10 +27,13 @@ public class DessertController {
 		
 		//데이터베이스 가서 전체 디저트 개수 받아오기
 		//데이터베이스에서 ddto로 받아와서 이미지 정보도 주어야 한다
+
+		String flag = request.getParameter("flag");
 		
 		Map<String, Object> resultSet = new HashMap<>();
 		
-		resultSet = dessertService.getDessertList();
+		resultSet = dessertService.getDessertList(flag);
+		
 		
 		//받아온 정보 jsp로 보내서
 		

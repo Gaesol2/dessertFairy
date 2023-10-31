@@ -17,10 +17,12 @@ public class DessertServiceImpl implements DessertService {
 	DessertDAO dessertDao;
 	
 	@Override
-	public Map<String, Object> getDessertList() {
+	public Map<String, Object> getDessertList(String flag) {
 		Map<String, Object> resultSet = new HashMap<>();
+		Map<String, String> f = new HashMap<>();
+		f.put("flag", flag);
 		
-		List<DessertDTO> dessert = dessertDao.getDessertList();
+		List<DessertDTO> dessert = dessertDao.getDessertList(f);
 		int dessertCnt = dessertDao.getDessertCnt();
 		int endBox = dessertCnt;
 		

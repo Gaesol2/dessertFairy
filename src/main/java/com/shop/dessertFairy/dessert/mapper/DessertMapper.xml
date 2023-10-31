@@ -3,7 +3,7 @@
 
 <mapper namespace = "com.shop.dessertFairy.dessert.dao.DessertDAO">
 
-<select id="getDessertList" resultType="ddto">
+<select id="getDessertList" parameterType="map" resultType="ddto">
 	SELECT 
 		d_no
 		,d_category
@@ -17,6 +17,9 @@
 		,d_storage
 		,d_allergy
 	FROM dessert
+	<if test='!flag.equals("all")'>
+		WHERE d_category = #{flag}
+	</if>
 </select>
 
 <select id="getDessertCnt" resultType="int">

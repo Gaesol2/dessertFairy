@@ -4,6 +4,6 @@ import java.util.Map;
 
 public interface DessertService {
 
-	Map<String, Object> getDessertList();
+	Map<String, Object> getDessertList(String flag);
 
 }
