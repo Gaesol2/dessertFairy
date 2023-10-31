@@ -1,0 +1,82 @@
+@charset "UTF-8";
+/* 회원가입, 로그인 CSS*/
+
+/*회원 가입 START*/
+#joinBox{
+	margin: 0 auto;
+	width:1024px;
+	height: 400px;
+}
+
+#joinBox .joinTable{
+	margin:  0 auto;
+	border : 1px solid #cccccc;
+	border-collapse: collapse;
+}
+
+#joinBox .joinTable tr, th, td {
+	margin:  0 auto;
+	border : 1px solid #cccccc;
+	border-collapse: collapse;
+	height: 50px;
+	width: 200px;
+}
+
+#joinBox .joinTable .joinBtn {
+	border: 1px solid #cccccc;
+	text-align: center;
+	border-collapse: collapse;
+}
+/*회원 가입 END*/
+
+
+/*로그인 STATR*/
+#login_box h1{
+	text-align: center;
+	padding-top: 50px;
+}
+
+#login_box{
+	text-align : center;
+	margin : 0 auto;
+	padding : 20px;
+	width : 1024px;
+	height : 500px;
+	border : solid 1px #dddddd;
+	background-color: #f3f3f3;
+}
+
+
+.login{
+/*width : 615px;*/
+	margin:0 auto;
+	margin-top : 50px;
+	text-align: center;
+}
+
+#login_box #login_input{
+	margin : 0 auto;
+	width : 280px;
+}
+
+#login_box #login_input li{
+	margin : 0 auto;
+	width : 280px;
+	background-image: url('/image/login_input.jpg');
+	background-size: 20%;
+	background-repeat : norepeat;
+	text-align: center;
+}
+
+#login_box #login_input Input{
+	width : 200px;
+	text-align : left;
+	border : solid 1px pink;
+}
+/*로그인 END*/
+
+
+
+
+
+
