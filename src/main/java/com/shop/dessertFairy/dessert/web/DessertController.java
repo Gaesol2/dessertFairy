@@ -19,6 +19,16 @@ public class DessertController {
 			return "Main";
 		}
 		
+		@RequestMapping("/dessertOrder")
+		public String dessertOrder(HttpServletRequest request,
+				HttpServletResponse response,
+				Model model) {
+			
+			model.addAttribute("contentsJsp", "custom/dessert/DessertOrder");
+			
+			return "Main";
+		}
+
 		@RequestMapping("/cookieOrder")
 		public String cookieOrder(HttpServletRequest request,
 				HttpServletResponse response,
