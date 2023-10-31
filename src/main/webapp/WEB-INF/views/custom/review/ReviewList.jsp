@@ -12,7 +12,7 @@
 <a href="/reviewContent">포토 콘텐츠</a>
 
 <table>
-	
+
 </table>
 
 </body>
