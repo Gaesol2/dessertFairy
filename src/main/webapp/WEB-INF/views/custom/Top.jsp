@@ -43,6 +43,7 @@
 			   	<c:when test="${ssKey!=null}">
 			      <ul>
 			         <li>${ssKey.m_name}님</li>
+			         <li><a href="/logoutProc">로그아웃</a></li>
 			         <li class="search"><a href="/"><img src="../image/search.png"></a></li>
 			      </ul>
 			   	</c:when>

@@ -92,5 +92,16 @@ public class MemberController {
 		
 		return "MsgPage";
 	}
+	
+	@RequestMapping("/logoutProc")
+	public String logoutProc(HttpServletRequest request,
+			HttpServletResponse response,
+			MemberDTO mdto,
+			Model model) {
+		//세션 정보 (ssKey) - 회원정보
+		HttpSession session = request.getSession();
+         session.invalidate();								// 세션 삭제
+        return "redirect:/";
+	}
 	 
 }
