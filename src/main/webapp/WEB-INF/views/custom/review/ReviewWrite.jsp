@@ -16,7 +16,7 @@
       </tr>
       <tr>
          <td>작성자</td>
-         <td><input type="text" name="m_id" value="id" readonly="readonly"></td>
+         <td><input type="text" name="m_id" value="${m_id}" disabled="disabled"></td>
       </tr>
       <tr>
          <td>이미지</td>
