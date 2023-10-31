@@ -17,20 +17,46 @@
       <a href="/">dessertFairy</a>
    </div>   <!-- top logo -->
    <div id="mainmenu">
-      <ul>
-         <li><a href="/cake">주문제작 케이크</a></li>
-         <li><a href="/dessert">디저트</a></li>
-         <li><a href="/reviewList">포토후기</a></li>
-         <li><a href="/myPage">마이페이지</a></li>
-      </ul>
+	   <c:choose>
+		   <c:when test="${ssKey!=null and ssKey.m_role=='admin'}">
+		 	  <ul>
+		   		<li><a href="/cake">상점 관리</a></li>
+		         <li><a href="/dessert">상품 관리</a></li>
+		         <li><a href="/reviewList">주문 관리</a></li>
+		         <li><a href="/myPage">고객 관리</a></li>
+	         </ul>
+		   </c:when>
+		   
+		   <c:when test="${ssKey==null or ssKey.m_role=='mem'}">
+		      <ul>
+		         <li><a href="/cake">주문제작 케이크</a></li>
+		         <li><a href="/dessert">디저트</a></li>
+		         <li><a href="/reviewList">포토후기</a></li>
+		         <li><a href="/myPage">마이페이지</a></li>
+		      </ul>
+		   </c:when>
+	   </c:choose>
+	   
    </div>   <!-- mainmenu end -->
-   <div id="topmenu">
-      <ul>
-         <li><a href="/login">로그인</a></li>
-         <li><a href="/register">회원가입</a></li>
-         <li class="search"><a href="/"><img src="../image/search.png"></a></li>
-      </ul>
-   </div>   <!-- topmenu end -->
+	   <div id="topmenu">
+		   <c:choose>
+			   	<c:when test="${ssKey!=null}">
+			      <ul>
+			         <li>${ssKey.m_name}님</li>
+			         <li class="search"><a href="/"><img src="../image/search.png"></a></li>
+			      </ul>
+			   	</c:when>
+			   	
+			   	<c:when test="${ssKey==null}">
+			      <ul>
+			         <li><a href="/login">로그인</a></li>
+			         <li><a href="/register">회원가입</a></li>
+			         <li class="search"><a href="/"><img src="../image/search.png"></a></li>
+			      </ul>
+			   	</c:when>
+		   </c:choose>
+	   </div>   <!-- topmenu end -->
+
    <div id="blank">
         
    </div>   <!-- blank end -->

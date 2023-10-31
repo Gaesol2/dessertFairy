@@ -1,21 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="/css/common.css">
-<script src="/script/login.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>로그인 페이지</title>
+<link rel="stylesheet" href="/css/Common.css">
+<link rel="stylesheet" href="/css/Member.css">
+<script src="/script/login.js"></script>
 </head>
 <body>
-<H1 style="text-align:center;"><a href="/">DessertFairy</a></H1>
-<div class="login_box">
-	<form action="loginProc" method="post" name="loginForm">
+<h1><a href="/">DessertFairy</a></h1>
+<div id="login_box">
+	<form action="loginProc" method="post" name="loginForm" class="login">
+		<div id="login_input">
 		<ul>
-			<li>아이디 : <input type="text" title="아이디" name="m_id"></li>
-			<li>비밀번호 : <input type="password" title="비밀번호" name="m_passwd"></li>
+			<li>아이디 : <input type="text" title="아이디" name="m_id" class="lInput"></li>
+			<li>비밀번호 : <input type="password" title="비밀번호" name="m_passwd" class="lInput"></li>
 		</ul>
+		</div>
         <button type= "submit" class="loginBtn">로그인</button>
 	</form>
 </div>

@@ -77,11 +77,7 @@ public class MemberController {
 	    String msg;
 		if(sdto!=null) {								
 		//회원 맞음
-			if(sdto.getM_role().equals("admin")) {			// 로그인 sdto값이 admin일 시
-				url="/admin/";								//관리자용 페이지로
-			}else {											//admin이 아닐 시 홈으로
-				url="/";
-			}
+			url="/";
 			MemberDTO ssKey = new MemberDTO();				
 			ssKey.setM_id(sdto.getM_id());					// 로그인 한 유저의 정보를 불러옴
 			ssKey.setM_passwd(sdto.getM_passwd());
