@@ -24,8 +24,6 @@
     </div>
   </div>
   <div class="productlist">
-  	<div>
-  		상품
-  	</div>
+   쿠키쿠키쿠키
   </div>
 </div>

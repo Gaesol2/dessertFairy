@@ -24,8 +24,6 @@
     </div>
   </div>
   <div class="productlist">
-  	<div>
-  		상품
-  	</div>
+   푸딩푸딩푸딩
   </div>
 </div>

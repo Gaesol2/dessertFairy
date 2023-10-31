@@ -90,7 +90,7 @@
 		월 : <input type="text" name="month" class="month"><br>
 		일 : <input type="text" name="day" class="day">
 		</form>
-    	<a href="/cakeOrder"><input class="orderBtn" type="button" value="주문하기"></a>
+    	<a href="/productOrder"><input class="orderBtn" type="button" value="주문하기"></a>
 	</div><!-- 날짜 끝 -->
 </div><!-- 케이크 예약 끝 -->
 <div id="cakecontent"><!-- 안내사항 시작 -->
