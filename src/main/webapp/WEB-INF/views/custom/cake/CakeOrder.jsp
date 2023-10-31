@@ -39,14 +39,6 @@
 			<dd class="namedetail">고객이 직접 맛과 디자인을 정할 수 있어 <br> 더욱 특별한 수제 케이크</dd>
 		</dl>
 		<span class="option">
-		 수령 방법 :
-		<select class="optionlist"> 
-		  <option>선택</option>
-		  <option>픽업</option>
-		  <option>배송</option>
-		</select>
-		</span>
-		<span class="option">
 		 케이크 크기 :
 		<select class="optionlist"> 
 		  <option>선택</option>
@@ -98,7 +90,7 @@
 		월 : <input type="text" name="month" class="month"><br>
 		일 : <input type="text" name="day" class="day">
 		</form>
-    	<a href=""><input class="orderBtn" type="button" value="주문하기"></a>
+    	<a href="/cakeOrder"><input class="orderBtn" type="button" value="주문하기"></a>
 	</div><!-- 날짜 끝 -->
 </div><!-- 케이크 예약 끝 -->
 <div id="cakecontent"><!-- 안내사항 시작 -->
@@ -122,7 +114,7 @@
 	    </dl>
 	    <dl class="detaillist">
 	         <dt class="exp">배송 안내</dt>
-	         <dd class="expdetail">제품 특성상 배송 시 흔들림에 의해 망가질 수 있습니다.</dd>
+	         <dd class="expdetail">제품 특성상 흔들림에 의해 망가질 수 있어 배송을 하지 않고 있습니다.</dd>
 	    </dl>
 	    <dl class="detaillist">
 	         <dt class="exp">픽업 안내</dt>

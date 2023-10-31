@@ -11,11 +11,22 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
 public class CakeController {
-	@RequestMapping("/cakeOrder")
-	public String cakeOrder(HttpServletRequest request,
+	@RequestMapping("/cake")
+	public String cake(HttpServletRequest request,
 			                HttpServletResponse response,
 			                Model model,
 			                CakeDTO cdto) {
+		
+		model.addAttribute("contentsJsp", "custom/cake/CakeOrder");
+		
+		return "Main";
+	}
+	
+	@RequestMapping("/cakeOrder")
+	public String cakeOrder(HttpServletRequest request,
+			HttpServletResponse response,
+			Model model,
+			CakeDTO cdto) {
 		
 		model.addAttribute("contentsJsp", "custom/cake/CakeOrder");
 		
