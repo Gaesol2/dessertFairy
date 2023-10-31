@@ -17,21 +17,33 @@
     </div>
     <div class="toplist">
       <ul class="list">
-        <li><input type="button" onclick="javascript:category('a')" value="전체보기"></li>
-        <li><input type="button" onclick="javascript:category('c')" value="쿠키"></li>
-        <li><input type="button" onclick="javascript:category('b')" value="브레드"></li>
-        <li><input type="button" onclick="javascript:category('p')" value="푸딩"></li>
+        <li>
+        	<input type="button" id="acategory" onclick="javascript:category('a')" value="전체보기">
+        	<label for="acategory" class="acategory"><a>전체보기</a></label>
+        </li>
+        <li>
+        	<input type="button" id="ccategory" onclick="javascript:category('c')" value="쿠키">
+        	<label for="ccategory" class="ccategory"><a>쿠키</a></label>
+        </li>
+        <li>
+        	<input type="button" id="bcategory" onclick="javascript:category('b')" value="브레드">
+        	<label for="bcategory" class="bcategory"><a>브레드</a></label>
+        </li>
+        <li>
+        	<input type="button" id="pcategory" onclick="javascript:category('p')" value="푸딩">
+        	<label for="pcategory" class="pcategory"><a>푸딩</a></label>
+        </li>
       </ul>
     </div>
   </div>
   <div class="productlist">
 	<table>
 		<tr>
-			<c:forEach var="dessert" items="${dessert}">
-				<a class="abox" href="">
+			<c:forEach var="d" items="${dessert}">
+				<a class="abox" href="/dessertContent?d_no=${d.d_no}">
 					<div class="box">
-						<c:out value="${dessert.d_no}"/>
-						<img src="/upload/${dessert.d_image}" height="250px" width="250px">
+						<c:out value="${d.d_no}"/>
+						<img src="/upload/${d.d_image}" height="250px" width="250px">
 					</div>
 				</a>
 			</c:forEach>

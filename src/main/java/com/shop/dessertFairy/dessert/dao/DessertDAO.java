@@ -14,4 +14,6 @@ public interface DessertDAO {
 
 	int getDessertCnt();
 
+	DessertDTO getDessert(DessertDTO ddto);
+
 }

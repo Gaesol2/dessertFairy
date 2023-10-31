@@ -17,7 +17,7 @@
 		,d_storage
 		,d_allergy
 	FROM dessert
-	<if test='!flag.equals("all")'>
+	<if test='flag != null and !flag.equals("all")'>
 		WHERE d_category = #{flag}
 	</if>
 </select>
@@ -27,6 +27,21 @@
 	FROM dessert
 </select>
 
-
+<select id="getDessert" parameterType="ddto" resultType="ddto">
+	SELECT 
+		d_no
+		,d_category
+		,d_name
+		,d_detail
+		,d_price
+		,d_stock
+		,d_image
+		,d_path
+		,d_life
+		,d_storage
+		,d_allergy
+	FROM dessert
+	WHERE d_no = #{d_no}
+</select>
 
 </mapper>
