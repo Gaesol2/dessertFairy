@@ -21,16 +21,5 @@ public class CakeController {
 		
 		return "Main";
 	}
-	
-	@RequestMapping("/cakeOrder")
-	public String cakeOrder(HttpServletRequest request,
-			HttpServletResponse response,
-			Model model,
-			CakeDTO cdto) {
-		
-		model.addAttribute("contentsJsp", "custom/cake/CakeOrder");
-		
-		return "Main";
-	}
 
 }
