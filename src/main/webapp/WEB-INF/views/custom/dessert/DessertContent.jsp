@@ -10,6 +10,8 @@
 <script src="/script/Dessert.js"></script>
 </head>
 <body>
-${dessert.d_no }
+<div id="dessertContent">
+	
+</div> <!-- dessertContent end -->
 </body>
 </html>
