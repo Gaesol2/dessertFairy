@@ -17,7 +17,13 @@ $().ready(function(){
 		   $("form[name=topForm1]").attr('action', "/noticeProc?flag=delete")
 		   $("form[name=topForm1]").submit();
 	 });
-   });
+	 
+	 
+	 
+	 
+	 
+	 
+   });//ready 끝
 
 //chk에 대해서 점검
 function validate(){
@@ -34,3 +40,19 @@ function validate(){
 	  return true;
 }
 
+//카테고리
+function category(){
+	let category = $(".category").val();
+	if(category=="최신순"){
+		location.href="/reviewList?orderby=new";
+	}else if(category=="오래된 순"){
+		location.href="/reviewList?orderby=old";
+	}else if(category=="별점 높은순"){
+		location.href="/reviewList?orderby=star";
+	}else if(category=="조회수 순"){
+		location.href="/reviewList?orderby=read";
+	}
+	
+	
+	
+}

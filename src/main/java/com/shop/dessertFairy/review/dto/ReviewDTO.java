@@ -16,7 +16,7 @@ public class ReviewDTO {
    private String r_regdate;
    private int r_readcount;
    private String r_passwd;
-   private String r_star;
+   private int r_star;
    private String r_image;
    private String m_id;
    private String r_path;

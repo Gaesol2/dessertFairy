@@ -1,6 +1,7 @@
 package com.shop.dessertFairy.review.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -16,6 +17,8 @@ public interface ReviewDAO {
     List<ReviewDTO> getReviewList(ReviewDTO rdto);
 
 	int updateReadCnt(ReviewDTO rdto);
+
+	List<ReviewDTO> getReviewListOrderby(Map<String, Object> map);
 
 
 }

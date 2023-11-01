@@ -11,7 +11,7 @@ public interface ReviewService {
 
    int reviewWrite(ReviewDTO rdto, MultipartFile file);
 
-   Map<String, Object> getReviewList(ReviewDTO rdto, PageDTO pageDto);
+   Map<String, Object> getReviewList(ReviewDTO rdto, PageDTO pageDto, String orderby);
 
    ReviewDTO getReviewcontent(ReviewDTO rdto);
 

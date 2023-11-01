@@ -35,7 +35,7 @@
    </insert>
    <select id="getReviewList" resultType="rdto">
 		SELECT * FROM 
-       (SELECT ROWNUM AS RR, A.* 
+       (SELECT ROWNUM AS R_RR, A.* 
         FROM 
 		(SELECT R_NO
 			   ,R_SUBJECT
@@ -48,9 +48,33 @@
 			   ,M_ID
 			   ,R_PATH
 		FROM REVIEW
-	  ORDER BY R_NO DESC) A)
-     WHERE RR BETWEEN #{start,jdbcType=NUMERIC} and #{end,jdbcType=NUMERIC}
+	  ORDER BY R_NO ASC) A)
+     WHERE R_RR BETWEEN #{start,jdbcType=NUMERIC} and #{end,jdbcType=NUMERIC}
 	</select>
+
+   <select id="getReviewListOrderby" parameterType="map" resultType="rdto">
+		SELECT R_NO
+			   ,R_SUBJECT
+			   ,R_CONTENT
+			   ,TO_CHAR(R_REGDATE,'YYYY-MM-DD') AS R_REGDATE
+			   ,R_READCOUNT
+			   ,R_PASSWD
+			   ,R_STAR
+			   ,R_IMAGE
+			   ,M_ID
+			   ,R_PATH
+		FROM REVIEW
+		<if test='orderby.equals("old")'>
+		  ORDER BY R_NO DESC
+		</if>
+		<if test='orderby.equals("star")'>
+		  ORDER BY R_STAR DESC
+		</if>
+		<if test='orderby.equals("read")'>
+		  ORDER BY R_READCOUNT DESC
+		</if>
+	</select>
+	
 	<update id="updateReadCnt" parameterType="rdto">
    UPDATE REVIEW SET R_READCOUNT = R_READCOUNT+1
    WHERE R_NO = #{r_no}

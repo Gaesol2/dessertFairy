@@ -31,15 +31,13 @@
 	font-weight: bold;
 }
 
-#myform{
-	margin-left: 270px;
-	margin-top: 50px;
-	float : left;
-}
 
 .reviewtable{
+	float : left;
 	width: 500px;
 	height: 400px;
+	margin-left : 270px;
+	margin-top : 50px;
 	border-collapse: collapse;
 }
 
@@ -64,4 +62,15 @@ textarea {
     resize: none;
 }
   
-      
+.mb-3 input{
+	text-align : center;
+	border: none;
+	background-color: #fefae9;
+	font-size : 24px;
+	color: rgba(250, 208, 0, 0.99);
+}   
+
+
+.reviewBtn input{ 
+	margin-left: 400px;
+}   

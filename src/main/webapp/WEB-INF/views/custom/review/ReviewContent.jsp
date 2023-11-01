@@ -6,12 +6,23 @@
 <meta charset="UTF-8">
 <title>포토리뷰</title>
 <link rel="stylesheet" type="text/css" href="/css/star.css">
-<link rel="stylesheet" type="text/css" href="/css/reviewwrite.css">
+<link rel="stylesheet" type="text/css" href="/css/Reviewcontent.css">
 <script src="/script/Review.js"></script>
 </head>
 <body>
 <div id="review">
-<form action="reviewContent" name="writeForm" id="myform" method="post" enctype="multipart/form-data">
+   <div id="top">
+    <div class="Mainlist">
+		<p class="reviewname">포토후기</p>
+    </div>
+    <div class="toplist">
+      <ul class="list">
+        <li><a href="/reviewList">후기 목록</a></li>
+        <li><a href="/reviewWrite">후기 글쓰기</a></li>
+        <li><a href="">내 글보기</a></li>
+      </ul>
+    </div>
+  </div>
    <table class="reviewtable">
       <tr>
          <th>제목</th>
@@ -37,14 +48,13 @@
          <th>별점</th>
          <td class="mb-3" title="별점" class="chkb">
 				<input type="text" name="r_star" readonly="readonly"
-				    value="${review.r_star}" class="chkb">
+				    value="${ratings}" class="chkb">
          </td>
       </tr>
       <tr class="reviewBtn">
          <td colspan="2"><input type="button" class="writeSubmit" value="등록"></td>
       </tr>
    </table>
-</form>
 </div>
 </body>
 </html>

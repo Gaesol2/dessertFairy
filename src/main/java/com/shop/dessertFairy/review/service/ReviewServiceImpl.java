@@ -41,11 +41,17 @@ public class ReviewServiceImpl implements ReviewService {
    }
 
 	@Override
-	public Map<String, Object> getReviewList(ReviewDTO rdto, PageDTO pageDto) {
+	public Map<String, Object> getReviewList(ReviewDTO rdto, PageDTO pageDto, String orderby) {
+		
+		//결과를 반환할 HashMap 선언
 		Map<String, Object> reSet = new HashMap<String, Object>();
 		
+		
+		//페이지 계산
 		if(pageDto.getCurBlock()<=0) pageDto.setCurBlock(1);
 		if(pageDto.getCurPage()<=0) pageDto.setCurPage(1);
+		
+		
 		
 		List<ReviewDTO> reviewList = null;
 		int cnt = 0;
@@ -76,7 +82,16 @@ public class ReviewServiceImpl implements ReviewService {
 		pageDto.setStartPg(startPg);
 		pageDto.setEndPg(endPg);
 		
-		reviewList = reviewDao.getReviewList(rdto);
+		if(orderby.equals("new")) {
+			reviewList = reviewDao.getReviewList(rdto);		
+		} else {
+			Map<String, Object> map = new HashMap<>();
+			map.put("orderby", orderby);
+			reviewList = reviewDao.getReviewListOrderby(map);
+		}
+		
+		
+		
 		reSet.put("pageDto", pageDto);
 		reSet.put("cnt", cnt);
 		reSet.put("reviewList", reviewList);

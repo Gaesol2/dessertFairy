@@ -1,5 +1,6 @@
 package com.shop.dessertFairy.review.web;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -34,12 +35,17 @@ public class ReviewController {
    @RequestMapping("/reviewList")
    public String reviewList(HttpServletRequest request, HttpServletResponse response,
          Model model, ReviewDTO rdto,
-         PageDTO pageDto) {
-      
+         PageDTO pageDto) { 
+	   
+        //변수 선언
 	    String page = null;
 	    MemberDTO ssKey = null;
 	    String contentsJsp = "/custom/review/ReviewList";
+	    
+	    //HttpSession 세션 객체 생성 및 세션 정보 받아오기
 		HttpSession session = request.getSession();
+		
+		//세션이 있으면 ReviewList 페이지로 보내고 없으면 로그인 창으로 보내기
 		if(session.getAttribute("ssKey")!=null) {
 			ssKey = (MemberDTO) session.getAttribute("ssKey");
 			page = "custom/review/ReviewList";
@@ -47,13 +53,25 @@ public class ReviewController {
 		else {
 			page = "redirect:/login";
 		}
-		Map<String, Object> reSet = reviewService.getReviewList(rdto, pageDto);
+		
+		//jsp로부터 orderby 파라미터를 받고, null이 들어오면 최신순으로 설정
+		String orderby = request.getParameter("orderby");
+		if(orderby==null) orderby = "new";
+		
+		//리스트 목록과 페이지 수 계산한것을 불러온 것
+		Map<String, Object> reSet = reviewService.getReviewList(rdto, pageDto, orderby);
+		
+		//세션 저장
 		session.setAttribute("ssKey", ssKey);
+		
+		//데이터 저장
 		model.addAttribute("cnt", reSet.get("cnt"));
 		model.addAttribute("reviewList", reSet.get("reviewList"));
 		model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
 		model.addAttribute("contentsJsp",contentsJsp);
 		model.addAttribute("page",page);
+		
+		
 		return "Main";
 	}
 	   
@@ -141,30 +159,44 @@ public class ReviewController {
    public String ReviewContent (HttpServletRequest request, HttpServletResponse response,
          Model model, ReviewDTO rdto, PageDTO pageDto) {
 	   
+	   //세션 받아오기
 	   HttpSession session = request.getSession();
+	   
+	   //변수 선언해주기
 	   String contentsJsp = "/custom/review/ReviewContent";
 		String page = null;
-		MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
-		if(mdto!=null && mdto.getM_role().equals("admin")) {
-			ReviewDTO review = reviewService.getReviewcontent(rdto);
-				model.addAttribute("review", review);
-				page = "admin/Main";
-				contentsJsp = "./Notice";
-			}else {
-				//고객용에서도 조회가 되어야 할 듯(조회수 증가)
-				Map<String, Object> reSet
-		            = reviewService.getReviewList(rdto, pageDto);
-				@SuppressWarnings("unchecked")
-				List<ReviewDTO> reviewList 
-				    = (List<ReviewDTO>) reSet.get("reviewList");
-				model.addAttribute("review", reviewList.get(0));
-				
-				page = "Main";
-				contentsJsp = "/custom/review/ReviewContent";
-			}
 		
+		//ssKey 세션에 있는 정보를 MemberDTO 타입의 mdto에 저장
+		MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
+		
+		//파라메터에서 r_no를 가져온것
+		int postNo = Integer.parseInt(request.getParameter("r_no"));
+		
+		//content 내용 가져오기
+		rdto.setStart(postNo);
+		rdto.setEnd(postNo+1);
+		ReviewDTO review = reviewService.getReviewcontent(rdto);
+		model.addAttribute("review", review);
+		
+		
+		//점수를 별로 바꾸는 것(jsp에 value값)
+		String ratings = "";
+		for(int i=0; i <5-review.getR_star(); i++) {
+			ratings += "☆";
+		}
+		for(int i=0; i <review.getR_star(); i++) {
+			ratings += "★";
+		}
+		
+		//모델에 저장
+		model.addAttribute("ratings", ratings);
+		
+		//페이지 불러오기
+		page = "custom/review/ReviewContent";
+		
+		//세션에 저장
 		session.setAttribute("ssKey", mdto);
-		model.addAttribute("contentsJsp", contentsJsp);
+		model.addAttribute("contentsJsp", page);
 		
 		
 		return "Main";
@@ -174,8 +206,10 @@ public class ReviewController {
    public String myArticle(HttpServletRequest request, HttpServletResponse response,
          Model model, ReviewDTO rdto) {
       
+	   //변수 선언해서 MyArticle 불러오기
       String contentsJsp = "/custom/review/MyArticle";
       
+      //위에꺼 받아오기
       model.addAttribute("contentsJsp",contentsJsp);
       
       return "Main";

@@ -1,17 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
+
 <meta charset="UTF-8">
 <title>포토리뷰</title>
 <link rel="stylesheet" type="text/css" href="/css/star.css">
-<link rel="stylesheet" type="text/css" href="/css/reviewwrite.css">
+<link rel="stylesheet" type="text/css" href="/css/Reviewwrite.css">
 <script src="/script/Review.js"></script>
-</head>
-<body>
 <div id="review">
-<form action="reviewWriteProc" name="writeForm" id="myform" method="post" enctype="multipart/form-data">
+   <div id="top">
+    <div class="Mainlist">
+		<p class="reviewname">포토후기</p>
+    </div>
+    <div class="toplist">
+      <ul class="list">
+        <li><a href="/reviewList">후기 목록</a></li>
+        <li class="rewrite"><a href="/reviewWrite">후기 글쓰기</a></li>
+        <li><a href="">내 글보기</a></li>
+      </ul>
+    </div>
+  </div>
+  <form action="reviewWriteProc" name="writeForm" id="myform" method="post" enctype="multipart/form-data">
    <table class="reviewtable">
       <tr>
          <th>제목</th>
@@ -54,5 +62,3 @@
    </table>
 </form>
 </div>
-</body>
-</html>
