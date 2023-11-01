@@ -2,8 +2,9 @@
  * 
  */
  		// 웹 페이지가 로드되면 buildCalendar 실행
- 		window.onload = function () { buildCalendar();
- 		$("input[name=month]").val(nowMonth.getMonth()+1);
+ 		window.onload = function () {
+			buildCalendar();
+ 			$("input[name=month]").val(nowMonth.getMonth()+1);
  		 }    
 
         let nowMonth = new Date();  // 현재 달을 페이지를 로드한 날의 달로 초기화

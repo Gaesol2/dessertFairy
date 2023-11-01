@@ -3,20 +3,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <title>예약을 원하시는 날짜를 선택해 주세요</title>
 <link rel="stylesheet" type="text/css" href="/css/Cakeorder.css">
-<link rel="stylesheet" type="text/css" href="/css/Cakedetail.css">
-<link rel="stylesheet" type="text/css" href="/css/Calendar.css">
 <script src="/script/calendar.js"></script>
 <div id="cake"><!-- 케이크 예약 시작 -->
 	<div id="cal"><!-- 캘린더 시작 -->
  		<table class="Calendar">
             <thead>
                 <tr class="day">
-                    <td onClick="prevCalendar(), inputMonth();" style="cursor:pointer;">&#60;</td>
+                    <td class="pointer" onClick="prevCalendar(), inputMonth();">&#60;</td>
                     <td colspan="5">
                         <span id="calYear"></span>년
                         <span id="calMonth"></span>월
                     </td>
-                    <td onClick="nextCalendar(), inputMonth();" style="cursor:pointer;">&#62;</td>
+                    <td class="pointer" onClick="nextCalendar(), inputMonth();">&#62;</td>
                 </tr>
                 <tr class="day">
                     <td>일</td>
@@ -90,7 +88,7 @@
 		월 : <input type="text" name="month" class="month"><br>
 		일 : <input type="text" name="day" class="day">
 		</form>
-    	<a href="/cakeOrder"><input class="orderBtn" type="button" value="주문하기"></a>
+    	<a href="/productOrder"><input class="orderBtn" type="button" value="주문하기"></a>
 	</div><!-- 날짜 끝 -->
 </div><!-- 케이크 예약 끝 -->
 <div id="cakecontent"><!-- 안내사항 시작 -->

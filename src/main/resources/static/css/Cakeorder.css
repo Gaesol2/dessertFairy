@@ -4,35 +4,109 @@
 	margin: 0 auto;
 	width: 1024px;
 	height: 600px;
-	
 }
 
-#cakedetail{
+/* calendar */
+#cake #cal {
+    background-color : white;
+    height: auto;
+    width: 380px;
+    margin-top : 35px;
+    margin-left : 80px;
+    float : left;
+    padding: 25px;
+    padding-left: 35px;
+    border-radius:5px;
+    box-shadow:0px 40px 30px -20px rgba(0,0,0,0.3);
+}
+
+#cake #cal .day td {
+    width: 50px;
+    height: 50px;
+}
+
+#cake #cal .Calendar {
+    text-align: center;
+}
+
+#cake #cal .Calendar>thead>tr:first-child>td {
+    font-family: 'Questrial', sans-serif;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+#cake #cal .Calendar>thead>tr:last-child>td {
+    font-family: 'Questrial', sans-serif;
+    font-weight: 600;     
+}
+
+#cake #cal .Calendar>tbody>tr>td>p {
+    font-family: 'Montserrat', sans-serif;
+    height: 45px;
+    width: 45px;
+    border-radius: 45px;
+    transition-duration: .2s;
+    line-height: 45px;
+    margin: 2.5px;
+    display: block;
+    text-align: center;
+}        
+
+#cake #cal .pastDay {
+    color: lightgray;
+}
+
+#cake #cal .today {
+    background-color: #F5D042;            
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#cake #cal .futureDay {
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+#cake #cal .futureDay:hover{
+    background:#eee;
+}
+
+#cake #cal .futureDay.choiceDay,.today.choiceDay {
+    background: #0A174E;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+/* calendar end */
+
+/* cakedetail */
+#cake #cakedetail{
 	float: right;
 	width: 390px;
 	margin-right : 50px;
 	border-bottom: solid 1px black;
 }
 
-#pickdate{
+#cake #pickdate{
 	float: right;
 	width: 390px;
 	margin-right : 50px;
 }
 
-.expdate{
+#cake .expdate{
 	font-size: 16px;
 	font-weight: bold;
 }
 
 
-#cakedetail .cakename{
+#cake #cakedetail .cakename{
 	font-size: 32px;
 	font-weight : bold;
 	color: #80471C;
 }
 
-#cakedetail .namedetail{
+#cake #cakedetail .namedetail{
 	font-size : 13px;
 	font-weight : bold;
 	width : 390px;
@@ -41,21 +115,21 @@
 	color: #a2a2a2;
 }
 
-#cakedetail .detaillist{
+#cake #cakedetail .detaillist{
 	padding: 7px 7px 7px 0;
 }
 
-.exp{
+#cake .exp{
 	font-size: 15px;
 	font-weight: bold;
 	padding-bottom: 3px;
 }
 
-.detaillist .expdetail{
+#cake .detaillist .expdetail{
 	font-size: 14px;
 }
 
-.orderBtn{
+#cake .orderBtn{
 	margin-top : 15px;
 	width: 390px;
 	height: 60px;
@@ -64,25 +138,25 @@
 	background-color: #F5ECDC;
 }
 
-.month, .day{
+#cake .month, .day{
 	width: 30px;
 	text-align: center;
 }
 
-.option{
+#cake .option{
 	display: block;
 	padding: 10px 10px 10px 0;
 }
 
-.letter{
+#cake .letter{
 	padding: 10px 10px 10px 0;
 }
 
-.lettering{
+#cake .lettering{
 	width: 210px;
 }
 
-.fileBtn{
+#cake .fileBtn{
 	display : inline-block;
 	text-align : center;
 	width : 70px;
@@ -93,10 +167,41 @@
 	border-radius: 4px;
 }
 
-#file{
+#cake #file{
 	display:none;
 }
 
+#cake .pointer {
+	cursor:pointer;
+ }
+/* cakedetail end*/
  
+/* cakecontent */
+#cakecontent{
+	margin: 0 auto;
+	width: 1024px;
+	height: 800px;
+	text-align: center;
+}
 
+#cakecontent .noti{
+	font-size: 38px;
+	font-weight: bold;
+	text-align: center;
+	background-color: #fef5d4;
+	border : solid 1px #ECE4D3;
+}
 
+#cakecontent .notilist{
+	margin-top: 80px;
+}
+
+#cakecontent .detaillist .exp, .detaillist .expdetail{
+	padding: 0 0 20px 20px;
+}
+
+#cakecontent .exp{
+	font-size: 18px;
+	font-weight: bold;
+}
+/* cakecontent end*/
