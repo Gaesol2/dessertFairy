@@ -3,20 +3,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <title>예약을 원하시는 날짜를 선택해 주세요</title>
 <link rel="stylesheet" type="text/css" href="/css/Cakeorder.css">
-<link rel="stylesheet" type="text/css" href="/css/Cakedetail.css">
-<link rel="stylesheet" type="text/css" href="/css/Calendar.css">
 <script src="/script/calendar.js"></script>
 <div id="cake"><!-- 케이크 예약 시작 -->
 	<div id="cal"><!-- 캘린더 시작 -->
  		<table class="Calendar">
             <thead>
                 <tr class="day">
-                    <td onClick="prevCalendar(), inputMonth();" style="cursor:pointer;">&#60;</td>
+                    <td class="pointer" onClick="prevCalendar(), inputMonth();">&#60;</td>
                     <td colspan="5">
                         <span id="calYear"></span>년
                         <span id="calMonth"></span>월
                     </td>
-                    <td onClick="nextCalendar(), inputMonth();" style="cursor:pointer;">&#62;</td>
+                    <td class="pointer" onClick="nextCalendar(), inputMonth();">&#62;</td>
                 </tr>
                 <tr class="day">
                     <td>일</td>

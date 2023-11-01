@@ -25,7 +25,7 @@
 <table>
 	<thead>
 		<tr>
-			<th>회원정보</th>
+			<th id="info">회원정보</th>
 		</tr>
 	</thead>
 	<tbody>

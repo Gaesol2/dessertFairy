@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="/css/DessertOrder.css">
+<link rel="stylesheet" type="text/css" href="/css/Cart.css">
 </head>
 <div id="mypage">
   <div id="top">
@@ -21,15 +21,15 @@
         <li><a href="/orderList">주문목록</a></li>
         <li><a href="/contactList">문의하기</a></li>
       </ul>
-      <table>
- 
-  <th>상품명</th>
-  <th>상품가격</th>
-  <th>수량</th>
-  <th>결제금액</th>
-  <th>수정/삭제</th>
-  <th>조회</th>
- 
+      <table class="cartlist">
+      <tr>    
+		  <th>상품명</th>
+		  <th>상품가격</th>
+		  <th>수량</th>
+		  <th>결제금액</th>
+		  <th>수정/삭제</th>
+		  <th>조회</th>
+     </tr> 
   <c:choose>
   <c:when test="${fn:length(hCartList)>0}">
    <tbody>
@@ -44,7 +44,7 @@
        <input type="hidden" name="price" value="${cvo.value.price}">
       </td>
       <td class="co4 price border">
-      ${cvo.value.price*cvo.value.quantity}
+      ${cvo.value.price*cvo.value.p_name}
       </td>
       <td class="co4 border"><input type="button" value="수정" 
             onclick="javascript:cartUpdate('U', this)">&nbsp;/&nbsp;
@@ -52,7 +52,7 @@
             onclick="javascript:cartUpdate('D', this)">
       </td>
       <td class="border"><!-- 상품 상세 조회 -->
-      <a href="productDetail?p_no=${cvo.value.p_no}">상세보기</a>    
+      <a href="productDetail?p_no=${cvo.value.d_no}">상세보기</a>    
       </td>
      </tr>
     </c:forEach>
