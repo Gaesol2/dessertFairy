@@ -49,7 +49,7 @@
         resultType="int">
       SELECT NVL(MAX(D_NO),0)+1 FROM DESSERT
     </selectKey>
-    INSERT INTO PRODUCT(D_NO,
+    INSERT INTO DESSERT(D_NO,
 						D_CATEGORY,
 						D_NAME,
 						D_DETAIL,
@@ -61,7 +61,7 @@
 						D_STORAGE,
 						D_ALLERGY)
     VALUES(#{d_no}, #{d_category}, #{d_name}, #{d_detail},
-           #{price}, #{stock}, #{d_image}, #{d_path},
+           #{d_price}, #{d_stock}, #{d_image}, #{d_path},
             #{d_life}, #{d_storage}, #{d_allergy})
   </insert>
   

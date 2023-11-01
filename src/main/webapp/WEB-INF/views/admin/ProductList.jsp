@@ -10,7 +10,7 @@
 <div id="product">
 	<div id="productHead">
 	    <p>상품목록</p>
-	    <p>총 상품수: ${pcnt} 가지</p>
+	    <p>총 상품수: ${dessertCnt} 가지</p>
 	</div>
  
 	<table class="productlist">
@@ -38,15 +38,15 @@
 	           </td>
 	           
 	           <td>
-	           	<a href="/productDetail?p_no=${dessert.p_no}">
+	           	<a href="/productDetail?d_no=${dessert.d_no}">
 	               ${dessert.d_name}</a>
 	           </td>
 	           <td class="price">${dessert.d_price}</td>
 	           <td>${dessert.d_stock}</td>
 	           <td>${dessert.d_image}</td>
 	           <td>${dessert.d_life}</td>
-	           <td>${dessert.pr_storage}</td>
-	           <td>${dessert.pr_allergy}</td>
+	           <td>${dessert.d_storage}</td>
+	           <td>${dessert.d_allergy}</td>
 	         </tr>
 	       </c:forEach>
 	    </c:when>
