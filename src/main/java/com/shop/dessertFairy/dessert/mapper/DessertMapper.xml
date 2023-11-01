@@ -44,4 +44,25 @@
 	WHERE d_no = #{d_no}
 </select>
 
+<insert id="insertProduct" parameterType="ddto">	<!-- 상품 등록 -->
+    <selectKey keyProperty="d_no" order="BEFORE"
+        resultType="int">
+      SELECT NVL(MAX(D_NO),0)+1 FROM DESSERT
+    </selectKey>
+    INSERT INTO PRODUCT(D_NO,
+						D_CATEGORY,
+						D_NAME,
+						D_DETAIL,
+						D_PRICE,
+						D_STOCK,
+						D_IMAGE,
+						D_PATH,
+						D_LIFE,
+						D_STORAGE,
+						D_ALLERGY)
+    VALUES(#{d_no}, #{d_category}, #{d_name}, #{d_detail},
+           #{price}, #{stock}, #{d_image}, #{d_path},
+            #{d_life}, #{d_storage}, #{d_allergy})
+  </insert>
+  
 </mapper>
