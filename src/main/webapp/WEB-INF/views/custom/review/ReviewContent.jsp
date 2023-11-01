@@ -36,8 +36,7 @@
       </tr>
       <tr>
          <th>이미지</th>
-         <td><input type="file" name="image2" readonly="readonly" 
-                    value="${review.r_image}" class="chkb"></td>
+         <td><img src="upload"></td>
       </tr>
       <tr>
          <th>내용</th>

@@ -69,6 +69,8 @@ public class ReviewController {
 		model.addAttribute("reviewList", reSet.get("reviewList"));
 		model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
 		model.addAttribute("contentsJsp",contentsJsp);
+		model.addAttribute("pageDto",pageDto);
+		model.addAttribute("orderby",orderby);
 		model.addAttribute("page",page);
 		
 		
@@ -181,11 +183,11 @@ public class ReviewController {
 		
 		//점수를 별로 바꾸는 것(jsp에 value값)
 		String ratings = "";
-		for(int i=0; i <5-review.getR_star(); i++) {
-			ratings += "☆";
-		}
 		for(int i=0; i <review.getR_star(); i++) {
 			ratings += "★";
+		}
+		for(int i=0; i <5-review.getR_star(); i++) {
+			ratings += "☆";
 		}
 		
 		//모델에 저장

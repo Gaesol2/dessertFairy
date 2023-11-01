@@ -25,10 +25,10 @@
   	<div class="col-auto">
      <select class="category" onchange="javascript:category()">
        <option>선택하세요</option>
-       <option>최신순</option>
-       <option>오래된 순</option>
-       <option>별점 높은순</option>
-       <option>조회수 순</option>
+       <option ${orderby=="new"?"selected":""}>최신순</option>
+       <option ${orderby=="old"?"selected":""}>오래된 순</option>
+       <option ${orderby=="star"?"selected":""}>별점 높은순</option>
+       <option ${orderby=="read"?"selected":""}>조회수 순</option>
      </select>
 </div>
   		<table class="reviewtable">
@@ -59,7 +59,7 @@
  	         </c:when>
  	      </c:choose>
 	   <tr>
-	    <td colspan="6" style="text-align: center;">
+	    <td colspan="5" style="text-align: center;">
 	      <c:if test="${pageDto.startPg>pBlock}">
 	        <a href="reviewList?curPage=${pageDto.startPg-pBlock}&curBlock=${pageDto.curBlock-1}">[이전]</a>
 	      </c:if>

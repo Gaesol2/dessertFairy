@@ -90,8 +90,6 @@ public class ReviewServiceImpl implements ReviewService {
 			reviewList = reviewDao.getReviewListOrderby(map);
 		}
 		
-		
-		
 		reSet.put("pageDto", pageDto);
 		reSet.put("cnt", cnt);
 		reSet.put("reviewList", reviewList);
