@@ -15,37 +15,56 @@
  
 	<table class="productlist">
 	  <tr>
-		  <th>상품번호</th>
-		  <th>상품명</th>
-		  <th>상품가격</th>
-		  <th>등록일</th>
+		  <th>상품 번호</th>
+		  <th>상품 카테고리</th>
+		  <th>상품 이름</th>
+		  <th>상품 가격</th>
 		  <th>재고</th>
+		  <th>상품 이미지</th>
+		  <th>재고</th>
+		  <th>유통기한</th>
+		  <th>저장방법</th>
+		  <th>알레르기</th>
 	  </tr>
 	  <c:choose>
-	    <c:when test="${fn:length(pList)>0}">
-	       <c:forEach var="product" items="${pList}">
+	    <c:when test="${fn:length(dessert)>0}">
+	       <c:forEach var="dessert" items="${dessert}">
 	         <tr>
-	           <td class="co1">${product.rr}
-	           <input type="hidden" value="${product.p_no}">
+	           <td>
+	           	<input type="hidden" value="${dessert.d_no}">
 	           </td>
-	           <td class="co2"><a href="/productDetail?p_no=${product.p_no}">
-	               ${product.p_name}</a></td>
-	           <td class="price">${product.price}</td>
-	           <td class="co4">${product.pr_date}</td>
-	           <td class="co5">${product.stock}</td>
+	           <td>
+	           	<input type="hidden" value="${dessert.d_category}">
+	           </td>
+	           
+	           <td>
+	           	<a href="/productDetail?p_no=${dessert.p_no}">
+	               ${dessert.d_name}</a>
+	           </td>
+	           <td class="price">${dessert.d_price}</td>
+	           <td>${dessert.d_stock}</td>
+	           <td>${dessert.d_image}</td>
+	           <td>${dessert.d_life}</td>
+	           <td>${dessert.pr_storage}</td>
+	           <td>${dessert.pr_allergy}</td>
 	         </tr>
 	       </c:forEach>
-	    </c:when>   
-	    <c:when test="${fn:length(pList)==0}">
+	    </c:when>
+	       
+	    <c:when test="${fn:length(dessert)==0}">
 	      <tr style="text-align:center;height: 30px;">
 	        <th colspan="5"> 등록된 상품이 없습니다.</th></tr>
 	    </c:when>   
 	  </c:choose>
 	  <tr style="text-align:right;height: 50px;">
-	  <th colspan="5"
-	    style="text-align:right;border: 1px solid #ffffff;">
-	    </th>
-	    </tr>
+		  <th colspan="5"
+		    style="text-align:right;border: 1px solid #ffffff;">
+	   	 </th>
+	 </tr>
+	
+	<tfoot>
+		<button type="button" onclick="location.href='/productInForm'">상품 등록</button>
+	</tfoot>
 	</table>
 </div>
 
