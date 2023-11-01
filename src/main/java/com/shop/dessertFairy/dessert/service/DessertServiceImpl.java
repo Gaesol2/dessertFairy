@@ -1,11 +1,13 @@
 package com.shop.dessertFairy.dessert.service;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.shop.dessertFairy.dessert.dao.DessertDAO;
 import com.shop.dessertFairy.dessert.dto.DessertDTO;
@@ -40,6 +42,31 @@ public class DessertServiceImpl implements DessertService {
 	@Override
 	public DessertDTO getDessert(DessertDTO ddto) {
 		return dessertDao.getDessert(ddto);
+	}
+
+	@Override
+	public int insertProduct(DessertDTO ddto, MultipartFile file) {
+		String sourceFileName = file.getOriginalFilename();
+		File destinationFile;
+		if(sourceFileName==null || sourceFileName.length()==0) {
+		  ddto.setD_image("ready.gif");
+		}else {
+		  ddto.setD_image(sourceFileName);
+		  destinationFile = new File(ddto.getD_path()+sourceFileName);
+		  destinationFile.getParentFile().mkdirs(); //파일명으로 생성
+		  try {
+			  //받은 파일 전송
+			  file.transferTo(destinationFile);
+		  }catch (Exception e) {
+			  e.printStackTrace();
+		  }
+		}
+		return dessertDao.insertProduct(ddto);
+	}
+
+	@Override
+	public int updateProduct(DessertDTO ddto, MultipartFile file) {
+		return 0;
 	}
 
 }

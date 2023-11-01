@@ -16,4 +16,6 @@ public interface DessertDAO {
 
 	DessertDTO getDessert(DessertDTO ddto);
 
+	int insertProduct(DessertDTO ddto);
+
 }
