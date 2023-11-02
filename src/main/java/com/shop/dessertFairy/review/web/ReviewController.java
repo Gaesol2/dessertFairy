@@ -52,8 +52,7 @@ public class ReviewController {
 			ssKey = (MemberDTO) session.getAttribute("ssKey");
 			contentsJsp = "/custom/review/ReviewList";
 			   page = "Main";
-		}
-		else {
+		}else {
 			page = "redirect:/login";
 		}
 		

@@ -158,7 +158,7 @@ public class ReviewServiceImpl implements ReviewService {
 			}
 
 	@Override
-	public Map<String, Object> getReplyList(ReviewDTO rdto, PageDTO pageDto, String orderby) {
+	public Map<String, Object> getReplyList(ReviewDTO rdto, PageDTO pageDto) {
 		//결과를 반환할 HashMap 선언
 				Map<String, Object> reSet = new HashMap<String, Object>();
 				
@@ -193,18 +193,12 @@ public class ReviewServiceImpl implements ReviewService {
 				int endPg = (pageDto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK>pgCnt)?
 						pgCnt:pageDto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK;
 				
+				replyList = reviewDao.getReplyList(rdto);
+				
 				pageDto.setPgCnt(pgCnt);
 				pageDto.setPgBlock(pgBlock);
 				pageDto.setStartPg(startPg);
 				pageDto.setEndPg(endPg);
-				
-				if(orderby.equals("new")) {
-					replyList = reviewDao.getReplyList(rdto);		
-				} else {
-					Map<String, Object> map = new HashMap<>();
-					map.put("orderby", orderby);
-					replyList = reviewDao.getReviewListOrderby(map);
-				}
 				
 				reSet.put("pageDto", pageDto);
 				reSet.put("cnt", cnt);
@@ -217,6 +211,7 @@ public class ReviewServiceImpl implements ReviewService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
 
 }
    

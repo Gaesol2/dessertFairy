@@ -24,7 +24,5 @@ public interface ReviewDAO {
 
 	List<ReviewDTO> getReplyList(ReviewDTO rdto);
 
-	int replyWrite(ReviewDTO mdto);
-
 
 }
