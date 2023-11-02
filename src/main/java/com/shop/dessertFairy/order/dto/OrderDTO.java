@@ -6,5 +6,12 @@ import lombok.ToString;
 @Data
 @ToString
 public class OrderDTO {
-
+	private int o_no      ;
+	private int o_price   ;
+	private int o_quantity;
+	private String o_regdate ;
+	private String o_state   ;
+	private int amount    ;
+	private String m_id      ;
+	private int d_no      ;
 }

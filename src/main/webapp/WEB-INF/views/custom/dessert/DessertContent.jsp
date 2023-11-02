@@ -16,7 +16,7 @@
 	</div> <!-- dessertImg -->
 	<div id="dessertTxt">
 		<ul>
-			<li><a href="dessertList?flag=${dessert.d_category}" class="category">${dessert.d_category}</a></li>
+			<li><a href="dessert?flag=${dessert.d_category}" class="category">${dessert.d_category}</a></li>
 			<li class="title">${dessert.d_name}</li>
 			<li class="detail">${dessert.d_detail}</li>
 		</ul>
@@ -47,7 +47,7 @@
 			</dd>
 				<dt>주문 가격</dt>
 			<dd>
-				<input type="text" class="total_price" value="${dessert.d_price }" readonly="readonly">
+				<input type="text" id="total_price" class="total_price" value="${dessert.d_price }" readonly="readonly">
 			</dd>
 		</dl>
 		<table>
