@@ -24,7 +24,7 @@ public class TransactionAspect {
      */
     private final PlatformTransactionManager transactionManager;
 
-    private final String EXECUTION ="execution(* com.ecom4..service.*Impl..*(..)) || execution(* com.ecom4..wrapper.*Wrapper..*(..))";
+    private final String EXECUTION ="execution(* com.shop.dessertFairy..service.*Impl..*(..)) || execution(* com.shop.dessertFairy..wrapper.*Wrapper..*(..))";
 
 
     @Bean
