@@ -87,4 +87,10 @@ public class DessertServiceImpl implements DessertService {
 		return dessertDao.adminGetDessert(d_no);
 	}
 
+	@Override
+	public DessertDTO getProduct(int d_no) {
+		return dessertDao.getProduct(d_no);
+	}
+
+
 }

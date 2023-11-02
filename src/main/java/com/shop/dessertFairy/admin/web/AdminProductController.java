@@ -4,6 +4,7 @@ import java.util.Map;
 
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -77,6 +78,31 @@ public class AdminProductController {
 		}
 		//모든 상품 리스트를 갖고 오기 --getProductList
 		session.setAttribute("ssKey", ssKey);										// 세션 저장
+		return page;
+	}
+	
+	@RequestMapping("/productUpForm")						
+	public String productUpForm(HttpServletRequest request,
+			HttpServletResponse respose,
+			Model model,
+			DessertDTO ddto) {
+		String page=null;
+		MemberDTO ssKey = null;
+	    DessertDTO beforeDto = null;
+		HttpSession session = request.getSession();
+		if(session.getAttribute("ssKey")!=null ) {
+			ssKey = (MemberDTO) session.getAttribute("ssKey");
+			if(ssKey.getM_role().equals("admin")) {
+				beforeDto = dessertService.getProduct(ddto.getD_no());
+				page="admin/product/ProductUpForm";
+			}else page="redirect:/";
+		}else {
+			page="redirect:/";
+		}
+		//모든 상품 리스트를 갖고 오기 --getProductList
+		model.addAttribute("ddto", beforeDto);
+		session.setAttribute("ssKey", ssKey);
+		
 		return page;
 	}
 	

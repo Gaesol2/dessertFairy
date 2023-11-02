@@ -1,6 +1,7 @@
 /**
  * 
  */
+$().ready(function(){
 
   $('.productInsert').on('click',function(){					// 필수입력 알림창
 			var flen = $("form[name=productInsert_Form] .chk1").length;
@@ -18,5 +19,7 @@
 		
 	$('.productUp').on('click',function(){
 		$('form[name=productDetailForm]').attr('action','productUpForm');
-    	$('form[name=productForm]').submit();
+    	$('form[name=productDetailForm]').submit();
 	});
+	
+});		//ready end
