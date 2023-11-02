@@ -58,25 +58,16 @@
    </table>
 </div>
 <div id="replybox">
-	<p class="reply">사장님 답글</p>
 	<table class="replytable">
-		<c:choose>
-			<c:when test="${fn:length(replyList)>0}">
-				<c:forEach var="reply" items="${replyList}">
+			<c:if test="${fn:length(replyList)>0}">
+			<p class="reply">사장님 답글</p>
 					<tr class="replycontent">
 				         <td colspan="2">
 				         	<textarea name="reply_content" class="chkb" readonly="readonly" 
-			                      rows="20" cols="50">${reply.r_content}</textarea>
+			                      rows="20" cols="50">${r_reply}</textarea>
 				         </td>
 				    </tr>
-				</c:forEach>
-			</c:when>
-			<c:when test="${fn:length(replyList)==0}">
- 	            <tr style="text-align: center;" height="30px;">
- 	               <th colspan="5">등록된 상품이 없습니다.</th>
- 	            </tr>
- 	         </c:when>
-		</c:choose>
+			</c:if>
 	</table>
 </div>
 </body>

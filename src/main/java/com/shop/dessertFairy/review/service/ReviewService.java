@@ -18,4 +18,8 @@ public interface ReviewService {
 
    Map<String, Object> getReviewMyList(ReviewDTO rdto, PageDTO pageDto, String orderby);
 
+   Map<String, Object> getReplyList(ReviewDTO rdto, PageDTO pageDto, String orderby);
+
+   int replyWrite(ReviewDTO rdto);
+
 }	

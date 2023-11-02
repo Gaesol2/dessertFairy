@@ -22,15 +22,6 @@
     </div>
   </div>
   <div class="reviewlist">
-  	<div class="col-auto">
-     <select class="category" onchange="javascript:category()">
-       <option>선택하세요</option>
-       <option ${orderby=="new"?"selected":""}>최신순</option>
-       <option ${orderby=="old"?"selected":""}>오래된 순</option>
-       <option ${orderby=="star"?"selected":""}>별점 높은순</option>
-       <option ${orderby=="read"?"selected":""}>조회수 순</option>
-     </select>
-</div>
   		<table class="reviewtable">
 	      <tr class="headcolor">
 	         <th></th>

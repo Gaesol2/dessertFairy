@@ -33,7 +33,33 @@
          ,#{m_id       }
       )
    </insert>
+   
+   <insert id="replyWrite" parameterType="rdto">
+      INSERT INTO REVIEW(
+         R_REPLY)
+      VALUES(#{r_reply})
+   </insert>
+   
    <select id="getReviewList" resultType="rdto">
+		SELECT * FROM 
+       (SELECT ROWNUM AS R_RR, A.* 
+        FROM 
+		(SELECT R_NO
+			   ,R_SUBJECT
+			   ,R_CONTENT
+			   ,TO_CHAR(R_REGDATE,'YYYY-MM-DD') AS R_REGDATE
+			   ,R_READCOUNT
+			   ,R_PASSWD
+			   ,R_STAR
+			   ,R_IMAGE
+			   ,M_ID
+			   ,R_PATH
+		FROM REVIEW
+	  ORDER BY R_NO ASC) A)
+     WHERE R_RR BETWEEN #{start,jdbcType=NUMERIC} and #{end,jdbcType=NUMERIC}
+	</select>
+	
+   <select id="getReplyList" resultType="rdto">
 		SELECT * FROM 
        (SELECT ROWNUM AS R_RR, A.* 
         FROM 
