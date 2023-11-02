@@ -22,4 +22,6 @@ public interface DessertDAO {
 
 	int getProductCnt();				//admin 상품 가지수
 
+	DessertDTO adminGetDessert(int d_no);	//admin 상품 디테일
+
 }

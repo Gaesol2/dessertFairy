@@ -15,3 +15,8 @@
 		   }
 		    $("form[name=productInsert_Form]").submit();
 		});
+		
+	$('.productUp').on('click',function(){
+		$('form[name=productDetailForm]').attr('action','productUpForm');
+    	$('form[name=productForm]').submit();
+	});

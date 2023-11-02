@@ -82,4 +82,9 @@ public class DessertServiceImpl implements DessertService {
 		return 0;
 	}
 
+	@Override
+	public DessertDTO adminGetDessert(int d_no) {		//admin 상품 디테일
+		return dessertDao.adminGetDessert(d_no);
+	}
+
 }

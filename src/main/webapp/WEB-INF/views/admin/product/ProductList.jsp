@@ -7,8 +7,8 @@
 <title>상품 관리</title>
 </head>
 <script src="/script/productmgt.js"></script>
-<div id="product">
-	<div id="productHead">
+<div id="product_box">
+	<div id="pCount">
 	    <p>상품목록</p>
 	    <p>총 상품수: ${pcnt} 가지</p>
 	</div>
@@ -16,12 +16,11 @@
 	<table class="productlist">
 	  <tr>
 		  <th>상품 번호</th>
-		  <th>상품 카테고리</th>
-		  <th>상품 이름</th>
-		  <th>상품 가격</th>
+		  <th>카테고리</th>
+		  <th>이름</th>
+		  <th>가격</th>
 		  <th>재고</th>
 		  <th>상품 이미지</th>
-		  <th>재고</th>
 		  <th>유통기한</th>
 		  <th>저장방법</th>
 		  <th>알레르기</th>
@@ -30,13 +29,8 @@
 	  	<c:when test="${fn:length(pList)>0}">
 	       <c:forEach var="dessert" items="${pList}">
 	         <tr>
-		        <td>
-		       		<input type="hidden" value="${dessert.d_no}">
-		        </td>
-		        <td>
-		           	<input type="hidden" value="${dessert.d_category}">
-		        </td>
-		           
+		        <td>${dessert.d_no}</td>
+		        <td>${dessert.d_category}</td>
 		        <td>
 		           	<a href="/productDetail?d_no=${dessert.d_no}">
 		               ${dessert.d_name}</a>

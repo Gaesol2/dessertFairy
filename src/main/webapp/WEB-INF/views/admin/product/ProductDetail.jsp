@@ -13,8 +13,8 @@
 	<table>
 		<tr>
 			<td>
-				<a href="/shopWork/image/${dessert.image}">
-				<img src="/shopWork/image/${dessert.image}">
+				<a href="/upload/image/${dessert.d_image}">
+				<img alt="이미지" src="upload/${dessert.d_image}" height="150" width="150">
 				</a>
 			</td>
 			
@@ -70,8 +70,8 @@
 						<tr>
 							<th>
 								<input type="button" class="productUp" value="상품수정">
-								<input type="button" class="productUp" value="상품수정">
-								<input type="button" value="상품수정" onclick = "location.href='productMgt'">
+								<input type="button" class="productDel" value="상품삭제">
+								<input type="button" value="상품목록" onclick = "location.href='productMgt'">
 							</th>
 						</tr>
 						
