@@ -22,7 +22,9 @@
    </div>
    
    <div class="clear"></div>
-   
+   <div id="blank">
+        
+   </div>   <!-- blank end -->
    <div id="bottom">
       <c:import url="./custom/Bottom.jsp" />
    </div>

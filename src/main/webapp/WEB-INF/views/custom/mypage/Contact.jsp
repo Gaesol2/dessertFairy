@@ -1,28 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="/css/notice.css">
+    <script type="text/javascript" src="/script/notice.js"></script>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="/css/notice.css">
 </head>
-<div id="mypage">
-  <div id="top">
-    <div class="mypagelist">
-		<p class="introduction">문의하기</p>
-    </div>
-    <div class="toplist">
-      <ul class="list">
-        <li><a href="/myPage">내 정보</a></li>
-        <li><a href="/cartList">장바구니</a></li>
-        <li><a href="/orderList">주문목록</a></li>
-        <li><a href="/contactList">문의하기</a></li>
-      </ul>
-    </div>
-    <table class="noticeForm">
+<body>
+<div>
+<form action="noticeProc" name="topForm1" method="post" >
+<table class="noticeForm">
  <thead>
  <tr>
   <th colspan="2">공지사항등록</th>
@@ -80,5 +68,6 @@
 </table>
 <input type="hidden" name="flag" value="insert">
 </form>
-  </div>
 </div>
+</body>
+</html>

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +21,7 @@
       <ul class="list">
         <li><a href="/reviewList">후기 목록</a></li>
         <li><a href="/reviewWrite">후기 글쓰기</a></li>
-        <li><a href="">내 글보기</a></li>
+        <li><a href="/mylist">내 글보기</a></li>
       </ul>
     </div>
   </div>
@@ -36,8 +38,7 @@
       </tr>
       <tr>
          <th>이미지</th>
-         <td><input type="file" name="image2" readonly="readonly" 
-                    value="${review.r_image}" class="chkb"></td>
+         <td><img src="/upload/${review.r_image}"></td>
       </tr>
       <tr>
          <th>내용</th>
@@ -55,6 +56,28 @@
          <td colspan="2"><input type="button" class="writeSubmit" value="등록"></td>
       </tr>
    </table>
+</div>
+<div id="replybox">
+	<p class="reply">사장님 답글</p>
+	<table class="replytable">
+		<c:choose>
+			<c:when test="${fn:length(replyList)>0}">
+				<c:forEach var="reply" items="${replyList}">
+					<tr class="replycontent">
+				         <td colspan="2">
+				         	<textarea name="reply_content" class="chkb" readonly="readonly" 
+			                      rows="20" cols="50">${reply.r_content}</textarea>
+				         </td>
+				    </tr>
+				</c:forEach>
+			</c:when>
+			<c:when test="${fn:length(replyList)==0}">
+ 	            <tr style="text-align: center;" height="30px;">
+ 	               <th colspan="5">등록된 상품이 없습니다.</th>
+ 	            </tr>
+ 	         </c:when>
+		</c:choose>
+	</table>
 </div>
 </body>
 </html>

@@ -7,8 +7,8 @@
 }
 
 .banner {
-	position: relative; 
-	width: 1519px;
+	position: absolute; 
+	width: 100%;
 	height: 570px;
 	margin:0 auto; 
 	padding:0; 
