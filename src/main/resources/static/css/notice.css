@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+#mypage{
+	margin : 0 auto;
+	width : 1024px;
+	height: 800px;
+}
+
+
+.mypagelist{
+	text-align: center;
+}
+
+.toplist{
+	float: right;
+	text-align: center;
+}
+
+.introduction{
+	font-size: 32px;
+	text-align: left;
+}
+
+.list li{
+	display: inline-block;
+	font-size: 15px;
+	margin-left: 35px;
+}

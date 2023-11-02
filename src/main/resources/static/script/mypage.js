@@ -27,18 +27,15 @@
 		openWin = window.open("/pwCheck","pwCheak",
 		"width=400, height=150, toolbar=no, location=no, menubar=no, resizable=no, scrollbars=no")
 		if(flag=='u'){
-		 $("#upForm").attr("action", "/memUpForm");
+			$("#upForm").attr("action", "/memUpForm");
 		}else{
-		 $("#upForm").attr("action", "/memDelete");	
-		var yn = confirm("정말 탈퇴하시겠습니까?\n 구매이력과 포인트가 소멸됩니다.")
-		if(yn==true){
-		
-		}else{
-			return false;
+			$("#upForm").attr("action", "/memDelete");	
+			var yn = confirm("정말 탈퇴하시겠습니까?\n 구매이력과 포인트가 소멸됩니다.")
+			if(yn==false){
+				return false;
+			}
 		}
-		 
-		}
-		}
+	}
 		
 		
 	function setParentText(){
@@ -58,5 +55,6 @@
 		}
 		
 	}
+
 	 
 	 

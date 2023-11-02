@@ -119,7 +119,7 @@ public class MemberController {
 	      MemberDTO custom = (MemberDTO) session.getAttribute("ssKey");
 	      // 데이터베이스에서 해당되는 mdto에 있는 정보를 가지고 해당 고객 정보 가져오기
 	      // 저장해서 화면에서 가져올 수 있도록 한다.
-	      // 회원정보를 갖고 있는 페이지 (jsp를 따로 만들기(MemberInfo.jsp)
+	     
 	      String page = null;
 	      String msg = null;
 	      String url = null;
@@ -127,6 +127,7 @@ public class MemberController {
 	         MemberDTO mdto = memberService.getMember(custom);
 	         model.addAttribute("mdto", mdto);
 	         model.addAttribute("contentsJsp", "custom/mypage/MyPage");
+	         // 회원정보를 갖고 있는 페이지 
 	         page = "Main";
 	      }else {
 	         msg = "로그인 먼저 필요합니다.";
