@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.shop.dessertFairy.common.dto.PageDTO;
 import com.shop.dessertFairy.dessert.dto.DessertDTO;
 import com.shop.dessertFairy.dessert.service.DessertService;
 import com.shop.dessertFairy.member.dto.MemberDTO;
@@ -33,25 +34,25 @@ public class AdminProductController {
 	public String ProductMgt(HttpServletRequest request,
 							 HttpServletResponse response,
 							 Model model,
-							 MemberDTO adto) {
-		HttpSession session = request.getSession();
-		MemberDTO ssKey = null;
+							 MemberDTO adto,
+							 PageDTO pdto) {
 		String page = null;
-		String flag = request.getParameter("flag");
+		MemberDTO ssKey = null;
+		HttpSession session = request.getSession();
 		
 		if(session.getAttribute("ssKey") != null) {
 			ssKey = (MemberDTO) session.getAttribute("ssKey");
 			if(ssKey.getM_role().equals("admin")) {
 				model.addAttribute("contentsJsp", "admin/ProductList");
 				page = "Main";
-			}
-			else page = "redirect:/";
+			}else page = "redirect:/";
 		}else page = "redirect:/";
 		
-		Map<String, Object> resultSet = dessertService.getDessertList(flag);
-		model.addAttribute("dessertCnt", resultSet.get("dessertCnt"));
-		model.addAttribute("dessert", resultSet.get("dessert"));
+		Map<String, Object> resultSet = dessertService.getProductList(pdto);
+		model.addAttribute("pcnt", resultSet.get("pcnt"));
+		model.addAttribute("pList", resultSet.get("pList"));
 		session.setAttribute("ssKey", ssKey);
+		
 		return page;
 	}
 

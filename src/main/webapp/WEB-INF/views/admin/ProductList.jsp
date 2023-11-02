@@ -10,7 +10,7 @@
 <div id="product">
 	<div id="productHead">
 	    <p>상품목록</p>
-	    <p>총 상품수: ${dessertCnt} 가지</p>
+	    <p>총 상품수: ${pcnt} 가지</p>
 	</div>
  
 	<table class="productlist">
@@ -27,8 +27,8 @@
 		  <th>알레르기</th>
 	  </tr>
 	  <c:choose>
-	  	<c:when test="${fn:length(dessert)>0}">
-	       <c:forEach var="dessert" items="${dessert}">
+	  	<c:when test="${fn:length(pList)>0}">
+	       <c:forEach var="dessert" items="${pList}">
 	         <tr>
 		        <td>
 		       		<input type="hidden" value="${dessert.d_no}">
@@ -51,7 +51,7 @@
 	       </c:forEach>
 	    </c:when>
 	       
-	    <c:when test="${fn:length(dessert)==0}">
+	    <c:when test="${fn:length(pList)==0}">
 	    	<tr style="text-align:center;height: 30px;">
 	        	<th colspan="5"> 등록된 상품이 없습니다.</th>
 	        </tr>
