@@ -18,14 +18,14 @@ public class AdminMemberController {
 			HttpServletResponse response,
 			Model model,
 			MemberDTO adto) {
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession();			//현재 사용자의 세션을 받아옴
 		MemberDTO ssKey = null;
 		String page = null;
 		
 		if(session.getAttribute("ssKey") != null) {
 			ssKey = (MemberDTO) session.getAttribute("ssKey");
 			if(ssKey.getM_role().equals("admin")) {
-				model.addAttribute("contentsJsp", "admin/MemberMgt");
+				model.addAttribute("contentsJsp", "admin/member/MemberList");
 				page = "Main";
 			}
 			else page = "redirect:/";

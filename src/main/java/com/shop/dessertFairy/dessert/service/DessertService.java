@@ -17,5 +17,7 @@ public interface DessertService {
    int updateProduct(DessertDTO ddto, MultipartFile file);
 
    Map<String, Object> getProductList(PageDTO pdto);
+   
+   DessertDTO adminGetDessert(int d_no);		//admin 상품 디테일
 
 }

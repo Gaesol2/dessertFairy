@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-여기는 회원관리
+여기는 상점 관리
 </body>
 </html>
