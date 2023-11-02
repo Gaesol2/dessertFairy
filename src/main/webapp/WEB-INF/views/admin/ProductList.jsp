@@ -27,44 +27,47 @@
 		  <th>알레르기</th>
 	  </tr>
 	  <c:choose>
-	    <c:when test="${fn:length(dessert)>0}">
-	       <c:forEach var="dessert" items="${dessert}">
+	  	<c:when test="${fn:length(pList)>0}">
+	       <c:forEach var="dessert" items="${pList}">
 	         <tr>
-	           <td>
-	           	<input type="hidden" value="${dessert.d_no}">
-	           </td>
-	           <td>
-	           	<input type="hidden" value="${dessert.d_category}">
-	           </td>
-	           
-	           <td>
-	           	<a href="/productDetail?p_no=${dessert.p_no}">
-	               ${dessert.d_name}</a>
-	           </td>
-	           <td class="price">${dessert.d_price}</td>
-	           <td>${dessert.d_stock}</td>
-	           <td>${dessert.d_image}</td>
-	           <td>${dessert.d_life}</td>
-	           <td>${dessert.pr_storage}</td>
-	           <td>${dessert.pr_allergy}</td>
+		        <td>
+		       		<input type="hidden" value="${dessert.d_no}">
+		        </td>
+		        <td>
+		           	<input type="hidden" value="${dessert.d_category}">
+		        </td>
+		           
+		        <td>
+		           	<a href="/productDetail?d_no=${dessert.d_no}">
+		               ${dessert.d_name}</a>
+		        </td>
+		        <td class="price">${dessert.d_price}</td>
+		        <td>${dessert.d_stock}</td>
+		        <td>${dessert.d_image}</td>
+		        <td>${dessert.d_life}</td>
+		        <td>${dessert.d_storage}</td>
+		        <td>${dessert.d_allergy}</td>
 	         </tr>
 	       </c:forEach>
 	    </c:when>
 	       
-	    <c:when test="${fn:length(dessert)==0}">
-	      <tr style="text-align:center;height: 30px;">
-	        <th colspan="5"> 등록된 상품이 없습니다.</th></tr>
-	    </c:when>   
+	    <c:when test="${fn:length(pList)==0}">
+	    	<tr style="text-align:center;height: 30px;">
+	        	<th colspan="5"> 등록된 상품이 없습니다.</th>
+	        </tr>
+	    </c:when>
+	       
 	  </c:choose>
-	  <tr style="text-align:right;height: 50px;">
-		  <th colspan="5"
-		    style="text-align:right;border: 1px solid #ffffff;">
-	   	 </th>
-	 </tr>
+	  
+		<tr style="text-align:right;height: 50px;">
+			  <th colspan="5"
+			    style="text-align:right;border: 1px solid #ffffff;">
+		   	 </th>
+		</tr>
 	
-	<tfoot>
-		<button type="button" onclick="location.href='/productInForm'">상품 등록</button>
-	</tfoot>
+		<tfoot>
+			<button type="button" onclick="location.href='/productInForm'">상품 등록</button>
+		</tfoot>
 	</table>
 </div>
 

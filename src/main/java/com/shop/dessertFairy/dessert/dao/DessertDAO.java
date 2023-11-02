@@ -18,4 +18,8 @@ public interface DessertDAO {
 
 	int insertProduct(DessertDTO ddto);
 
+	List<DessertDTO> getProducttList();	//admin 상품리스트
+
+	int getProductCnt();				//admin 상품 가지수
+
 }
