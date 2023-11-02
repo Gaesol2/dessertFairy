@@ -78,8 +78,7 @@ public class DessertServiceImpl implements DessertService {
 
 	@Override
 	public int updateProduct(DessertDTO ddto, MultipartFile file) {
-		// TODO Auto-generated method stub
-		return 0;
+		return dessertDao.updateProduct(ddto, file);
 	}
 
 	@Override

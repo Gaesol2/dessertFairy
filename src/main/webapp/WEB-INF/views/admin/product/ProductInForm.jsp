@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 </head>
+<script src="/script/admin.js"></script>
 <body>
 <div id="product_Insert_Box">
   <h2>상품 등록</h2>

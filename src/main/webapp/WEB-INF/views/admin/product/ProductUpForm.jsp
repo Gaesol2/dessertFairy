@@ -59,7 +59,7 @@
 	       <th>상품이미지</th>
 	       <td>
 	       <img alt="이미지" src="upload/${ddto.d_image}">
-	        <input type="file" name="image" class="chk1" title="이미지"
+	        <input type="file" name="d_image" class="chk1" title="이미지"
 	        placeholder="이미지 첨부하시오">
 	       </td>
 	     </tr>
@@ -92,7 +92,7 @@
 	     
 	     <tr>
 	       <th colspan="2" class="tableBtn">
-	         <input type="submit" value="상품수정전송">
+	         <input type="submit" class="productUpBtn" value="상품수정전송">
 	       </th>
 	     </tr>
 	     
