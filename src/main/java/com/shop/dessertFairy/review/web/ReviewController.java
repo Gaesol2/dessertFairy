@@ -1,7 +1,5 @@
 package com.shop.dessertFairy.review.web;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.shop.dessertFairy.common.RowInterPage;
 import com.shop.dessertFairy.common.dto.PageDTO;
 import com.shop.dessertFairy.member.dto.MemberDTO;
+import com.shop.dessertFairy.member.service.MemberService;
 import com.shop.dessertFairy.review.dto.ReviewDTO;
 import com.shop.dessertFairy.review.service.ReviewService;
 
@@ -27,6 +26,9 @@ public class ReviewController {
    
    @Autowired
    ReviewService reviewService;
+   
+   @Autowired
+   MemberService memberService;
    
    //실제로 파일이 저장되는 파일 서버 경로를 가져온 것. properties에 있는 주소 불러와 스트링 변수 resourceLocation에 저장
    @Value("${resources.location}")
@@ -199,6 +201,54 @@ public class ReviewController {
 		//세션에 저장
 		session.setAttribute("ssKey", mdto);
 		model.addAttribute("contentsJsp", page);
+		
+		
+		return "Main";
+	}
+   
+   @RequestMapping("/mylist")
+   public String mylist(HttpServletRequest request, HttpServletResponse response,
+         Model model, ReviewDTO rdto,
+         PageDTO pageDto) { 
+	   
+        //변수 선언
+	    String page = null;
+	    MemberDTO ssKey = null;
+	    String contentsJsp = "/custom/review/ReviewMyList";
+	    
+	    //HttpSession 세션 객체 생성 및 세션 정보 받아오기
+		HttpSession session = request.getSession();
+		
+
+
+		//세션이 있으면 ReviewMyList 페이지로 보내고 없으면 로그인 창으로 보내기
+		if(session.getAttribute("ssKey")!=null) {
+			
+			MemberDTO mdto = memberService.getMember(ssKey);
+			ssKey = (MemberDTO) session.getAttribute("ssKey");
+			page = "custom/review/ReviewMyList";
+		}
+		else {
+			page = "redirect:/login";
+		}
+		
+		//jsp로부터 orderby 파라미터를 받고, null이 들어오면 최신순으로 설정
+		String orderby = request.getParameter("orderby");
+		if(orderby==null) orderby = "new";
+		
+		//리스트 목록과 페이지 수 계산한것을 불러온 것
+		Map<String, Object> reSet = reviewService.getReviewMyList(rdto, pageDto, orderby);
+		
+		//세션 저장
+		session.setAttribute("mdto", ssKey);
+		//데이터 저장
+		model.addAttribute("cnt", reSet.get("cnt"));
+		model.addAttribute("reviewmyList", reSet.get("reviewmyList"));
+		model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
+		model.addAttribute("contentsJsp",contentsJsp);
+		model.addAttribute("pageDto",pageDto);
+		model.addAttribute("orderby",orderby);
+		model.addAttribute("page",page);
 		
 		
 		return "Main";

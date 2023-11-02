@@ -20,5 +20,7 @@ public interface ReviewDAO {
 
 	List<ReviewDTO> getReviewListOrderby(Map<String, Object> map);
 
+	List<ReviewDTO> getReviewMyList(ReviewDTO rdto);
+
 
 }
