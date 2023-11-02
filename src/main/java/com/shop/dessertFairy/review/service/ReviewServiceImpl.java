@@ -144,7 +144,7 @@ public class ReviewServiceImpl implements ReviewService {
 				pageDto.setEndPg(endPg);
 				
 				if(orderby.equals("new")) {
-					reviewmyList = reviewDao.getReviewMyList(rdto);		
+					reviewmyList = reviewDao.getReviewMyList(rdto);	
 				} else {
 					Map<String, Object> map = new HashMap<>();
 					map.put("orderby", orderby);

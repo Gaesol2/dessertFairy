@@ -50,7 +50,8 @@ public class ReviewController {
 		//세션이 있으면 ReviewList 페이지로 보내고 없으면 로그인 창으로 보내기
 		if(session.getAttribute("ssKey")!=null) {
 			ssKey = (MemberDTO) session.getAttribute("ssKey");
-			page = "custom/review/ReviewList";
+			contentsJsp = "/custom/review/ReviewList";
+			   page = "Main";
 		}
 		else {
 			page = "redirect:/login";
@@ -73,10 +74,9 @@ public class ReviewController {
 		model.addAttribute("contentsJsp",contentsJsp);
 		model.addAttribute("pageDto",pageDto);
 		model.addAttribute("orderby",orderby);
-		model.addAttribute("page",page);
 		
 		
-		return "Main";
+		return page;
 	}
 	   
 	   
@@ -226,6 +226,7 @@ public class ReviewController {
 			
 			MemberDTO mdto = memberService.getMember(ssKey);
 			ssKey = (MemberDTO) session.getAttribute("ssKey");
+			rdto.setM_id(ssKey.getM_id());
 			page = "custom/review/ReviewMyList";
 		}
 		else {
@@ -238,7 +239,6 @@ public class ReviewController {
 		
 		//리스트 목록과 페이지 수 계산한것을 불러온 것
 		Map<String, Object> reSet = reviewService.getReviewMyList(rdto, pageDto, orderby);
-		
 		//세션 저장
 		session.setAttribute("mdto", ssKey);
 		//데이터 저장
