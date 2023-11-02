@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.shop.dessertFairy.dessert.dto.DessertDTO;
 
@@ -18,10 +19,15 @@ public interface DessertDAO {
 
 	int insertProduct(DessertDTO ddto);
 
-	List<DessertDTO> getProducttList();	//admin 상품리스트
+	List<DessertDTO> getProducttList();						//admin 상품리스트
 
-	int getProductCnt();				//admin 상품 가지수
+	int getProductCnt();									//admin 상품 가지수
 
-	DessertDTO adminGetDessert(int d_no);	//admin 상품 디테일
+	DessertDTO adminGetDessert(int d_no);					//admin 상품 디테일
+
+	DessertDTO getProduct(int d_no);						//admin 상품 수정 전 정보
+
+	int updateProduct(DessertDTO ddto, MultipartFile file);	//admin 상품 수정
+
 
 }

@@ -92,7 +92,7 @@
 	     
 	     <tr>
 	       <th colspan="2" class="tableBtn">
-	         <input class="productInsert" type="submit" value="상품수정전송">
+	         <input type="submit" value="상품수정전송">
 	       </th>
 	     </tr>
 	     

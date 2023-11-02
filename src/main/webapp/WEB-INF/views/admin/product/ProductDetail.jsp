@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>상품 상세 페이지</title>
 </head>
-<script src="/script/productmgt.js"></script>
+<script src="/script/admin.js"></script>
 <body>
 <div id="product_Detail_box">
 	<h2>${dessert.d_name}</h2>
@@ -22,8 +22,11 @@
 				<form action="" name="productDetailForm" method="post">
 					<table>
 						<tr>
-							<th>상품번호:</th>
-							<td>${dessert.d_no}</td>
+							<th >상품번호:</th>
+							<td>
+								<input type="hidden" name="d_no" value="${dessert.d_no}">${dessert.d_no}
+							</td>
+							
 						</tr>
 						
 						<tr>
