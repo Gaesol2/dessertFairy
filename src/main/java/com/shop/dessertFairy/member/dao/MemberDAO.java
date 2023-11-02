@@ -14,4 +14,8 @@ public interface MemberDAO {
 
 	MemberDTO getMember(MemberDTO mdto);	// 로그인
 
+	int memUpProc(MemberDTO mdto); //회원정보수정
+
+	int memDelete(MemberDTO mdto); //회원정보삭제
+
 }

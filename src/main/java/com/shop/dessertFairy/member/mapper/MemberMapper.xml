@@ -15,7 +15,6 @@
 							M_EMAIL,
 							M_PHONE,
 							M_REGDATE,
-							M_ZIPCODE,
 							M_ADDRESS,
 							M_ADDRESS2,
 							M_ROLE)
@@ -25,7 +24,6 @@
 				 			#{m_email},
 				 			#{m_phone},
 				 			sysdate,
-				 			#{m_zipcode},
 				 			#{m_address},
 				 			#{m_address2},
 				 			'mem')
@@ -38,4 +36,19 @@
 	     FROM MEMBER
 	     WHERE M_ID = #{m_id} and M_PASSWD = #{m_passwd}
   </select>
+  <update id="memUpProc" parameterType="mdto">
+UPDATE MEMBER SET
+                  M_PASSWD =#{m_passwd}
+                , M_EMAIL =#{m_email}
+                , M_PHONE =#{m_phone}
+                , M_ZIPCODE =#{m_zipcode}
+                , M_ADDRESS =#{m_address}
+                , M_ADDRESS2 =#{m_address2}
+                
+                WHERE M_ID =#{m_id}
+</update>
+<delete id="memDelete" parameterType="mdto">
+DELETE FROM MEMBER
+WHERE M_ID = #{m_id}
+</delete>
  </mapper>
