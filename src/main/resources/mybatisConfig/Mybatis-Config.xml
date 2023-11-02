@@ -14,5 +14,6 @@
          <typeAlias alias="mdto" type="com.shop.dessertFairy.member.dto.MemberDTO" />
          <typeAlias alias="rdto" type="com.shop.dessertFairy.review.dto.ReviewDTO" />
          <typeAlias alias="ddto" type="com.shop.dessertFairy.dessert.dto.DessertDTO" />
+         <typeAlias alias="pdto" type="com.shop.dessertFairy.common.dto.PageDTO" />
      </typeAliases>	
 </configuration>

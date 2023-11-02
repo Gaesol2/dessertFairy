@@ -15,9 +15,9 @@
     </div>
     <div class="toplist">
       <ul class="list">
-        <li class="relist"><a href="/reviewList">후기 목록</a></li>
+        <li><a href="/reviewList">후기 목록</a></li>
         <li><a href="/reviewWrite">후기 글쓰기</a></li>
-        <li><a href="/mylist">내 글보기</a></li>
+        <li class="relist"><a href="/mylist">내 글보기</a></li>
       </ul>
     </div>
   </div>
@@ -40,8 +40,8 @@
 	         <th>작성일</th>
 	      </tr>
 	 	      <c:choose>
-  	            <c:when test="${fn:length(reviewList)>0}"> 
- 	              <c:forEach var="review" items="${reviewList}"> 
+  	            <c:when test="${fn:length(reviewmyList)>0}"> 
+ 	              <c:forEach var="review" items="${reviewmyList}"> 
 	               <tr>
 	                  <td class="col1">${review.r_no}</td>
 	                  <td class="col2"><a href="/reviewContent?r_no=${review.r_no}">${review.r_subject}</a>
@@ -52,7 +52,7 @@
 	               </tr>
  	            </c:forEach>
  	         </c:when>
- 	         <c:when test="${fn:length(reviewList)==0}">
+ 	         <c:when test="${fn:length(reviewmyList)==0}">
  	            <tr style="text-align: center;" height="30px;">
  	               <th colspan="5">등록된 상품이 없습니다.</th>
  	            </tr>
@@ -61,15 +61,15 @@
 	   <tr>
 	    <td colspan="5" style="text-align: center;">
 	      <c:if test="${pageDto.startPg>pBlock}">
-	        <a href="reviewList?curPage=${pageDto.startPg-pBlock}&curBlock=${pageDto.curBlock-1}">[이전]</a>
+	        <a href="mylist?curPage=${pageDto.startPg-pBlock}&curBlock=${pageDto.curBlock-1}">[이전]</a>
 	      </c:if>
 	      <c:forEach begin="${pageDto.startPg}" end="${pageDto.endPg}" var="p" step="1">
-	        <a href="reviewList?curPage=${p}&curBlock=${pageDto.curBlock}">
+	        <a href="mylist?curPage=${p}&curBlock=${pageDto.curBlock}">
 	          <span><c:out value="${p}" /></span>
 	        </a>&nbsp;&nbsp;
 	      </c:forEach>
 	        <c:if test="${pageDto.endPg<pageDto.pgCnt}">
-	          <a href="reviewList?curPage=${pageDto.startPg+pBlock}&curBlock=${pageDto.curBlock+1}">[다음]</a>
+	          <a href="mylist?curPage=${pageDto.startPg+pBlock}&curBlock=${pageDto.curBlock+1}">[다음]</a>
 	        </c:if>
 	    </td>
 	  </table>

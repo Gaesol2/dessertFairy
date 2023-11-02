@@ -88,7 +88,7 @@ public class MemberController {
 			ssKey.setM_passwd(sdto.getM_passwd());
 			ssKey.setM_name(sdto.getM_name());
 			ssKey.setM_role(sdto.getM_role());
-		    msg =  sdto.getM_name()+"님 반값습니다.!!";
+		    msg =  sdto.getM_name()+"님 반갑습니다.!!";
 			session.setAttribute("ssKey", ssKey);			//로그인한 유저의 세션을 저장
 		} else msg="아이디 또는 패스워드 맞지 않습니다.";				// 로그인 실패 시 메시지 출력
 			

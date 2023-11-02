@@ -73,4 +73,38 @@ textarea {
 
 .reviewBtn input{ 
 	margin-left: 400px;
-}   
+} 
+
+#replybox{
+	margin: 0 auto;
+	width: 1024px;
+	height: 500px;
+}  
+
+.replytable{
+	float : left;
+	width: 500px;
+	height: 200px;
+	margin-left : 270px;
+	margin-top : 10px;
+	border-collapse: collapse;
+}
+
+.reply{
+	text-align: center;
+	font-weight: bold;
+}
+
+
+.replytable tr, .replytable td{
+	border: solid 1px black;
+}
+
+.replycontent{
+	height: 30px;
+}
+
+
+
+
+
