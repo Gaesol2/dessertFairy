@@ -1,7 +1,6 @@
 package com.shop.dessertFairy.member.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Service;
 
 import com.shop.dessertFairy.member.dao.MemberDAO;
@@ -26,6 +25,18 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public MemberDTO getMember(MemberDTO mdto) {	// 로그인
 		return memberDao.getMember(mdto);
+	}
+
+	@Override
+	public int memUpProc(MemberDTO mdto) {
+		
+		return memberDao.memUpProc(mdto);
+	}
+
+	@Override
+	public int memDelete(MemberDTO mdto) {
+		
+		return memberDao.memDelete(mdto);
 	}
 
 

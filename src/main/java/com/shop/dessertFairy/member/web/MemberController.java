@@ -1,5 +1,7 @@
 package com.shop.dessertFairy.member.web;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.shop.dessertFairy.member.dto.MemberDTO;
 import com.shop.dessertFairy.member.service.MemberService;
+import com.shop.dessertFairy.wrapper.MemberWrapper;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -15,8 +18,13 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class MemberController {
+	private static final Logger logger 
+	= LoggerFactory.getLogger(MemberController.class);
 	@Autowired
 	MemberService memberService;
+	
+	@Autowired
+	MemberWrapper memberWrapper;
 	
 	@RequestMapping("register")
 	  public String  join(HttpServletRequest request,
@@ -129,8 +137,104 @@ public class MemberController {
 	      }
 	      session.setAttribute("ssKey", custom);
 	      // 모든 상품 리스트를 갖고 오기 --getProductList 
-	      return "Main";
+	      return page;
 	   }
-
-	 
-}
+	
+		@RequestMapping("/pwCheck")
+		   public String pwCheck(HttpServletRequest request, Model model) {
+		      HttpSession session = request.getSession();
+		      MemberDTO dto = (MemberDTO) session.getAttribute("ssKey");
+		      
+		      return "custom/member/Pwcheck";
+		   }
+		
+		 @RequestMapping("/memUpForm")
+		   public String memUpForm(HttpServletRequest request, HttpServletResponse response, Model model) {
+		      // session정보 갖고오기
+		      HttpSession session = request.getSession();
+		      MemberDTO custom = (MemberDTO) session.getAttribute("ssKey");
+		      // 세션정보를 기준으로 회원 정보 가져오기
+		      String page = null;
+		      String msg = null;
+		      String url = null;
+		      if(custom!=null) {
+		         MemberDTO mdto = memberService.getMember(custom);
+		         model.addAttribute("mdto", mdto);
+		         model.addAttribute("contentsJsp", "custom/member/MemberUpForm");
+		         page = "Main";
+		      }else {
+		         msg = "로그인 먼저 필요합니다.";
+		         url = "/login";
+		         model.addAttribute("msg", msg);
+		         model.addAttribute("url", url);
+		         page = "MsgPage";
+		      }
+		      session.setAttribute("ssKey", custom);
+		      return page;
+		   }
+		
+		 @RequestMapping("/memUpProc")
+		   public String memUpProc(HttpServletRequest request, 
+				                   HttpServletResponse response, 
+				                   Model model, 
+				                   MemberDTO mdto) {
+		      // session정보 갖고오기
+		      HttpSession session = request.getSession();
+		      MemberDTO custom = (MemberDTO) session.getAttribute("ssKey");
+		      // 세션정보를 기준으로 회원 정보 가져오기
+		      String page = null;
+		      String msg = null;
+		      String url = null;
+		      if(custom!=null) {
+		         int r = memberService.memUpProc(mdto);
+		         if(r>0) {
+		            msg = "회원정보가 수정되었습니다.\\n 재로그인이 필요합니다.";
+		            session.invalidate();
+		         }
+		         else msg = "수정되지 않았습니다. \\n 관리자에게 문의바랍니다.";
+		         url = "/";
+		      }else {
+		         msg = "로그인 먼저 필요합니다.";
+		         url = "/login";
+		      }
+		      page = "MsgPage";
+		      model.addAttribute("msg", msg);
+		      model.addAttribute("url", url);
+		   
+		      return page;
+		   }
+		 
+		 @RequestMapping("/memDelete")
+		   public String memDelete(HttpServletRequest request, 
+				                   HttpServletResponse response, 
+				                   Model model, MemberDTO mdto) {
+		      // session정보 갖고오기
+		      HttpSession session = request.getSession();
+		      MemberDTO custom = (MemberDTO) session.getAttribute("ssKey");
+		      // 세션정보를 기준으로 회원 정보 가져오기
+		      String page = null;
+		      String msg = null;
+		      String url = null;
+		      if(custom!=null) {
+		         int r = memberWrapper.memDelete(custom);
+		         if(r>0) {
+		            msg = "회원탈퇴 처리 되었습니다";
+		            session.invalidate(); //세션삭제
+		         }
+		         else {
+		        	 msg = "탈퇴할 수 없습니다 \\n 관리자에게 문의바랍니다.";
+		         }
+		         url = "/";
+		      }else {
+		         msg = "로그인 먼저 필요합니다.";
+		         url = "/login";
+		      }
+		      page = "MsgPage";
+		      model.addAttribute("msg", msg);
+		      model.addAttribute("url", url);
+		   
+		      return page;
+		   }
+		}
+	
+	

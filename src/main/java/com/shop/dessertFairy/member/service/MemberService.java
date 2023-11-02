@@ -10,6 +10,10 @@ public interface MemberService {
 
 	MemberDTO getMember(MemberDTO mdto);		// 로그인
 
+	int memUpProc(MemberDTO mdto);
+
+	int memDelete(MemberDTO custom);
+
 	/* MemberDTO getMember(); */
 
 
