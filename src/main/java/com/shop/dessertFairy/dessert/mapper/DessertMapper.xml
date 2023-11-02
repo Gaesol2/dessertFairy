@@ -102,5 +102,40 @@
    FROM dessert
    WHERE d_no = #{d_no}
 </select>
+
+<select id="getProduct" parameterType="ddto" resultType="ddto">	<!-- admin 상품 수정 전 정보 -->
+     SELECT 
+      D_NO
+      ,D_CATEGORY
+      ,D_NAME
+      ,D_DETAIL
+      ,D_PRICE
+      ,D_STOCK
+      ,D_IMAGE
+      ,D_PATH
+      ,D_LIFE
+      ,D_STORAGE
+      ,D_ALLERGY
+   FROM DESSERT
+   WHERE D_NO = #{d_no}
+</select>
+
+<update id="updateProduct" parameterType="ddto">
+	     UPDATE PRODUCT SET
+	      D_NO	= #{d_no},
+	      D_CATEGORY = #{d_category},
+	      D_NAME = #{d_name},
+	      D_DETAIL = #{d_detail},
+	      D_PRICE = #{d_price},
+	      D_STOCK = #{d_stock},
+      <if test = "d_image!=null">
+	      D_IMAGE = #{d_image},
+      </if>
+	      D_PATH = #{d_path},
+	      D_LIFE = #{d_life},
+	      D_STORAGE = #{d_storage},
+	      D_ALLERGY = #{d_allergy},
+	     WHERE D_NO = #{d_no}
+  </update>
 <!-- admin End -->
 </mapper>

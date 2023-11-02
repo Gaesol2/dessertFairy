@@ -14,10 +14,12 @@ public interface DessertService {
 
    int insertProduct(DessertDTO ddto, MultipartFile file);
 
-   int updateProduct(DessertDTO ddto, MultipartFile file);
+   int updateProduct(DessertDTO ddto, MultipartFile file);	//admin 상품 업데이트
 
-   Map<String, Object> getProductList(PageDTO pdto);
+   Map<String, Object> getProductList(PageDTO pdto);		//admin 상품 리스트
    
-   DessertDTO adminGetDessert(int d_no);		//admin 상품 디테일
+   DessertDTO adminGetDessert(int d_no);					//admin 상품 디테일
 
+   DessertDTO getProduct(int d_no);							//admin 상품수정 전 정보 받아오기
+   
 }
