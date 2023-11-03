@@ -29,5 +29,9 @@ public interface DessertDAO {
 
 	int updateProduct(DessertDTO ddto);	//admin 상품 수정
 
+	int orderCntOfProduct(int dno);		//admin 주문내역 확인 .데이터 삭제를 위해서
+
+	int deleteProduct(DessertDTO ddto);	//admin 상품 삭제
+
 
 }

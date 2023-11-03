@@ -21,5 +21,9 @@ public interface DessertService {
    DessertDTO adminGetDessert(int d_no);					//admin 상품 디테일
 
    DessertDTO getProduct(int d_no);							//admin 상품수정 전 정보 받아오기
+
+   int orderCntOfProduct(int dno);							//admin 주문내역 확인. 데이터 삭제를 위해서
+
+   int deleteProduct(DessertDTO ddto);						//admin 상품 삭제
    
 }

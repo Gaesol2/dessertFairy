@@ -44,98 +44,109 @@
    WHERE d_no = #{d_no}
 </select>
 
-<!-- admin start -->
-<insert id="insertProduct" parameterType="ddto">	<!-- 상품 등록 -->
-    <selectKey keyProperty="d_no" order="BEFORE"
-        resultType="int">
-      SELECT NVL(MAX(D_NO),0)+1 FROM DESSERT
-    </selectKey>
-    INSERT INTO DESSERT(D_NO,
-						D_CATEGORY,
-						D_NAME,
-						D_DETAIL,
-						D_PRICE,
-						D_STOCK,
-						D_IMAGE,
-						D_PATH,
-						D_LIFE,
-						D_STORAGE,
-						D_ALLERGY)
-    VALUES(#{d_no}, #{d_category}, #{d_name}, #{d_detail},
-           #{d_price}, #{d_stock}, #{d_image}, #{d_path},
-            #{d_life}, #{d_storage}, #{d_allergy})
-  </insert>
 
-<select id="getProductCnt" resultType="int">
-	 SELECT COUNT(D_NO) FROM DESSERT
-</select>
-  
-<select id="getProducttList" parameterType="pdto">
-	SELECT 
-    d_no
-    ,d_category
-    ,d_name
-    ,d_detail
-    ,d_price
-    ,d_stock
-    ,d_image
-    ,d_path
-    ,d_life
-    ,d_storage
-    ,d_allergy
- FROM DESSERT
-</select>
-
-<select id="adminGetDessert" parameterType="int" resultType="ddto">
-   SELECT 
-      d_no
-      ,d_category
-      ,d_name
-      ,d_detail
-      ,d_price
-      ,d_stock
-      ,d_image
-      ,d_path
-      ,d_life
-      ,d_storage
-      ,d_allergy
-   FROM dessert
-   WHERE d_no = #{d_no}
-</select>
-
-<select id="getProduct" parameterType="ddto" resultType="ddto">	<!-- admin 상품 수정 전 정보 -->
-     SELECT 
-      D_NO
-      ,D_CATEGORY
-      ,D_NAME
-      ,D_DETAIL
-      ,D_PRICE
-      ,D_STOCK
-      ,D_IMAGE
-      ,D_PATH
-      ,D_LIFE
-      ,D_STORAGE
-      ,D_ALLERGY
-   FROM DESSERT
-   WHERE D_NO = #{d_no}
-</select>
-
-<update id="updateProduct" parameterType="ddto">
-	     UPDATE DESSERT SET
-	      D_NO	= #{d_no},
-	      D_CATEGORY = #{d_category},
-	      D_NAME = #{d_name},
-	      D_DETAIL = #{d_detail},
-	      D_PRICE = #{d_price},
-	      D_STOCK = #{d_stock},
-      <if test = "d_image!=null">
-	      D_IMAGE = #{d_image},
-      </if>
-	      D_PATH = #{d_path},
-	      D_LIFE = #{d_life},
-	      D_STORAGE = #{d_storage},
-	      D_ALLERGY = #{d_allergy}
-	     WHERE D_NO = #{d_no}
-  </update>
-<!-- admin End -->
+	<!-- admin start -->
+	<insert id="insertProduct" parameterType="ddto">	<!-- admin 상품 등록 -->
+	    <selectKey keyProperty="d_no" order="BEFORE"
+	        resultType="int">
+	      SELECT NVL(MAX(D_NO),0)+1 FROM DESSERT
+	    </selectKey>
+	    INSERT INTO DESSERT(D_NO,
+							D_CATEGORY,
+							D_NAME,
+							D_DETAIL,
+							D_PRICE,
+							D_STOCK,
+							D_IMAGE,
+							D_PATH,
+							D_LIFE,
+							D_STORAGE,
+							D_ALLERGY)
+	    VALUES(#{d_no}, #{d_category}, #{d_name}, #{d_detail},
+	           #{d_price}, #{d_stock}, #{d_image}, #{d_path},
+	            #{d_life}, #{d_storage}, #{d_allergy})
+	  </insert>
+	
+	<select id="getProductCnt" resultType="int">		<!-- admin 상품 리스트 개수 -->
+		 SELECT COUNT(D_NO) FROM DESSERT
+	</select>
+	  
+	<select id="getProducttList" parameterType="pdto">	<!-- admin 상품리스트 -->
+		SELECT 
+	    d_no
+	    ,d_category
+	    ,d_name
+	    ,d_detail
+	    ,d_price
+	    ,d_stock
+	    ,d_image
+	    ,d_path
+	    ,d_life
+	    ,d_storage
+	    ,d_allergy
+	 FROM DESSERT
+	</select>
+	
+	<select id="adminGetDessert" parameterType="int" resultType="ddto">	<!-- admin 상품no에 해당하는 상품 디테일 받아옴 -->
+	   SELECT 
+	      d_no
+	      ,d_category
+	      ,d_name
+	      ,d_detail
+	      ,d_price
+	      ,d_stock
+	      ,d_image
+	      ,d_path
+	      ,d_life
+	      ,d_storage
+	      ,d_allergy
+	   FROM dessert
+	   WHERE d_no = #{d_no}
+	</select>
+	
+	<select id="getProduct" parameterType="ddto" resultType="ddto">	<!-- admin 상품 수정 전 정보 -->
+	     SELECT 
+	      D_NO
+	      ,D_CATEGORY
+	      ,D_NAME
+	      ,D_DETAIL
+	      ,D_PRICE
+	      ,D_STOCK
+	      ,D_IMAGE
+	      ,D_PATH
+	      ,D_LIFE
+	      ,D_STORAGE
+	      ,D_ALLERGY
+	   FROM DESSERT
+	   WHERE D_NO = #{d_no}
+	</select>
+	
+	<update id="updateProduct" parameterType="ddto">	<!-- admin 상품 수정 -->
+		     UPDATE DESSERT SET
+		      D_NO	= #{d_no},
+		      D_CATEGORY = #{d_category},
+		      D_NAME = #{d_name},
+		      D_DETAIL = #{d_detail},
+		      D_PRICE = #{d_price},
+		      D_STOCK = #{d_stock},
+	      <if test = "d_image!=null">
+		      D_IMAGE = #{d_image},
+	      </if>
+		      D_PATH = #{d_path},
+		      D_LIFE = #{d_life},
+		      D_STORAGE = #{d_storage},
+		      D_ALLERGY = #{d_allergy}
+		     WHERE D_NO = #{d_no}
+	  </update>
+	  
+	  <select id="orderCntOfProduct" parameterType="int" resultType="int">	<!-- admin 주문내역 확인 -->
+	  	SELECT COUNT(O_NO) FROM ORDERT
+	  	WHERE D_NO = #{d_no}
+	  </select>
+	  
+	  <delete id="deleteProduct" parameterType="ddto">	<!-- admin 상품 삭제 -->
+	  	DELETE FROM DESSERT WHERE D_NO = #{d_no}
+	  </delete>
+	  
+	<!-- admin End -->
 </mapper>

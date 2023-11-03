@@ -32,7 +32,7 @@ public class AdminProductController {
 	@Value("${resources.location}")
 	String resourcesLocation;			////실제로 파일이 저장되는 파일서버 경로 설정한 값을 가져온것
 	
-	@RequestMapping("productMgt")	// 상품 개수와 목록
+	@RequestMapping("productMgt")	// 상품 개수와 목록. 상품리스트
 	public String ProductMgt(HttpServletRequest request,
 							 HttpServletResponse response,
 							 Model model,
@@ -58,7 +58,7 @@ public class AdminProductController {
 		return page;
 	}
 
-	@RequestMapping("/productInForm")		// 상품 등록
+	@RequestMapping("/productInForm")		// 상품리스트페이지->상품 등록 페이지로 이동
 	public String productInForm(HttpServletRequest request,
 			HttpServletResponse respose,
 			Model model,
@@ -82,7 +82,7 @@ public class AdminProductController {
 		return page;
 	}
 	
-	@RequestMapping("/productUpForm")						
+	@RequestMapping("/productUpForm")					// detail.jsp->productUp(js)->상품 수정 페이지 이동		
 	public String productUpForm(HttpServletRequest request,
 								HttpServletResponse respose,
 								Model model,
@@ -107,20 +107,19 @@ public class AdminProductController {
 		return page;
 	}
 	
-	/*
-	 * @RequestMapping("orderCntOfProduct") // 주문 내역 확인. 데이터 삭제를 위해 필요
-	 * 
-	 * @ResponseBody public int orderCntOfProduct(HttpServletRequest request) { int
-	 * dno =Integer.parseInt(request.getParameter("d_no")); return
-	 * productService.orderCntOfProduct(dno); }
-	 */
+	@RequestMapping("orderCntOfProduct")		// 주문 내역 확인. 데이터 삭제를 위해 필요
+	@ResponseBody
+	public int orderCntOfProduct(HttpServletRequest request) {
+		int dno =Integer.parseInt(request.getParameter("d_no"));	// orderCntOfProduct 메소드 호출 시 매개변수 타입으로 주기 위해
+		return dessertService.orderCntOfProduct(dno);
+	}
 	
-	@RequestMapping("/productMgtProc")		// 상품 등록, 수정 프로세스
+	@RequestMapping("/productMgtProc")		// 상품 등록, 수정, 삭제 프로세스
 	public String productMgtProc(HttpServletRequest request,
 								 HttpServletResponse respose,
 								 Model model,
 								 DessertDTO ddto,
-			@RequestParam("inImage") MultipartFile file) {
+								 @RequestParam("inImage") MultipartFile file) {
 		MemberDTO ssKey =null;
 		String url = null;
 		String msg = null;
@@ -150,6 +149,16 @@ public class AdminProductController {
 					  msg = "상품수정실패";
 				  }
 				  url = "productMgt";
+		   }else if(flag.equals("delete")) {
+			   System.out.println("flag 값은 = :"+flag);
+			   ddto.setD_path(resourcesLocation);
+			   r = dessertService.deleteProduct(ddto);		// 매퍼에서 수행된 행의 개수가 반환되면 그 값을 r에 저장
+			   if(r>0) {
+					  msg = "상품삭제성공";
+				  }else {
+					  msg = "상품삭제실패";
+				  }
+				  url = "productMgt";
 		   }
 		 }else {
 			 url="redirect:/";
@@ -161,6 +170,39 @@ public class AdminProductController {
 		session.setAttribute("ssKey", ssKey);
 		return "MsgPage";
 	}
+	
+	@RequestMapping("/productDel")		// 상품 등록, 수정, 삭제 프로세스
+	public String productMgtProc(HttpServletRequest request,
+			HttpServletResponse respose,
+			Model model,
+			DessertDTO ddto) {
+		MemberDTO ssKey =null;
+		String url = null;
+		String msg = null;
+		int r=0;													// 상품등록 결과 값을 담아줄 변수 선언
+		HttpSession session = request.getSession();					// 세션 받아옴
+		if(session.getAttribute("ssKey")!=null ) {					// 회원 비회원 구분
+			ssKey = (MemberDTO) session.getAttribute("ssKey");			// 회원일 경우 세션 저장
+			if(ssKey.getM_role().equals("admin")) {					// 관리자일 경우
+					ddto.setD_path(resourcesLocation);
+					r = dessertService.deleteProduct(ddto);		// 매퍼에서 수행된 행의 개수가 반환되면 그 값을 r에 저장
+					if(r>0) {
+						msg = "상품삭제성공";
+					}else {
+						msg = "상품삭제실패";
+					}
+					url = "productMgt";
+				}
+			}else {
+				url="redirect:/";
+				msg="잘못된 경로 접근입니다.";
+			}
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		session.setAttribute("ssKey", ssKey);
+		return "MsgPage";
+	}
+
 	@RequestMapping("/productDetail")		// 상품 디테일
 	public String productDetail(HttpServletRequest request,
 			HttpServletResponse respose,

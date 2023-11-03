@@ -51,9 +51,9 @@ $().ready(function(){
 				 alert('주문내역이 존재합니다.\n 삭제 불가');
 				 return false;
 			  }else{
-				  r = confirm('삭제하시겠습니까?');
+				  r = confirm('주문내역이 없습니다. 삭제하시겠습니까?');
 				 if(r){
-					  $('form[name=productDetailForm]').attr('action','/productMgtProc?flag=delete');
+					  $('form[name=productDetailForm]').attr('action','/productDel');
      				  $('form[name=productDetailForm]').submit();
 				 }else{
 					 return false
