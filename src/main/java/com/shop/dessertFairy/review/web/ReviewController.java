@@ -1,5 +1,6 @@
 package com.shop.dessertFairy.review.web;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,13 +68,24 @@ public class ReviewController {
 		
 		//리스트 목록과 페이지 수 계산한것을 불러온 것
 		Map<String, Object> reSet = reviewService.getReviewList(rdto, pageDto, orderby);
+		List<ReviewDTO>list=(List<ReviewDTO>) reSet.get("reviewList");
+		for(ReviewDTO rvdto : list) {
+			 String ratings = "";
+			  for(int i=0; i <rvdto.getR_star(); i++) {
+				   ratings += "★";
+			   }
+			   for(int i=0; i <5-rvdto.getR_star(); i++) {
+				    ratings += "☆";
+			   }
+			   rvdto.setRatings(ratings);
+		}
 		
 		//세션 저장
 		session.setAttribute("ssKey", ssKey);
 		
 		//데이터 저장
 		model.addAttribute("cnt", reSet.get("cnt"));
-		model.addAttribute("reviewList", reSet.get("reviewList"));
+		model.addAttribute("reviewList", list);
 		model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
 		model.addAttribute("contentsJsp",contentsJsp);
 		model.addAttribute("pageDto",pageDto);
@@ -233,13 +245,13 @@ public class ReviewController {
 	   //HttpSession 세션 객체 생성 및 세션 정보 받아오기
 	   HttpSession session = request.getSession();
 	   
-	   
-	   
 	   //세션이 있으면 ReviewMyList 페이지로 보내고 없으면 로그인 창으로 보내기
 	   if(session.getAttribute("ssKey")!=null) {
 		   
 		   MemberDTO mdto = memberService.getMember(ssKey);
 		   ssKey = (MemberDTO) session.getAttribute("ssKey");
+		   
+		   
 		   rdto.setM_id(ssKey.getM_id());
 		   page = "custom/review/MyList";
 	   }
@@ -253,11 +265,22 @@ public class ReviewController {
 	   
 	   //리스트 목록과 페이지 수 계산한것을 불러온 것
 	   Map<String, Object> reSet = reviewService.getMyList(rdto, pageDto, orderby);
+	   List<ReviewDTO>list=(List<ReviewDTO>) reSet.get("myList");
+		for(ReviewDTO rvdto : list) {
+			 String ratings = "";
+			  for(int i=0; i <rvdto.getR_star(); i++) {
+				   ratings += "★";
+			   }
+			   for(int i=0; i <5-rvdto.getR_star(); i++) {
+				    ratings += "☆";
+			   }
+			   rvdto.setRatings(ratings);
+		}
 	   //세션 저장
 	   session.setAttribute("mdto", ssKey);
 	   //데이터 저장
 	   model.addAttribute("cnt", reSet.get("cnt"));
-	   model.addAttribute("myList", reSet.get("myList"));
+	   model.addAttribute("myList", list);
 	   model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
 	   model.addAttribute("contentsJsp",contentsJsp);
 	   model.addAttribute("pageDto",pageDto);
