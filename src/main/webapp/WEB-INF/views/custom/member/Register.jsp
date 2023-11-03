@@ -57,7 +57,7 @@
 				<tr>
 					<td>전화번호</td>
 					<td>
-						<input type="text" class="chk" name="m_phone" title="전화번호" 
+						<input type="text" id="phone" class="chk" name="m_phone" title="전화번호" 
 						placeholder="전화번호를 입력하시오.(010-1111-1234)">
 					</td>
 				</tr>

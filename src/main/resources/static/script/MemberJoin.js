@@ -3,7 +3,7 @@ $().ready(function(){
  	var pcheck = true;
  	var pCombiCheck = true;
  	
- 	$('.m_join').on("click", function(){		//회원가입
+ 	$('.m_join').on("click", function(){		// 회원가입 버튼 눌렀을 시 체크
 		if(validate()){
 			 if(idchk==1){
 				alert('아이디 중복\n다시 해주세요')
@@ -26,7 +26,7 @@ $().ready(function(){
 			}
 		});
 		
-	$('.idchk').on('propertychange change input paste',function(){
+	$('.idchk').on('propertychange change input paste',function(){		//id 중복체크
        $.ajax({
 		   async:true,
 		   type:'post',
@@ -66,7 +66,7 @@ $().ready(function(){
 		}
 	  });
    
- 	  $('#password').keyup(function(){
+ 	  $('#password').keyup(function(){		// 비밀번호 문자+숫자+특수문자 조합
 		 var passwordCombination = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*?_]).{8,16}$/;
 		 
 		 if(!passwordCombination.test($('#password').val())){
@@ -77,6 +77,27 @@ $().ready(function(){
 				pCombiCheck = false;
 			} 
 		});
+
+ 	/*  $('#phone').keyup(function(){		// 휴대전화 번호 자동 하이픈 삽입
+	 	  	var regex =  /^[0-9\-]+$/;
+	 	  	var phone = '';
+	 	  	var phoneNum = $('#phone').val();
+	 	  	
+			if(!regex.test(phoneNum)){
+				alert('숫자만 입력 할 수 있습니다.');
+				$('#phone').val('');
+				return false;
+			}else{
+				$('#phone').attr({'maxlength':'13'});
+				phone += value.substr(0, 2);
+				phone += "-";
+				phone += value.substr(4, 7);
+				phone += "-";
+				phone += value.substr(9, 12);
+				$('#phone').val(phone);
+			}
+	});*/
+		
 	  
 });		// ready END
 
