@@ -34,7 +34,12 @@ public class ReviewController {
    @Value("${resources.location}")
    String resourcesLocation;
 
-   @RequestMapping("/reviewList")
+   
+   
+ // --리뷰 목록 + 글쓰기 start
+   
+   
+   @RequestMapping("/reviewList")//리뷰 리스트
    public String reviewList(HttpServletRequest request, HttpServletResponse response,
          Model model, ReviewDTO rdto,
          PageDTO pageDto) { 
@@ -50,9 +55,9 @@ public class ReviewController {
 		//세션이 있으면 ReviewList 페이지로 보내고 없으면 로그인 창으로 보내기
 		if(session.getAttribute("ssKey")!=null) {
 			ssKey = (MemberDTO) session.getAttribute("ssKey");
-			page = "custom/review/ReviewList";
-		}
-		else {
+			contentsJsp = "/custom/review/ReviewList";
+			   page = "Main";
+		}else {
 			page = "redirect:/login";
 		}
 		
@@ -73,17 +78,16 @@ public class ReviewController {
 		model.addAttribute("contentsJsp",contentsJsp);
 		model.addAttribute("pageDto",pageDto);
 		model.addAttribute("orderby",orderby);
-		model.addAttribute("page",page);
 		
 		
-		return "Main";
+		return page;
 	}
 	   
 	   
       
       
 
-   @RequestMapping("/reviewWrite")
+   @RequestMapping("/reviewWrite") //리뷰 글쓰기 경로
    public String ReviewWrite (HttpServletRequest request, HttpServletResponse response,
          Model model, ReviewDTO rdto) {
 
@@ -120,8 +124,9 @@ public class ReviewController {
 	   
 	   return page;
    }
+   
 
-   @RequestMapping("/reviewWriteProc")
+   @RequestMapping("/reviewWriteProc") //리뷰글쓰기 폼
    public String ReviewWriteProc (HttpServletRequest request, HttpServletResponse response,
          Model model, ReviewDTO rdto, @RequestParam("image2") MultipartFile file) {
 
@@ -158,8 +163,9 @@ public class ReviewController {
 	   
 	   return "MsgPage";
    }
+   
 
-   @RequestMapping("/reviewContent")
+   @RequestMapping("/reviewContent") //리뷰 내용보기
    public String ReviewContent (HttpServletRequest request, HttpServletResponse response,
          Model model, ReviewDTO rdto, PageDTO pageDto) {
 	   
@@ -206,53 +212,227 @@ public class ReviewController {
 		return "Main";
 	}
    
-   @RequestMapping("/mylist")
+   
+  // --리뷰 목록 + 글쓰기 end 
+   
+   
+   
+   
+  // --내 글보기 start 
+   
+   @RequestMapping("/mylist") //내 글보기 목록
    public String mylist(HttpServletRequest request, HttpServletResponse response,
-         Model model, ReviewDTO rdto,
-         PageDTO pageDto) { 
+		   Model model, ReviewDTO rdto,
+		   PageDTO pageDto) { 
 	   
-        //변수 선언
-	    String page = null;
-	    MemberDTO ssKey = null;
-	    String contentsJsp = "/custom/review/ReviewMyList";
-	    
-	    //HttpSession 세션 객체 생성 및 세션 정보 받아오기
+	   //변수 선언
+	   String page = null;
+	   MemberDTO ssKey = null;
+	   String contentsJsp = "/custom/review/MyList";
+	   
+	   //HttpSession 세션 객체 생성 및 세션 정보 받아오기
+	   HttpSession session = request.getSession();
+	   
+	   
+	   
+	   //세션이 있으면 ReviewMyList 페이지로 보내고 없으면 로그인 창으로 보내기
+	   if(session.getAttribute("ssKey")!=null) {
+		   
+		   MemberDTO mdto = memberService.getMember(ssKey);
+		   ssKey = (MemberDTO) session.getAttribute("ssKey");
+		   rdto.setM_id(ssKey.getM_id());
+		   page = "custom/review/MyList";
+	   }
+	   else {
+		   page = "redirect:/login";
+	   }
+	   
+	   //jsp로부터 orderby 파라미터를 받고, null이 들어오면 최신순으로 설정
+	   String orderby = request.getParameter("orderby");
+	   if(orderby==null) orderby = "new";
+	   
+	   //리스트 목록과 페이지 수 계산한것을 불러온 것
+	   Map<String, Object> reSet = reviewService.getMyList(rdto, pageDto, orderby);
+	   //세션 저장
+	   session.setAttribute("mdto", ssKey);
+	   //데이터 저장
+	   model.addAttribute("cnt", reSet.get("cnt"));
+	   model.addAttribute("myList", reSet.get("myList"));
+	   model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
+	   model.addAttribute("contentsJsp",contentsJsp);
+	   model.addAttribute("pageDto",pageDto);
+	   model.addAttribute("orderby",orderby);
+	   model.addAttribute("page",page);
+	   
+	   
+	   return "Main";
+   }
+   
+   
+   
+   @RequestMapping("/myContent")
+   public String MyContent (HttpServletRequest request, HttpServletResponse response,
+		   Model model, ReviewDTO rdto, PageDTO pageDto) {
+	   
+	   //세션 받아오기
+	   HttpSession session = request.getSession();
+	   
+	   //변수 선언해주기
+	   String contentsJsp = "/custom/review/MyContent";
+	   String page = null;
+	   
+	   //ssKey 세션에 있는 정보를 MemberDTO 타입의 mdto에 저장
+	   MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
+	   
+	   //파라메터에서 r_no를 가져온것
+	   int postNo = Integer.parseInt(request.getParameter("r_no"));
+	   
+	   //content 내용 가져오기
+	   rdto.setStart(postNo);
+	   rdto.setEnd(postNo+1);
+	   ReviewDTO review = reviewService.getMycontent(rdto);
+	   model.addAttribute("review", review);
+	   
+	   
+	   //점수를 별로 바꾸는 것(jsp에 value값)
+	   String ratings = "";
+	   for(int i=0; i <review.getR_star(); i++) {
+		   ratings += "★";
+	   }
+	   for(int i=0; i <5-review.getR_star(); i++) {
+		   ratings += "☆";
+	   }
+	   
+	   //모델에 저장
+	   model.addAttribute("ratings", ratings);
+	   
+	   //페이지 불러오기
+	   page = "custom/review/MyContent";
+	   
+	   //세션에 저장
+	   session.setAttribute("ssKey", mdto);
+	   model.addAttribute("contentsJsp", page);
+	   
+	   
+	   return "Main";
+   }
+   
+   @RequestMapping("/myUpForm")
+   public String ReviewUpForm(HttpServletRequest request, HttpServletResponse response,
+		   ReviewDTO rdto,
+		   Model model,
+		   PageDTO pageDto) {
+	   HttpSession session = request.getSession();
+	   
+	   String contentsJsp = null;
+	   String page = null;
+	   
+	   MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
+	   if(session.getAttribute("ssKey")!=null) {
+		 
+		   ReviewDTO review = reviewService.getMycontent(rdto);
+		   model.addAttribute("review", review);
+		   
+		   
+		   //점수를 별로 바꾸는 것(jsp에 value값)
+		   String ratings = "";
+		   for(int i=0; i <review.getR_star(); i++) {
+			   ratings += "★";
+		   }
+		   
+		   //모델에 저장
+		   model.addAttribute("ratingLength", ratings.length());
+		   page = "Main";
+		   contentsJsp = "./custom/review/MyUpContent";
+	   }else {
+		   page = "Main";
+		   contentsJsp = "./custom/member/Login";
+	   }
+	   
+	   
+	   
+	   session.setAttribute("ssKey", mdto);
+	   model.addAttribute("review", rdto);
+	   model.addAttribute("contentsJsp", contentsJsp);
+	   
+	   return page;
+   }
+   
+   
+   @RequestMapping("/upProc")
+	public String UpProc(HttpServletRequest request, HttpServletResponse response,
+			ReviewDTO rdto,
+			Model model,
+			PageDTO pageDto,
+			@RequestParam("image2") MultipartFile file) {
+	   
 		HttpSession session = request.getSession();
+		String contentsJsp = null;
+		String page = null;
+		MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
 		
+		//이미지 경로 저장
+		 rdto.setR_path(resourcesLocation);
 
-
-		//세션이 있으면 ReviewMyList 페이지로 보내고 없으면 로그인 창으로 보내기
+		 //결과 처리
 		if(session.getAttribute("ssKey")!=null) {
-			
-			MemberDTO mdto = memberService.getMember(ssKey);
-			ssKey = (MemberDTO) session.getAttribute("ssKey");
-			page = "custom/review/ReviewMyList";
-		}
-		else {
-			page = "redirect:/login";
-		}
+			String msg = null;
+			String url = null;
+				
+					page = "MsgPage";
+					System.out.println(rdto);
+					int r = reviewService.updateProc(rdto, file);
+					if(r>0) msg = "수정이 완료 되었습니다.";
+					else msg = "수정을 실패했습니다.";
+					url = "/mylist";
+				if(url!=null) model.addAttribute("url", url);
+				if(msg!=null) model.addAttribute("msg", msg);
+				
+			}else {
+				page = "Main";
+				contentsJsp = "custom/review/MyList";
+			}
 		
-		//jsp로부터 orderby 파라미터를 받고, null이 들어오면 최신순으로 설정
-		String orderby = request.getParameter("orderby");
-		if(orderby==null) orderby = "new";
+		session.setAttribute("ssKey", mdto);
+		model.addAttribute("contentsJsp", contentsJsp);
 		
-		//리스트 목록과 페이지 수 계산한것을 불러온 것
-		Map<String, Object> reSet = reviewService.getReviewMyList(rdto, pageDto, orderby);
-		
-		//세션 저장
-		session.setAttribute("mdto", ssKey);
-		//데이터 저장
-		model.addAttribute("cnt", reSet.get("cnt"));
-		model.addAttribute("reviewmyList", reSet.get("reviewmyList"));
-		model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
-		model.addAttribute("contentsJsp",contentsJsp);
-		model.addAttribute("pageDto",pageDto);
-		model.addAttribute("orderby",orderby);
-		model.addAttribute("page",page);
-		
-		
-		return "Main";
+		return page;
 	}
+   
+   @RequestMapping("/delProc")
+   public String ReviewProc(HttpServletRequest request, HttpServletResponse response,
+		   ReviewDTO rdto,
+		   Model model,
+		   PageDTO pageDto) {
+	   String flag = request.getParameter("flag");
+	   HttpSession session = request.getSession();
+	   String contentsJsp = null;
+	   String page = null;
+	   MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
+	   if(session.getAttribute("ssKey")!=null) {
+		   String msg = null;
+		   String url = null;
+		  
+			   page = "MsgPage";
+			   int r = reviewService.deleteProc(rdto);
+			   if(r>0) msg = "삭제가 완료 되었습니다.";
+			   else msg = "삭제를 실패했습니다.";
+			   url = "/mylist";
+		
+		   if(url!=null) model.addAttribute("url", url);
+		   if(msg!=null) model.addAttribute("msg", msg);
+		   
+	   }else {
+		   page = "Main";
+		   contentsJsp = "./custom/review/MyList";
+	   }
+	   
+	   session.setAttribute("ssKey", mdto);
+	   model.addAttribute("contentsJsp", contentsJsp);
+	   
+	   return page;
+   }
+   
    
    
    public String myArticle(HttpServletRequest request, HttpServletResponse response,
