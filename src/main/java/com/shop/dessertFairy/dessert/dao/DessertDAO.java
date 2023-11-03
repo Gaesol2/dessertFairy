@@ -27,7 +27,11 @@ public interface DessertDAO {
 
 	DessertDTO getProduct(int d_no);						//admin 상품 수정 전 정보
 
-	int updateProduct(DessertDTO ddto, MultipartFile file);	//admin 상품 수정
+	int updateProduct(DessertDTO ddto);	//admin 상품 수정
+
+	int orderCntOfProduct(int dno);		//admin 주문내역 확인 .데이터 삭제를 위해서
+
+	int deleteProduct(DessertDTO ddto);	//admin 상품 삭제
 
 
 }

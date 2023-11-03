@@ -45,11 +45,11 @@ public class DessertServiceImpl implements DessertService {
    }
 
    @Override
-	public int insertProduct(DessertDTO ddto, MultipartFile file) {
+	public int insertProduct(DessertDTO ddto, MultipartFile file) {		//admin 상품 등록
 		String sourceFileName = file.getOriginalFilename();
 		File destinationFile;
 		if(sourceFileName==null || sourceFileName.length()==0) {
-		  ddto.setD_image("ready.gif");
+		  ddto.setD_image("ready.jpg");
 		}else {
 		  ddto.setD_image(sourceFileName);
 		  destinationFile = new File(ddto.getD_path()+sourceFileName);
@@ -65,7 +65,7 @@ public class DessertServiceImpl implements DessertService {
 	}
    
 	@Override
-	public Map<String, Object> getProductList(PageDTO pdto) {
+	public Map<String, Object> getProductList(PageDTO pdto) {		//admin 상품 리스트
 	
 		int cnt = dessertDao.getProductCnt();
 		Map<String, Object> resultSet = new HashMap<String, Object>();
@@ -77,9 +77,23 @@ public class DessertServiceImpl implements DessertService {
 	}
 
 	@Override
-	public int updateProduct(DessertDTO ddto, MultipartFile file) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int updateProduct(DessertDTO ddto, MultipartFile file) {		//admin 상품 수정
+		String sourceFileName = file.getOriginalFilename();
+		File destinationFile;
+		if(sourceFileName==null || sourceFileName.length()==0) {
+			if(ddto.getD_image()==null || ddto.getD_image().equals("ready.jpg"))
+				ddto.setD_image("ready.jpg");
+		}else {
+		  ddto.setD_image(sourceFileName);
+		  destinationFile = new File(ddto.getD_path()+sourceFileName);
+		  destinationFile.getParentFile().mkdirs(); //파일명으로 생성
+		  try {
+			  file.transferTo(destinationFile);	//받은 파일 전송(업로드)
+		  }catch (Exception e) {
+			  e.printStackTrace();
+		  }
+		}
+		return dessertDao.updateProduct(ddto);
 	}
 
 	@Override
@@ -88,8 +102,18 @@ public class DessertServiceImpl implements DessertService {
 	}
 
 	@Override
-	public DessertDTO getProduct(int d_no) {
+	public DessertDTO getProduct(int d_no) {		// admin 상품 수정 전 정보 받아오기
 		return dessertDao.getProduct(d_no);
+	}
+
+	@Override
+	public int orderCntOfProduct(int dno) {			// admin 주문내역 확인. 데이터 삭제를 위해서
+		return dessertDao.orderCntOfProduct(dno);
+	}
+
+	@Override
+	public int deleteProduct(DessertDTO ddto) {		//admin 상품 삭제
+		return dessertDao.deleteProduct(ddto);
 	}
 
 
