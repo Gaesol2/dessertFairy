@@ -52,9 +52,6 @@
 				    value="${ratings}" class="chkb">
          </td>
       </tr>
-      <tr class="reviewBtn">
-         <td colspan="2"><input type="button" class="writeSubmit" value="등록"></td>
-      </tr>
    </table>
 </div>
 <div id="replybox">

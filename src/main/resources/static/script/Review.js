@@ -8,19 +8,27 @@ $().ready(function(){
       }
    });
 
-	   $('.noticeUp').on('click', function(){
-		   $("form[name=topForm1]").attr('action', "/noticeUpForm")
-		   $("form[name=topForm1]").submit();
+	   $('.reviewUp').on('click', function(){
+		   $("form[name=reviewForm]").attr('action', "/myUpForm")
+		   $("form[name=reviewForm]").submit();
 	 });
 	 
-	   $('.noticeDel').on('click', function(){
-		   $("form[name=topForm1]").attr('action', "/noticeProc?flag=delete")
-		   $("form[name=topForm1]").submit();
+	   $('.reviewDel').on('click', function(){
+		   $("form[name=reviewForm]").attr('action', "/delProc")
+		   $("form[name=reviewForm]").submit();
 	 });
 	 
+	 $('.reviewUpdate').on('click', function(){
+		   $("form[name=reviewForm]").attr('action', "/upProc")
+		   $("form[name=reviewForm]").submit();
+	 });
 	 
-	 
-	 
+		 let ratingLength = Number($("input[name='ratingLength']").val());
+		 if(ratingLength==5) $("#rate1").attr("checked","checked");
+		 else if(ratingLength==4) $("#rate2").attr("checked","checked");
+		 else if(ratingLength==3) $("#rate3").attr("checked","checked");
+		 else if(ratingLength==2) $("#rate4").attr("checked","checked");
+		 else $("#rate5").attr("checked","checked");		 
 	 
 	 
    });//ready 끝

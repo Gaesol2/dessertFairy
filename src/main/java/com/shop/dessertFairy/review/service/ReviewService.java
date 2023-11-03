@@ -9,16 +9,30 @@ import com.shop.dessertFairy.review.dto.ReviewDTO;
 
 public interface ReviewService {
 
-   int reviewWrite(ReviewDTO rdto, MultipartFile file);
-
    Map<String, Object> getReviewList(ReviewDTO rdto, PageDTO pageDto, String orderby);
+
+   int reviewWrite(ReviewDTO rdto, MultipartFile file);
 
    ReviewDTO getReviewcontent(ReviewDTO rdto);
 
-   Map<String, Object> getReviewMyList(ReviewDTO rdto, PageDTO pageDto, String orderby);
+   Map<String, Object> getMyList(ReviewDTO rdto, PageDTO pageDto, String orderby);
 
+   ReviewDTO getMycontent(ReviewDTO rdto);
+   
+   ReviewDTO getMyupform(ReviewDTO rdto);
+   
+   int updateProc(ReviewDTO rdto, MultipartFile file);
+   
+   int deleteProc(ReviewDTO rdto);
+   
+   
+   
    int replyWrite(ReviewDTO rdto);
 
    Map<String, Object> getReplyList(ReviewDTO rdto, PageDTO pageDto);
+
+
+
+
 
 }	

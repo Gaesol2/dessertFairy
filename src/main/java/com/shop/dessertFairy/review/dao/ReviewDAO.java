@@ -12,17 +12,31 @@ public interface ReviewDAO {
 
 	int getReviewCnt();
 	
-    int reviewWrite(ReviewDTO rdto);
+	List<ReviewDTO> getReviewList(ReviewDTO rdto);
 
-    List<ReviewDTO> getReviewList(ReviewDTO rdto);
+	int reviewWrite(ReviewDTO rdto);
 
 	int updateReadCnt(ReviewDTO rdto);
 
 	List<ReviewDTO> getReviewListOrderby(Map<String, Object> map);
 
-	List<ReviewDTO> getReviewMyList(ReviewDTO rdto);
+	List<ReviewDTO> getMyList(ReviewDTO rdto);
 
+	int updateProc(ReviewDTO rdto);
+	
+	int deleteProc(ReviewDTO rdto);
+	
+	List<ReviewDTO> getReviewupform(ReviewDTO rdto);
+	
+	ReviewDTO getMycontent(ReviewDTO rdto);
+	
+	
+	
 	List<ReviewDTO> getReplyList(ReviewDTO rdto);
+
+
+
+
 
 
 }
