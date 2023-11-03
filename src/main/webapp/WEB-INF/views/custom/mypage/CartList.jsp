@@ -25,18 +25,23 @@
   </div> <!-- top end -->
   <div id="cartContent">
   	<c:choose>
-  		<c:forEach var="" items="">
-			<div class="cart_img">
-				<img src="/upload/" width="100px" height="100px">
-			</div> <!-- cart_img end -->
-			<div class="cart_txt">
-				<ul>
-					<li>1번줄</li>
-					<li>2번줄</li>
-					<li>3번줄</li>
-				</ul>
-			</div> <!-- cart_txt end -->
-  		</c:forEach>
+  		<c:when test="${hCartList==null}">
+  			장바구니 목록이 없습니다.
+  		</c:when>
+  		<c:when test="${hCartList!=null}">
+			<c:forEach var="cart" items="${hCartList}">
+				<div class="cart_img">
+					<img src="/upload/" width="100px" height="100px">
+				</div> <!-- cart_img end -->
+				<div class="cart_txt">
+					<ul>
+						<li>${hCartList.p_name}</li>
+						<li>2번줄</li>
+						<li>3번줄</li>
+					</ul>
+				</div> <!-- cart_txt end -->
+			</c:forEach>  	  		
+  		</c:when>
   	</c:choose>
 		
   </div> <!-- cartContent end -->
