@@ -22,15 +22,6 @@
     </div>
   </div>
   <div class="reviewlist">
-  	<div class="col-auto">
-     <select class="category" onchange="javascript:category()">
-       <option>선택하세요</option>
-       <option ${orderby=="new"?"selected":""}>최신순</option>
-       <option ${orderby=="old"?"selected":""}>오래된 순</option>
-       <option ${orderby=="star"?"selected":""}>별점 높은순</option>
-       <option ${orderby=="read"?"selected":""}>조회수 순</option>
-     </select>
-</div>
   		<table class="reviewtable">
 	      <tr class="headcolor">
 	         <th></th>
@@ -40,11 +31,11 @@
 	         <th>작성일</th>
 	      </tr>
 	 	      <c:choose>
-  	            <c:when test="${fn:length(reviewmyList)>0}"> 
- 	              <c:forEach var="review" items="${reviewmyList}"> 
+  	            <c:when test="${fn:length(myList)>0}"> 
+ 	              <c:forEach var="review" items="${myList}"> 
 	               <tr>
 	                  <td class="col1">${review.r_no}</td>
-	                  <td class="col2"><a href="/reviewContent?r_no=${review.r_no}">${review.r_subject}</a>
+	                  <td class="col2"><a href="/myContent?r_no=${review.r_no}">${review.r_subject}</a>
 	                  <td class="col3">${review.m_id}</td>
 	                  </td>
 	                  <td class="col4">${review.r_readcount}</td>
@@ -52,9 +43,9 @@
 	               </tr>
  	            </c:forEach>
  	         </c:when>
- 	         <c:when test="${fn:length(reviewmyList)==0}">
+ 	         <c:when test="${fn:length(myList)==0}">
  	            <tr style="text-align: center;" height="30px;">
- 	               <th colspan="5">등록된 상품이 없습니다.</th>
+ 	               <th colspan="5">등록된 후기가 없습니다.</th>
  	            </tr>
  	         </c:when>
  	      </c:choose>

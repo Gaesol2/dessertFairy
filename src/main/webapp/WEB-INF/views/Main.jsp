@@ -12,7 +12,7 @@
 <div id="wrap">
 
    <div id="top">
-      <c:import url="./custom/Top.jsp" />
+      <c:import url="./Top.jsp" />
    </div>
    
    <div class="clear"></div>
@@ -26,7 +26,7 @@
         
    </div>   <!-- blank end -->
    <div id="bottom">
-      <c:import url="./custom/Bottom.jsp" />
+      <c:import url="./Bottom.jsp" />
    </div>
 
 </div>

@@ -30,7 +30,7 @@
        <option ${orderby=="star"?"selected":""}>별점 높은순</option>
        <option ${orderby=="read"?"selected":""}>조회수 순</option>
      </select>
-</div>
+	</div>
   		<table class="reviewtable">
 	      <tr class="headcolor">
 	         <th></th>

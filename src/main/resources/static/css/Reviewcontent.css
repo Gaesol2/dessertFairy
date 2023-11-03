@@ -96,14 +96,11 @@ textarea {
 }
 
 
-.replytable tr, .replytable td{
-	border: solid 1px black;
-}
 
-.replycontent{
-	height: 30px;
+.replys{
+	font-size: 18px;
+	width: 500px;
 }
-
 
 
 
