@@ -121,7 +121,7 @@
 </select>
 
 <update id="updateProduct" parameterType="ddto">
-	     UPDATE PRODUCT SET
+	     UPDATE DESSERT SET
 	      D_NO	= #{d_no},
 	      D_CATEGORY = #{d_category},
 	      D_NAME = #{d_name},
@@ -134,7 +134,7 @@
 	      D_PATH = #{d_path},
 	      D_LIFE = #{d_life},
 	      D_STORAGE = #{d_storage},
-	      D_ALLERGY = #{d_allergy},
+	      D_ALLERGY = #{d_allergy}
 	     WHERE D_NO = #{d_no}
   </update>
 <!-- admin End -->

@@ -41,6 +41,14 @@
 	     </tr>
 	     
 	     <tr>
+			<th>상품설명</th>
+			<td>
+				<input type="text" name="d_detail" class="chk1" title="상품 설명"
+				placeholder="상품설명을 입력하시오">
+			</td>
+		</tr>
+						
+	     <tr>
 	       <th>상품가격</th>
 	       <td>
 	        <input type="text" name="d_price" class="chk1 inprice" title="상품가격" 
@@ -59,7 +67,7 @@
 	     <tr>
 	       <th>상품이미지</th>
 	       <td>
-	        <input type="file" name="image" class="chk1" title="이미지"
+	        <input type="file" name="inImage" class="chk1" title="이미지"
 	        placeholder="이미지 첨부하시오">
 	       </td>
 	     </tr>

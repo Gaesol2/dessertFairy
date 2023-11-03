@@ -37,4 +37,31 @@ $().ready(function(){
 		$('form[name=productDetailForm]').submit();
 	});
 	
+	$('.productDel').on('click',function(){			//상품 삭제
+	  dno = $('input[name=d_no]').val();
+	 $.ajax({
+		   async:true,
+		   type:'post',
+		   data:{"d_no":dno
+		         },
+		   url: 'orderCntOfProduct',
+		   dataType:"json",
+		   success : function(cnt) {
+			 if(cnt>0){
+				 alert('주문내역이 존재합니다.\n 삭제 불가');
+				 return false;
+			  }else{
+				  r = confirm('삭제하시겠습니까?');
+				 if(r){
+					  $('form[name=productDetailForm]').attr('action','/productMgtProc?flag=delete');
+     				  $('form[name=productDetailForm]').submit();
+				 }else{
+					 return false
+				 }
+			  }
+				 
+		     }
+	   });
+  });
+	
 });		//ready end

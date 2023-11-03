@@ -49,7 +49,7 @@ public class DessertServiceImpl implements DessertService {
 		String sourceFileName = file.getOriginalFilename();
 		File destinationFile;
 		if(sourceFileName==null || sourceFileName.length()==0) {
-		  ddto.setD_image("ready.gif");
+		  ddto.setD_image("ready.jpg");
 		}else {
 		  ddto.setD_image(sourceFileName);
 		  destinationFile = new File(ddto.getD_path()+sourceFileName);
@@ -78,7 +78,22 @@ public class DessertServiceImpl implements DessertService {
 
 	@Override
 	public int updateProduct(DessertDTO ddto, MultipartFile file) {
-		return dessertDao.updateProduct(ddto, file);
+		String sourceFileName = file.getOriginalFilename();
+		File destinationFile;
+		if(sourceFileName==null || sourceFileName.length()==0) {
+			if(ddto.getD_image()==null || ddto.getD_image().equals("ready.jpg"))
+				ddto.setD_image("ready.jpg");
+		}else {
+		  ddto.setD_image(sourceFileName);
+		  destinationFile = new File(ddto.getD_path()+sourceFileName);
+		  destinationFile.getParentFile().mkdirs(); //파일명으로 생성
+		  try {
+			  file.transferTo(destinationFile);	//받은 파일 전송(업로드)
+		  }catch (Exception e) {
+			  e.printStackTrace();
+		  }
+		}
+		return dessertDao.updateProduct(ddto);
 	}
 
 	@Override

@@ -34,12 +34,15 @@
 							<td>${dessert.d_category}</td>
 						</tr>
 						
-						
 						<tr>
 							<th>상품명</th>
 							<td>${dessert.d_name}</td>
 						</tr>
 						
+						<tr>
+							<th>상품설명</th>
+							<td>${dessert.d_detail}</td>
+						</tr>
 						
 						<tr>
 							<th>가격</th>
@@ -52,18 +55,15 @@
 							<td>${dessert.d_stock}</td>
 						</tr>
 						
-						
 						<tr>
 							<th>유통기한</th>
 							<td>${dessert.d_life}</td>
 						</tr>
 						
-						
 						<tr>
 							<th>보관방법</th>
 							<td>${dessert.d_storage}</td>
 						</tr>
-						
 						
 						<tr>
 							<th>알레르기 성분</th>

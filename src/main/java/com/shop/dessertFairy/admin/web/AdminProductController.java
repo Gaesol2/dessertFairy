@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.shop.dessertFairy.common.dto.PageDTO;
@@ -83,9 +84,9 @@ public class AdminProductController {
 	
 	@RequestMapping("/productUpForm")						
 	public String productUpForm(HttpServletRequest request,
-			HttpServletResponse respose,
-			Model model,
-			DessertDTO ddto) {
+								HttpServletResponse respose,
+								Model model,
+								DessertDTO ddto) {
 		String page=null;
 		MemberDTO ssKey = null;
 	    DessertDTO beforeDto = null;
@@ -106,12 +107,20 @@ public class AdminProductController {
 		return page;
 	}
 	
+	/*
+	 * @RequestMapping("orderCntOfProduct") // 주문 내역 확인. 데이터 삭제를 위해 필요
+	 * 
+	 * @ResponseBody public int orderCntOfProduct(HttpServletRequest request) { int
+	 * dno =Integer.parseInt(request.getParameter("d_no")); return
+	 * productService.orderCntOfProduct(dno); }
+	 */
+	
 	@RequestMapping("/productMgtProc")		// 상품 등록, 수정 프로세스
 	public String productMgtProc(HttpServletRequest request,
-			HttpServletResponse respose,
-			Model model,
-			DessertDTO ddto,
-			@RequestParam("image") MultipartFile file) {
+								 HttpServletResponse respose,
+								 Model model,
+								 DessertDTO ddto,
+			@RequestParam("inImage") MultipartFile file) {
 		MemberDTO ssKey =null;
 		String url = null;
 		String msg = null;

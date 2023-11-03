@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 </head>
+<script src="/script/admin.js"></script>
 <body>
 <div id="product_Update_Box">
   <h2>상품 수정</h2>
@@ -38,6 +39,14 @@
 	        value="${ddto.d_name}">
 	       </td>
 	     </tr>
+
+	     <tr>
+	       <th>상품설명</th>
+	       <td>
+	        <input type="text" name="d_detail" class="chk1"  title="상품설명"
+	        value="${ddto.d_detail}">
+	       </td>
+	     </tr>
 	     
 	     <tr>
 	       <th>상품가격</th>
@@ -58,9 +67,18 @@
 	     <tr>
 	       <th>상품이미지</th>
 	       <td>
-	       <img alt="이미지" src="upload/${ddto.d_image}">
-	        <input type="file" name="d_image" class="chk1" title="이미지"
-	        placeholder="이미지 첨부하시오">
+		       <img alt="이미지" src="upload/${ddto.d_image}">
+		       <c:choose>
+       		 		<c:when test="${ddto.d_image==null or ddto.d_image==ready.jpg}">
+	        			<input type="file" name="inImage" class="chk1" 
+	        			title="이미지" value="${ddto.d_image}">
+          			</c:when>
+          			<c:when test="${ddto.d_image!=null and ddto.d_image!=ready.jpg}">
+	        			<input type="file" name="inImage"
+	      				  title="이미지" value="${ddto.d_image}">
+          			</c:when>
+         		</c:choose>
+		        <input type="hidden" name="upImage" value="${ddto.d_image}">
 	       </td>
 	     </tr>
 	     
