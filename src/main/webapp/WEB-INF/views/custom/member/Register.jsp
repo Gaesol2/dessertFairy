@@ -21,22 +21,23 @@
 					<td>
 						<input type="text" class="chk idchk" name="m_id" title="아이디" 
 						placeholder="아이디를 입력하시오.">
-						<font id="warning" size="2" color="red"></font>
+						<font id="idcheck" size="2" color="red"></font>
 					</td>
 				</tr>
 				<tr>
 					<td>비밀번호</td>
 					<td>
-						<input type="password" class="chk check1" name="m_passwd" title="비밀번호" 
+						<input type="password" id="password" class="chk check1" name="m_passwd" title="비밀번호" 
 						placeholder="비밀번호를 입력하시오.">
-						<font id="check" size="2" color="green"></font>
+						<font id="pcombiCheck" size="2" color="green"></font>
 					</td>
 				</tr>
 				<tr>
 					<td>비밀번호 확인</td>
 					<td>
-						<input type="password" class="chk check2" name="m_rePasswd" title="비밀번호 확인" 
+						<input type="password" id="cpassword" class="chk check2" name="m_rePasswd" title="비밀번호 확인" 
 						placeholder="비밀번호를 확인하시오.">
+						<font id="pcheck" size="2" color="green"></font>
 					</td>
 				</tr>
 				<tr>
