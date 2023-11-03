@@ -8,7 +8,7 @@ import lombok.ToString;
 public class ReviewDTO {
 	private int start;
 	private int end;
-	
+	private String ratings;
    private int r_rr;
    private int r_no;
    private String r_subject;

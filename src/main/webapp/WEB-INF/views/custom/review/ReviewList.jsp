@@ -36,6 +36,7 @@
 	         <th></th>
 	         <th>제목</th>
 	         <th>작성자</th>
+	         <th>별점</th>
 	         <th>조회수</th>
 	         <th>작성일</th>
 	      </tr>
@@ -46,9 +47,9 @@
 	                  <td class="col1">${review.r_no}</td>
 	                  <td class="col2"><a href="/reviewContent?r_no=${review.r_no}">${review.r_subject}</a>
 	                  <td class="col3">${review.m_id}</td>
-	                  </td>
-	                  <td class="col4">${review.r_readcount}</td>
-	                  <td class="col5">${review.r_regdate}</td>
+	                  <td class="col4">${review.ratings}</td>
+	                  <td class="col5">${review.r_readcount}</td>
+	                  <td class="col6">${review.r_regdate}</td>
 	               </tr>
  	            </c:forEach>
  	         </c:when>
@@ -59,7 +60,7 @@
  	         </c:when>
  	      </c:choose>
 	   <tr>
-	    <td colspan="5" style="text-align: center;">
+	    <td colspan="6" style="text-align: center;">
 	      <c:if test="${pageDto.startPg>pBlock}">
 	        <a href="reviewList?curPage=${pageDto.startPg-pBlock}&curBlock=${pageDto.curBlock-1}">[이전]</a>
 	      </c:if>

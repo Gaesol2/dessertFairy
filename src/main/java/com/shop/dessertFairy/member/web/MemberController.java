@@ -41,10 +41,22 @@ public class MemberController {
 			HttpServletResponse response,
 			Model model,
 			MemberDTO mdto) {
-		int r = memberService.memberJoin(mdto);					// memberService 인터페이스의 memberJoin(mdto) 메소드 호출
+		String msg = null;
+		String url = null;
 		
+		int r = memberService.memberJoin(mdto);				// memberService 인터페이스의 memberJoin(mdto) 메소드 호출
+		if(r>0) {
+			msg = "회원가입 성공";
+			url = "/";
+		}
+		else {
+			msg = "회원가입 실패";
+			url = "redirect:register";
+		}
+		 model.addAttribute("msg", msg);
+		 model.addAttribute("url", url);
 		
-		return "redirect:/";
+		return "MsgPage";
 	}
 	
 	@RequestMapping("/idCheck")							// 회원가입시 ID 중복 체크

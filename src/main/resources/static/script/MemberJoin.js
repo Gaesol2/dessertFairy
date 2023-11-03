@@ -1,24 +1,32 @@
 $().ready(function(){
 	var idchk=1;	
  	var pcheck = true;
+ 	var pCombiCheck = true;
  	
- 	$('.m_join').on("click", function(){		//회원가입
-			if(validate()){
+ 	$('.m_join').on("click", function(){		// 회원가입 버튼 눌렀을 시 체크
+		if(validate()){
 			 if(idchk==1){
 				alert('아이디 중복\n다시 해주세요')
 				$('.idchk').focus();
 				 return false;
-			    }
-			    
+		    }
+		    	if(pCombiCheck){
+				 alert('패스워드 형식이 잘못되었습니다.');
+				 $('#password').focus();
+				 $('font[id=pcombiCheck]').text('');
+				 return false;
+			  }
+
 			  if(pcheck){
 				 alert('패스워드가 다릅니다.');
+				 $('#cpassword').focus();
 				 return false;
 			  }  
 				$('form').submit();
 			}
 		});
 		
-	$('.idchk').on('propertychange change input paste',function(){
+	$('.idchk').on('propertychange change input paste',function(){		//id 중복체크
        $.ajax({
 		   async:true,
 		   type:'post',
@@ -27,37 +35,70 @@ $().ready(function(){
 		   dataType:"json",
 		   success:function(data){
 			   if(data>0){ //이미 존재하는 id
-				  $('font[id=warning]').text('');
-				  $('font[id=warning]').attr('color','red');
-				  $('font[id=warning]').text('이미 존재하는 아이디 입니다.');
+				  $('font[id=idcheck]').text('');
+				  $('font[id=idcheck]').attr('color','red');
+				  $('font[id=idcheck]').text('이미 존재하는 아이디 입니다.');
 				  $('.idchk').focus();
 				 idchk =1; //submit 불가  
 			   }else{ //사용가능한 id
-				  $('font[id=warning]').text('');
-				  $('font[id=warning]').attr('color','blue');
-				  $('font[id=warning]').text('사용가능한 아이디 입니다.');
+				  $('font[id=idcheck]').text('');
+				  $('font[id=idcheck]').attr('color','blue');
+				  $('font[id=idcheck]').text('사용가능한 아이디 입니다.');
 				  $('.idchk').focus();
 				 idchk=0; //전송가능 
 			   }
 		   }
 	   });	 
       });	
-   
-   $('.check1, .check2').keyup(function(){
-	    $('font[id=check]').text('');
-	    if($('.check1').val()!=$('.check2').val()){
-			 $('font[id=check]').text('');
-			 $('font[id=check]').attr('color','red');
-			 $('font[id=check]').text('패스워드 다름');
+
+	 $('#password, #cpassword').keyup(function(){				// 회원가입 비밀번호 확인
+	    $('font[id=pcheck]').text('');
+	    if($('#password').val()!=$('#cpassword').val()){
+			 $('font[id=pcheck]').text('');
+			 $('font[id=pcheck]').attr('color','red');
+			 $('font[id=pcheck]').text('패스워드 다름');
 			 pcheck=true;
 		}else{
-			 $('font[id=check]').text('');
-			  $('font[id=check]').attr('color','#008000');
-			 $('font[id=check]').text('패스워드 같음');
+			 $('font[id=pcheck]').text('');
+			  $('font[id=pcheck]').attr('color','#008000');
+			 $('font[id=pcheck]').text('패스워드 같음');
 			 pcheck=false;
 		}
 	  });
- 
+   
+ 	  $('#password').keyup(function(){		// 비밀번호 문자+숫자+특수문자 조합
+		 var passwordCombination = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*?_]).{8,16}$/;
+		 
+		 if(!passwordCombination.test($('#password').val())){
+			 $('font[id=pcombiCheck]').text('비밀번호는 최소 8자에서 16자까지, 영문자, 숫자 및 특수 문자를 포함해야 합니다.');
+			 pCombiCheck = true;
+			}else{
+				$('font[id=pcombiCheck]').text('');
+				pCombiCheck = false;
+			} 
+		});
+
+ 	/*  $('#phone').keyup(function(){		// 휴대전화 번호 자동 하이픈 삽입
+	 	  	var regex =  /^[0-9\-]+$/;
+	 	  	var phone = '';
+	 	  	var phoneNum = $('#phone').val();
+	 	  	
+			if(!regex.test(phoneNum)){
+				alert('숫자만 입력 할 수 있습니다.');
+				$('#phone').val('');
+				return false;
+			}else{
+				$('#phone').attr({'maxlength':'13'});
+				phone += value.substr(0, 2);
+				phone += "-";
+				phone += value.substr(4, 7);
+				phone += "-";
+				phone += value.substr(9, 12);
+				$('#phone').val(phone);
+			}
+	});*/
+		
+	  
 });		// ready END
 
 //chk에 대해서 점검
