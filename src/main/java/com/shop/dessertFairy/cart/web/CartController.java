@@ -53,4 +53,21 @@ public class CartController {
 		session.setAttribute("ssKey", sdto);
 		return page;
 	}
+	
+	@RequestMapping("cartProc")
+	public String CartProc(HttpServletRequest request, HttpServletResponse response,
+			Model model, OrderDTO odto){
+		
+		HttpSession session = request.getSession();
+		MemberDTO sdto = (MemberDTO) session.getAttribute("ssKey");
+		odto.setM_id(sdto.getM_id());
+		
+		Hashtable<Integer, OrderDTO> hCartList = (Hashtable<Integer, OrderDTO>) session.getAttribute("hCartList");
+		
+		
+		
+		
+		
+		return "";
+	} 
 }

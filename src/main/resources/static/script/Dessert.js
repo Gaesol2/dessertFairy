@@ -51,8 +51,12 @@ $().ready(function(){
 		   $(".total_price").val(Number(price)*Number(count));	   
 	   }
    })
+  
+   //dessertOrder에서 장바구니 담기
+   $(".btn_cart").attr("action","cartProc");
+   $(".btn_cart").submit();
    
-})
+}) //ready end
 
 //버튼 클릭 시 flag 파라미터를 지닌 채로 dessert 매핑으로 이동
 function category(f){
