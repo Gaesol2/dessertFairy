@@ -1,17 +1,25 @@
 $().ready(function(){
 	var idchk=1;	
  	var pcheck = true;
+ 	var pCombiCheck = true;
  	
  	$('.m_join').on("click", function(){		//회원가입
-			if(validate()){
+		if(validate()){
 			 if(idchk==1){
 				alert('아이디 중복\n다시 해주세요')
 				$('.idchk').focus();
 				 return false;
-			    }
-			    
+		    }
+		    	if(pCombiCheck){
+				 alert('패스워드 형식이 잘못되었습니다.');
+				 $('#password').focus();
+				 $('font[id=pcombiCheck]').text('');
+				 return false;
+			  }
+
 			  if(pcheck){
 				 alert('패스워드가 다릅니다.');
+				 $('#cpassword').focus();
 				 return false;
 			  }  
 				$('form').submit();
@@ -27,37 +35,49 @@ $().ready(function(){
 		   dataType:"json",
 		   success:function(data){
 			   if(data>0){ //이미 존재하는 id
-				  $('font[id=warning]').text('');
-				  $('font[id=warning]').attr('color','red');
-				  $('font[id=warning]').text('이미 존재하는 아이디 입니다.');
+				  $('font[id=idcheck]').text('');
+				  $('font[id=idcheck]').attr('color','red');
+				  $('font[id=idcheck]').text('이미 존재하는 아이디 입니다.');
 				  $('.idchk').focus();
 				 idchk =1; //submit 불가  
 			   }else{ //사용가능한 id
-				  $('font[id=warning]').text('');
-				  $('font[id=warning]').attr('color','blue');
-				  $('font[id=warning]').text('사용가능한 아이디 입니다.');
+				  $('font[id=idcheck]').text('');
+				  $('font[id=idcheck]').attr('color','blue');
+				  $('font[id=idcheck]').text('사용가능한 아이디 입니다.');
 				  $('.idchk').focus();
 				 idchk=0; //전송가능 
 			   }
 		   }
 	   });	 
       });	
-   
-   $('.check1, .check2').keyup(function(){
-	    $('font[id=check]').text('');
-	    if($('.check1').val()!=$('.check2').val()){
-			 $('font[id=check]').text('');
-			 $('font[id=check]').attr('color','red');
-			 $('font[id=check]').text('패스워드 다름');
+
+	 $('#password, #cpassword').keyup(function(){				// 회원가입 비밀번호 확인
+	    $('font[id=pcheck]').text('');
+	    if($('#password').val()!=$('#cpassword').val()){
+			 $('font[id=pcheck]').text('');
+			 $('font[id=pcheck]').attr('color','red');
+			 $('font[id=pcheck]').text('패스워드 다름');
 			 pcheck=true;
 		}else{
-			 $('font[id=check]').text('');
-			  $('font[id=check]').attr('color','#008000');
-			 $('font[id=check]').text('패스워드 같음');
+			 $('font[id=pcheck]').text('');
+			  $('font[id=pcheck]').attr('color','#008000');
+			 $('font[id=pcheck]').text('패스워드 같음');
 			 pcheck=false;
 		}
 	  });
- 
+   
+ 	  $('#password').keyup(function(){
+		 var passwordCombination = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*?_]).{8,16}$/;
+		 
+		 if(!passwordCombination.test($('#password').val())){
+			 $('font[id=pcombiCheck]').text('비밀번호는 최소 8자에서 16자까지, 영문자, 숫자 및 특수 문자를 포함해야 합니다.');
+			 pCombiCheck = true;
+			}else{
+				$('font[id=pcombiCheck]').text('');
+				pCombiCheck = false;
+			} 
+		});
+	  
 });		// ready END
 
 //chk에 대해서 점검

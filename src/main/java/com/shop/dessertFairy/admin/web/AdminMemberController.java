@@ -29,7 +29,8 @@ public class AdminMemberController {
 				page = "Main";
 			}
 			else page = "redirect:/";
-		}
+		} else page = "redirect:/";
+		
 		return page;
 	}
 }
