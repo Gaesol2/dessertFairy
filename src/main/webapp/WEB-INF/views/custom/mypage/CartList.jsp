@@ -21,9 +21,23 @@
         <li><a href="/orderList">주문목록</a></li>
         <li><a href="/contactList">문의하기</a></li>
       </ul>
-	</div>
-  </div>
-
-
-
-</div>
+	</div> <!--  toplist end -->
+  </div> <!-- top end -->
+  <div id="cartContent">
+  	<c:choose>
+  		<c:forEach var="" items="">
+			<div class="cart_img">
+				<img src="/upload/" width="100px" height="100px">
+			</div> <!-- cart_img end -->
+			<div class="cart_txt">
+				<ul>
+					<li>1번줄</li>
+					<li>2번줄</li>
+					<li>3번줄</li>
+				</ul>
+			</div> <!-- cart_txt end -->
+  		</c:forEach>
+  	</c:choose>
+		
+  </div> <!-- cartContent end -->
+</div> <!-- mypage end -->
