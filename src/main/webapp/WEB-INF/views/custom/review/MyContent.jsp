@@ -80,17 +80,17 @@
   </form>
 </div>
 <div id="replybox">
-	<table class="replytable">
-			<c:if test="${fn:length(replyList)>0}">
-			<p class="reply">사장님 답글</p>
-					<tr class="replycontent">
-				         <td colspan="2">
-				         	<textarea name="reply_content" class="chkb" readonly="readonly" 
-			                      rows="20" cols="50">${r_reply}</textarea>
-				         </td>
-				    </tr>
-			</c:if>
-	</table>
-</div>
+		<table class="replytable">
+			<tr>
+				<th>사장님 답글</th>
+			</tr>
+			<tr class="replycontent">
+		         <td>
+		         	<textarea class="replys" name="r_reply" placeholder="아직 답글이 없습니다."
+		         	       readonly="readonly">${review.r_reply}</textarea>
+		         </td>
+		    </tr>    
+		</table>
+	</div>
 </body>
 </html>

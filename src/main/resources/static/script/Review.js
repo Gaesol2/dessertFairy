@@ -7,7 +7,15 @@ $().ready(function(){
       $("form[name=writeForm]").submit();
       }
    });
-
+   
+   $(".writeSubmit").on("click",function(){
+	   if(validate()){
+      $("form[name=replyForm]").submit();
+      }
+   });
+   
+   
+   //custom 수정 및 삭제 
 	   $('.reviewUp').on('click', function(){
 		   $("form[name=reviewForm]").attr('action', "/myUpForm")
 		   $("form[name=reviewForm]").submit();
@@ -21,6 +29,18 @@ $().ready(function(){
 	 $('.reviewUpdate').on('click', function(){
 		   $("form[name=reviewForm]").attr('action', "/upProc")
 		   $("form[name=reviewForm]").submit();
+	 });
+	 
+	 //admin 답글 수정 및 삭제
+	 
+	   $('.replyDel').on('click', function(){
+		   $("form[name=replyForm]").attr('action', "/replydelProc")
+		   $("form[name=replyForm]").submit();
+	 });
+	 
+	 $('.replyUpdate').on('click', function(){
+		   $("form[name=replyForm]").attr('action', "/replyupProc")
+		   $("form[name=replyForm]").submit();
 	 });
 	 
 		 let ratingLength = Number($("input[name='ratingLength']").val());

@@ -22,7 +22,7 @@
 			   ,M_ID
 			   ,R_PATH
 		FROM REVIEW
-	    ORDER BY R_NO ASC) A)
+	    ORDER BY R_NO DESC) A)
         WHERE R_RR BETWEEN #{start,jdbcType=NUMERIC} and #{end,jdbcType=NUMERIC}
 	 </select>
 	
@@ -55,6 +55,22 @@
       )
    </insert>
    
+   <select id="getReviewcontent" parameterType="rdto" resultType="rdto">
+		SELECT R_NO
+			   ,R_SUBJECT
+			   ,R_CONTENT
+			   ,TO_CHAR(R_REGDATE,'YYYY-MM-DD') AS R_REGDATE
+			   ,R_READCOUNT
+			   ,R_PASSWD
+			   ,R_STAR
+			   ,R_IMAGE
+			   ,R_REPLY
+			   ,M_ID
+			   ,R_PATH
+		FROM REVIEW
+		WHERE R_NO = #{r_no}
+	</select>
+   
    <select id="getMyList" resultType="rdto">
 		SELECT * FROM 
        (SELECT ROWNUM AS R_RR, A.* 
@@ -83,6 +99,7 @@
 			   ,R_PASSWD
 			   ,R_STAR
 			   ,R_IMAGE
+			   ,R_REPLY
 			   ,M_ID
 			   ,R_PATH
 		FROM REVIEW
@@ -133,18 +150,10 @@
 	</delete>
    
    
-   
-   
-   
-   
-   <insert id="replyWrite" parameterType="rdto">
-      INSERT INTO REVIEW(
-         R_REPLY)
-      VALUES(#{r_reply})
-   </insert>
-   
 	
-   <select id="getReplyList" resultType="rdto">
+	<!-- 어드민 시작 -->
+	
+	<select id="getReplyList" resultType="rdto">
 		SELECT * FROM 
        (SELECT ROWNUM AS R_RR, A.* 
         FROM 
@@ -159,8 +168,45 @@
 			   ,M_ID
 			   ,R_PATH
 		FROM REVIEW
-	  ORDER BY R_NO ASC) A)
-     WHERE R_RR BETWEEN #{start,jdbcType=NUMERIC} and #{end,jdbcType=NUMERIC}
+	    ORDER BY R_NO DESC) A)
+        WHERE R_RR BETWEEN #{start,jdbcType=NUMERIC} and #{end,jdbcType=NUMERIC}
+	 </select>
+	 
+	 <select id="getReplyContent" parameterType="rdto" resultType="rdto">
+		SELECT R_NO
+			   ,R_SUBJECT
+			   ,R_CONTENT
+			   ,TO_CHAR(R_REGDATE,'YYYY-MM-DD') AS R_REGDATE
+			   ,R_READCOUNT
+			   ,R_PASSWD
+			   ,R_STAR
+			   ,R_IMAGE
+			   ,R_REPLY
+			   ,M_ID
+			   ,R_PATH
+		FROM REVIEW
+		WHERE R_NO = #{r_no}
 	</select>
+	
+	<insert id="getReplyWrite" parameterType="rdto">
+		UPDATE REVIEW
+		SET R_REPLY = #{r_reply}
+		WHERE r_no = #{r_no}
+    </insert>
+    
+    <update id="replyupProc" parameterType="rdto">
+   UPDATE REVIEW SET
+   M_ID = #{m_id},
+   R_SUBJECT = #{r_subject},
+   R_CONTENT = #{r_content},
+   R_REPLY = #{r_reply},
+   R_STAR = #{r_star}
+   WHERE R_NO = #{r_no}
+   </update>
+   
+   <update id="replydelProc" parameterType="rdto">
+	  UPDATE REVIEW SET R_REPLY = NULL
+	  WHERE R_NO = #{r_no}
+	</update>
 
 </mapper>

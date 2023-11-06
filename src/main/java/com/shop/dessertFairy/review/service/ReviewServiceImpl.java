@@ -102,8 +102,7 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Override
 	public ReviewDTO getReviewcontent(ReviewDTO rdto) {
-		List<ReviewDTO> reviewList = reviewDao.getReviewList(rdto);
-		return reviewList.get(0);
+		return reviewDao.getReviewcontent(rdto);
 	}
 
 	@Override
@@ -200,71 +199,90 @@ public class ReviewServiceImpl implements ReviewService {
 	
 	
 	
-	
-	
-	
-	
-	@Override
-	public Map<String, Object> getReplyList(ReviewDTO rdto, PageDTO pageDto) {
-		//결과를 반환할 HashMap 선언
-				Map<String, Object> reSet = new HashMap<String, Object>();
-				
-				
-				//페이지 계산
-				if(pageDto.getCurBlock()<=0) pageDto.setCurBlock(1);
-				if(pageDto.getCurPage()<=0) pageDto.setCurPage(1);
-				
-				
-				
-				List<ReviewDTO> replyList = null;
-				int cnt = 0;
-				if(rdto.getR_no()>0) {
-					reviewDao.updateReadCnt(rdto);
-				}
-					cnt = reviewDao.getReviewCnt();
-				//현재 페이지 계산
-				int start = (pageDto.getCurPage()-1)*RowInterPage.ROW_OF_PAGE +1;
-				int end = (pageDto.getCurPage()*RowInterPage.ROW_OF_PAGE)>cnt?
-						cnt:pageDto.getCurPage()*RowInterPage.ROW_OF_PAGE;
-				rdto.setStart(start);
-				rdto.setEnd(end);
-				
-				int pgCnt = (cnt%RowInterPage.ROW_OF_PAGE==0)?
-						     cnt/RowInterPage.ROW_OF_PAGE:
-						     cnt/RowInterPage.ROW_OF_PAGE+1;
-				
-				//페이지 블럭
-				int pgBlock = (pgCnt%RowInterPage.PAGE_OF_BLOCK==0)?
-						pgCnt/RowInterPage.PAGE_OF_BLOCK:pgCnt/RowInterPage.PAGE_OF_BLOCK+1;
-				int startPg = (pageDto.getCurBlock()-1)*RowInterPage.PAGE_OF_BLOCK+1;
-				int endPg = (pageDto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK>pgCnt)?
-						pgCnt:pageDto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK;
-				
-				replyList = reviewDao.getReplyList(rdto);
-				
-				pageDto.setPgCnt(pgCnt);
-				pageDto.setPgBlock(pgBlock);
-				pageDto.setStartPg(startPg);
-				pageDto.setEndPg(endPg);
-				
-				reSet.put("pageDto", pageDto);
-				reSet.put("cnt", cnt);
-				reSet.put("replyList", replyList);
-				return reSet;
-			}
+	//어드민 시작
+
 
 	@Override
-	public int replyWrite(ReviewDTO rdto) {
-		// TODO Auto-generated method stub
-		return 0;
+	public Map<String, Object> getReplyList(ReviewDTO rdto, PageDTO pageDto) {
+		
+		//결과를 반환할 HashMap 선언
+	   Map<String, Object> reSet = new HashMap<String, Object>();
+	   
+	   
+	   //페이지 계산
+	   if(pageDto.getCurBlock()<=0) pageDto.setCurBlock(1);
+	   if(pageDto.getCurPage()<=0) pageDto.setCurPage(1);
+	   
+	   
+	   
+	   List<ReviewDTO> replyList = null;
+	   int cnt = 0;
+	   if(rdto.getR_no()>0) {
+		   reviewDao.updateReadCnt(rdto);
+	   }
+	   cnt = reviewDao.getReviewCnt();
+	   //현재 페이지 계산
+	   int start = (pageDto.getCurPage()-1)*RowInterPage.ROW_OF_PAGE +1;
+	   int end = (pageDto.getCurPage()*RowInterPage.ROW_OF_PAGE)>cnt?
+			   cnt:pageDto.getCurPage()*RowInterPage.ROW_OF_PAGE;
+	   rdto.setStart(start);
+	   rdto.setEnd(end);
+	   
+	   int pgCnt = (cnt%RowInterPage.ROW_OF_PAGE==0)?
+			   cnt/RowInterPage.ROW_OF_PAGE:
+				   cnt/RowInterPage.ROW_OF_PAGE+1;
+	   
+	   //페이지 블럭
+	   int pgBlock = (pgCnt%RowInterPage.PAGE_OF_BLOCK==0)?
+			   pgCnt/RowInterPage.PAGE_OF_BLOCK:pgCnt/RowInterPage.PAGE_OF_BLOCK+1;
+	   int startPg = (pageDto.getCurBlock()-1)*RowInterPage.PAGE_OF_BLOCK+1;
+	   int endPg = (pageDto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK>pgCnt)?
+			   pgCnt:pageDto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK;
+	   
+	   pageDto.setPgCnt(pgCnt);
+	   pageDto.setPgBlock(pgBlock);
+	   pageDto.setStartPg(startPg);
+	   pageDto.setEndPg(endPg);
+	   
+	   replyList = reviewDao.getReplyList(rdto);	
+	   
+	   reSet.put("pageDto", pageDto);
+	   reSet.put("cnt", cnt);
+	   reSet.put("replyList", replyList);
+	   return reSet;
+   }
+
+
+	@Override
+	public ReviewDTO getReplyContent(ReviewDTO rdto) {
+	    return reviewDao.getReplyContent(rdto);
 	}
 
 
+	@Override
+	public int getReplyWrite(ReviewDTO rdto) {
+		return reviewDao.getReplyWrite(rdto);
+	}
 
 
+	@Override
+	public int replyupProc(ReviewDTO rdto) {
+		return reviewDao.replyupProc(rdto);
+	}
 
 
+	@Override
+	public int replydelProc(ReviewDTO rdto) {
+		return reviewDao.replydelProc(rdto);
+	}
 
 
+	
+	
+	
+	
+	
+	
+	
 }
    
