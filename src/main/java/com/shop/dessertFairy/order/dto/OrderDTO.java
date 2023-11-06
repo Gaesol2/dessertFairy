@@ -14,5 +14,8 @@ public class OrderDTO {
 	private int amount    ;
 	private String m_id      ;
 	private int d_no      ;
+	
 	private int d_stock;
+	private String d_name;
+	private String d_image;
 }

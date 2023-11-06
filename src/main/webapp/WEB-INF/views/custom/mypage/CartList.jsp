@@ -31,11 +31,11 @@
   		<c:when test="${hCartList!=null}">
 			<c:forEach var="cart" items="${hCartList}">
 				<div class="cart_img">
-					<img src="/upload/" width="100px" height="100px">
+					<img src="/upload/${cart.d_image}" width="100px" height="100px">
 				</div> <!-- cart_img end -->
 				<div class="cart_txt">
 					<ul>
-						<li>${hCartList.p_name}</li>
+						<li>${cart.d_name}</li>
 						<li>2번줄</li>
 						<li>3번줄</li>
 					</ul>

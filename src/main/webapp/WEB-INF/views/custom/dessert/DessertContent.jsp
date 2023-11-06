@@ -64,7 +64,9 @@
 				</tr>
 			</table>
 			<input type="hidden" name="d_no" value="${dessert.d_no}">
+			<input type="hidden" name="d_name" value="${dessert.d_name}">
 			<input type="hidden" name="d_stock" value="${dessert.d_stock}">
+			<input type="hidden" name="d_image" value="${dessert.d_image}">
 		</form>
 	</div> <!-- dessertTxt -->
 </div> <!-- dessertContent end -->
