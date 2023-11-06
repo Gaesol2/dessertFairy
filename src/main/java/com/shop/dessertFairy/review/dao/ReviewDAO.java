@@ -16,6 +16,8 @@ public interface ReviewDAO {
 
 	int reviewWrite(ReviewDTO rdto);
 
+	ReviewDTO getReviewcontent(ReviewDTO rdto);
+	
 	int updateReadCnt(ReviewDTO rdto);
 
 	List<ReviewDTO> getReviewListOrderby(Map<String, Object> map);
@@ -31,10 +33,22 @@ public interface ReviewDAO {
 	ReviewDTO getMycontent(ReviewDTO rdto);
 	
 	
-	
+	//어드민 시작
+
 	List<ReviewDTO> getReplyList(ReviewDTO rdto);
 
+	List<ReviewDTO> getReplycontent(ReviewDTO rdto);
 
+	ReviewDTO getReplyContent(ReviewDTO rdto);
+
+	int getReplyWrite(ReviewDTO rdto);
+
+	int replyupProc(ReviewDTO rdto);
+
+	int replydelProc(ReviewDTO rdto);
+
+	
+	
 
 
 

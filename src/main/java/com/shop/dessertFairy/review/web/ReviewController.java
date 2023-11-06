@@ -42,7 +42,8 @@ public class ReviewController {
    
    @RequestMapping("/reviewList")//리뷰 리스트
    public String reviewList(HttpServletRequest request, HttpServletResponse response,
-         Model model, ReviewDTO rdto,
+         Model model,
+         ReviewDTO rdto,
          PageDTO pageDto) { 
 	   
         //변수 선언
@@ -53,14 +54,9 @@ public class ReviewController {
 	    //HttpSession 세션 객체 생성 및 세션 정보 받아오기
 		HttpSession session = request.getSession();
 		
-		//세션이 있으면 ReviewList 페이지로 보내고 없으면 로그인 창으로 보내기
-		if(session.getAttribute("ssKey")!=null) {
-			ssKey = (MemberDTO) session.getAttribute("ssKey");
-			contentsJsp = "/custom/review/ReviewList";
-			   page = "Main";
-		}else {
-			page = "redirect:/login";
-		}
+		ssKey = (MemberDTO) session.getAttribute("ssKey");
+		contentsJsp = "/custom/review/ReviewList";
+		page = "Main";
 		
 		//jsp로부터 orderby 파라미터를 받고, null이 들어오면 최신순으로 설정
 		String orderby = request.getParameter("orderby");
@@ -239,6 +235,8 @@ public class ReviewController {
 	   
 	   //변수 선언
 	   String page = null;
+	   String msg = null;
+	   String url = null;
 	   MemberDTO ssKey = null;
 	   String contentsJsp = "/custom/review/MyList";
 	   
@@ -247,16 +245,16 @@ public class ReviewController {
 	   
 	   //세션이 있으면 ReviewMyList 페이지로 보내고 없으면 로그인 창으로 보내기
 	   if(session.getAttribute("ssKey")!=null) {
-		   
-		   MemberDTO mdto = memberService.getMember(ssKey);
 		   ssKey = (MemberDTO) session.getAttribute("ssKey");
-		   
-		   
+		   MemberDTO mdto = memberService.getMember(ssKey);
 		   rdto.setM_id(ssKey.getM_id());
-		   page = "custom/review/MyList";
+		   page = "Main";
+		   url = "mylist";
 	   }
 	   else {
-		   page = "redirect:/login";
+		   msg = "로그인이 필요합니다.";
+		   page = "MsgPage";
+		   url = "login";
 	   }
 	   
 	   //jsp로부터 orderby 파라미터를 받고, null이 들어오면 최신순으로 설정
@@ -286,9 +284,11 @@ public class ReviewController {
 	   model.addAttribute("pageDto",pageDto);
 	   model.addAttribute("orderby",orderby);
 	   model.addAttribute("page",page);
+	   model.addAttribute("url",url);
+	   model.addAttribute("msg",msg);
 	   
 	   
-	   return "Main";
+	   return page;
    }
    
    
@@ -427,7 +427,6 @@ public class ReviewController {
 		   ReviewDTO rdto,
 		   Model model,
 		   PageDTO pageDto) {
-	   String flag = request.getParameter("flag");
 	   HttpSession session = request.getSession();
 	   String contentsJsp = null;
 	   String page = null;
@@ -469,4 +468,8 @@ public class ReviewController {
       
       return "Main";
    }
+   
+  
+   
+   
 }

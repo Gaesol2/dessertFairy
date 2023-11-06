@@ -26,10 +26,21 @@ public interface ReviewService {
    int deleteProc(ReviewDTO rdto);
    
    
-   
-   int replyWrite(ReviewDTO rdto);
+   //어드민 시작
 
    Map<String, Object> getReplyList(ReviewDTO rdto, PageDTO pageDto);
+
+   ReviewDTO getReplyContent(ReviewDTO rdto);
+
+   int getReplyWrite(ReviewDTO rdto);
+
+   int replyupProc(ReviewDTO rdto);
+
+   int replydelProc(ReviewDTO rdto);
+   
+   
+   
+  
 
 
 

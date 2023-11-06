@@ -24,6 +24,7 @@
       </ul>
     </div>
   </div>
+<form action="replyWriteProc" name="replyForm" method="post">
    <table class="reviewtable">
       <tr>
          <th>제목</th>
@@ -37,39 +38,53 @@
       </tr>
       <tr>
          <th>이미지</th>
-         <td><img src="/upload/${review.r_image}"></td>
+         <td><img src="/upload/${review.r_image}" width="400" height="300"></td>
       </tr>
       <tr>
          <th>내용</th>
-         <td><textarea name="r_content" class="chkb" readonly="readonly" 
+         <td><textarea class="chkb" readonly="readonly" 
                       rows="20" cols="50">${review.r_content}</textarea></td>
       </tr>
       <tr>
          <th>별점</th>
          <td class="mb-3" title="별점" class="chkb">
-				<input type="text" name="r_star" readonly="readonly"
+				<input type="text" readonly="readonly" name="r_star"
 				    value="${ratings}" class="chkb">
          </td>
       </tr>
-      <tr class="reviewBtn">
-         <td colspan="2"><input type="button" class="writeSubmit" value="등록"></td>
-      </tr>
    </table>
-</div>
-<form action="replyWriteProc" name="writeForm" method="post" enctype="multipart/form-data">
 	<div id="replybox">
-		<p class="reply">사장님 답글</p>
 		<table class="replytable">
+			<tr>
+				<th>사장님 답글</th>
+			</tr>
 			<tr class="replycontent">
 		         <td>
-		         	<textarea class="replys" name="reply_content">${r_reply}</textarea>
+		         	<textarea class="replys" name="r_reply" placeholder="아직 답글이 없습니다.">${review.r_reply}</textarea>
 		         </td>
 		    </tr>
-			<tr class="reviewBtn">
-	         <td colspan="2"><input type="button" class="writeSubmit" value="답글등록"></td>
-	      </tr>		    
+		    <c:choose>
+		    	<c:when test="${review.r_reply == null}">
+					<tr class="reviewBtn">
+			            <td colspan="2">
+							<button type="button" class="writeSubmit">답글 등록</button>
+			            </td>
+			     	</tr>		    
+		    	</c:when>
+		    	
+		    	<c:when test="${review.r_reply != null}">
+					<tr class="reviewBtn">
+			            <td colspan="2">
+							<button type="button" class="replyUpdate">답글 수정</button>
+							<button type="button" class="replyDel">답글 삭제</button>
+			            </td>
+			     	</tr>		    
+		    	</c:when>
+		    </c:choose>
 		</table>
 	</div>
-	</form>
+	<input type="hidden" name="r_no" value="${review.r_no}">
+</form>
+</div>
 </body>
 </html>

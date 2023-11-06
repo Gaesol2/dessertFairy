@@ -23,7 +23,7 @@
   <div class="reviewlist">
         <table class="reviewtable">
          <tr class="headcolor">
-            <th></th>
+            <th>별점</th>
             <th>제목</th>
             <th>작성자</th>
             <th>조회수</th>
@@ -33,7 +33,7 @@
                  <c:when test="${fn:length(replyList)>0}"> 
                   <c:forEach var="reply" items="${replyList}"> 
                   <tr>
-                     <td class="col1">${reply.r_no}</td>
+                     <td class="col1">${reply.ratings}</td>
                      <td class="col2"><a href="/replyContent?r_no=${reply.r_no}">${reply.r_subject}</a>
                      <td class="col3">${reply.m_id}</td>
                      </td>
