@@ -23,6 +23,7 @@ public class CartServiceImpl implements CartService {
 		
 		//인자로 받은 odto(장바구니에 담을 상품)에서 d_no(상품번호)를 빼서 따로 저장
 		int d_no = odto.getD_no();
+		System.out.println("d_no====="+d_no);
 		
 		//인자로 받은 odto(장바구니에 담을 상품)에서 o_quantity(주문 개수)를 빼서 따로 저장
 		int quantity = odto.getO_quantity();
@@ -34,6 +35,7 @@ public class CartServiceImpl implements CartService {
 			//hCartList 해시테이블에서 해당 상품 키의 값을 OrderDTO 타입의 oldOdto에 저장
 			OrderDTO oldOdto = hCartList.get(d_no);
 			
+			System.out.println("oldOdto========="+oldOdto);
 			
 			//새로 추가한 상품수와 원래 상품수를 합쳐서 quantity에 저장한다.
 			quantity += oldOdto.getO_quantity();
@@ -54,6 +56,7 @@ public class CartServiceImpl implements CartService {
 		} else {
 			//상품이 장바구니에 없었다면, hCartList 해시테이블에 원래 있던 DTO를 넣어준다.
 			hCartList.put(d_no, odto);
+			
 		}
 		
 		return hCartList;

@@ -66,6 +66,7 @@ public class CartController {
 		//세션 받아오기
 		HttpSession session = request.getSession();
 		MemberDTO sdto = (MemberDTO) session.getAttribute("ssKey");
+		System.out.println("odto========" + odto.getD_image());
 		
 		
 		//회원에 따라서 여러 주문을 저장해 장바구니를 형성한다.
@@ -86,12 +87,17 @@ public class CartController {
 		//세션에서 받아온 hCartList를 cartSerivce의 hCartList에 저장하는 setter 호출
 		cartService.setCartList(hCartList);
 		
+		System.out.println("odto의 d_no========="+odto.getD_no());
+		
 		hCartList = cartService.addCartList(odto);
 		conf = "장바구니에 담았습니다. 장바구니로 이동하시겠습니까?";
 		url = "cartList";
 		
 		}
 
+		System.out.println("hCart ========" + hCartList.get("d_no"));
+		System.out.println("hCart ========" + hCartList.get("d_image"));
+		
 		model.addAttribute("conf",conf);
 		model.addAttribute("msg",msg);
 		model.addAttribute("url",url);
