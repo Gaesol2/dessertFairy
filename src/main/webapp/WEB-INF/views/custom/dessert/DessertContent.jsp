@@ -63,7 +63,8 @@
 					</td>
 				</tr>
 			</table>
-			<input type="hidden" name="d_no" value="dessert.d_no">
+			<input type="hidden" name="d_no" value="${dessert.d_no}">
+			<input type="hidden" name="d_stock" value="${dessert.d_stock}">
 		</form>
 	</div> <!-- dessertTxt -->
 </div> <!-- dessertContent end -->

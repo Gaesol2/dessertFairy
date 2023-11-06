@@ -53,8 +53,10 @@ $().ready(function(){
    })
   
    //dessertOrder에서 장바구니 담기
-   $(".btn_cart").attr("action","cartProc");
-   $(".btn_cart").submit();
+   $(".btn_cart").on("click",function(){
+	   $("form[name=dessertForm]").attr("action","cartProc");
+	   $("form[name=dessertForm]").submit();	   
+   })
    
 }) //ready end
 
