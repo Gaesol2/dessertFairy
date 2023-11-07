@@ -16,7 +16,7 @@
 	</div> <!-- dessertImg -->
 	<div id="dessertTxt">
 		<ul>
-			<li><a href="dessertList?flag=${dessert.d_category}" class="category">${dessert.d_category}</a></li>
+			<li><a href="dessert?flag=${dessert.d_category}" class="category">${dessert.d_category}</a></li>
 			<li class="title">${dessert.d_name}</li>
 			<li class="detail">${dessert.d_detail}</li>
 		</ul>
@@ -38,30 +38,36 @@
 		
 		<div class="line"></div>
 
-		<dl>
-			<dt>주문 수량</dt>
-			<dd>
-				<input type="text" value="1" class="count" readonly="readonly">
-				<input type="button" class="countUp" value="△">
-				<input type="button" class="countDown" value="▽">			
-			</dd>
-				<dt>주문 가격</dt>
-			<dd>
-				<input type="text" class="total_price" value="${dessert.d_price }" readonly="readonly">
-			</dd>
-		</dl>
-		<table>
-			<tr>
-				<td>
-					<input id="btn_order" type="button" value="바로결제">
-					<label for="btn_order" class="btn_order">바로결제</label>					
-				</td>
-				<td>
-					<input id="btn_cart" type="button" value="장바구니">
-					<label for="btn_cart" class="btn_cart">장바구니</label>
-				</td>
-			</tr>
-		</table>
+		<form name="dessertForm" action="" method="post">
+			<dl>
+				<dt>주문 수량</dt>
+				<dd>
+					<input type="text" value="1" class="count" readonly="readonly" name="o_quantity">
+					<input type="button" class="countUp" value="△">
+					<input type="button" class="countDown" value="▽">			
+				</dd>
+					<dt>주문 가격</dt>
+				<dd>
+					<input type="text" id="total_price" class="total_price" value="${dessert.d_price }" name="o_price" readonly="readonly">
+				</dd>
+			</dl>
+			<table>
+				<tr>
+					<td>
+						<input id="btn_order" type="button" value="바로결제">
+						<label for="btn_order" class="btn_order">바로결제</label>					
+					</td>
+					<td>
+						<input id="btn_cart" type="button" value="장바구니">
+						<label for="btn_cart" class="btn_cart">장바구니</label>
+					</td>
+				</tr>
+			</table>
+			<input type="hidden" name="d_no" value="${dessert.d_no}">
+			<input type="hidden" name="d_name" value="${dessert.d_name}">
+			<input type="hidden" name="d_stock" value="${dessert.d_stock}">
+			<input type="hidden" name="d_image" value="${dessert.d_image}">
+		</form>
 	</div> <!-- dessertTxt -->
 </div> <!-- dessertContent end -->
 </body>

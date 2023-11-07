@@ -15,12 +15,25 @@
 			alert(msg);
 		</script>
 	</c:if>
-	<script type="text/javascript">
-		let url = "${url}";
-		if(url.length==0 || url == null || url == "")
-			url="/";
-		document.location.href="${url}";
-	</script>
+	<c:if test="${conf!=null}">
+		<script type="text/javascript">
+			let conf = "${conf}";
+			let url = "${url}";
+			if(!confirm(conf)) {
+				history.back();
+			} else {
+				if(url.length==0 || url == null || url == "") url="/";
+				document.location.href="${url}";
+			}
+		</script>
+	</c:if>
+	<c:if test="${conf==null}">
+		<script type="text/javascript">
+			let url = "${url}";
+			if(url.length==0 || url == null || url == "") url="/";
+			document.location.href="${url}";
+		</script>
+	</c:if>
 	
 </body>
 </html>
