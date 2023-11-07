@@ -23,9 +23,6 @@ public interface ReviewService {
    
    int updateProc(ReviewDTO rdto, MultipartFile file);
    
-   int deleteProc(ReviewDTO rdto);
-   
-   
    //어드민 시작
 
    Map<String, Object> getReplyList(ReviewDTO rdto, PageDTO pageDto);
@@ -37,6 +34,8 @@ public interface ReviewService {
    int replyupProc(ReviewDTO rdto);
 
    int replydelProc(ReviewDTO rdto);
+
+   int deleteProc(ReviewDTO rdto);
    
    
    

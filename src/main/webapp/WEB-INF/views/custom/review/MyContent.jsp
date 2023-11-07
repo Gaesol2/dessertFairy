@@ -8,89 +8,85 @@
 <meta charset="UTF-8">
 <title>포토리뷰</title>
 <link rel="stylesheet" type="text/css" href="/css/star.css">
-<link rel="stylesheet" type="text/css" href="/css/Reviewcontent.css">
+<link rel="stylesheet" type="text/css" href="/css/Review.css">
 <script src="/script/Review.js"></script>
 </head>
 <body>
 <div id="review">
-   <div id="top">
-    <div class="Mainlist">
-		<p class="reviewname">포토후기</p>
-    </div>
-    <div class="toplist">
-      <ul class="list">
-        <li><a href="/reviewList">후기 목록</a></li>
-        <li><a href="/reviewWrite">후기 글쓰기</a></li>
-        <li><a href="/mylist">내 글보기</a></li>
-      </ul>
-    </div>
-  </div>
-  <form action="" name="reviewForm" method="post">
-  <input type="hidden" name="r_no" value="${review.r_no }">
-	   <table class="reviewtable">
-	      <tr>
-	         <th>제목</th>
-	         <td><input type="text" name="r_subject" readonly="readonly" 
-	                    value="${review.r_subject}" class="chkb" size="51"></td>
-	      </tr>
-	      <tr>
-	         <th>작성자</th>
-	         <td><input type="text" name="m_id" readonly="readonly" 
-	                    value="${review.m_id}" class="chkb" size="51"></td>
-	      </tr>
-	      <tr>
-	         <th>이미지</th>
-	         <td><img src="/upload/${review.r_image}" width="380" height="300"></td>
-	      </tr>
-	      <tr>
-	         <th>내용</th>
-	         <td><textarea name="r_content" class="chkb" readonly="readonly" 
-	                      rows="20" cols="50">${review.r_content}</textarea></td>
-	      </tr>
-	      <tr>
-	         <th>별점</th>
-	         <td class="mb-3" title="별점" class="chkb">
-	         	<c:choose>
-	         	<c:when test = "${ratings}=='★★★★★'">
-	         		<input type="hidden" name="r_star" value="5">
-		         </c:when>
-	         	<c:when test = "${ratings}=='★★★★☆'">
-	         		<input type="hidden" name="r_star" value="4">
-		         </c:when>
-	         	<c:when test = "${ratings}=='★★★☆☆'">
-	         		<input type="hidden" name="r_star" value="3">
-		         </c:when>
-	         	<c:when test = "${ratings}=='★★☆☆☆'">
-	         		<input type="hidden" name="r_star" value="2">
-		         </c:when>
-	         	<c:otherwise>
-	         		<input type="hidden" name="r_star" value="1">
-		         </c:otherwise>
-	         	</c:choose>
-					<input type="text" readonly="readonly" value="${ratings}">
-	         </td>
-	      </tr>
-	      <tr>
-			<td colspan="2">
-				<button type="button" class="reviewUp">후기글 수정</button>
-				<button type="button" class="reviewDel">후기글 삭제</button>
-			</td>
-		 </tr>
-	   </table>
-  </form>
+   <form action="" name="reviewForm" method="post">
+   <input type="hidden" name="r_no" value="${review.r_no}">
+      <div>
+          <div class="mainList">
+            <p class="reviewName">포토후기</p>
+          </div>
+          <div class="topList">
+            <ul class="list">
+              <li><a href="/reviewList">후기 목록</a></li>
+              <li><a href="/reviewWrite">후기 글쓰기</a></li>
+              <li><a href="/mylist">내 글보기</a></li>
+            </ul>
+          </div>
+       </div>
+       <div id="Contentreview">
+        <div id="contentMain">
+               <span class="contentStar" title="별점" class="chkb">
+                  <c:choose>
+                  <c:when test = "${ratings}=='★★★★★'">
+                     <input type="hidden" name="r_star" value="5">
+                  </c:when>
+                  <c:when test = "${ratings}=='★★★★☆'">
+                     <input type="hidden" name="r_star" value="4">
+                  </c:when>
+                  <c:when test = "${ratings}=='★★★☆☆'">
+                     <input type="hidden" name="r_star" value="3">
+                  </c:when>
+                  <c:when test = "${ratings}=='★★☆☆☆'">
+                     <input type="hidden" name="r_star" value="2">
+                  </c:when>
+                  <c:otherwise>
+                     <input type="hidden" name="r_star" value="1">
+                  </c:otherwise>
+                  </c:choose>
+                  <input type="text" readonly="readonly" value="${ratings}">
+               </span>
+               
+               <span class="contentSubject">${review.r_subject}
+                  <input type="hidden" name="r_subject" readonly="readonly" value="${review.r_subject}" class="chkb" size="40">
+               </span>
+               
+               <span class="contentWrite">${review.m_id}
+                  <input type="hidden" name="m_id" readonly="readonly" value="${review.m_id}" class="chkb" size="15">
+               </span>
+               
+               <span class="contentRegdate">${review.r_regdate}
+                  <input type="hidden" name="r_regdate" readonly="readonly" value="${review.r_regdate}" class="chkb" size="10">
+               </span>
+               
+        </div>
+        <div id="contentMiddle">
+           <div>
+                 <img src="/upload/${review.r_image}" width="500">
+           </div>
+        </div>
+        <div id="contentBottom">
+              <span class="contentContent">${review.r_content}
+                <input type="hidden" name="r_content" readonly="readonly" value="${review.r_content}" class="chkb" size="10">
+              </span>
+        </div>
+      </div>
+
+      <div id="replybox">
+               <p class="adminReply">사장님 답글</p>
+               <span class="replycontent">
+                     <input type="text" class="replys" name="r_reply"
+                         value="${review.r_reply}" placeholder="아직 답글이 없습니다." readonly="readonly">
+                </span>
+      </div>
+      <div id="myBtn">
+         <button type="button" class="reviewUp">수정</button>
+           <button type="button" class="reviewDel">삭제</button>
+      </div>
+   </form>
 </div>
-<div id="replybox">
-		<table class="replytable">
-			<tr>
-				<th>사장님 답글</th>
-			</tr>
-			<tr class="replycontent">
-		         <td>
-		         	<textarea class="replys" name="r_reply" placeholder="아직 답글이 없습니다."
-		         	       readonly="readonly">${review.r_reply}</textarea>
-		         </td>
-		    </tr>    
-		</table>
-	</div>
 </body>
 </html>

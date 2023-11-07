@@ -77,6 +77,7 @@ public class ReviewController {
 		}
 		
 		//세션 저장
+		
 		session.setAttribute("ssKey", ssKey);
 		
 		//데이터 저장
@@ -202,12 +203,10 @@ public class ReviewController {
 		for(int i=0; i <review.getR_star(); i++) {
 			ratings += "★";
 		}
-		for(int i=0; i <5-review.getR_star(); i++) {
-			ratings += "☆";
-		}
 		
 		//모델에 저장
 		model.addAttribute("ratings", ratings);
+		model.addAttribute("ratingLength", ratings.length());
 		
 		//페이지 불러오기
 		page = "custom/review/ReviewContent";
@@ -316,7 +315,6 @@ public class ReviewController {
 	   ReviewDTO review = reviewService.getMycontent(rdto);
 	   model.addAttribute("review", review);
 	   
-	   
 	   //점수를 별로 바꾸는 것(jsp에 value값)
 	   String ratings = "";
 	   for(int i=0; i <review.getR_star(); i++) {
@@ -365,6 +363,7 @@ public class ReviewController {
 		   
 		   //모델에 저장
 		   model.addAttribute("ratingLength", ratings.length());
+		   model.addAttribute("ratings", ratings);
 		   page = "Main";
 		   contentsJsp = "./custom/review/MyUpContent";
 	   }else {
@@ -375,7 +374,6 @@ public class ReviewController {
 	   
 	   
 	   session.setAttribute("ssKey", mdto);
-	   model.addAttribute("review", rdto);
 	   model.addAttribute("contentsJsp", contentsJsp);
 	   
 	   return page;
@@ -395,26 +393,42 @@ public class ReviewController {
 		MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
 		
 		//이미지 경로 저장
-		 rdto.setR_path(resourcesLocation);
+		rdto.setR_path(resourcesLocation);
 
+		 
 		 //결과 처리
 		if(session.getAttribute("ssKey")!=null) {
 			String msg = null;
 			String url = null;
+			int r = 0;
+		   
+			page = "MsgPage";
+			
+			r = reviewService.updateProc(rdto, file);
+			
+			if(r>0) msg = "수정이 완료 되었습니다.";
+			else msg = "수정을 실패했습니다.";
+			url = "/mylist";
+			ReviewDTO review = reviewService.getMycontent(rdto);
+		   model.addAttribute("review", review);
+		   //점수를 별로 바꾸는 것(jsp에 value값)
+		   String ratings = "";
+		   for(int i=0; i <review.getR_star(); i++) {
+			   ratings += "★";
+		   }
+		   
+		   //모델에 저장
+		   model.addAttribute("ratings", ratings);
+		   model.addAttribute("ratingLength", ratings.length());
+			
+			
+			if(url!=null) model.addAttribute("url", url);
+			if(msg!=null) model.addAttribute("msg", msg);
 				
-					page = "MsgPage";
-					System.out.println(rdto);
-					int r = reviewService.updateProc(rdto, file);
-					if(r>0) msg = "수정이 완료 되었습니다.";
-					else msg = "수정을 실패했습니다.";
-					url = "/mylist";
-				if(url!=null) model.addAttribute("url", url);
-				if(msg!=null) model.addAttribute("msg", msg);
-				
-			}else {
-				page = "Main";
-				contentsJsp = "custom/review/MyList";
-			}
+		}else {
+			page = "Main";
+			contentsJsp = "custom/review/MyList";
+		}
 		
 		session.setAttribute("ssKey", mdto);
 		model.addAttribute("contentsJsp", contentsJsp);

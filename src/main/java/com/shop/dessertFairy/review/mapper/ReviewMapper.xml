@@ -86,7 +86,7 @@
 			   ,M_ID
 			   ,R_PATH
 		FROM REVIEW
-	  ORDER BY R_NO ASC) A)
+	  ORDER BY R_NO DESC) A)
      WHERE M_ID = #{m_id}
 	</select>
 	
@@ -119,7 +119,7 @@
 			   ,R_PATH
 		FROM REVIEW
 		<if test='orderby.equals("old")'>
-		  ORDER BY R_NO DESC
+		  ORDER BY R_NO ASC
 		</if>
 		<if test='orderby.equals("star")'>
 		  ORDER BY R_STAR DESC

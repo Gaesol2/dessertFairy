@@ -6,23 +6,23 @@
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="/css/Reviewlist.css">
+<link rel="stylesheet" type="text/css" href="/css/Review.css">
 <script src="/script/Review.js"></script>
 <div id="review">
-  <div id="top">
-    <div class="Mainlist">
-		<p class="reviewname">포토후기</p>
+  <div>
+    <div class="mainList">
+		<p class="reviewName">포토후기</p>
     </div>
-    <div class="toplist">
+    <div class="topList">
       <ul class="list">
-        <li class="relist"><a href="/reviewList">후기 목록</a></li>
+        <li class="reList"><a href="/reviewList">후기 목록</a></li>
         <li><a href="/reviewWrite">후기 글쓰기</a></li>
         <li><a href="/mylist">내 글보기</a></li>
       </ul>
     </div>
   </div>
-  <div class="reviewlist">
-  	<div class="col-auto">
+  <div id="reviewList">
+  	<div id="col-auto">
      <select class="category" onchange="javascript:category()">
        <option>선택하세요</option>
        <option ${orderby=="new"?"selected":""}>최신순</option>
@@ -31,8 +31,8 @@
        <option ${orderby=="read"?"selected":""}>조회수 순</option>
      </select>
 	</div>
-  		<table class="reviewtable">
-	      <tr class="headcolor">
+  		<table class="listTable">
+	      <tr>
 	         <th>별점</th>
 	         <th>제목</th>
 	         <th>작성자</th>
@@ -57,8 +57,10 @@
  	            </tr>
  	         </c:when>
  	      </c:choose>
+	  </table>
+	  <table class="pageBtn">
 	   <tr>
-	    <td colspan="6" style="text-align: center;">
+	    <td colspan="6">
 	      <c:if test="${pageDto.startPg>pBlock}">
 	        <a href="reviewList?curPage=${pageDto.startPg-pBlock}&curBlock=${pageDto.curBlock-1}">[이전]</a>
 	      </c:if>
@@ -70,7 +72,8 @@
 	        <c:if test="${pageDto.endPg<pageDto.pgCnt}">
 	          <a href="reviewList?curPage=${pageDto.startPg+pBlock}&curBlock=${pageDto.curBlock+1}">[다음]</a>
 	        </c:if>
-	    </td>
+	     </td>
+	    </tr>
 	  </table>
 	  <form action="" name="content" method="post">
 		<input type="hidden" name="bno" value="">

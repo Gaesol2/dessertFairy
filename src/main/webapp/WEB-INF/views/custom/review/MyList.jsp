@@ -6,24 +6,24 @@
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="/css/Reviewlist.css">
+<link rel="stylesheet" type="text/css" href="/css/Review.css">
 <script src="/script/Review.js"></script>
 <div id="review">
-  <div id="top">
-    <div class="Mainlist">
-		<p class="reviewname">포토후기</p>
+  <div>
+    <div class="mainList">
+		<p class="reviewName">포토후기</p>
     </div>
-    <div class="toplist">
+    <div class="topList">
       <ul class="list">
         <li><a href="/reviewList">후기 목록</a></li>
         <li><a href="/reviewWrite">후기 글쓰기</a></li>
-        <li class="relist"><a href="/mylist">내 글보기</a></li>
+        <li class="reList"><a href="/mylist">내 글보기</a></li>
       </ul>
     </div>
   </div>
-  <div class="reviewlist">
-  		<table class="reviewtable">
-	      <tr class="headcolor">
+  <div id="myList">
+  		<table class="listTable">
+	      <tr>
 	         <th>별점</th>
 	         <th>제목</th>
 	         <th>작성자</th>
@@ -48,20 +48,23 @@
  	            </tr>
  	         </c:when>
  	      </c:choose>
-	   <tr>
-	    <td colspan="6" style="text-align: center;">
-	      <c:if test="${pageDto.startPg>pBlock}">
-	        <a href="mylist?curPage=${pageDto.startPg-pBlock}&curBlock=${pageDto.curBlock-1}">[이전]</a>
-	      </c:if>
-	      <c:forEach begin="${pageDto.startPg}" end="${pageDto.endPg}" var="p" step="1">
-	        <a href="mylist?curPage=${p}&curBlock=${pageDto.curBlock}">
-	          <span><c:out value="${p}" /></span>
-	        </a>&nbsp;&nbsp;
-	      </c:forEach>
-	        <c:if test="${pageDto.endPg<pageDto.pgCnt}">
-	          <a href="mylist?curPage=${pageDto.startPg+pBlock}&curBlock=${pageDto.curBlock+1}">[다음]</a>
-	        </c:if>
-	    </td>
+	  </table>
+	  <table class="pageBtn">
+		   <tr>
+			    <td colspan="6" style="text-align: center;">
+			      <c:if test="${pageDto.startPg>pBlock}">
+			        <a href="mylist?curPage=${pageDto.startPg-pBlock}&curBlock=${pageDto.curBlock-1}">[이전]</a>
+			      </c:if>
+			      <c:forEach begin="${pageDto.startPg}" end="${pageDto.endPg}" var="p" step="1">
+			        <a href="mylist?curPage=${p}&curBlock=${pageDto.curBlock}">
+			          <span><c:out value="${p}" /></span>
+			        </a>&nbsp;&nbsp;
+			      </c:forEach>
+			        <c:if test="${pageDto.endPg<pageDto.pgCnt}">
+			          <a href="mylist?curPage=${pageDto.startPg+pBlock}&curBlock=${pageDto.curBlock+1}">[다음]</a>
+			        </c:if>
+			    </td>
+		    </tr>
 	  </table>
 	  <form action="" name="content" method="post">
 		<input type="hidden" name="bno" value="">
