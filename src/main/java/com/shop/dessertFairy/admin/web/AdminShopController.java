@@ -83,57 +83,45 @@ public class AdminShopController {
 		   ReviewDTO rdto,
 		   PageDTO pageDto) {
 	   
-	   String page = null;
-	   MemberDTO ssKey = null;
-	   String contentsJsp = "admin/shop/ReplyContent";
-	   
+	 //세션 받아오기
 	   HttpSession session = request.getSession();
 	   
-	   if(session.getAttribute("ssKey") != null) {
-		   ssKey = (MemberDTO) session.getAttribute("ssKey");
-		   if(ssKey.getM_role().equals("admin")) {
-			   contentsJsp = "admin/shop/ReplyContent";
-			   page = "Main";
-		   }else {
-			   page = "redirect:/shopMgt";
-		   }
+	   //변수 선언해주기
+	   String contentsJsp = "/admin/shop/ReplyContent";
+	   String page = null;
+	   
+	   //ssKey 세션에 있는 정보를 MemberDTO 타입의 mdto에 저장
+	   MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
+	   
+	   //파라메터에서 r_no를 가져온것
+	   int postNo = Integer.parseInt(request.getParameter("r_no"));
+	   
+	   //content 내용 가져오기
+	   rdto.setStart(postNo);
+	   rdto.setEnd(postNo+1);
+	   ReviewDTO review = reviewService.getReplyContent(rdto);
+	   model.addAttribute("review", review);
+	   
+	   
+	   //점수를 별로 바꾸는 것(jsp에 value값)
+	   String ratings = "";
+	   for(int i=0; i <review.getR_star(); i++) {
+		   ratings += "★";
 	   }
-	   //리스트 목록과 페이지 수 계산한것을 불러온 것
-	   Map<String, Object> reSet = reviewService.getReplyList(rdto, pageDto);
 	   
-	   
-	 //파라메터에서 r_no를 가져온것
-	 		int postNo = Integer.parseInt(request.getParameter("r_no"));
-	 		
-	 		//content 내용 가져오기
-	 		rdto.setStart(postNo);
-	 		rdto.setEnd(postNo+1);
-	 		ReviewDTO review = reviewService.getReplyContent(rdto);
-	 		model.addAttribute("review", review);
-	 		
-	 		
-	 		//점수를 별로 바꾸는 것(jsp에 value값)
-	 		String ratings = "";
-	 		for(int i=0; i <review.getR_star(); i++) {
-	 			ratings += "★";
-	 		}
-	 		for(int i=0; i <5-review.getR_star(); i++) {
-	 			ratings += "☆";
-	 		}
-	 		
-	 		
-	   //세션 저장
-	   session.setAttribute("ssKey", ssKey);
-	   
-	   //데이터 저장
+	   //모델에 저장
 	   model.addAttribute("ratings", ratings);
-	   model.addAttribute("cnt", reSet.get("cnt"));
-	   model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
-	   model.addAttribute("contentsJsp",contentsJsp);
-	   model.addAttribute("pageDto",pageDto);
+	   model.addAttribute("ratingLength", ratings.length());
+	   
+	   //페이지 불러오기
+	   page = "admin/shop/ReplyContent";
+	   
+	   //세션에 저장
+	   session.setAttribute("ssKey", mdto);
+	   model.addAttribute("contentsJsp", page);
 	   
 	   
-	   return page;
+	   return "Main";
    }
    
    @RequestMapping("/replyWriteProc") //리뷰글쓰기 폼
@@ -191,8 +179,25 @@ public class AdminShopController {
 					if(r>0) msg = "수정이 완료 되었습니다.";
 					else msg = "수정을 실패했습니다.";
 					url = "/shopMgt";
+					
+					
+				   ReviewDTO review = reviewService.getReplyContent(rdto);
+				   model.addAttribute("review", review);
+				   //점수를 별로 바꾸는 것(jsp에 value값)
+				   String ratings = "";
+				   for(int i=0; i <review.getR_star(); i++) {
+					   ratings += "★";
+				   }
+					   
+				   //모델에 저장
+				   model.addAttribute("ratings", ratings);
+				   model.addAttribute("ratingLength", ratings.length());
+				   
+				   
 				if(url!=null) model.addAttribute("url", url);
 				if(msg!=null) model.addAttribute("msg", msg);
+				
+				
 				
 			}else {
 				page = "Main";

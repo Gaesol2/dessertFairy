@@ -173,22 +173,22 @@ public class ReviewServiceImpl implements ReviewService {
 	@Override
 	public int updateProc(ReviewDTO rdto, MultipartFile file) {
 		String sourceFileName = file.getOriginalFilename();
-	      File destinationFile;
-	      
-	      System.out.println("sourceFileName " + sourceFileName);
-	      
-	      rdto.setR_image(sourceFileName);
-	      destinationFile = new File(rdto.getR_path()+sourceFileName);
-	      destinationFile.getParentFile().mkdirs(); //파일명으로 생성
-	      
-	      try {
-	    	  System.out.println(destinationFile);
-	         file.transferTo(destinationFile);
-	      } catch (Exception e) {
-	         e.printStackTrace();
-	      }
-	      
-	      
+		File destinationFile;
+		
+		if(sourceFileName==null || sourceFileName.length()==0) {
+			rdto.setR_image(rdto.getR_image());
+		}else {
+			rdto.setR_image(sourceFileName);
+		    destinationFile = new File(rdto.getR_path()+sourceFileName);
+		    destinationFile.getParentFile().mkdirs(); //파일명으로 생성
+		    try {
+		    	  System.out.println(destinationFile);
+		         file.transferTo(destinationFile);
+		      } catch (Exception e) {
+		         e.printStackTrace();
+		      }
+		}
+		
 	      return reviewDao.updateProc(rdto);
 	   }
 	
@@ -196,7 +196,6 @@ public class ReviewServiceImpl implements ReviewService {
 	public int deleteProc(ReviewDTO rdto) {
 		return reviewDao.deleteProc(rdto);
 	}
-	
 	
 	
 	//어드민 시작
@@ -275,6 +274,8 @@ public class ReviewServiceImpl implements ReviewService {
 	public int replydelProc(ReviewDTO rdto) {
 		return reviewDao.replydelProc(rdto);
 	}
+
+
 
 
 	
