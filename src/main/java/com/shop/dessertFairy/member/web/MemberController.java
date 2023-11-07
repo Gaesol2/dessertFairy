@@ -94,7 +94,6 @@ public class MemberController {
 	    String msg;
 		if(sdto!=null) {								
 		//회원 맞음
-			url="/";
 			MemberDTO ssKey = new MemberDTO();				
 			ssKey.setM_id(sdto.getM_id());					// 로그인 한 유저의 정보를 불러옴
 			ssKey.setM_passwd(sdto.getM_passwd());

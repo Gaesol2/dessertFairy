@@ -61,5 +61,23 @@ public class CartServiceImpl implements CartService {
 		
 		return hCartList;
 	}
+
+	@Override
+	public Hashtable<Integer, OrderDTO> updateCartList(OrderDTO odto) {
+		
+		OrderDTO oldOdto = hCartList.get(odto.getD_no());
+		hCartList.put(odto.getD_no(), oldOdto);
+		System.out.println("oldOdto=========="+oldOdto);
+		System.out.println("odto=========="+odto);
+		
+		return hCartList;
+	}
+
+	@Override
+	public Hashtable<Integer, OrderDTO> deleteCartList(OrderDTO odto) {
+		hCartList.remove(odto.getD_no());
+		
+		return hCartList;
+	}
 	
 }

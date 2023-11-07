@@ -3,7 +3,6 @@
 #mypage{
 	margin : 0 auto;
 	width : 1024px;
-	height: 800px;
 }
 
 .mypagelist{
@@ -33,4 +32,58 @@
    margin: 0 auto;
    width: 850px;
    height: 500px;	
+}
+
+
+
+#cartContent p{
+	text-align: center;
+	margin: 100px;
+	font-size: 21px;
+}
+
+#cartContent .cart_table{
+	text-align: center;
+	border-collapse: collapse;
+}
+
+#cartContent .cart_table td, th{
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+#cartContent .cart_table .col1{
+	width: 300px;
+}
+#cartContent .cart_table .col2{
+	font-weight: bold;
+	width: 200px;
+}
+#cartContent .cart_table .col3{
+	width: 100px;
+}
+#cartContent .cart_table .col4{
+	width: 200px;
+}
+#cartContent .cart_table .col5{
+	width: 174px;
+}
+#cartContent .cart_table .col6{
+	width: 50px;
+}
+
+#cartContent .cart_table .hidden_text{
+	display: none;
+}
+
+
+#cartContent .price_table{
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 100px;
+}
+
+#cartContent .price_table th, td{
+	width: 160px;
+	border: none;
 }
