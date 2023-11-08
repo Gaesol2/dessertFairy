@@ -46,8 +46,8 @@
 				<tbody>
 						<c:forEach var="cart" items="${hCartList}">
 							<tr>
-								<td class="col1"><img src="/upload/${cart.value.d_image}" width="200px" height="200px"></td>
-								<td class="col2">${cart.value.d_name }</td>
+								<td class="col1"><a href="dessertContent?d_no=${cart.value.d_no }"><img src="/upload/${cart.value.d_image}" width="200px" height="200px"></a></td>
+								<td class="col2"><a href="dessertContent?d_no=${cart.value.d_no }">${cart.value.d_name }</a></td>
 								<td class="col3 price o_price">${cart.value.o_price }</td>
 								<td class="col4">
 									<input type="button" value="△" onclick="javascript:count(this,'up')">
@@ -87,6 +87,7 @@
 					<td class="total_amount price"></td>
 				</tr>
 			</table>
+			<input type="submit" value="결제하기">
   		</c:when>
   	</c:choose>
 		
