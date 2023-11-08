@@ -9,5 +9,9 @@ public interface CartService {
 	void setCartList(Hashtable<Integer, OrderDTO> hCartList);
 
 	Hashtable<Integer, OrderDTO> addCartList(OrderDTO odto);
+
+	Hashtable<Integer, OrderDTO> updateCartList(OrderDTO odto);
+
+	Hashtable<Integer, OrderDTO> deleteCartList(OrderDTO odto);
 		
 }

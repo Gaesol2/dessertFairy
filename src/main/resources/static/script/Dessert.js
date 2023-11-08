@@ -2,16 +2,6 @@
  * 
  */
 $().ready(function(){
-	
-	//price 클래스 이름을 가진 숫자에 , 찍기
-	var price_length = $('.price').length;
- 	for(var i=0; i<price_length; i++){
-	 var price=$('.price').eq(i).text();
-	 var to_price = 
-	     price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g,",");
-	 $('.price').eq(i).text(to_price);
-   }
-
    
    //주문 수량 up 버튼
    $(".countUp").on("click",function(){
@@ -54,7 +44,7 @@ $().ready(function(){
   
    //dessertOrder에서 장바구니 담기
    $(".btn_cart").on("click",function(){
-	   $("form[name=dessertForm]").attr("action","cartProc");
+	   $("form[name=dessertForm]").attr("action","cartProc?flag=insert");
 	   $("form[name=dessertForm]").submit();	   
    })
    
