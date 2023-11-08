@@ -8,87 +8,86 @@
 
 <div id="joinBox">
 	<form action="registerProc" name="joinForm" method="post">
-		<table class="joinTable">
-			<thead>
-				<tr>
-					<th>회원 가입</th>
-				</tr>
-			</thead>
-			
-			<tbody>
-				<tr>
-					<td>아이디</td>
-					<td>
-						<input type="text" class="chk idchk" name="m_id" title="아이디" 
-						placeholder="아이디를 입력하시오.">
-						<font id="idcheck" size="2" color="red"></font>
-					</td>
-				</tr>
-				<tr>
-					<td>비밀번호</td>
-					<td>
-						<input type="password" id="password" class="chk check1" name="m_passwd" title="비밀번호" 
-						placeholder="비밀번호를 입력하시오.">
-						<font id="pcombiCheck" size="2" color="green"></font>
-					</td>
-				</tr>
-				<tr>
-					<td>비밀번호 확인</td>
-					<td>
-						<input type="password" id="cpassword" class="chk check2" name="m_rePasswd" title="비밀번호 확인" 
-						placeholder="비밀번호를 확인하시오.">
-						<font id="pcheck" size="2" color="green"></font>
-					</td>
-				</tr>
-				<tr>
-					<td>이름</td>
-					<td>
-						<input type="text" class="chk" name="m_name" title="이름" 
-						placeholder="고객 실명을 입력하시오.">
-					</td>
-				</tr>
-				<tr>
-					<td>이메일</td>
-					<td>
-						<input type="text" name="m_email" title="이메일" 
-						placeholder="이메일을 입력하시오.">
-					</td>
-				</tr>
-				<tr>
-					<td>전화번호</td>
-					<td>
-						<input type="text" id="phone" class="chk" name="m_phone" title="전화번호" 
-						placeholder="전화번호를 입력하시오.(010-1111-1234)">
-					</td>
-				</tr>
-				<tr>
-					<td>우편번호</td>
-					<td>
-						<input type="text" class="chk" name="m_zipcode" title="우편번호" readonly="readonly" 
-						placeholder="우편번호를 검색하시오." id="sample6_postcode">
-						<button type="button" onclick="zipCheck()">우편번호 찾기</button>
-					</td>
-				</tr>
-				<tr>
-					<td>주소</td>
-					<td>
-						<input type="text" class="chk" name="m_address" title="주소" readonly="readonly"
-						placeholder="주소" id="sample6_address">
+		<div id="joinTable">
+			<div class="regis">
+				<h2 class="name">회원 가입</h2>
+				<h5 class="name">(*은 필수입력)</h5>
+			</div>
+				<div class="regisBox">
+					<p class="col1">*아이디</p>
+					<span>
+						<input type="text" class="chk idchk" name="m_id" title="아이디" size="30">
 						<br>
-						<input type="text" class="chk" name="m_address2" title="상세주소" 
-						placeholder="상세주소를 입력하시오." id="sample6_detailAddress">
-						<input type="hidden" id="sample6_extraAddress" placeholder="참고항목">
-					</td>
-				</tr>
-			</tbody>
-			<tfoot class="joinBtn">
-				<tr>
-					<td>
-						<button class="m_join" type="button">회원가입</button>
-						<button type="reset">다시쓰기</button>
-					</td>
-				</tr>
-			</tfoot>
-		</table>
+						<font id="idcheck" size="2" color="red" class="possible"></font>
+					</span>
+				</div>
+				<div class="clear"></div>
+				
+				<div class="regisBox">
+					<p class="col2">*비밀번호</p>
+					<span>
+						<input type="password" id="password" class="chk" size="30" name="m_passwd" title="비밀번호">
+						<br>
+						<font id="pcombiCheck" size="2" color="green" class="possible"></font>
+					</span>
+				</div>
+				<div class="clear"></div>
+				
+				<div class="regisBox">
+					<p class="col3">*비밀번호 확인</p>
+					<span>
+						<input type="password" id="cpassword" class="chk" size="30" name="m_rePasswd" title="비밀번호 확인">
+						<br>
+						<font id="pcheck" size="2" color="green" class="possible"></font>
+					</span>
+				</div>
+				<div class="clear"></div>
+				
+				<div class="regisBox">
+					<p class="col4">*이름</p>
+					<span>
+						<input type="text" class="chk" name="m_name" size="25" title="이름">
+					</span>
+				</div>
+				<div class="clear"></div>
+				
+				<div class="regisBox">
+					<p class="col5">이메일</p>
+					<span>
+						<input type="text" name="m_email" title="이메일" size="35">
+					</span>
+				</div>
+				<div class="clear"></div>
+				
+				<div class="regisBox">
+					<p class="col6">*전화번호</p>
+					<span>
+						<input type="text" id="phone" class="chk" name="m_phone" size="30" title="전화번호" >
+					</span>
+				</div>
+				<div class="clear"></div>
+				
+				<div class="regisBox">
+					<p class="col7">*우편번호</p>
+					<span>
+						<input type="text" class="chk" name="m_zipcode" title="우편번호" size="35" readonly="readonly" id="sample6_postcode">
+						<button type="button" onclick="zipCheck()">우편번호 찾기</button>
+					</span>
+				</div>
+				<div class="clear"></div>
+				
+				<div class="regisBox">
+					<p class="col8">*주소</p>
+					<span>
+						<input type="text" class="chk" name="m_address" title="주소" size="30" readonly="readonly" id="sample6_address" >
+						<input type="text" class="chk" name="m_address2" size="10" title="상세주소" id="sample6_detailAddress">
+						<input type="hidden" id="sample6_extraAddress">
+					</span>
+				</div>
+		</div>
+		<div id="joinBtn">
+			<button class="m_join" type="button">회원가입</button>
+			<button type="reset">다시쓰기</button>
+        </div>
 	</form>
 </div>

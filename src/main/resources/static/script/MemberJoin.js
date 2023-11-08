@@ -70,7 +70,7 @@ $().ready(function(){
 		 var passwordCombination = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*?_]).{8,16}$/;
 		 
 		 if(!passwordCombination.test($('#password').val())){
-			 $('font[id=pcombiCheck]').text('비밀번호는 최소 8자에서 16자까지, 영문자, 숫자 및 특수 문자를 포함해야 합니다.');
+			 $('font[id=pcombiCheck]').text(`영문자, 숫자 및 특수문자를 포함하여 8~16글자만 가능합니다.`);
 			 pCombiCheck = true;
 			}else{
 				$('font[id=pcombiCheck]').text('');

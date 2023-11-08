@@ -14,7 +14,7 @@
     <div class="topList">
       <ul class="list">
         <li><a href="/reviewList">후기 목록</a></li>
-        <li class="reList"><a href="/reviewWrite">후기 글쓰기</a></li>
+        <li><a href="/reviewWrite">후기 글쓰기</a></li>
         <li><a href="/mylist">내 글보기</a></li>
       </ul>
     </div>
@@ -26,7 +26,7 @@
 	         
 	         <p class="spanWrite">작성자</p>
 	         <span><input type="text" name="m_id" readonly="readonly"
-                       value="${review.m_id}" class="chkb" size="51"></span>
+                       value="${review.m_id}" class="chkb in" size="30"></span>
        </div>
        
        <div id="image_star">

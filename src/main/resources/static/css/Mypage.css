@@ -1,24 +1,25 @@
 @charset "UTF-8";
 
+/* 공용 */
+
 #mypage{
 	margin : 0 auto;
 	width : 1024px;
-	height: 800px;
 }
 
-
-.mypagelist{
-	text-align: center;
-}
-
-.toplist{
-	float: right;
-	text-align: center;
+#mypagelist{
+	float: left;
 }
 
 .introduction{
 	font-size: 32px;
 	text-align: left;
+	font-weight: bold;
+}
+
+.topList{
+	float: right;
+	text-align: right;
 }
 
 .list li{
@@ -27,31 +28,78 @@
 	margin-left: 35px;
 }
 
-#mypage table{
-	margin-top: 100px;
-	margin-left: 300px;
-	width: 500px;
-	height: 400px;
-	border: solid 1px rgb(14, 4, 100)a5;
-	border-collapse: collapse;
+.reList{
+	font-weight: bold;
+}
+
+
+
+/* 내 정보 */
+
+#myInfo{
+	float : left;
+	margin: 0 auto;
+	width: 1024px;
+	margin-top: 130px;
+	padding-bottom : 50px;
+	border-bottom: solid 1px black;
+}
+
+#infoMain{
+	width : 850px;
+	margin: 0 auto;
+	margin-left: 150px;
+}
+
+.info{
 	text-align: center;
+	padding-bottom : 50px;
+	margin-bottom: 80px;
+	border-bottom: solid 2px black;
 }
 
-.col, .col1, .col2{
-	border: solid 1px black;
-	border-collapse: collapse;
+.col{
+	padding: 15px;
 }
 
-#info{
-	text-align: center;
+.col1{
+	width : 100px;
+	display: inline-block;
+	text-align: right;
+	margin: 0 100px;
 }
-
-
 	
+.col2 .in{
+	border-radius: 7px;
+	border: solid 1px #eeeeee;
+	height: 40px;
+	box-sizing: border-box;
+	outline: none;
+	padding: 0 10px;
+}
 
+#tabBtn{
+	float: left;
+	width: 1024px;
+	height: 100px;
+	margin-top : 65px;
+	margin-left: 400px;
+}
 
+#tabBtn .button{
+	font-size: 16px;
+	color : #064695;
+	padding : 10px 30px 10px 30px;
+	background-color : #fefae9;
+	border : solid 1px #064695;
+	text-align: center;
+}
 
-
+#tabBtn .button:hover{
+    text-shadow: 0 0 0 #fefae9;
+    background-color : #064695;
+    color : #fefae9;
+}
 
 
 

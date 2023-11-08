@@ -125,6 +125,9 @@
 	height: 35px;
 	border-radius: 5px;
 	border: solid 1px #eeeeee;
+	box-sizing: border-box;
+	outline: none;
+	padding: 0 10px;
 }
 
 .spanName{
@@ -137,7 +140,7 @@
 .spanWrite{
 	font-size: 15px;
 	font-weight: bold;
-	margin: 40px 20px 20px 130px;
+	margin: 40px 20px 20px 100px;
 	padding-right: 20px;
 }
 
@@ -186,6 +189,10 @@
     margin: 40px 20px 20px 0;
     border-radius: 5px;
 	border: solid 1px #eeeeee;
+	box-sizing: border-box;
+	outline: none;
+	padding: 10px;
+	font-size: 16px;
 }
 
 #reviewPasswd{
@@ -336,10 +343,12 @@
 .replys{
 	width: 500px;
 	height: 200px;
-	text-align: center;
-	font-size: 14px;
+	font-size: 15px;
 	background-color: #fefae9;
 	border: none;
+	box-sizing: border-box;
+	outline: none;
+	padding: 10px;
 }
 
 #myreviewBtn{
