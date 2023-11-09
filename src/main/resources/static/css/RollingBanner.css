@@ -337,8 +337,7 @@
 #mainContact{
 	float: left;
 	width: 1024px;
-	height: 700px;
-	margin-bottom: 300px;
+	margin-bottom: 200px;
 }
 
 
@@ -377,8 +376,6 @@
 #mainNotice{
 	float: left;
 	width: 1024px;
-	height: 700px;
-	margin-bottom: 300px;
 }
 
 #noticeContent{
