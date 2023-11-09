@@ -1,6 +1,7 @@
 package com.shop.dessertFairy.dessert.service;
 import java.io.File;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +13,7 @@ import com.shop.dessertFairy.common.RowInterPage;
 import com.shop.dessertFairy.common.dto.PageDTO;
 import com.shop.dessertFairy.dessert.dao.DessertDAO;
 import com.shop.dessertFairy.dessert.dto.DessertDTO;
+import com.shop.dessertFairy.order.dto.OrderDTO;
 import com.shop.dessertFairy.review.dto.ReviewDTO;
 
 @Service
@@ -152,5 +154,11 @@ public class DessertServiceImpl implements DessertService {
 		return dessertDao.deleteProduct(ddto);
 	}
 
+	@Override
+	public void updateStocks(Hashtable<Integer, OrderDTO> hCartList) {
+		
+		
+		
+	}
 
 }

@@ -19,6 +19,11 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
+	public Hashtable<Integer, OrderDTO> getCartList() {
+		return hCartList;
+	}
+	
+	@Override
 	public Hashtable<Integer, OrderDTO> addCartList(OrderDTO odto) {
 		
 		//인자로 받은 odto(장바구니에 담을 상품)에서 d_no(상품번호)를 빼서 따로 저장
@@ -76,5 +81,6 @@ public class CartServiceImpl implements CartService {
 		
 		return hCartList;
 	}
+
 	
 }

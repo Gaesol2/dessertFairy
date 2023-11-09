@@ -7,6 +7,8 @@ import com.shop.dessertFairy.order.dto.OrderDTO;
 public interface CartService {
 
 	void setCartList(Hashtable<Integer, OrderDTO> hCartList);
+	
+	Hashtable<Integer, OrderDTO> getCartList();
 
 	Hashtable<Integer, OrderDTO> addCartList(OrderDTO odto);
 
