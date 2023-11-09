@@ -71,7 +71,7 @@
 		 SELECT COUNT(D_NO) FROM DESSERT
 	</select>
 	  
-	<select id="getProducttList" parameterType="pdto">	<!-- admin 상품리스트 -->
+	<select id="getProductList" parameterType="pdto">	<!-- admin 상품리스트 -->
 		SELECT 
 	    d_no
 	    ,d_category
@@ -85,6 +85,8 @@
 	    ,d_storage
 	    ,d_allergy
 	 FROM DESSERT
+	 ORDER BY D_NO
+	 
 	</select>
 	
 	<select id="adminGetDessert" parameterType="int" resultType="ddto">	<!-- admin 상품no에 해당하는 상품 디테일 받아옴 -->
@@ -147,6 +149,10 @@
 	  <delete id="deleteProduct" parameterType="ddto">	<!-- admin 상품 삭제 -->
 	  	DELETE FROM DESSERT WHERE D_NO = #{d_no}
 	  </delete>
+	  
+	  <select id="getProCnt" resultType="int">
+		SELECT COUNT(D_NO) FROM DESSERT
+	</select>
 	  
 	<!-- admin End -->
 </mapper>

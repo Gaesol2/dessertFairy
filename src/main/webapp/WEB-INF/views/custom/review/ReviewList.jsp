@@ -22,7 +22,7 @@
     </div>
   </div>
   <div id="reviewList">
-  	<div id="col-auto">
+    <div id="col-auto">
      <select class="category" onchange="javascript:category()">
        <option>선택하세요</option>
        <option ${orderby=="new"?"selected":""}>최신순</option>

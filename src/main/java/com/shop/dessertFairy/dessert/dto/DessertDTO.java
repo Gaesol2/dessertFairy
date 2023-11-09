@@ -6,6 +6,9 @@ import lombok.ToString;
 @Data
 @ToString
 public class DessertDTO {
+	private int start;
+	private int end;
+	private int d_rr;
 	private int d_no      ;
 	private String d_category;
 	private String d_name    ;
