@@ -8,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.shop.dessertFairy.common.RowInterPage;
 import com.shop.dessertFairy.common.dto.PageDTO;
 import com.shop.dessertFairy.dessert.dao.DessertDAO;
 import com.shop.dessertFairy.dessert.dto.DessertDTO;
+import com.shop.dessertFairy.review.dto.ReviewDTO;
 
 @Service
 public class DessertServiceImpl implements DessertService {
@@ -65,12 +67,46 @@ public class DessertServiceImpl implements DessertService {
 	}
    
 	@Override
-	public Map<String, Object> getProductList(PageDTO pdto) {		//admin 상품 리스트
-	
-		int cnt = dessertDao.getProductCnt();
+	public Map<String, Object> getProductList(DessertDTO ddto, PageDTO pdto) {		//admin 상품 리스트
+		
+		int pcnt = dessertDao.getProductCnt();                     //상품 총 개수 
 		Map<String, Object> resultSet = new HashMap<String, Object>();
-		List<DessertDTO> pList = dessertDao.getProducttList();
-		resultSet.put("pcnt", cnt);
+		   
+		//페이지 계산
+		   if(pdto.getCurBlock()<=0) pdto.setCurBlock(1);
+		   if(pdto.getCurPage()<=0) pdto.setCurPage(1);
+		   
+		   
+		   int cnt = 0;
+		   cnt = dessertDao.getProCnt();
+		   //현재 페이지 계산
+		   int start = (pdto.getCurPage()-1)*RowInterPage.ROW_OF_PAGE +1;
+		   int end = (pdto.getCurPage()*RowInterPage.ROW_OF_PAGE)>cnt?
+				   cnt:pdto.getCurPage()*RowInterPage.ROW_OF_PAGE;
+		   ddto.setStart(start);
+		   ddto.setEnd(end);
+		   
+		   int pgCnt = (cnt%RowInterPage.ROW_OF_PAGE==0)?
+				   cnt/RowInterPage.ROW_OF_PAGE:
+					   cnt/RowInterPage.ROW_OF_PAGE+1;
+		   
+		   //페이지 블럭
+		   int pgBlock = (pgCnt%RowInterPage.PAGE_OF_BLOCK==0)?
+				   pgCnt/RowInterPage.PAGE_OF_BLOCK:pgCnt/RowInterPage.PAGE_OF_BLOCK+1;
+		   int startPg = (pdto.getCurBlock()-1)*RowInterPage.PAGE_OF_BLOCK+1;
+		   int endPg = (pdto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK>pgCnt)?
+				   pgCnt:pdto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK;
+		   
+		   pdto.setPgCnt(pgCnt);
+		   pdto.setPgBlock(pgBlock);
+		   pdto.setStartPg(startPg);
+		   pdto.setEndPg(endPg);
+		
+		
+		List<DessertDTO> pList = dessertDao.getProductList();
+		resultSet.put("pdto", pdto);
+		resultSet.put("cnt", cnt);
+		resultSet.put("pcnt", pcnt);
 		resultSet.put("pList", pList);
 		
 		return resultSet;

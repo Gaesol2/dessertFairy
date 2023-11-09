@@ -6,82 +6,82 @@
 <meta charset="UTF-8">
 <title>상품 상세 페이지</title>
 </head>
+<link rel="stylesheet" type="text/css" href="/css/Product.css">
 <script src="/script/admin.js"></script>
 <body>
-<div id="product_Detail_box">
-	<h2>${dessert.d_name}</h2>
-	<table>
-		<tr>
-			<td>
-				<a href="/upload/image/${dessert.d_image}">
-				<img alt="이미지" src="upload/${dessert.d_image}" height="150" width="150">
-				</a>
-			</td>
+<div id="product">
+	<form action="" name="productDetailForm" method="post">
+		<div id="detailImage">
+			<img alt="이미지" src="upload/${dessert.d_image}" width="300" height="300">
+		</div>
+		<div id="detailMain">
+			<div>
+				<p class="datailName">${dessert.d_name}</p>
+			</div>
 			
-			<td>
-				<form action="" name="productDetailForm" method="post">
-					<table>
-						<tr>
-							<th >상품번호:</th>
-							<td>
-								<input type="hidden" name="d_no" value="${dessert.d_no}">${dessert.d_no}
-							</td>
-							
-						</tr>
-						
-						<tr>
-							<th>상품 카테고리</th>
-							<td>${dessert.d_category}</td>
-						</tr>
-						
-						<tr>
-							<th>상품명</th>
-							<td>${dessert.d_name}</td>
-						</tr>
-						
-						<tr>
-							<th>상품설명</th>
-							<td>${dessert.d_detail}</td>
-						</tr>
-						
-						<tr>
-							<th>가격</th>
-							<td>${dessert.d_price}</td>
-						</tr>
-						
-						
-						<tr>
-							<th>재고</th>
-							<td>${dessert.d_stock}</td>
-						</tr>
-						
-						<tr>
-							<th>유통기한</th>
-							<td>${dessert.d_life}</td>
-						</tr>
-						
-						<tr>
-							<th>보관방법</th>
-							<td>${dessert.d_storage}</td>
-						</tr>
-						
-						<tr>
-							<th>알레르기 성분</th>
-							<td>${dessert.d_allergy}</td>
-						</tr>
-						
-						<tr>
-							<th>
-								<input type="button" class="productUp" value="상품수정">
-								<input type="button" class="productDel" value="상품삭제">
-								<input type="button" value="상품목록" onclick = "location.href='productMgt'">
-							</th>
-						</tr>
-						
-					</table>
-				</form>
-			</td>
-		</tr>
-	</table>
+			<div class="co">
+				<p class="col">상품번호</p>
+				<span>
+					<input type="text" class="in" name="d_no" value="${dessert.d_no}"
+					      readonly="readonly" size="1">
+				</span>
+			</div>
+			
+			<div class="co">
+				<p class="col">상품 카테고리</p>
+				<span><input type="text" class="in" name="d_category" value="${dessert.d_category}"
+				          size="5" readonly="readonly"></span>
+			</div>
+			
+			<div class="co">
+				<p class="col">상품명</p>
+				<span><input type="text" class="in" name="d_name" value="${dessert.d_name}"
+				       size="40" readonly="readonly"></span>
+			</div>
+			
+			<div class="co">
+				<p class="col">상품설명</p>
+				<span><input type="text" class="in" name="d_detail" value="${dessert.d_detail}" 
+				       size="58" readonly="readonly"></span>
+			</div>
+			
+			<div class="co">
+				<p class="col">가격</p>
+				<span><input type="text" class="price in" name="d_price" value="${dessert.d_price}"
+				       size="10"  readonly="readonly"></span>
+			</div>
+			
+			<div class="co">
+				<p class="col">재고</p>
+				<span><input type="text" class="in" name="d_stock" value="${dessert.d_stock}"
+				       size="10" readonly="readonly"></span>
+			</div>
+			
+			<div class="co">
+				<p class="col">유통기한</p>
+				<span><input type="text" class="in" name="d_life" value="${dessert.d_life}"
+				        size="30" readonly="readonly"></span>
+			</div>
+			
+			<div class="co">
+				<p class="col">보관방법</p>
+				<span><input type="text" class="in" name="d_storage" value="${dessert.d_storage}"
+				        size="40" readonly="readonly"></span>
+			</div>
+			
+			<div class="co">
+				<p class="col">알레르기 성분</p>
+				<span><input type="text" class="in" name="d_allergy" value="${dessert.d_allergy}"
+				       size="30" readonly="readonly"></span>
+			</div>
+			
+			<div id="proBtn">
+				<input type="button" class="productUp regis" value="상품수정">
+				<input type="button" class="productDel regis" value="상품삭제">
+				<input type="button" class="regis" value="상품목록" onclick = "location.href='productMgt'">
+			</div>
+			
+		</div>
+	</form>
 </div>
 </body>

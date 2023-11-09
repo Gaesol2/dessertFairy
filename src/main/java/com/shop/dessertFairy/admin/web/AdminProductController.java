@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.shop.dessertFairy.common.RowInterPage;
 import com.shop.dessertFairy.common.dto.PageDTO;
 import com.shop.dessertFairy.dessert.dto.DessertDTO;
 import com.shop.dessertFairy.dessert.service.DessertService;
@@ -36,7 +37,7 @@ public class AdminProductController {
 	public String ProductMgt(HttpServletRequest request,
 							 HttpServletResponse response,
 							 Model model,
-							 MemberDTO adto,
+							 DessertDTO ddto,
 							 PageDTO pdto) {
 		String page = null;
 		MemberDTO ssKey = null;
@@ -50,7 +51,10 @@ public class AdminProductController {
 			}else page = "redirect:/";									// 사용자의 세션이 admin이 아니면 홈으로 보냄
 		}else page = "redirect:/";										// 세션의 ssKey값이 null=비회원  이면 홈으로 보냄
 		
-		Map<String, Object> resultSet = dessertService.getProductList(pdto);	// 상품리스트 메소드 호출해서 받아온 결과를 담아줌
+		Map<String, Object> resultSet = dessertService.getProductList(ddto, pdto);	// 상품리스트 메소드 호출해서 받아온 결과를 담아줌
+		model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
+		model.addAttribute("cnt", resultSet.get("cnt"));						// 상품결과를 받아와서 저장
+		model.addAttribute("pdto", resultSet.get("pdto"));						// 상품결과를 받아와서 저장
 		model.addAttribute("pcnt", resultSet.get("pcnt"));						// 상품결과를 받아와서 저장
 		model.addAttribute("pList", resultSet.get("pList"));					// 상품 목록을 받아와서 저장
 		session.setAttribute("ssKey", ssKey);									// 세션 저장

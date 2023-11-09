@@ -19,7 +19,7 @@ public interface DessertDAO {
 
 	int insertProduct(DessertDTO ddto);
 
-	List<DessertDTO> getProducttList();						//admin 상품리스트
+	List<DessertDTO> getProductList();						//admin 상품리스트
 
 	int getProductCnt();									//admin 상품 가지수
 
@@ -32,6 +32,8 @@ public interface DessertDAO {
 	int orderCntOfProduct(int dno);		//admin 주문내역 확인 .데이터 삭제를 위해서
 
 	int deleteProduct(DessertDTO ddto);	//admin 상품 삭제
+
+	int getProCnt();
 
 
 }
