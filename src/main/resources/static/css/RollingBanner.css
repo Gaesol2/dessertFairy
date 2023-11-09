@@ -29,3 +29,409 @@
 	margin:0; 
 	padding:0;
 }
+
+
+
+
+/* main notice */
+
+#notice{
+	width: 1024px;
+	margin: 0 auto;
+	margin-top: 200px;
+}
+
+#notice .headLine{
+	text-align: center;
+	font-size: 32px;
+	font-weight: bold;
+}
+
+#notice .mainContent{
+	margin-top: 150px;
+	margin-bottom: 300px;
+	text-align: center;
+	font-size: 18px;
+	font-style: italic;
+}
+
+#notice .pContent{
+	margin-bottom: 20px;
+}
+
+
+
+/* 주문제작 케이크란? */
+
+#mainCake{
+	width: 1024px;
+	height: 700px;
+	margin-bottom: 300px;
+}
+
+#cakeContent{
+	float: left;
+	margin-top: 100px;
+}
+
+.cakeDt{
+	margin-bottom: 50px;
+	font-weight: bold;
+	font-size: 36px;
+}
+
+.cakeDd{
+	font-size: 18px;
+	line-height: 38px;
+}
+
+#cakeImge{
+	float: right;
+}
+
+
+#orderBtn{
+	margin-top: 100px;
+	margin-left: 20px;
+}
+
+#orderBtn .orderGo{
+	font-size: 18px;
+	color : #064695;
+	padding : 10px 25px 10px 25px;
+	background-color : #fefae9;
+	border : solid 1px #064695;
+	text-align: center;
+}
+
+#orderBtn .orderGo:hover{
+    text-shadow: 0 0 0 #fefae9;
+    background-color : #064695;
+    color : #fefae9;
+}
+
+
+/* 케이크 주문하기 */
+
+#mainCakeOrder{
+	float: left;
+	width: 1024px;
+	margin-bottom: 400px;
+}
+
+.ordering{
+	text-align: center;
+	font-size: 26px;
+	font-weight: bold;
+	margin-bottom: 150px;
+}
+
+#steps{
+	margin-bottom: 30px;
+	margin-left: 35px;
+}
+
+.stepImg1{
+	margin-left: 65px;
+}
+
+.stepImg2{
+	margin-left: 65px;
+}
+
+.stepImg3{
+	margin-left: 65px;
+}
+
+.stepImg4{
+	margin-left: 75px;
+}
+
+#stepBox{
+	margin-left: 90px;
+}
+
+.step{
+	float: left;
+	margin-right: 65px;
+	text-align: center;
+}
+
+.step1{
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.step2{
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.step3{
+	font-size: 14px;
+}
+
+
+/* 다양한 베이커리 */
+#mainBake{
+	float: left;
+	width: 1024px;
+	height: 700px;
+	margin-bottom: 300px;
+}
+
+
+.dessertDt{
+	text-align: right;
+	margin-bottom: 50px;
+	font-weight: bold;
+	font-size: 36px;
+}
+
+.dessertDd{
+	text-align: right;
+	font-size: 18px;
+	line-height: 38px;
+}
+
+#bakeImge{
+	float: left;
+}
+
+#bakeContent{
+	float : right;
+	margin-top: 100px;
+}
+
+#bakeBtn{
+	margin-top: 100px;
+	margin-left: 120px;
+}
+
+#bakeBtn .bakeGo{
+	font-size: 18px;
+	color : #064695;
+	padding : 10px 25px 10px 25px;
+	background-color : #fefae9;
+	border : solid 1px #064695;
+	text-align: center;
+}
+
+#bakeBtn .bakeGo:hover{
+    text-shadow: 0 0 0 #fefae9;
+    background-color : #064695;
+    color : #fefae9;
+}
+
+
+
+/* 디저트 주문하기 */
+
+#mainBakeOrder{
+	float: left;
+	width: 1024px;
+	margin-bottom: 400px;
+}
+
+.ordering{
+	text-align: center;
+	font-size: 26px;
+	font-weight: bold;
+	margin-bottom: 150px;
+}
+
+#desteps{
+	margin-bottom: 30px;
+	margin-left: 35px;
+}
+
+.destepImg1{
+	margin-left: 65px;
+}
+
+.destepImg2{
+	margin-left: 65px;
+}
+
+.destepImg3{
+	margin-left: 65px;
+}
+
+.destepImg4{
+	margin-left: 75px;
+}
+
+#destepBox{
+	margin-left: 80px;
+}
+
+.destep{
+	width: 200px;
+	float: left;
+	margin-right: 15px;
+	text-align: center;
+}
+
+.desteps{
+	width: 200px;
+	float: left;
+	margin-right: 40px;
+	text-align: center;
+}
+.destep1{
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.destep2{
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.destep3{
+	font-size: 14px;
+}
+
+
+
+
+/* 리뷰 작성하기 */
+
+#mainStar{
+	float: left;
+	width: 1024px;
+	height: 700px;
+	margin-bottom: 300px;
+}
+
+#starContent{
+	float: left;
+	margin-top: 100px;
+}
+
+.starDt{
+	margin-bottom: 50px;
+	font-weight: bold;
+	font-size: 36px;
+}
+
+.starDd{
+	font-size: 18px;
+	line-height: 38px;
+}
+
+#starImge{
+	float: right;
+}
+
+
+
+
+
+
+/* 문의하기 */
+#mainContact{
+	float: left;
+	width: 1024px;
+	height: 700px;
+	margin-bottom: 300px;
+}
+
+
+.contactDt{
+	text-align: right;
+	margin-bottom: 50px;
+	font-weight: bold;
+	font-size: 36px;
+}
+
+.contactDd{
+	text-align: right;
+	font-size: 18px;
+	line-height: 38px;
+}
+
+#contactImge{
+	float: left;
+	margin-left: 100px;
+	margin-top: 80px;
+}
+
+#contactContent{
+	float : right;
+	margin-top: 100px;
+	margin-right: 100px;
+}
+
+
+
+
+
+
+/* 공지사항 */
+
+#mainNotice{
+	float: left;
+	width: 1024px;
+	height: 700px;
+	margin-bottom: 300px;
+}
+
+#noticeContent{
+	float: left;
+	margin-top: 100px;
+	margin-left: 100px;
+}
+
+.noticeDt{
+	margin-bottom: 50px;
+	font-weight: bold;
+	font-size: 36px;
+}
+
+.noticeDd{
+	font-size: 18px;
+	line-height: 38px;
+}
+
+#noticeImge{
+	float: right;
+	margin-top: 50px;
+}
+
+
+#noticeBtn{
+	margin-top: 100px;
+	margin-left: 20px;
+}
+
+#noticeBtn .noticeGo{
+	font-size: 18px;
+	color : #064695;
+	padding : 10px 25px 10px 25px;
+	background-color : #fefae9;
+	border : solid 1px #064695;
+	text-align: center;
+}
+
+#noticeBtn .noticeGo:hover{
+    text-shadow: 0 0 0 #fefae9;
+    background-color : #064695;
+    color : #fefae9;
+}
+
+
+
+
+
+
+
+
+
+
+
+

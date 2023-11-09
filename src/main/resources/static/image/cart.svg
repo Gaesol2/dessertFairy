@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #042958;
+        stroke-miterlimit: 10;
+        stroke-width: 8px;
+      }
+    </style>
+  </defs>
+  <g id="_배경_사이즈" data-name="배경 사이즈">
+    <rect class="cls-1" width="2048" height="2048"/>
+  </g>
+  <g id="Layer_8" data-name="Layer 8">
+    <path class="cls-2" d="M251.31,215.31h98.79c33.78,0,61.16,27.38,61.16,61.16v747.53"/>
+    <path class="cls-2" d="M411.26,367.64H1732.6c72.33,0,122.85,71.64,98.56,139.77l-221.87,622.33c-21.89,61.39-80.02,102.38-145.2,102.38H517.89c-58.89,0-106.63,47.74-106.63,106.63h0c0,58.89,47.74,106.63,106.63,106.63h677.87c86.23,0,156.14,69.91,156.14,156.14h0"/>
+    <circle class="cls-2" cx="506.47" cy="1723.39" r="106.63"/>
+    <circle class="cls-2" cx="1237.66" cy="1723.39" r="106.63"/>
+  </g>
+</svg>

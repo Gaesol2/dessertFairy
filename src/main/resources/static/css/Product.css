@@ -1,0 +1,241 @@
+@charset "UTF-8";
+
+/* 공용 */
+
+#product{
+	margin : 0 auto;
+	width : 1024px;
+}
+
+.mainlist{
+	float: left;
+}
+
+.productName{
+	font-size: 32px;
+	text-align: left;
+	font-weight: bold;
+}
+
+.total{
+	float: right;
+	text-align: right;
+}
+
+.list li{
+	display: inline-block;
+	font-size: 15px;
+	margin-left: 35px;
+}
+
+
+
+
+
+/* product list */
+
+#productList{
+	float: left;
+	margin-top: 130px;
+}
+
+.productTable{
+	width: 1024px;
+	border-top : solid 2px black;
+	border-collapse: collapse;
+	
+}
+
+.productTable tr{
+	border-bottom: solid 1px black;
+	border-top: solid 1px black;
+}
+
+.productTable tr{
+	height: 45px;
+}
+
+
+.dol1{
+	width: 70px;
+	text-align: center;
+}
+
+.dol2{
+	width: 100px;
+}
+
+.dol3{
+	width: 70px;
+	text-align: center;
+}
+
+.dol4{
+	width: 300px;
+	text-align: center;
+}
+
+.dol5{
+	width: 80px;
+	text-align: center;
+}
+
+.dol6{
+	width: 70px;
+	text-align: center;
+}
+
+
+.pageBtn{
+	width: 1024px;
+	margin-top : 20px;
+	text-align: center;
+}
+
+#productBtn{
+	margin-left: 920px;
+	margin-bottom: 20px; 
+}
+
+#productBtn .regis{
+	font-size: 13px;
+	color : #fefae9;
+	padding : 5px 20px 5px 20px;
+	background-color : #064695;
+	border : solid 1px #064695;
+	text-align: center;
+}
+
+
+
+
+
+/* detail */
+
+#detailImage{
+	float: left;
+	width: 350px;
+	text-align: right;
+	margin-top: 100px;
+}
+
+#detailMain{
+	float: left;
+	width: 670px;
+}
+
+.datailName{
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.co{
+	padding: 10px;
+}
+
+.col{
+	display: inline-block;
+	width: 100px;
+	text-align: right;
+	margin: 0 50px;
+}
+
+.in{
+	height: 35px;
+	border-radius: 5px;
+	border: solid 1px #eeeeee;
+	box-sizing: border-box;
+	outline: none;
+	padding: 0 10px;
+}
+
+#proBtn{
+	width: 1024px;
+	height: 100px;
+	margin-top : 65px;
+	margin-left: 120px;
+}
+
+#proBtn .regis{
+	font-size: 16px;
+	color : #064695;
+	padding : 6px 15px 6px 15px;
+	background-color : #fefae9;
+	border : solid 1px #064695;
+	text-align: center;
+}
+
+#proBtn .regis:hover{
+    text-shadow: 0 0 0 #fefae9;
+    background-color : #064695;
+    color : #fefae9;
+}
+
+
+
+
+
+/* 상품 등록 */
+
+.productUp{
+	text-align: center;
+}
+
+.upForm{
+	margin-top: 100px;
+	width: 1024px;
+}
+
+#upMain{
+	margin-left: 200px;
+}
+
+.box{
+	padding: 10px;
+}
+
+.boxName{
+	display: inline-block;
+	width: 100px;
+	text-align: right;
+	margin: 0 100px;
+}
+
+.opt{
+	width: 70px;
+	height : 40px;
+	border-radius: 7px;
+	text-align: center;
+}
+
+
+
+
+#UpBtn{
+	float: left;
+	width: 1024px;
+	height: 100px;
+	margin-top : 65px;
+	margin-left: 450px;
+}
+
+#UpBtn .regis{
+	font-size: 16px;
+	color : #064695;
+	padding : 6px 15px 6px 15px;
+	background-color : #fefae9;
+	border : solid 1px #064695;
+	text-align: center;
+}
+
+#UpBtn .regis:hover{
+    text-shadow: 0 0 0 #fefae9;
+    background-color : #064695;
+    color : #fefae9;
+}
+
+
+
+
