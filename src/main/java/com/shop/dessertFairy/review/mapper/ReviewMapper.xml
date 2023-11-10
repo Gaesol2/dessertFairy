@@ -208,5 +208,31 @@
 	  UPDATE REVIEW SET R_REPLY = NULL
 	  WHERE R_NO = #{r_no}
 	</update>
-
+	
+	
+	<!-- admin start -->
+	
+		<select id="reviewTot" parameterType="string" resultType="int">						<!-- admin 해당 회원의 전체 리뷰 수 -->
+			SELECT COUNT(r_no) FROM REVIEW
+			WHERE M_ID = #{m_id}
+		</select>
+		
+		<select id="getreviews" parameterType="string" resultType="rdto">		<!-- admin 멤버 리뷰 페이지 -->
+			SELECT 	R_NO,
+					R_SUBJECT,
+					R_CONTENT,
+					R_REGDATE,
+					R_READCOUNT,
+					R_PASSWD,
+					R_STAR,
+					R_IMAGE,
+					M_ID,
+					R_PATH,
+					R_REPLY
+			FROM REVIEW
+			WHERE M_ID = #{m_id}
+		</select>
+	<!-- admin end -->
+	
+	
 </mapper>

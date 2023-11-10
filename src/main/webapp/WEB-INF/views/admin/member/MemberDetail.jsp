@@ -8,53 +8,45 @@
 <title>회원 정보 페이지</title>
 </head>
 <body>
-	<div id="mDetail">
-		<h2>${member.m_name}</h2>
+	<div id="mDetail_box">
+		<h2>${member.m_name} 님</h2>
 		<table>
-			<tr>
-				<th>회원 아이디</th>
-				<td>${member.m_id}</td>
-			</tr>
-			
-			<tr>
-				<th>회원 이름</th>
-				<td>${member.m_name}</td>
-			</tr>
+			<thead>
+				<tr>
+					<th>아이디</th>
+					<th>패스워드</th>
+					<th>이메일</th>
+					<th>연락처</th>
+					<th>우편번호</th>
+					<th>주소</th>
+					<th>상세주소</th>
+					<th>가입일</th>
+					<th>권한</th>
+				</tr>
+			</thead>
 		
-			<tr>
-				<th>회원 이메일</th>
-				<td>${member.m_email}</td>
-			</tr>
+			<tbody>
+					<tr>
+						<td>${member.m_id}</td>
+						<td>${member.m_passwd}</td>
+						<td>${member.m_email}</td>
+						<td>${member.m_phone}</td>
+						<td>${member.m_zipcode}</td>
+						<td>${member.m_address}</td>
+						<td>${member.m_address2}</td>
+						<td>${member.m_regdate}</td>
+						<td>${member.m_role}</td>
+					</tr>
+			</tbody>
 		
-			<tr>
-				<th>회원 연락처</th>
-				<td>${member.m_phone}</td>
-			</tr>
-		
-			<tr>
-				<th>회원 가입일</th>
-				<td>${regdate}</td>
-			</tr>
-		
-			<tr>
-				<th>회원 우편번호</th>
-				<td>${member.m_zipcode}</td>
-			</tr>
-		
-			<tr>
-				<th>회원 주소</th>
-				<td>${member.m_address}</td>
-			</tr>
-		
-			<tr>
-				<th>회원 상세주소</th>
-				<td>${member.m_address2}</td>
-			</tr>
 			<tfoot>
-				<input type="button" value="회원목록" onclick="locatcion.href="memberMgt">
+				<tr>
+					<td><a href="/mOrder">주문내역</a></td>
+					<td><a href="/mReviewMgt?m_id=${member.m_id}">회원리뷰</a></td>
+					<td><a href="/memberMgt">회원목록</a></td>
+				</tr>
 			</tfoot>
 		</table>	
-	
 	</div>
 </body>
 </html>

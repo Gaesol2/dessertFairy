@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.shop.dessertFairy.common.dto.PageDTO;
 import com.shop.dessertFairy.dessert.dto.DessertDTO;
 
 @Mapper
@@ -19,7 +20,7 @@ public interface DessertDAO {
 
 	int insertProduct(DessertDTO ddto);
 
-	List<DessertDTO> getProductList();						//admin 상품리스트
+	List<DessertDTO> getProductList(DessertDTO ddto);						//admin 상품리스트
 
 	int getProductCnt();									//admin 상품 가지수
 

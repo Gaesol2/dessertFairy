@@ -41,6 +41,10 @@ public class MemberController {
 			HttpServletResponse response,
 			Model model,
 			MemberDTO mdto) {
+		
+		String m_phone = request.getParameter("m_phone1") + request.getParameter("m_phone2");
+		mdto.setM_phone(Integer.parseInt(m_phone));
+		
 		String msg = null;
 		String url = null;
 		

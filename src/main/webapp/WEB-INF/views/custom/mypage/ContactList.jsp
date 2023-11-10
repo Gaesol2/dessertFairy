@@ -2,83 +2,76 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<!DOCTYPE html>
-<html>
-<head>
+
+
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="/css/notice.css">
-</head>
-<div id="mypage">
-  <div id="top">
-    <div class="mypagelist">
-		<p class="introduction">문의하기</p>
-    </div>
-    <div class="toplist">
-      <ul class="list">
-        <li><a href="/myPage">내 정보</a></li>
-        <li><a href="/cartList">장바구니</a></li>
-        <li><a href="/orderList">주문목록</a></li>
-        <li><a href="/contactList">문의하기</a></li>
-      </ul>
-    </div>
-    <table class="noticeForm">
- <thead>
- <tr>
-  <th colspan="2">공지사항등록</th>
- </tr>
- </thead>
- <tbody>
-  <tr>
-   <td class="col1">공지사항번호</td>
-   <td class="col2">
-   <input type="text"  name="noti_no" class="chk1" readonly="readonly"
-   value="${notice.noti_no}">
-   </td>
-  </tr>
-   <tr>
-   <td class="col1">제목</td>
-   <td class="col2">
-   <input type="text"  name="subject" readonly="readonly"
-    value="${notice.subject}">
-   </td>
-  </tr>
-  <tr>
-   <td class="col1">작성자</td>
-   <td class="col2">
-   <input type="text"  name="writer"  value=""${notice.writer}">
-   </td>
-  </tr>
-   <tr>
-   <td class="col1">내용</td>
-   <td class="col2">
-   <textarea readonly="readonly"  rows="10" cols="70" name="content" style="resize: none;" style="resize:none;">${notice.content}</textarea>
-   </td>
-   </tr>
-  <tr>
-   <td class="col1">작성일자</td>
-   <td class="col2">
-   <input type="text" name="regdate" readonly="readonly" value="${notice.regdate}">
-   </td>
-   <td class="col3">종료일을 선택하시오</td>
-  </tr>
-  <tr>
-   <td class="col1">공지종료</td>
-   <td class="col2">
-   <input type="date" name="vdate" class="chk1" title="종료일" readonly="readonly" value="${notice.vdate}">
-   </td>
-  </tr>
-  </tbody>
-  <tfoot>
-   <tr> 
-    <td colspan="3">
-     <button type="button"
-             onclick="location.href='/notice'">공지사항목록</button>
-     </td>
-   </tr>
-  </tfoot>
-</table>
-<input type="hidden" name="flag" value="insert">
-</form>
+<link rel="stylesheet" type="text/css" href="/css/Contact.css">
+<script src="/script/mypage.js"></script>
+<div id="contact">
+  <div>
+    <div>
+		<div id="contactList">
+			<p class="introduction">문의하기</p>
+		</div>
+		<div class="topList">
+			<ul class="list">
+				<li><a href="/myPage">내 정보</a></li>
+				<li><a href="/cartList">장바구니</a></li>
+				<li><a href="/orderList">주문목록</a></li>
+				<li class="reList"><a href="/contactList">문의하기</a></li>
+			</ul>
+		</div>
+	</div>
   </div>
+  <div id="contactContent">
+  		<table class="listTable">
+	      <tr>
+	         <th></th>
+	         <th>제목</th>
+	         <th>작성자</th>
+	         <th>조회수</th>
+	         <th>작성일</th>
+	      </tr>
+	 	      <c:choose>
+  	            <c:when test="${fn:length(reviewList)>0}"> 
+ 	              <c:forEach var="review" items="${reviewList}"> 
+	               <tr>
+	               	  <td class="col1">${review.t_no}</td>
+	                  <td class="col2"><a href="/reviewContent?r_no=${review.r_no}">${review.r_subject}</a>
+	                  <td class="col3">${review.m_id}</td>
+	                  <td class="col4">${review.r_readcount}</td>
+	                  <td class="col5">${review.r_regdate}</td>
+	               </tr>
+ 	            </c:forEach>
+ 	         </c:when>
+ 	         <c:when test="${fn:length(reviewList)==0}">
+ 	            <tr style="text-align: center;" height="30px;">
+ 	               <th colspan="5">등록된 상품이 없습니다.</th>
+ 	            </tr>
+ 	         </c:when>
+ 	      </c:choose>
+	  </table>
+	  <table class="pageBtn">
+	   <tr>
+	    <td colspan="6">
+	      <c:if test="${pageDto.startPg>pBlock}">
+	        <a href="reviewList?curPage=${pageDto.startPg-pBlock}&curBlock=${pageDto.curBlock-1}">[이전]</a>
+	      </c:if>
+	      <c:forEach begin="${pageDto.startPg}" end="${pageDto.endPg}" var="p" step="1">
+	        <a href="reviewList?curPage=${p}&curBlock=${pageDto.curBlock}">
+	          <span><c:out value="${p}" /></span>
+	        </a>&nbsp;&nbsp;
+	      </c:forEach>
+	        <c:if test="${pageDto.endPg<pageDto.pgCnt}">
+	          <a href="reviewList?curPage=${pageDto.startPg+pBlock}&curBlock=${pageDto.curBlock+1}">[다음]</a>
+	        </c:if>
+	     </td>
+	    </tr>
+	  </table>
+	  <form action="" name="content" method="post">
+		<input type="hidden" name="bno" value="">
+		<input type="hidden" name="curPage" value="${pageDto.curPage}">
+		<input type="hidden" name="curBlock" value="${pageDto.curBlock}">
+	 </form>
+  	</div>
 </div>

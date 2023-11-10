@@ -16,9 +16,9 @@
 			<div class="box">
 				<p class="boxName">상품 카테고리</p>
 				<select class="opt" name="d_category">
-					<option>쿠기</option>
+					<option>쿠키</option>
 					<option>푸딩</option>
-					<option>빵</option>
+					<option>브레드</option>
 				</select>
 			</div>
 			

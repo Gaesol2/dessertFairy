@@ -1,22 +1,25 @@
 @charset "UTF-8";
 
+/* 공용 */
+
 #mypage{
 	margin : 0 auto;
 	width : 1024px;
 }
 
-.mypagelist{
-	text-align: center;
-}
-
-.toplist{
-	float: right;
-	text-align: center;
+#cartList{
+	float: left;
 }
 
 .introduction{
 	font-size: 32px;
 	text-align: left;
+	font-weight: bold;
+}
+
+.topList{
+	float: right;
+	text-align: right;
 }
 
 .list li{
@@ -25,16 +28,18 @@
 	margin-left: 35px;
 }
 
-#cartlist{
-   position: absolute;
-   top: 125px;
-   left: 270px;
-   margin: 0 auto;
-   width: 850px;
-   height: 500px;	
+.reList{
+	font-weight: bold;
 }
 
 
+#cartContent{
+	float : left;
+	margin: 0 auto;
+	width: 1024px;
+	padding-bottom : 50px;
+	border-bottom: solid 1px black;
+}
 
 #cartContent p{
 	text-align: center;
