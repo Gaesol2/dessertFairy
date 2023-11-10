@@ -13,6 +13,7 @@ import com.shop.dessertFairy.common.dto.PageDTO;
 import com.shop.dessertFairy.contact.dto.ContactDTO;
 import com.shop.dessertFairy.contact.service.ContactService;
 import com.shop.dessertFairy.member.dto.MemberDTO;
+import com.shop.dessertFairy.member.service.MemberService;
 import com.shop.dessertFairy.review.dto.ReviewDTO;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -25,6 +26,9 @@ public class ContactController {
 	
 	@Autowired
 	ContactService contactService;
+	
+	@Autowired
+	MemberService memberService;
 	
 	@RequestMapping("/contactList")
 	  public String  contactList(HttpServletRequest request,
@@ -81,7 +85,7 @@ public class ContactController {
 		   
 		   //세션이 없으면 로그인 먼저 하라고 로그인 페이지로 보내기
 		   if(sdto!=null) {
-			   contentsJsp = "/custom/review/ReviewWrite";
+			   contentsJsp = "/custom/mypage/ContactWrite";
 			   page = "Main";
 			   model.addAttribute("m_id",sdto.getM_id());
 		   } else {
