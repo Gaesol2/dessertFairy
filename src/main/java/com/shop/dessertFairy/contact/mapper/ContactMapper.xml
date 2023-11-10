@@ -21,4 +21,27 @@
 	    ORDER BY T_NO DESC) A)
         WHERE T_RR BETWEEN #{start,jdbcType=NUMERIC} and #{end,jdbcType=NUMERIC}
 	 </select>
+	 
+	 <insert id="contactWrite" parameterType="tdto">
+   <selectKey keyProperty="t_no" order="BEFORE" resultType="int">
+		SELECT NVL(MAX(T_NO),0)+1 FROM CONTACT
+	</selectKey>
+      INSERT INTO CONTACT(
+          T_NO
+         ,T_SUBJECT
+         ,T_CONTENT
+         ,T_REGDATE
+         ,T_PASSWD
+         ,T_SECRET
+         ,M_ID)
+      VALUES(
+          #{t_no}
+         ,#{t_subject}
+         ,#{t_content}
+         ,SYSDATE
+         ,#{t_passwd}
+         ,#{t_secret}
+         ,#{m_id}
+      )
+   </insert>
 </mapper>

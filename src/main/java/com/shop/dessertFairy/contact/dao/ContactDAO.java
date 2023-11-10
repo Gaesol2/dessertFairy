@@ -14,4 +14,6 @@ public interface ContactDAO {
 
 	List<ReviewDTO> getContactList(ContactDTO tdto);
 
+	int contactWrite(ContactDTO tdto);
+
 }

@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.shop.dessertFairy.common.RowInterPage;
 import com.shop.dessertFairy.common.dto.PageDTO;
@@ -52,13 +54,13 @@ public class ContactController {
 		
 		//리스트 목록과 페이지 수 계산한것을 불러온 것
 		Map<String, Object> reSet = contactService.getContactList(tdto, pageDto);
-		
 		//세션 저장
 		
 		session.setAttribute("ssKey", ssKey);
 		
 		//데이터 저장
 		model.addAttribute("cnt", reSet.get("cnt"));
+		model.addAttribute("contactList", reSet.get("contactList"));
 		model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
 		model.addAttribute("contentsJsp",contentsJsp);
 		model.addAttribute("pageDto",pageDto);
@@ -103,5 +105,40 @@ public class ContactController {
 		   session.setAttribute("ssKey", sdto);
 		   
 		   return page;
+	   }
+	
+	@RequestMapping("/contactWriteProc") //리뷰글쓰기 폼
+	   public String ContactWriteProc (HttpServletRequest request, HttpServletResponse response,
+	         Model model, ContactDTO tdto) {
+
+		   //변수 선언
+		   String msg = null;
+		   String url = "/contactList";
+		   
+		   //세션 받아오기
+		   HttpSession session = request.getSession();
+		   MemberDTO sdto = (MemberDTO) session.getAttribute("ssKey");
+
+		   //rdto.setM_id(세션) 세션에서 member_id를 빼서 rdto에 넣어주기
+		   tdto.setM_id(sdto.getM_id());
+
+		   //결과 처리
+		   int result = contactService.contactWrite(tdto);
+
+		   //결과에 따른 메세지 출력
+		   if(result>0) {
+			   msg = "문의글이 등록되었습니다.";
+		   } else {
+			   msg = "문의글 등록에 실패했습니다.";
+		   }
+	      
+		   //경로 및 메세지 저장
+		   model.addAttribute("url",url);
+		   model.addAttribute("msg",msg);
+	      
+		   //세션 저장
+		   session.setAttribute("ssKey", sdto);
+		   
+		   return "MsgPage";
 	   }
 }

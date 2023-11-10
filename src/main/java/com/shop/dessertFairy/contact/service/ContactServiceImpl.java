@@ -1,5 +1,6 @@
 package com.shop.dessertFairy.contact.service;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -66,5 +67,11 @@ public class ContactServiceImpl implements ContactService {
 		   reSet.put("contactList", contactList);
 		   return reSet;
 	   }
+
+
+	@Override
+	public int contactWrite(ContactDTO tdto) {
+	      return contactDao.contactWrite(tdto);
+	}
 
 }

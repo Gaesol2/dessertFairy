@@ -6,7 +6,7 @@
 
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="/css/Contact.css">
-
+<script src="/script/Contact.js"></script>
 
 <div id="contact">
   <div>
@@ -28,12 +28,12 @@
   	<a href="/contactWrite">문의 글쓰기</a>
   		<table class="conTable">
 	      <tr>
-	         <th>비밀여부</th>
-	         <th>번호</th>
-	         <th>제목</th>
-	         <th>작성자</th>
-	         <th>조회수</th>
-	         <th>작성일</th>
+	         <th class="con1">비밀여부</th>
+	         <th class="con2">번호</th>
+	         <th class="con3">제목</th>
+	         <th class="con4">작성자</th>
+	         <th class="con5">조회수</th>
+	         <th class="con6">작성일</th>
 	      </tr>
 	 	      <c:choose>
   	            <c:when test="${fn:length(contactList)>0}"> 

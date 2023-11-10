@@ -9,4 +9,6 @@ public interface ContactService {
 
 	Map<String, Object> getContactList(ContactDTO tdto, PageDTO pageDto);
 
+	int contactWrite(ContactDTO tdto);
+
 }
