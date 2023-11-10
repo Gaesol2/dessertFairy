@@ -26,6 +26,8 @@ public class OrderWrapper {
 		//주문 insert
 		int r = orderService.insertOrder(hCartList);
 		
+		
+		hCartList.clear();
 		return hCartList;
 	}
 	

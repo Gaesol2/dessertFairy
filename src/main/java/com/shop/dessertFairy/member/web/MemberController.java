@@ -155,7 +155,7 @@ public class MemberController {
 		@RequestMapping("/pwCheck")
 		   public String pwCheck(HttpServletRequest request, Model model) {
 		      HttpSession session = request.getSession();
-		      MemberDTO dto = (MemberDTO) session.getAttribute("ssKey");
+		      MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
 		      
 		      return "custom/member/Pwcheck";
 		   }

@@ -13,7 +13,7 @@
 </head>
 <body>
 <div id="review">
-   <form action="" name="reviewForm" method="post">
+   <form action="" name="reviewForm" id="upForm" method="post">
    <input type="hidden" name="r_no" value="${review.r_no}">
       <div>
           <div class="mainList">
@@ -73,6 +73,9 @@
                 <input type="hidden" name="r_content" readonly="readonly" value="${review.r_content}" class="chkb" size="10">
               </span>
         </div>
+        <div id="contentPasswd">
+                <input type="password" name="r_passwd" readonly="readonly" value="${review.r_passwd}" class="chkb in" size="10">
+        </div>
       </div>
 
       <div id="replybox">
@@ -84,8 +87,8 @@
       </div>
       <div id="myBtn">
       		<c:if test="${ssKey.m_role == 'mem'}">
-	           <button type="button" class="reviewUp">수정</button>
-	           <button type="button" class="reviewDel">삭제</button>
+	           <button type="button" name="update" class="reviewUp" onclick="update('u')">수정</button>
+	           <button type="button" name="delete" class="reviewDel" onclick="update('d')">삭제</button>
 	        </c:if>
       </div>
    </form>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "com.shop.dessertFairy.contact.dao.ContactDAO">
+	<select id="getContactCnt" resultType="int">
+		SELECT COUNT(T_NO) FROM CONTACT
+	</select>
+	
+	<select id="getContactList" resultType="tdto">
+		SELECT * FROM 
+       (SELECT ROWNUM AS T_RR, A.* 
+        FROM 
+		(SELECT T_NO
+			   ,T_SUBJECT
+			   ,T_CONTENT
+			   ,TO_CHAR(T_REGDATE,'YYYY-MM-DD') AS T_REGDATE
+			   ,T_PASSWD
+			   ,T_SECRET
+			   ,M_ID
+		FROM CONTACT
+	    ORDER BY T_NO DESC) A)
+        WHERE T_RR BETWEEN #{start,jdbcType=NUMERIC} and #{end,jdbcType=NUMERIC}
+	 </select>
+</mapper>

@@ -6,7 +6,8 @@
 
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="/css/Contact.css">
-<script src="/script/mypage.js"></script>
+
+
 <div id="contact">
   <div>
     <div>
@@ -24,29 +25,32 @@
 	</div>
   </div>
   <div id="contactContent">
-  		<table class="listTable">
+  	<a href="/contactWrite">문의 글쓰기</a>
+  		<table class="conTable">
 	      <tr>
-	         <th></th>
+	         <th>비밀여부</th>
+	         <th>번호</th>
 	         <th>제목</th>
 	         <th>작성자</th>
 	         <th>조회수</th>
 	         <th>작성일</th>
 	      </tr>
 	 	      <c:choose>
-  	            <c:when test="${fn:length(reviewList)>0}"> 
- 	              <c:forEach var="review" items="${reviewList}"> 
+  	            <c:when test="${fn:length(contactList)>0}"> 
+ 	              <c:forEach var="contact" items="${contactList}"> 
 	               <tr>
-	               	  <td class="col1">${review.t_no}</td>
-	                  <td class="col2"><a href="/reviewContent?r_no=${review.r_no}">${review.r_subject}</a>
-	                  <td class="col3">${review.m_id}</td>
-	                  <td class="col4">${review.r_readcount}</td>
-	                  <td class="col5">${review.r_regdate}</td>
+	               	  <td class="con1">${contact.t_secret}</td>
+	               	  <td class="con2">${contact.t_no}</td>
+	                  <td class="con3"><a href="/contactContent?t_no=${contact.t_no}">${contact.t_subject}</a>
+	                  <td class="con4">${contact.m_id}</td>
+	                  <td class="con5">${contact.t_readcount}</td>
+	                  <td class="con6">${contact.t_regdate}</td>
 	               </tr>
  	            </c:forEach>
  	         </c:when>
- 	         <c:when test="${fn:length(reviewList)==0}">
+ 	         <c:when test="${fn:length(contactList)==0}">
  	            <tr style="text-align: center;" height="30px;">
- 	               <th colspan="5">등록된 상품이 없습니다.</th>
+ 	               <th colspan="6">등록된 문의글이 없습니다.</th>
  	            </tr>
  	         </c:when>
  	      </c:choose>
@@ -55,15 +59,15 @@
 	   <tr>
 	    <td colspan="6">
 	      <c:if test="${pageDto.startPg>pBlock}">
-	        <a href="reviewList?curPage=${pageDto.startPg-pBlock}&curBlock=${pageDto.curBlock-1}">[이전]</a>
+	        <a href="contactList?curPage=${pageDto.startPg-pBlock}&curBlock=${pageDto.curBlock-1}">[이전]</a>
 	      </c:if>
 	      <c:forEach begin="${pageDto.startPg}" end="${pageDto.endPg}" var="p" step="1">
-	        <a href="reviewList?curPage=${p}&curBlock=${pageDto.curBlock}">
+	        <a href="contactList?curPage=${p}&curBlock=${pageDto.curBlock}">
 	          <span><c:out value="${p}" /></span>
 	        </a>&nbsp;&nbsp;
 	      </c:forEach>
 	        <c:if test="${pageDto.endPg<pageDto.pgCnt}">
-	          <a href="reviewList?curPage=${pageDto.startPg+pBlock}&curBlock=${pageDto.curBlock+1}">[다음]</a>
+	          <a href="contactList?curPage=${pageDto.startPg+pBlock}&curBlock=${pageDto.curBlock+1}">[다음]</a>
 	        </c:if>
 	     </td>
 	    </tr>

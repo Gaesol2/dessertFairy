@@ -7,6 +7,7 @@
 <title>비밀번호 확인</title>
 <script src="/jquery/jquery-3.7.0.min.js"></script>
 <script src="/script/member.js" ></script>
+<script src="/script/Review.js" ></script>
 </head>
 <body>
 <table>

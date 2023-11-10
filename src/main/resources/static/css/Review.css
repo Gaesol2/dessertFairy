@@ -464,7 +464,10 @@
     color : #fefae9;
 }
 
-
+#contentPasswd{
+	padding : 20px;
+	border-bottom: solid 1px black; 
+}
 
 
 /* reply content */
