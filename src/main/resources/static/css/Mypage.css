@@ -7,7 +7,7 @@
 	width : 1024px;
 }
 
-#mypagelist{
+#mypageList{
 	float: left;
 }
 
@@ -31,8 +31,6 @@
 .reList{
 	font-weight: bold;
 }
-
-
 
 /* 내 정보 */
 
@@ -96,6 +94,43 @@
 }
 
 #tabBtn .button:hover{
+    text-shadow: 0 0 0 #fefae9;
+    background-color : #064695;
+    color : #fefae9;
+}
+
+
+
+
+
+/* 회원정보 수정 */
+
+
+#myUpForm{
+	float: left;
+	margin: 0 auto;
+	width: 1024px;
+	margin-top: 130px;
+}
+
+#upBtn{
+	float: left;
+	width: 1024px;
+	height: 100px;
+	margin-top : 65px;
+	margin-left: 450px;
+}
+
+#upBtn .submit1{
+	font-size: 16px;
+	color : #064695;
+	padding : 10px 30px 10px 30px;
+	background-color : #fefae9;
+	border : solid 1px #064695;
+	text-align: center;
+}
+
+#upBtn .submit1:hover{
     text-shadow: 0 0 0 #fefae9;
     background-color : #064695;
     color : #fefae9;

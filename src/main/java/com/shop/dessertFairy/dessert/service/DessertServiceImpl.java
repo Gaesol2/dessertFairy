@@ -103,7 +103,7 @@ public class DessertServiceImpl implements DessertService {
 		   pdto.setEndPg(endPg);
 		
 		
-		List<DessertDTO> pList = dessertDao.getProductList();
+		List<DessertDTO> pList = dessertDao.getProductList(ddto);
 		resultSet.put("pdto", pdto);
 		resultSet.put("cnt", cnt);
 		resultSet.put("pcnt", pcnt);

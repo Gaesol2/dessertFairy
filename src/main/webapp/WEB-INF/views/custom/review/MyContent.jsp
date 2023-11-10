@@ -83,8 +83,10 @@
                 </span>
       </div>
       <div id="myBtn">
-         <button type="button" class="reviewUp">수정</button>
-           <button type="button" class="reviewDel">삭제</button>
+      		<c:if test="${ssKey.m_role == 'mem'}">
+	           <button type="button" class="reviewUp">수정</button>
+	           <button type="button" class="reviewDel">삭제</button>
+	        </c:if>
       </div>
    </form>
 </div>

@@ -71,22 +71,24 @@
 		 SELECT COUNT(D_NO) FROM DESSERT
 	</select>
 	  
-	<select id="getProductList" parameterType="pdto">	<!-- admin 상품리스트 -->
-		SELECT 
-	    d_no
-	    ,d_category
-	    ,d_name
-	    ,d_detail
-	    ,d_price
-	    ,d_stock
-	    ,d_image
-	    ,d_path
-	    ,d_life
-	    ,d_storage
-	    ,d_allergy
+	<select id="getProductList" parameterType="ddto">	<!-- admin 상품리스트 -->
+		SELECT * FROM 
+       (SELECT ROWNUM AS D_RR, A.* 
+        FROM 
+		 (SELECT D_NO
+			    ,D_CATEGORY
+			    ,D_NAME
+			    ,D_DETAIL
+			    ,D_PRICE
+			    ,D_STOCK
+			    ,D_IMAGE
+			    ,D_PATH
+			    ,D_LIFE
+			    ,D_STORAGE
+			    ,D_ALLERGY
 	 FROM DESSERT
-	 ORDER BY D_NO
-	 
+	 ORDER BY D_NO ASC) A)
+	 WHERE D_RR BETWEEN #{start} AND #{end}
 	</select>
 	
 	<select id="adminGetDessert" parameterType="int" resultType="ddto">	<!-- admin 상품no에 해당하는 상품 디테일 받아옴 -->

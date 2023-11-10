@@ -9,18 +9,20 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="/css/DessertOrder.css">
 </head>
+<link rel="stylesheet" type="text/css" href="/css/Mypage.css">
+<script src="/script/mypage.js"></script>
 <div id="mypage">
-  <div id="top">
-    <div class="mypagelist">
-		<p class="introduction">주문목록</p>
-    </div>
-    <div class="toplist">
-      <ul class="list">
-        <li><a href="/myPage">내 정보</a></li>
-        <li><a href="/cartList">장바구니</a></li>
-        <li><a href="/orderList">주문목록</a></li>
-        <li><a href="/contactList">문의하기</a></li>
-      </ul>
-    </div>
-  </div>
+	<div>
+		<div id="mypageList">
+			<p class="introduction">주문목록</p>
+		</div>
+		<div class="topList">
+			<ul class="list">
+				<li><a href="/myPage">내 정보</a></li>
+				<li><a href="/cartList">장바구니</a></li>
+				<li class="reList"><a href="/orderList">주문목록</a></li>
+				<li><a href="/contactList">문의하기</a></li>
+			</ul>
+		</div>
+	</div>
 </div>

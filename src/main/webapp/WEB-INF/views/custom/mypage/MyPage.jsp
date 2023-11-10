@@ -2,25 +2,24 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<!DOCTYPE html>
-<html>
-<head>
+
+
 <meta charset="UTF-8">
-<title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="/css/Mypage.css">
 <script src="/script/mypage.js"></script>
-</head>
 <div id="mypage">
-	<div id="mypagelist">
-		<p class="introduction">마이페이지</p>
-	</div>
-	<div class="topList">
-		<ul class="list">
-			<li class="reList"><a href="/myPage">내 정보</a></li>
-			<li><a href="/cartList">장바구니</a></li>
-			<li><a href="/orderList">주문목록</a></li>
-			<li><a href="/contactList">문의하기</a></li>
-		</ul>
+	<div>
+		<div id="mypageList">
+			<p class="introduction">마이페이지</p>
+		</div>
+		<div class="topList">
+			<ul class="list">
+				<li class="reList"><a href="/myPage">내 정보</a></li>
+				<li><a href="/cartList">장바구니</a></li>
+				<li><a href="/orderList">주문목록</a></li>
+				<li><a href="/contactList">문의하기</a></li>
+			</ul>
+		</div>
 	</div>
 	<div id="myInfo">
 		<h3 class="info">회원정보</h3>
@@ -46,7 +45,9 @@
 			<div class="col">
 				<p class="col1">연락처</p>
 				<span class="col2">
-					<input type="text" class="in" name="m_phone" readonly="readonly" value="${mdto.m_phone}"size="30">
+					<input type="text" class="in" name="m_phone" readonly="readonly" value="010"size="10">
+					<input type="text" class="in" name="m_phone1" readonly="readonly" value="${mdto.m_phone}"size="10">
+<%-- 					<input type="text" class="in" name="m_phone2" readonly="readonly" value="${mdto.m_phone}"size="10"> --%>
 				</span>
 			</div>
 			<div class="col">
