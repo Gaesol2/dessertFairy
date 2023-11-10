@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.shop.dessertFairy.common.RowInterPage;
 import com.shop.dessertFairy.common.dto.PageDTO;
+import com.shop.dessertFairy.member.dto.MemberDTO;
 import com.shop.dessertFairy.review.dao.ReviewDAO;
 import com.shop.dessertFairy.review.dto.ReviewDTO;
 
@@ -273,6 +274,18 @@ public class ReviewServiceImpl implements ReviewService {
 	@Override
 	public int replydelProc(ReviewDTO rdto) {
 		return reviewDao.replydelProc(rdto);
+	}
+
+
+	@Override
+	public Map<String, Object> getMemberReview(String m_id) {
+		Map<String, Object> resultSet = new HashMap<String, Object>();	// map으로 결과를 담음
+		int reviewTot = reviewDao.reviewTot(m_id);							//전체 회원수
+		List<MemberDTO> reviews = reviewDao.getreviews(m_id);			// 전체 회원 리스트
+		resultSet.put("reviewTot", reviewTot);							// map 키와 값 저장
+		resultSet.put("reviews", reviews);								// map 키와 값 저장
+		
+		return resultSet;
 	}
 
 

@@ -48,7 +48,7 @@
 				</dd>
 					<dt>주문 가격</dt>
 				<dd>
-					<input type="text" id="total_price" class="total_price" value="${dessert.d_price }" name="o_price" readonly="readonly">
+					<input type="text" id="total_price" class="total_price" value="${dessert.d_price }" readonly="readonly">
 				</dd>
 			</dl>
 			<table>

@@ -91,6 +91,7 @@ public class CartController {
 			switch(flag) {
 				case "insert" : {
 					hCartList = cartService.addCartList(odto);
+					System.out.println("hCart========<>"+hCartList);
 					conf = "장바구니에 담았습니다. 장바구니로 이동하시겠습니까?";
 					url = "cartList";								
 					break;
@@ -98,10 +99,12 @@ public class CartController {
 				
 				case "update" : {
 					hCartList = cartService.updateCartList(odto);
+					break;
 				}
 				
 				case "delete" : {
 					hCartList = cartService.deleteCartList(odto);
+					break;
 				}
 			}
 

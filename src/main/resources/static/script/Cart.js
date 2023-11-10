@@ -10,13 +10,11 @@ $().ready(function(){
 	
 	//총 결제 금액을 표기하는 함수
 	total();
+	
 })
 
    //주문 수량 버튼
 function count(obj, flag){
-		//ajax Data로 사용할 변수 선언
-	   let o_quantity = $(obj).closest("tr").find("input[name='o_quantity']").val();
-	   let d_no = $(obj).closest("tr").find("input[name='d_no']").val();
 	   //상품의 재고 수, 가격 불러오기
 	   let stock = $(obj).closest("tr").find("input[name='d_stock']").val();
 	   let price = $(obj).closest("tr").find(".o_price").text().replace(",","");
@@ -70,13 +68,17 @@ function count(obj, flag){
 		   delivery();
 		   total();
 		   
+		   //ajax Data로 사용할 변수 선언
+		   let o_quantity = $(obj).closest("tr").find("input[name='o_quantity']").val();
+		   let d_no = $(obj).closest("tr").find("input[name='d_no']").val();
+		   
 		   //ajax 수행
 		   $.ajax({
 				async: true,
 				type: 'post',
 				data: {
+					"d_no": d_no,
 					"o_quantity":o_quantity,
-					"d_no": d_no
 				},
 				url: "cartProc?flag=update",
 				dataType: "json",
@@ -87,9 +89,10 @@ function count(obj, flag){
  	}
  	
 function x (obj){
-	   let d_no = $(obj).closest("tr").find("input[name='d_no']").val();
-	   
-		  $.ajax({
+	   	   let d_no = $(obj).closest("tr").find("input[name='d_no']").val();
+	   	   if(confirm("상품을 삭제하시겠습니까?")){
+				  
+		   $.ajax({
 				async: true,
 				type: 'post',
 				data: {
@@ -98,9 +101,14 @@ function x (obj){
 				url: "cartProc?flag=delete",
 				dataType: "json",
 				success: function(){
-					alert('장바구니 수정');
 				}
 			});
+			
+			location.reload()
+			
+			} else{
+				return false;
+			}
 	 }
 
 	//총 상품 금액 표기 함수
