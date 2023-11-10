@@ -144,7 +144,6 @@ function amount(){
 	
 	//view화면을 위한 text에 숫자 입력 (, 추가)
 	$(".amount").text(amount.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g,","));
-	$("input[name='o_amount']").val(amount);
 }
 
 	//총 배송비 금액 표기 함수

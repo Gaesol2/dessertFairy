@@ -108,12 +108,12 @@ public class CartController {
 				}
 			}
 
+		}
 		model.addAttribute("conf",conf);
 		model.addAttribute("msg",msg);
 		model.addAttribute("url",url);
 		session.setAttribute("hCartList", hCartList);
 		session.setAttribute("ssKey", sdto);
-		}
 		return page; 
 	}
 }
