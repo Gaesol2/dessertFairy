@@ -21,6 +21,10 @@
 		</div>
         <button type= "submit" class="loginBtn">로그인</button>
 	</form>
+	<div id="login_search">
+		<a href="/memberSearch">아이디/비밀번호 찾기</a>  
+	</div>
 </div>
+
 </body>
 </html>

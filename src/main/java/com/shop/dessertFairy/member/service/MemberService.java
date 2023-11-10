@@ -23,6 +23,10 @@ public interface MemberService {
 
 	MemberDTO getMemberDetail(String m_id);							//admin 멤버 디테일 정보
 
+	int updatePasswd(MemberDTO mdto);			// 회원 비밀번호 찾기 재설정
+
+	String searchId(MemberDTO mdto);			// 회원 아이디 찾기
+
 
 
 
