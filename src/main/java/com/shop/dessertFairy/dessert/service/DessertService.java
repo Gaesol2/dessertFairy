@@ -29,5 +29,5 @@ public interface DessertService {
    int deleteProduct(DessertDTO ddto);						//admin 상품 삭제
 
    void updateStocks(Hashtable<Integer, OrderDTO> hCartList);
-   
+
 }
