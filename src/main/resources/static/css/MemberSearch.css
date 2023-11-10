@@ -1,0 +1,72 @@
+
+a:link{color:  rgb(0, 128, 0); text-decoration: none;}
+a:visited{color:  rgb(0, 128, 0); text-decoration: none;}
+a:active{color:  rgb(0, 128, 0); text-decoration: none;}
+a:hover{color:  rgb(0, 128, 0);
+    text-decoration: none; font-weight: bold;}
+
+ul{list-style:none;}
+
+.Membersearch_box { 
+  top:40px;
+  width:1024px;
+  margin:0 auto; 
+  position:relative; 
+}
+.Membersearch_box ul li{
+  width:50%; 
+  float:left;  
+  text-align:center; 
+  background :#f9f9f9;
+}
+.Membersearch_box ul li a{
+  display:block;
+  line-height:40px;
+  height:40px;
+  text-decoration:none; 
+  color: #000;
+}
+.tabCon{
+  display:none; 
+  text-align:left; 
+  padding: 20px;
+  position:absolute; 
+  left:0; top:40px; 
+  box-sizing: border-box; 
+  border : 5px solid #f9f9f9;
+}
+.search_box:target  {
+  background : #ccc;
+}
+.search_box:target .tabCon{
+  display: block;
+}
+
+#search_Form_box {
+    text-align:center;
+	margin:20px auto;
+	padding:20px;
+	width: 510px;
+	height: 300px;
+	border: solid 1px #dddddd; 
+	border-radius: 10px;
+	background-color: #f3f3f3;
+}
+
+#search_Form_box input{
+    margin-top:20px;
+    width: 400px;  
+  	height: 40px; 
+  	border: solid 1px #dddddd;  
+	}
+
+ #search_Btn{
+    margin-top:30px;
+    width: 380px;
+    height: 40px;
+    padding:10px;
+    font-size:30px;
+    color:white;
+    background-color: #008000;
+}
+
