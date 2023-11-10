@@ -41,10 +41,6 @@ public class MemberController {
 			HttpServletResponse response,
 			Model model,
 			MemberDTO mdto) {
-		
-		String m_phone = request.getParameter("m_phone1") + request.getParameter("m_phone2");
-		mdto.setM_phone(Integer.parseInt(m_phone));
-		
 		String msg = null;
 		String url = null;
 		
@@ -251,6 +247,48 @@ public class MemberController {
 		   
 		      return page;
 		   }
+		 
+		 @RequestMapping("/memberSearch")
+		   public String MemberSearch(HttpServletRequest request, 
+				                   HttpServletResponse response, 
+				                   Model model, 
+				                   MemberDTO mdto) {
+		   
+			 model.addAttribute("contentsJsp", "custom/member/MemberSearch");
+		      return "Main";
+		   }
+
+		 @RequestMapping("/memberSearchProc")
+		 public String MemberSearchProc(HttpServletRequest request, 
+				 HttpServletResponse response, 
+				 Model model, 
+				 MemberDTO mdto) {
+			 
+			 int result = 0;
+			 String id = null;
+			 String msg = null;
+			 String url = "/";
+			 
+			 if(mdto != null) {
+				 if(mdto.getM_id() != null) {
+					 result = memberService.updatePasswd(mdto);
+					 
+					 if(result > 0) msg = "비밀번호가 변경되었습니다.";
+					 else msg = "비밀번호 변경 실패. 관리자에게 문의하세요";
+				 }else {
+					 id = memberService.searchId(mdto);
+					 if(id != null) msg = "회원 아이디 :"+id;
+					 else msg = "회원정보가 없습니다.";
+					 url = "memberSearch";
+				 }
+			 }
+			 
+			 model.addAttribute("msg", msg);
+			 model.addAttribute("url", url);
+			 
+			 return "MsgPage";
+		 }
+		 
 		}
 	
 	

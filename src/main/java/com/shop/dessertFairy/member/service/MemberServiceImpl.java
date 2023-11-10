@@ -66,4 +66,14 @@ public class MemberServiceImpl implements MemberService {
 		return memberDao.getMemberDetail(m_id);
 	}
 
+	@Override
+	public int updatePasswd(MemberDTO mdto) {		// 회원 비밀번호 재설정
+		return memberDao.updatePasswd(mdto);
+	}
+
+	@Override
+	public String searchId(MemberDTO mdto) {		// 회원 아이디 찾기
+		return memberDao.searchId(mdto);
+	}
+
 }
