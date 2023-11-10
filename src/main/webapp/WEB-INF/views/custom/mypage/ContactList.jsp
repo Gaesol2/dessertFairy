@@ -25,6 +25,7 @@
 	</div>
   </div>
   <div id="contactContent">
+  	<a href="/contactWrite">문의 글쓰기</a>
   		<table class="conTable">
 	      <tr>
 	         <th>비밀여부</th>

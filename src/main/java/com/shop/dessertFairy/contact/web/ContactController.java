@@ -62,4 +62,42 @@ public class ContactController {
 		
 		return page;
 	}
+	
+	@RequestMapping("/contactWrite") //리뷰 글쓰기 경로
+	   public String ContactWrite (HttpServletRequest request, HttpServletResponse response,
+	         Model model, ContactDTO tdto) {
+
+		   //HttpSession 세션 객체 생성 및 세션 정보 받아오기
+		   HttpSession session = request.getSession();
+
+		   //ssKey 세션에 있는 정보를 MemberDTO 타입의 sdto에 저장
+		   MemberDTO sdto = (MemberDTO) session.getAttribute("ssKey");
+
+		   //변수 선언
+		   String url = null;
+		   String msg = null;
+		   String page = null;
+		   String contentsJsp = null;
+		   
+		   //세션이 없으면 로그인 먼저 하라고 로그인 페이지로 보내기
+		   if(sdto!=null) {
+			   contentsJsp = "/custom/review/ReviewWrite";
+			   page = "Main";
+			   model.addAttribute("m_id",sdto.getM_id());
+		   } else {
+			   msg = "로그인이 필요합니다.";
+			   page = "MsgPage";
+			   url = "login";
+		   }
+		   
+		   //데이터 저장
+		   model.addAttribute("contentsJsp",contentsJsp);
+		   model.addAttribute("msg",msg);
+		   model.addAttribute("url",url);
+	      
+		   //세션 저장해주기
+		   session.setAttribute("ssKey", sdto);
+		   
+		   return page;
+	   }
 }
