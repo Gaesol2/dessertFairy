@@ -22,6 +22,7 @@ import jakarta.servlet.http.HttpSession;
 public class AdminMemberController {
 	
 	@Autowired MemberService memberService;
+	@Autowired ReviewService reviewService;
 	
 	@RequestMapping("memberMgt")
 	public String MemberMgt(HttpServletRequest request,
@@ -89,7 +90,7 @@ public class AdminMemberController {
 			ssKey = (MemberDTO) session.getAttribute("ssKey");
 			if(ssKey.getM_role().equals("admin")) {
 				Map<String, Object> reviews = new HashMap<String, Object>();
-				reviews = memberService.getMemberReview(rdto.getM_id());
+				reviews = reviewService.getMemberReview(rdto.getM_id());
 				model.addAttribute("reviewTot", reviews.get("reviewTot"));
 				model.addAttribute("reviews", reviews.get("reviews"));
 				model.addAttribute("contentsJsp", "admin/member/MemberReview");

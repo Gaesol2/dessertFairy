@@ -23,7 +23,6 @@ public interface MemberService {
 
 	MemberDTO getMemberDetail(String m_id);							//admin 멤버 디테일 정보
 
-	Map<String, Object> getMemberReview(String m_id);
 
 
 

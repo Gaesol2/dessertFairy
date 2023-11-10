@@ -28,7 +28,7 @@
         	<c:when test="${reviewTot>0}"> 
         		<c:forEach var="reviews" items="${reviews}"> 
 		             <tr>
-		                <td class="col2"><a href="/myContent?r_no=${review.r_no}">${review.r_subject}</a>
+		                <td class="col2"><a href="/myContent?r_no=${reviews.r_no}">${reviews.r_subject}</a>
 		                <td class="col1">${reviews.r_subject}</td>
 		                <td class="col3">${reviews.r_content}</td>
 		                <td class="col5">${reviews.r_regdate}</td>

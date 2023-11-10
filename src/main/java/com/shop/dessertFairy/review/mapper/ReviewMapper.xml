@@ -212,7 +212,7 @@
 	
 	<!-- admin start -->
 	
-		<select id="reviewTot">						<!-- admin 해당 회원의 전체 리뷰 수 -->
+		<select id="reviewTot" parameterType="string" resultType="int">						<!-- admin 해당 회원의 전체 리뷰 수 -->
 			SELECT COUNT(r_no) FROM REVIEW
 			WHERE M_ID = #{m_id}
 		</select>
