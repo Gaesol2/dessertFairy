@@ -29,11 +29,14 @@ public class OrderServiceImpl implements OrderService {
 		//결과를 저장하기 위해 Set keys에 저장된 key(o_no)의 개수만큼 크기의 list를 만든다.
 		List<OrderDTO> list = new ArrayList<>(keys.size());
 		
+		System.out.println("카트============="+hCartList);
+
 		//iterKeys에 다음 요소가 있으면 list에 요소를 저장한다.
 		while(iterKeys.hasNext()) {
 			//순환 중인 key에 해당하는 hCartList의 value를 list에 저장한다.
 			list.add(hCartList.get(iterKeys.next()));
 		}
+		System.out.println("list============="+list);
 		
 		return orderDao.insertOrder(list);
 	}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace = "com.shop.dessertFairy.dessert.dao.DessertDAO">
+<mapper namespace = "com.shop.dessertFairy.order.dao.OrderDAO">
 	<insert id="insertOrder" parameterType="list">
 	
 		<selectKey keyProperty="o_no" resultType="int" order="BEFORE">
@@ -24,7 +24,7 @@
 				,#{o_price   }
 				,#{o_quantity}
 				,SYSDATE
-				,#{o_state   }
+				,"배송 준비"
 				,#{o_amount  }
 				,#{m_id      }
 				,#{d_no      }
