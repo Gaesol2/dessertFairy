@@ -11,7 +11,22 @@ $().ready(function(){
 	//총 결제 금액을 표기하는 함수
 	total();
 	
+	
 })
+
+window.onload = function(){
+	let overStock = $(".overStock");
+	let overStockLength = $("input[name='overStock']").length;
+	let msg = "";
+		
+	for(let i = 0; i<overStockLength; i++){
+		if(overStock.eq(i).val()==1){
+			let name = overStock.eq(i).closest("tr").find(".name").text();
+			alert(name+" 상품의 개수가 재고를 초과했습니다. 최대 재고량이 담겼습니다.")
+		}
+	}
+	
+}
 
    //주문 수량 버튼
 function count(obj, flag){
@@ -47,6 +62,9 @@ function count(obj, flag){
 			   //재고량 개수 감추기
 			   $(obj).closest("tr").find(".hidden_text").hide();
 			   
+			   //overStock 감소
+			   $(obj).closest("tr").find("input[name='overStock']").val(0);
+			   
 			   //주문 수량을 1 내리고, 내려간 숫자를 count에 다시 받아와서 저장하기
 			   $(obj).closest("tr").find(".count").val(Number(count)-1);
 			   count = $(obj).closest("tr").find(".count").val();
@@ -71,6 +89,7 @@ function count(obj, flag){
 		   //ajax Data로 사용할 변수 선언
 		   let o_quantity = $(obj).closest("tr").find("input[name='o_quantity']").val();
 		   let d_no = $(obj).closest("tr").find("input[name='d_no']").val();
+		   let overStock = $(obj).closest("tr").find("input[name='overStock']").val();
 		   
 		   //ajax 수행
 		   $.ajax({
@@ -79,6 +98,7 @@ function count(obj, flag){
 				data: {
 					"d_no": d_no,
 					"o_quantity":o_quantity,
+					"overStock":overStock
 				},
 				url: "cartProc?flag=update",
 				dataType: "json",
@@ -124,6 +144,7 @@ function amount(){
 	
 	//view화면을 위한 text에 숫자 입력 (, 추가)
 	$(".amount").text(amount.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g,","));
+	$("input[name='o_amount']").val(amount);
 }
 
 	//총 배송비 금액 표기 함수

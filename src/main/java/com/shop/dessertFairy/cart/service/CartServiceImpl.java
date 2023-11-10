@@ -69,6 +69,7 @@ public class CartServiceImpl implements CartService {
 		int d_no = odto.getD_no();
 		OrderDTO oldOdto = hCartList.get(d_no);
 		oldOdto.setO_quantity(odto.getO_quantity());
+		oldOdto.setOverStock(odto.getOverStock());
 		
 		hCartList.put(d_no, oldOdto);
 		

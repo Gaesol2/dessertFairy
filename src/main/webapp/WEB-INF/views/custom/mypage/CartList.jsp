@@ -21,6 +21,7 @@
 		</div>
 	</div>
   <div id="cartContent">
+  <form action="orderProc" method="post">
   	<c:choose>
   		<c:when test="${fn:length(hCartList)==0}">
   			장바구니 목록이 없습니다.
@@ -42,7 +43,7 @@
 						<c:forEach var="cart" items="${hCartList}">
 							<tr>
 								<td class="col1"><a href="dessertContent?d_no=${cart.value.d_no }"><img src="/upload/${cart.value.d_image}" width="200px" height="200px"></a></td>
-								<td class="col2"><a href="dessertContent?d_no=${cart.value.d_no }">${cart.value.d_name }</a></td>
+								<td class="col2"><a class="name" href="dessertContent?d_no=${cart.value.d_no }">${cart.value.d_name }</a></td>
 								<td class="col3 price o_price">${cart.value.o_price }</td>
 								<td class="col4">
 									<input type="button" value="△" onclick="javascript:count(this,'up')">
@@ -52,7 +53,9 @@
 									<!-- hidden 요소들 -->
 									<input type="hidden" name="d_stock" value="${cart.value.d_stock}">
 									<input type="hidden" name="d_no" value="${cart.value.d_no}">
-									<input type="hidden" name="overStack" value="${hCartList.value.overStock}">
+									<input type="hidden" class="overStock" name="overStock" value="${cart.value.overStock}">
+									<input type="hidden" name="o_price" value="${cart.value.o_price}">
+									<input type="hidden" name="m_id" value="${cart.value.m_id}">
 
 									
 									<br><font class="hidden_text" color="red">재고 수 : ${cart.value.d_stock }</font>
@@ -82,9 +85,10 @@
 					<td class="total_amount price"></td>
 				</tr>
 			</table>
+			<input type="hidden" name="o_amount" value="">
 			<input type="submit" value="결제하기">
   		</c:when>
   	</c:choose>
-		
+  </form>
   </div><!--   cartContent end -->
 </div> <!-- mypage end -->
