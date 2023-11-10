@@ -27,7 +27,7 @@ r<%@ page language="java" contentType="text/html; charset=UTF-8"
   <div class="clear"></div>
   <div id="cartContent">
   	<c:choose>
-  		<c:when test="${hCartList==null}">
+  		<c:when test="${fn:length(hCartList)==0}">
   			장바구니 목록이 없습니다.
   		</c:when>
   		<c:when test="${hCartList!=null}">
@@ -46,20 +46,25 @@ r<%@ page language="java" contentType="text/html; charset=UTF-8"
 				<tbody>
 						<c:forEach var="cart" items="${hCartList}">
 							<tr>
-								<td class="col1"><img src="/upload/${cart.value.d_image}" width="200px" height="200px"></td>
-								<td class="col2">${cart.value.d_name }</td>
+								<td class="col1"><a href="dessertContent?d_no=${cart.value.d_no }"><img src="/upload/${cart.value.d_image}" width="200px" height="200px"></a></td>
+								<td class="col2"><a href="dessertContent?d_no=${cart.value.d_no }">${cart.value.d_name }</a></td>
 								<td class="col3 price o_price">${cart.value.o_price }</td>
 								<td class="col4">
-									<input type="hidden" name="d_stock" value="${cart.value.d_stock}">
 									<input type="button" value="△" onclick="javascript:count(this,'up')">
 									<input type="text" class="count" name="o_quantity" value="${cart.value.o_quantity }" size="1px;" readonly="readonly">
 									<input type="button" value="▽" onclick="javascript:count(this,'down')">
+									
+									<!-- hidden 요소들 -->
+									<input type="hidden" name="d_stock" value="${cart.value.d_stock}">
+									<input type="hidden" name="d_no" value="${cart.value.d_no}">
+									<input type="hidden" name="overStack" value="${hCartList.value.overStock}">
+
+									
 									<br><font class="hidden_text" color="red">재고 수 : ${cart.value.d_stock }</font>
 								</td>
 								<td class="col5 price total_price">
 									${cart.value.o_price * cart.value.o_quantity}
 									<input type="hidden" name="total_price" value="${cart.value.o_price * cart.value.o_quantity}">
-									<input type="hidden" name="d_no" value="${cart.value.d_no}">
 								</td>
 								<td class="col6"><input type="button" value=" x " onclick="javascript:x(this)"></td>
 							</tr>
@@ -82,6 +87,7 @@ r<%@ page language="java" contentType="text/html; charset=UTF-8"
 					<td class="total_amount price"></td>
 				</tr>
 			</table>
+			<input type="submit" value="결제하기">
   		</c:when>
   	</c:choose>
 		
