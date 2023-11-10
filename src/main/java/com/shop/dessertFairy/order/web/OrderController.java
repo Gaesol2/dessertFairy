@@ -29,6 +29,18 @@ public class OrderController {
    @Autowired
    OrderService orderService;
    
+   
+   @RequestMapping("/orderList")
+	  public String  contactList(HttpServletRequest request,
+			              HttpServletResponse response,
+			              Model model,
+			              MemberDTO mdto) {
+		 
+			model.addAttribute("contentsJsp", "custom/mypage/OrderList");		// 회원가입 클릭 시 Register.jsp로 보냄
+		  return "Main";
+	  }
+   
+   
    @RequestMapping("orderProc")
    public String OrderProc(HttpServletRequest request, HttpServletResponse response,
          Model model, OrderDTO odto) {

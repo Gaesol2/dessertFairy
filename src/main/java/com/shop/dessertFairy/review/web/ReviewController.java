@@ -337,6 +337,7 @@ public class ReviewController {
 	   
 	   return "Main";
    }
+  
    
    @RequestMapping("/myUpForm")
    public String ReviewUpForm(HttpServletRequest request, HttpServletResponse response,
@@ -437,7 +438,7 @@ public class ReviewController {
 	}
    
    @RequestMapping("/delProc")
-   public String ReviewProc(HttpServletRequest request, HttpServletResponse response,
+   public String DelProc(HttpServletRequest request, HttpServletResponse response,
 		   ReviewDTO rdto,
 		   Model model,
 		   PageDTO pageDto) {
