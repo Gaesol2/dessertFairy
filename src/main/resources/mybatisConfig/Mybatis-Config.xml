@@ -11,10 +11,12 @@
     <typeAliases>
          <typeAlias alias="hashMap" type="java.util.HashMap" />
          <typeAlias alias="map" type="java.util.Map" />
+         <typeAlias alias="list" type="java.util.List" />
          <typeAlias alias="mdto" type="com.shop.dessertFairy.member.dto.MemberDTO" />
          <typeAlias alias="rdto" type="com.shop.dessertFairy.review.dto.ReviewDTO" />
          <typeAlias alias="ddto" type="com.shop.dessertFairy.dessert.dto.DessertDTO" />
          <typeAlias alias="pdto" type="com.shop.dessertFairy.common.dto.PageDTO" />
          <typeAlias alias="odto" type="com.shop.dessertFairy.order.dto.OrderDTO" />
+         <typeAlias alias="tdto" type="com.shop.dessertFairy.contact.dto.ContactDTO" />
      </typeAliases>	
 </configuration>
