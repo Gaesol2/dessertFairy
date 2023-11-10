@@ -13,32 +13,32 @@
 		총 회원수 : &nbsp;${memberTot}
 	</div>
 	
-	<c:choose>
-		<c:when test="${memberTot==0}">
-			<h2>아직 회원이 없습니다.</h2>
-		</c:when>
-		
-		<c:when test="${memberTot>0}">
-			<table>
-				<tr>
-					<th>회원 아이디</th>
-					<th>회원 이름</th>
-					<th>연락처</th>
-					<th>이메일</th>
-					<th>주소</th>
-				</tr>
-				
-				<c:forEach var="member" items="${members}">
+	<div id="mList">
+		<c:choose>
+			<c:when test="${memberTot==0}">
+				<h2>아직 회원이 없습니다.</h2>
+			</c:when>
+			
+			<c:when test="${memberTot>0}">
+				<table>
 					<tr>
-						<td><a href="/productDetail?m_id=${member.m_id}">${member.m_id}</a></td>
-						<td>${member.m_name}</td>
-						<td>${member.m_phone}</td>
-						<td>${member.m_email}</td>
-						<td>${member.m_address}</td>
+						<th>회원 아이디</th>
+						<th>회원 이름</th>
+						<th>가입일</th>
+						<th>권한</th>
 					</tr>
-				</c:forEach>
-			</table>
-		</c:when>		
-	</c:choose>
+					
+					<c:forEach var="member" items="${members}">
+						<tr>
+							<td><a href="/memberDetail?m_id=${member.m_id}">${member.m_id}</a></td>
+							<td>${member.m_name}</td>
+							<td>${member.m_regdate}</td>
+							<td>${member.m_role}</td>
+						</tr>
+					</c:forEach>
+				</table>
+			</c:when>		
+		</c:choose>
+	</div>
 </body>
 </html>

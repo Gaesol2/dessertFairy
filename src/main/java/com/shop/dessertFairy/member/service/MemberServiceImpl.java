@@ -1,16 +1,26 @@
 package com.shop.dessertFairy.member.service;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.shop.dessertFairy.common.dto.PageDTO;
 import com.shop.dessertFairy.member.dao.MemberDAO;
 import com.shop.dessertFairy.member.dto.MemberDTO;
+import com.shop.dessertFairy.review.dao.ReviewDAO;
+import com.shop.dessertFairy.review.dto.ReviewDTO;
 
 @Service
 public class MemberServiceImpl implements MemberService {
 
 	@Autowired
 	MemberDAO memberDao;
+	
+	@Autowired
+	ReviewDAO reviewDao;
 	
 	@Override
 	public int memberJoin(MemberDTO mdto) {			//회원가입
@@ -38,6 +48,35 @@ public class MemberServiceImpl implements MemberService {
 		
 		return memberDao.memDelete(mdto);
 	}
+
+	@Override
+	public Map<String, Object> getMembers(MemberDTO mdto, PageDTO pageDto) {	//admin 전체 회원수와 회원리스트
+		
+		Map<String, Object> resultSet = new HashMap<String, Object>();	// map으로 결과를 담음
+		int memberTot = memberDao.memberTot();							//전체 회원수
+		List<MemberDTO> members = memberDao.getMembers(mdto);			// 전체 회원 리스트
+		resultSet.put("memberTot", memberTot);							// map 키와 값 저장
+		resultSet.put("members", members);								// map 키와 값 저장
+		
+		return resultSet;
+	}
+
+	@Override
+	public MemberDTO getMemberDetail(String m_id) {					//admin 멤버 디테일 정보
+		return memberDao.getMemberDetail(m_id);
+	}
+
+	@Override
+	public Map<String, Object> getMemberReview(String m_id) {
+		Map<String, Object> resultSet = new HashMap<String, Object>();	// map으로 결과를 담음
+		int reviewTot = reviewDao.reviewTot();							//전체 회원수
+		List<MemberDTO> reviews = reviewDao.getreviews(m_id);			// 전체 회원 리스트
+		resultSet.put("reviewTot", reviewTot);							// map 키와 값 저장
+		resultSet.put("reviews", reviews);								// map 키와 값 저장
+		
+		return resultSet;
+	}
+
 
 
 }

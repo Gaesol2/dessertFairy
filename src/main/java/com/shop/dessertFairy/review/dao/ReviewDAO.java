@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.shop.dessertFairy.member.dto.MemberDTO;
 import com.shop.dessertFairy.review.dto.ReviewDTO;
 
 @Mapper
@@ -47,8 +48,10 @@ public interface ReviewDAO {
 
 	int replydelProc(ReviewDTO rdto);
 
-	
-	
+	int reviewTot();							//admin 해당 회원의 전체 리뷰 수
+
+	List<MemberDTO> getreviews(String m_id);	// admin해당 회원의 리뷰 목록
+
 
 
 

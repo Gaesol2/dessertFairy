@@ -67,8 +67,8 @@ public class DessertServiceImpl implements DessertService {
 	@Override
 	public Map<String, Object> getProductList(PageDTO pdto) {		//admin 상품 리스트
 	
-		int cnt = dessertDao.getProductCnt();
-		Map<String, Object> resultSet = new HashMap<String, Object>();
+		int cnt = dessertDao.getProductCnt();							//상품 총 개수
+		Map<String, Object> resultSet = new HashMap<String, Object>();	// 상품 리스트
 		List<DessertDTO> pList = dessertDao.getProducttList();
 		resultSet.put("pcnt", cnt);
 		resultSet.put("pList", pList);

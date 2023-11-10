@@ -53,4 +53,36 @@ UPDATE MEMBER SET
 DELETE FROM MEMBER
 WHERE M_ID = #{m_id}
 </delete>
+
+
+<!-- admin start -->
+	<select id="memberTot">			<!-- 전체 회원 수 -->
+		SELECT COUNT(m_id) FROM MEMBER
+	</select>
+	
+	<select id="getMembers" parameterType="mdto" resultType="mdto">	<!-- 전체 회원 리스트 -->
+		SELECT  M_ID,
+				M_NAME,
+				M_REGDATE,
+				M_ROLE
+		FROM MEMBER
+		WHERE M_ROLE = 'mem'
+	</select>
+	
+	<select id="getMemberDetail" parameterType="string" resultType="mdto">
+		SELECT  M_ID,
+				M_NAME,
+				M_PASSWD,
+				M_EMAIL,
+				M_PHONE,
+				M_REGDATE,
+				M_ZIPCODE,
+				M_ADDRESS,
+				M_ADDRESS2,
+				M_ROLE
+		FROM MEMBER
+		WHERE m_id = #{m_id}
+	</select>
+<!-- admin end -->
+
  </mapper>

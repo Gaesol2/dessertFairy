@@ -1,6 +1,11 @@
 package com.shop.dessertFairy.member.service;
 
+import java.util.List;
+import java.util.Map;
+
+import com.shop.dessertFairy.common.dto.PageDTO;
 import com.shop.dessertFairy.member.dto.MemberDTO;
+import com.shop.dessertFairy.review.dto.ReviewDTO;
 
 public interface MemberService {
 
@@ -14,7 +19,12 @@ public interface MemberService {
 
 	int memDelete(MemberDTO custom);
 
-	/* MemberDTO getMember(); */
+	Map<String, Object> getMembers(MemberDTO mdto, PageDTO pageDto);	//admin 전체 회원수와 회원리스트
+
+	MemberDTO getMemberDetail(String m_id);							//admin 멤버 디테일 정보
+
+	Map<String, Object> getMemberReview(String m_id);
+
 
 
 }
