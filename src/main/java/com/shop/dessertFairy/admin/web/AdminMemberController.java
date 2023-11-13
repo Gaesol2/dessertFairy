@@ -102,6 +102,32 @@ public class AdminMemberController {
 		
 		return page;
 	}
+
+	@RequestMapping("mOrder")
+	public String MOrder(	HttpServletRequest request,
+			HttpServletResponse response,
+			Model model,
+			ReviewDTO rdto) {
+		String page = null;
+		MemberDTO ssKey = null;
+		HttpSession session = request.getSession();			//현재 사용자의 세션을 받아옴
+		
+		if(session.getAttribute("ssKey") != null) {
+			ssKey = (MemberDTO) session.getAttribute("ssKey");
+			if(ssKey.getM_role().equals("admin")) {
+				Map<String, Object> reviews = new HashMap<String, Object>();
+				reviews = reviewService.getMemberReview(rdto.getM_id());
+				model.addAttribute("reviewTot", reviews.get("reviewTot"));
+				model.addAttribute("reviews", reviews.get("reviews"));
+				model.addAttribute("contentsJsp", "admin/member/MemberReview");
+				session.setAttribute("ssKey", ssKey);
+				page = "Main";
+			}
+			else page = "redirect:/";
+		} else page = "redirect:/";
+		
+		return page;
+	}
 	
 	
 }
