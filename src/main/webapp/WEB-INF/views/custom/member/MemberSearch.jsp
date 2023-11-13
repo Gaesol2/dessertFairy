@@ -39,38 +39,6 @@
 	      </div>
 	     </div>
 	    </li>
-	    <li id="tab2" class="btnCon">
-	     <a class="btn first" href="#tab2">비밀번호 찿기</a>
-	      <div class="tabCon">
-	        <div id="lage_login_box">
-	         <form action="searchProc" method="post" name="topForm2">
-	           <table class="pwTable">
-	            <tr>
-	              <td>
-	               <input type="text" name="mem_id" class="chk2"
-	               title="아이디"  placeholder="아이디를 입력하시오.">
-	               <br>
-	              <input type="password" name="m_passwd" class="chk2" 
-	                title="비밀번호"  placeholder="비밀번호를 입력하시오." id="check1">
-	                <br>
-	              <input type="password" name="m_passwd2" class="chk2" 
-	                title="비밀번호확인"  placeholder="비밀번호확인을 입력하시오." id="check2">
-	                <br>
-	               <font id="check" size="2" color="green"></font>
-	              </td>
-	            </tr>
-	            <tr>
-	              <td>
-	                 <div class="submit2" >
-				        <div id="lage_login_btn">새비밀번호 설정</div>
-				     </div>
-	              </td>
-	            </tr>
-	           </table>
-	         </form>
-	      </div>
-	     </div>
-	    </li>
 	   </ul>
 	  </div>
 	</div>
