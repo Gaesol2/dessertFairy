@@ -1,4 +1,8 @@
-
+#search{
+  margin:0 auto; 
+  width: 1024px;
+  height: 500px;
+}
 a:link{color:  rgb(0, 128, 0); text-decoration: none;}
 a:visited{color:  rgb(0, 128, 0); text-decoration: none;}
 a:active{color:  rgb(0, 128, 0); text-decoration: none;}
@@ -7,19 +11,18 @@ a:hover{color:  rgb(0, 128, 0);
 
 ul{list-style:none;}
 
-.Membersearch_box { 
-  top:40px;
-  width:1024px;
-  margin:0 auto; 
+.tabmenu{ 
+  max-width:600px; 
+  margin: 0 auto; 
   position:relative; 
 }
-.Membersearch_box ul li{
+.tabmenu ul li{
   width:50%; 
   float:left;  
   text-align:center; 
   background :#f9f9f9;
 }
-.Membersearch_box ul li a{
+.tabmenu ul li a{
   display:block;
   line-height:40px;
   height:40px;
@@ -35,14 +38,13 @@ ul{list-style:none;}
   box-sizing: border-box; 
   border : 5px solid #f9f9f9;
 }
-.search_box:target  {
+.btnCon:target  {
   background : #ccc;
 }
-.search_box:target .tabCon{
+.btnCon:target .tabCon{
   display: block;
 }
-
-#search_Form_box {
+#lage_login_box{
     text-align:center;
 	margin:20px auto;
 	padding:20px;
@@ -53,14 +55,30 @@ ul{list-style:none;}
 	background-color: #f3f3f3;
 }
 
-#search_Form_box input{
+.idTable{
+	width: 450px;
+	height: 60px;
+	margin-top: 30px;
+	padding-left: 50px;
+}
+
+.pwTable{
+	width: 450px;
+	height: 60px;
+	padding-left: 50px;
+}
+
+ #lage_login_input{
+	margin-top: 40px;
+}
+#lage_login_box input{
     margin-top:20px;
     width: 400px;  
   	height: 40px; 
   	border: solid 1px #dddddd;  
 	}
 
- #search_Btn{
+ #lage_login_btn{
     margin-top:30px;
     width: 380px;
     height: 40px;
