@@ -5,11 +5,11 @@
 	<insert id="insertOrder" parameterType="list">
 	
 		<selectKey keyProperty="o_no" resultType="int" order="BEFORE">
-			SELECT NVL(MAX(o_no),0)+1 AS o_no FROM ordert
+			SELECT NVL(MAX(o_no), 0)+1 AS o_no FROM ORDERT
 		</selectKey>
 		
-		<foreach collection="list" item="odto" open="INSERT ALL " close="SELECT * FROM DUAL" separator=" ">
-			INTO ordert(
+		<foreach collection="list" item="odto" index="index" open="INSERT ALL " close="SELECT * FROM DUAL" separator=" ">
+			INTO ORDERT(
 				o_no
 				,o_price
 				,o_quantity
@@ -20,14 +20,14 @@
 				,d_no
 			)
 			VALUES(
-				 #{o_no      }
-				,#{o_price   }
-				,#{o_quantity}
+				 #{o_no}
+				,#{odto.o_price}
+				,#{odto.o_quantity}
 				,SYSDATE
-				,"배송 준비"
-				,#{o_amount  }
-				,#{m_id      }
-				,#{d_no      }
+				,1
+				,#{odto.o_price}*#{odto.o_quantity}
+				,#{odto.m_id}
+				,#{odto.d_no}
 			)
 		</foreach>
 	</insert>

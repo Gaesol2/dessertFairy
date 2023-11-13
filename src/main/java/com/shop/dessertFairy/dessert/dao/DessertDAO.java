@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.shop.dessertFairy.common.dto.PageDTO;
 import com.shop.dessertFairy.dessert.dto.DessertDTO;
+import com.shop.dessertFairy.order.dto.OrderDTO;
 
 @Mapper
 public interface DessertDAO {
@@ -35,6 +36,8 @@ public interface DessertDAO {
 	int deleteProduct(DessertDTO ddto);	//admin 상품 삭제
 
 	int getProCnt();
+
+	int updateStocks(List<OrderDTO> list);
 
 
 }

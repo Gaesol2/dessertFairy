@@ -1,9 +1,12 @@
 package com.shop.dessertFairy.dessert.service;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -155,9 +158,17 @@ public class DessertServiceImpl implements DessertService {
    }
 
    @Override
-   public void updateStocks(Hashtable<Integer, OrderDTO> hCartList) {
+   public int updateStocks(Hashtable<Integer, OrderDTO> hCartList) {
+      Set<Integer> keys = hCartList.keySet();
+      Iterator<Integer> iterKeys = keys.iterator();
       
+      List<OrderDTO> list = new ArrayList<>(keys.size());
       
+      while(iterKeys.hasNext()) {
+    	  list.add(hCartList.get(iterKeys.next()));
+      }
+      
+      return dessertDao.updateStocks(list);
       
    }
 

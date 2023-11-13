@@ -85,7 +85,6 @@
 					<td class="total_amount price"></td>
 				</tr>
 			</table>
-			<input type="hidden" name="o_amount" value="">
 			<input type="submit" value="결제하기">
   		</c:when>
   	</c:choose>

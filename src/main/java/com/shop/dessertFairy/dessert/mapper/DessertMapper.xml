@@ -44,6 +44,13 @@
    WHERE d_no = #{d_no}
 </select>
 
+<update id="updateStocks" parameterType="list">
+	<foreach collection="list" item="odto" separator=";" open="DECLARE BEGIN" close="; END;">
+		UPDATE dessert
+		SET d_stock = d_stock - #{odto.o_quantity}
+		WHERE d_no = #{odto.d_no}
+	</foreach>
+</update>
 
 	<!-- admin start -->
 	<insert id="insertProduct" parameterType="ddto">	<!-- admin 상품 등록 -->
