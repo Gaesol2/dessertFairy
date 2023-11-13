@@ -248,15 +248,25 @@ public class MemberController {
 		      return page;
 		   }
 		 
-		 @RequestMapping("/memberSearch")
-		   public String MemberSearch(HttpServletRequest request, 
+		 @RequestMapping("/memberIdSearch")
+		   public String MemberIdSearch(HttpServletRequest request, 
 				                   HttpServletResponse response, 
 				                   Model model, 
 				                   MemberDTO mdto) {
 		   
-			 model.addAttribute("contentsJsp", "custom/member/MemberSearch");
+			 model.addAttribute("contentsJsp", "custom/member/MemberIdSearch");
 		      return "Main";
 		   }
+		 
+		 @RequestMapping("/memberPwSearch")
+		 public String MemberPwSearch(HttpServletRequest request, 
+				 HttpServletResponse response, 
+				 Model model, 
+				 MemberDTO mdto) {
+			 
+			 model.addAttribute("contentsJsp", "custom/member/MemberPwSearch");
+			 return "Main";
+		 }
 
 		 @RequestMapping("/memberSearchProc")
 		 public String MemberSearchProc(HttpServletRequest request, 

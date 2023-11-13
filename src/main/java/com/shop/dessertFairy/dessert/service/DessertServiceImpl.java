@@ -99,7 +99,7 @@ public class DessertServiceImpl implements DessertService {
 		   int pgBlock = (pgCnt%RowInterPage.PAGE_OF_BLOCK==0)?
 				   pgCnt/RowInterPage.PAGE_OF_BLOCK:pgCnt/RowInterPage.PAGE_OF_BLOCK+1;
 		   int startPg = (pdto.getCurBlock()-1)*RowInterPage.PAGE_OF_BLOCK+1;
-		   int endPg = (pdto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK>pgCnt)?
+		   int endPg = (pdto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK>cnt)?
 				   pgCnt:pdto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK;
 		   
 		   pdto.setPgCnt(pgCnt);
