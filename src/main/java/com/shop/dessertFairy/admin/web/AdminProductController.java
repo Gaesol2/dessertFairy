@@ -53,7 +53,6 @@ public class AdminProductController {
 		
 		Map<String, Object> resultSet = dessertService.getProductList(ddto, pdto);	// 상품리스트 메소드 호출해서 받아온 결과를 담아줌
 		model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
-		model.addAttribute("cnt", resultSet.get("cnt"));						// 상품결과를 받아와서 저장
 		model.addAttribute("pdto", resultSet.get("pdto"));						// 상품결과를 받아와서 저장
 		model.addAttribute("pcnt", resultSet.get("pcnt"));						// 상품결과를 받아와서 저장
 		model.addAttribute("pList", resultSet.get("pList"));					// 상품 목록을 받아와서 저장

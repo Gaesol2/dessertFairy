@@ -1,6 +1,7 @@
 package com.shop.dessertFairy.order.web;
 
 import java.util.Hashtable;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.shop.dessertFairy.cart.service.CartService;
+import com.shop.dessertFairy.common.RowInterPage;
 import com.shop.dessertFairy.common.dto.PageDTO;
 import com.shop.dessertFairy.member.dto.MemberDTO;
 import com.shop.dessertFairy.order.dto.OrderDTO;
@@ -49,10 +51,16 @@ public class OrderController {
 		   ssKey = (MemberDTO)session.getAttribute("ssKey");
 		   
 		   if(ssKey.getM_role().equals("admin")) {
+			   session.setAttribute("ssKey", ssKey);
 			   model.addAttribute("contentsJsp", "admin/order/OrderMgt");
 			   page = "Main";
 		   }else {
-//			   Map<String, Object> resultSet = orderService.getOrderList(odto, pdto);
+			   Map<String, Object> resultSet = orderService.getOrderList(odto, pdto);
+			   model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
+			   model.addAttribute("pdto", resultSet.get("pdto"));
+			   model.addAttribute("oCnt", resultSet.get("oCnt"));
+			   model.addAttribute("orderList", resultSet.get("orderList"));
+			   session.setAttribute("ssKey", ssKey);
 		   }
 	   }else {
 	         msg = "로그인 먼저 필요합니다.";

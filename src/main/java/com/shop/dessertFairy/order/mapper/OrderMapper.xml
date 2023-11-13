@@ -31,5 +31,26 @@
 			)
 		</foreach>
 	</insert>
+	
+	<select id="getOrderCnt" resultType="int">
+		SELECT COUNT(O_NO) FROM ORDERT
+	</select>
+	
+	<select id="getOrderList" parameterType="odto" resultType="odto">
+		SELECT *FROM
+		(SELECT ROWNUM AS O_RR, A.* 
+        FROM 
+		 (SELECT O_NO,
+				 O_PRICE,
+				 O_QUANTITY,
+				 O_REGDATE,
+				 O_STATE,
+				 O_AMOUNT,
+				 M_ID,
+				 D_NO
+	 FROM ORDERT
+	 ORDER BY O_NO ASC) A)
+	 WHERE O_RR BETWEEN #{start} AND #{end}
+	</select>
 
 </mapper>

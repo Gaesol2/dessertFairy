@@ -11,4 +11,8 @@ public interface OrderDAO {
 
 	int insertOrder(List<OrderDTO> list);
 
+	int getOrderCnt();
+
+	List<OrderDTO> getOrderList(OrderDTO odto);
+
 }

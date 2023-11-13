@@ -159,9 +159,5 @@
 	  	DELETE FROM DESSERT WHERE D_NO = #{d_no}
 	  </delete>
 	  
-	  <select id="getProCnt" resultType="int">
-		SELECT COUNT(D_NO) FROM DESSERT
-	</select>
-	  
 	<!-- admin End -->
 </mapper>
