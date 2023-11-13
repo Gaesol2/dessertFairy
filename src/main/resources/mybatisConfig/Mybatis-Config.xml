@@ -17,5 +17,6 @@
          <typeAlias alias="pdto" type="com.shop.dessertFairy.common.dto.PageDTO" />
          <typeAlias alias="odto" type="com.shop.dessertFairy.order.dto.OrderDTO" />
          <typeAlias alias="tdto" type="com.shop.dessertFairy.contact.dto.ContactDTO" />
+         <typeAlias alias="ndto" type="com.shop.dessertFairy.notice.dto.NoticeDTO" />
      </typeAliases>	
 </configuration>

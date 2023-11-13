@@ -35,12 +35,12 @@ public class NoticeController {
 	      String page = null;
 	      MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
 	      if(mdto!=null && mdto.getM_role().equals("admin")) {
-	            page = "admin/Main";
-	            contentsJsp = "./NoticeList";
+	            page = "Main";
+	            contentsJsp = "./admin/notice/NoticeList";
 	     
 	      }else {//방문자,고객
 	         page = "Main";
-	         contentsJsp = "./custom/NoticeList";
+	         contentsJsp = "./custom/notice/NoticeList";
 	      }
 	      session.setAttribute("ssKey", mdto);
 	      model.addAttribute("pageDto", reSet.get("pageDto"));
@@ -51,5 +51,20 @@ public class NoticeController {
 	      
 	      return page;
 	   }
-	
+	@RequestMapping("/noticeGanerate")
+	public String notiGenerate(HttpServletRequest request, HttpServletResponse response, NoticeDTO ndto, Model model, PageDTO pageDto) {
+		HttpSession session = request.getSession();
+		String contentsJsp = null;
+		String page = null;
+		MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
+		if(mdto!=null && mdto.getM_role().equals("admin")) {
+				page = "Main";
+				contentsJsp = "./admin/notice/NoticeGanerate";
+			} else { // 고객, 방문자
+				page = "redirect:/notice";
+			}
+		session.setAttribute("ssKey", mdto);
+		model.addAttribute("contentsJsp", contentsJsp);
+		return page;
+	}
 }

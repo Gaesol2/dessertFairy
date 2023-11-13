@@ -11,13 +11,13 @@ public class NoticeDTO {
 	private int start;
 	private int end;
 	private int rr;
-	private int noti_no;
-	private String subject;
-	private String content;
-	private int readcount;
-	private String writer;
-	private String vdate;
-	private String regdate;
-	private char state;
+	private int n_no;
+	private String n_subject;
+	private String n_content;
+	private int n_readcount;
+	private String n_writer;
+	private String n_vdate;
+	private String n_regdate;
+	private String n_state;
 	
 }

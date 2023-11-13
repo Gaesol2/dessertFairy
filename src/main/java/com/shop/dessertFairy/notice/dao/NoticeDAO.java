@@ -13,12 +13,12 @@ public interface NoticeDAO {
 
 	public List<NoticeDTO> getNoticies(NoticeDTO ndto);
 
-	public void ganerateNotice(NoticeDTO ndto);
-	
+	public void generateNotice(NoticeDTO ndto);
+
 	public int updateReadCnt(NoticeDTO ndto);
 
-	public int updateProc(NoticeDTO ndto);
-
 	public int deleteProc(NoticeDTO ndto);
+
+	public int updateProc(NoticeDTO ndto);
 
 }

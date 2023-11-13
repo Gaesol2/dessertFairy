@@ -207,7 +207,7 @@
 					</dd>
 				</dl>
 				<div id="noticeBtn">
-					<a href="/" class="noticeGo">공지사항 보러가기</a>
+					<a href="notice" class="noticeGo">공지사항 보러가기</a>
 				</div>
 			</div>
 			<div id="noticeImge">

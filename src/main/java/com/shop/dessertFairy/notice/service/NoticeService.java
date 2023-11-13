@@ -10,15 +10,15 @@ import com.shop.dessertFairy.notice.dto.NoticeDTO;
 public interface NoticeService {
 
 
-		   Map<String, Object> getNoticies(NoticeDTO ndto, PageDTO pdto);
+		    Map<String, Object> getNoticies(NoticeDTO ndto, PageDTO pdto);
 
-		   void ganerateNotice(NoticeDTO ndto);
-
-		   NoticeDTO getNotice(NoticeDTO ndto);
-
-		int updateProc(NoticeDTO ndto);
-
-		int deleteProc(NoticeDTO ndto);
+		    NoticeDTO getNotice(NoticeDTO ndto);
+	
+			int updateProc(NoticeDTO ndto);
+	
+			int deleteProc(NoticeDTO ndto);
+	
+			void generateNotice(NoticeDTO ndto);
 
 		}
 
