@@ -28,7 +28,7 @@ public class NoticeServiceImpl implements NoticeService {
 	  
       List<NoticeDTO> noticeList = null;
       int totCnt=0;
-      if(ndto.getNoti_no()>0) {
+      if(ndto.getN_no()>0) {
     	  //조회수 증가dao 호출하고, mapper 조회수 증가 하게 하기
         noticeDao.updateReadCnt(ndto);
       }
@@ -65,8 +65,8 @@ public class NoticeServiceImpl implements NoticeService {
    }
 
    @Override
-   public void ganerateNotice(NoticeDTO ndto) {
-      noticeDao.ganerateNotice(ndto);
+   public void generateNotice(NoticeDTO ndto) {
+      noticeDao.generateNotice(ndto);
    }
 
    @Override
