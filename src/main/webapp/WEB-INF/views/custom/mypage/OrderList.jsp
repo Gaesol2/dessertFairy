@@ -31,8 +31,8 @@
         <li>총 상품수: ${oCnt} 가지</li>
       </ul>
     </div>
+    
 	<div id="orderList">
-		
 		<table class="orderTable">
 			<tr>
 				<th>주문 번호</th>
@@ -44,13 +44,13 @@
 				<th>배송상태</th>
 			</tr>
 			<c:choose>
-				<c:when test="${fn:length(oList)>0}">
-					<c:forEach var="order" items="${oList}">
+				<c:when test="${fn:length(orderList)>0}">
+					<c:forEach var="ordert" items="${orderList}">
 						<tr>
 							<td class="dol1">${ordert.o_no}</td>
 							<td class="dol3"><a href="/productDetail?d_no=${ordert.d_no}">${ordert.d_no}</a></td>
 							<td class="dol4">${ordert.o_price}</td>
-							<td class="price dol5">${ordert.quantity}</td>
+							<td class="price dol5">${ordert.o_quantity}</td>
 							<td class="dol6">${ordert.o_amount}</td>
 							<td class="dol6">${ordert.o_regdate}</td>
 							<td class="dol6">${ordert.o_state}</td>
@@ -58,13 +58,14 @@
 					</c:forEach>
 				</c:when>
 				
-				<c:when test="${fn:length(oList)==0}">
+				<c:when test="${fn:length(orderList)==0}">
 					<tr style="text-align:center;height: 30px;">
 						<th colspan="5"> 등록된 주문내역이 없습니다.</th>
 					</tr>
 				</c:when>
 			</c:choose>
 		</table>
+		
 		<table class="pageBtn">
 			<tr>
 				<td colspan="5">
@@ -72,7 +73,7 @@
 						<a href="productMgt?curPage=${pdto.startPg-pBlock}&curBlock=${pdto.curBlock-1}">[이전]</a>
 					</c:if>
 					<c:forEach begin="${pdto.startPg}" end="${pdto.endPg}" var="p" step="1">
-						<a href="productMgt?curPage=${p}&curBlock=${pdto.curBlock}">
+						<a href="orderList?curPage=${p}&curBlock=${pdto.curBlock}">
 							<span><c:out value="${p}" /></span>
 						</a>&nbsp;&nbsp;
 					</c:forEach>
@@ -82,6 +83,7 @@
 				</td>
 			</tr>
 		</table>
+		
 		<form action="" name="content" method="post">
 			<input type="hidden" name="bno" value="">
 			<input type="hidden" name="curPage" value="${pageDto.curPage}">

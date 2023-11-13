@@ -19,4 +19,8 @@ public class OrderDTO {
 	private String d_name;
 	private String d_image;
 	private int overStock;
+	
+	private int o_rr;
+	private int start;
+	private int end;
 }
