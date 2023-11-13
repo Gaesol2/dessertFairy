@@ -25,7 +25,7 @@ public class AdminOrderController {
 		if(session.getAttribute("ssKey") != null) {
 			ssKey = (MemberDTO) session.getAttribute("ssKey");
 			if(ssKey.getM_role().equals("admin")) {
-				model.addAttribute("contentsJsp", "admin/OrderMgt");
+				model.addAttribute("contentsJsp", "admin/order/OrderMgt");
 				page = "Main";
 			}
 			else page = "redirect:/";

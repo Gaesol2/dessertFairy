@@ -81,25 +81,22 @@ public class DessertServiceImpl implements DessertService {
 		   if(pdto.getCurBlock()<=0) pdto.setCurBlock(1);
 		   if(pdto.getCurPage()<=0) pdto.setCurPage(1);
 		   
-		   
-		   int cnt = 0;
-		   cnt = dessertDao.getProCnt();
 		   //현재 페이지 계산
 		   int start = (pdto.getCurPage()-1)*RowInterPage.ROW_OF_PAGE +1;
-		   int end = (pdto.getCurPage()*RowInterPage.ROW_OF_PAGE)>cnt?
-				   cnt:pdto.getCurPage()*RowInterPage.ROW_OF_PAGE;
+		   int end = (pdto.getCurPage()*RowInterPage.ROW_OF_PAGE)>pcnt?
+				   pcnt:pdto.getCurPage()*RowInterPage.ROW_OF_PAGE;
 		   ddto.setStart(start);
 		   ddto.setEnd(end);
 		   
-		   int pgCnt = (cnt%RowInterPage.ROW_OF_PAGE==0)?
-				   cnt/RowInterPage.ROW_OF_PAGE:
-					   cnt/RowInterPage.ROW_OF_PAGE+1;
+		   int pgCnt = (pcnt%RowInterPage.ROW_OF_PAGE==0)?
+				   pcnt/RowInterPage.ROW_OF_PAGE:
+					   pcnt/RowInterPage.ROW_OF_PAGE+1;
 		   
 		   //페이지 블럭
 		   int pgBlock = (pgCnt%RowInterPage.PAGE_OF_BLOCK==0)?
 				   pgCnt/RowInterPage.PAGE_OF_BLOCK:pgCnt/RowInterPage.PAGE_OF_BLOCK+1;
 		   int startPg = (pdto.getCurBlock()-1)*RowInterPage.PAGE_OF_BLOCK+1;
-		   int endPg = (pdto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK>pgCnt)?
+		   int endPg = (pdto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK>pcnt)?
 				   pgCnt:pdto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK;
 		   
 		   pdto.setPgCnt(pgCnt);
@@ -110,7 +107,6 @@ public class DessertServiceImpl implements DessertService {
 		
 		List<DessertDTO> pList = dessertDao.getProductList(ddto);
 		resultSet.put("pdto", pdto);
-		resultSet.put("cnt", cnt);
 		resultSet.put("pcnt", pcnt);
 		resultSet.put("pList", pList);
 		

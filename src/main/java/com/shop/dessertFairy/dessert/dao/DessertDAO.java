@@ -35,7 +35,7 @@ public interface DessertDAO {
 
 	int deleteProduct(DessertDTO ddto);	//admin 상품 삭제
 
-	int getProCnt();
+	int getProCnt();							
 
 	int updateStocks(List<OrderDTO> list);
 
