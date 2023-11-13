@@ -26,3 +26,49 @@
 	font-size: 15px;
 	margin-left: 35px;
 }
+#notice{
+	margin: 0 auto;
+	width: 1024px;
+	height: 60px;
+	font-size: 15px;
+	text-align: center;
+	line-height: 20px;
+}
+.co1{
+	text-align: center;
+	font-size: 30px;
+}
+.co2{
+	margin: 0 auto;
+	width: 970px;
+	height: 40px;
+	text-align: right;
+}
+.noticelist{
+	margin: 0 auto;
+	width: 1000px;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+.noticelist th,td{
+	border: 1px solid black;
+}
+.col1{
+	width: 40px;
+}
+.col2{
+	width: 230px;
+}
+.col3{
+	width: 100px;
+}
+.col4{
+	width: 90px;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+/**
+ * 
+ */
+$().ready(function(){
+    $('.noticeUp').no("click",function(){
+		$("form[name=topForm1]").attr('action',"/noticeUpForm");
+		$("form[name=topForm1]").submit();
+	});
+    $('.noticeDel').no("click",function(){
+		$("form[name=topForm1]").attr('action',"/noticeProc");
+		$("input[name=flag]").val('delete');
+		$("form[name=topForm1]").submit();
+	});
+});
