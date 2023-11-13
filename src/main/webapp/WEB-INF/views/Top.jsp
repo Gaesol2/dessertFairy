@@ -14,6 +14,18 @@
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 <div id="header">
+	<div id="searchBox">
+		<div id="searchlogo">
+	      <a href="/">dessertFairy</a>
+	   </div>
+	   	<div>
+	   		<button class="upBtn"><img src="../image/x.png"></button>
+	   	</div>	
+		<div id="searchCon">
+	       		<input type="text" placeholder="Search" class="searchInput" size="40">
+	       		<button class="inputBtn" onclick="dp_menu"><img src="../image/search.png"></button>
+		</div>
+	</div>
    <div id="logo">
       <a href="/">dessertFairy</a>
    </div>   <!-- top logo -->
@@ -39,25 +51,24 @@
 	   </c:choose>
 	   
    </div>   <!-- mainmenu end -->
-	   <div id="topmenu">
-		   <c:choose>
-			   	<c:when test="${ssKey!=null}">
-			      <ul>
-			         <li>${ssKey.m_name}님</li>
-			         <li><a href="/logoutProc">로그아웃</a></li>
-			         <li class="search"><a href="/"><img src="../image/search.png"></a></li>
-			      </ul>
-			   	</c:when>
-			   	
-			   	<c:when test="${ssKey==null}">
-			      <ul>
-			         <li><a href="/login">로그인</a></li>
-			         <li><a href="/register">회원가입</a></li>
-			         <li class="search"><a href="/"><img src="../image/search.png"></a></li>
-			      </ul>
-			   	</c:when>
-		   </c:choose>
-	   </div>   <!-- topmenu end -->
+   <div id="topmenu">
+	   <c:choose>
+		   	<c:when test="${ssKey!=null}">
+		      <ul>
+		         <li>${ssKey.m_name}님</li>
+		         <li><a href="/logoutProc">로그아웃</a></li>
+		      </ul>
+		   	</c:when>
+		   	
+		   	<c:when test="${ssKey==null}">
+		      <ul>
+		         <li><a href="/login">로그인</a></li>
+		         <li><a href="/register">회원가입</a></li>
+		      </ul>
+		   	</c:when>
+	   </c:choose>
+       <button class="topSearchBtn"><img src="../image/search.png"></button>
+   </div>   <!-- topmenu end -->
 
    <div id="blank">
         
