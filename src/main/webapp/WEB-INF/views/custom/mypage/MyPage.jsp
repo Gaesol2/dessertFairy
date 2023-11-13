@@ -45,8 +45,8 @@
 			<div class="col">
 				<p class="col1">연락처</p>
 				<span class="col2">
-					<input type="text" class="in" name="m_phone" readonly="readonly" value="010"size="10">
-					<input type="text" class="in" name="m_phone1" readonly="readonly" value="${mdto.m_phone}"size="10">
+					<input type="text" class="in" name="m_phone" readonly="readonly" value="010"size="5">
+					<input type="text" class="in" name="m_phone" readonly="readonly" value="${mdto.m_phone}"size="20">
 <%-- 					<input type="text" class="in" name="m_phone2" readonly="readonly" value="${mdto.m_phone}"size="10"> --%>
 				</span>
 			</div>

@@ -13,10 +13,12 @@
 		<p class="Tap">아이디 찾기</p>
 		<div id="idTextBox">
 			<span>
-				<input type="text" name="m_name" class="idChk in" title="이름" placeholder="이름을 입력하세요." size="35">
+				<input type="text" name="m_name" class="idChk in" title="이름" placeholder="이름을 입력하세요." size="38">
 			</span>
+			<br>
 			<span>
-				<input type="text" name="m_phone" class="idChk in" title="전화번호" placeholder="전화번호를 입력하세요." size="35">
+				<input type="text" class="idChk in" title="전화번호" value="010" size="5">-
+				<input type="text" name="m_phone" class="idChk in" title="전화번호" placeholder="전화번호를 입력하세요." size="25">
 			</span>
 		</div>
 		<div id="idSearch">

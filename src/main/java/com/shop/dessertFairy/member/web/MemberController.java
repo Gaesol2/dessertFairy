@@ -289,7 +289,7 @@ public class MemberController {
 					 id = memberService.searchId(mdto);
 					 if(id != null) msg = "회원 아이디 :"+id;
 					 else msg = "회원정보가 없습니다.";
-					 url = "memberSearch";
+					 url = "/";
 				 }
 			 }
 			 
