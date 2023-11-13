@@ -42,8 +42,9 @@
          <c:forEach var="d" items="${dessert}">
             <a class="abox" href="/dessertContent?d_no=${d.d_no}">
                <div class="box">
-                  <c:out value="${d.d_no}"/>
-                  <img src="/upload/${d.d_image}" height="250px" width="250px">
+                  <img src="/upload/${d.d_image}">
+                  <p class="p_name">${d.d_name}</p>
+                  <p class="p_price price">${d.d_price }</p>
                </div>
             </a>
          </c:forEach>

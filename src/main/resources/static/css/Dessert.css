@@ -35,6 +35,28 @@
 	height: 300px;
 }
 
+
+#dessert .abox .box{
+	text-align: center;
+}
+
+#dessert .abox .box img{
+	margin-top:8px;
+	width: 240px;
+	height: 240px;
+}
+
+#dessert .abox .box .p_name{
+	text-align: center;
+	margin-left: 10px;
+	font-weight: bold;
+}
+
+#dessert .abox .box .p_price{
+	text-align: right;
+	margin-right: 10px;
+}
+
 #dessert .abox:hover {
 	background-color: #fef5d4;
 }

@@ -66,3 +66,27 @@
 	height: 25px;
 	filter: invert(99%) sepia(92%) saturate(506%) hue-rotate(301deg) brightness(107%) contrast(103%);
 }
+
+a.upBtn {
+	width: 24px;
+	height: 24px;
+	border: 1px solid #042958;
+	color: #042958;
+	font-size: 32px;
+	background-color: #fefae9;
+	border-radius: 25px;
+	padding: 10px;
+	display: scroll;
+	position: fixed;
+	right: 50px;
+	bottom: 50px;
+	z-index: 1;
+	text-align: center;
+	line-height: 30px;
+	font-weight: 0;
+}
+
+a.upBtn:hover {
+	background-color: #042958;
+	color: #fefae9;
+}
