@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+a:link{color: #13018d; text-decoration: none;}
+a:visited{color: #13018d; text-decoration: none;}
+a:active{color:#13018d; text-decoration: none;}
+a:hover{color: #13018d; text-decoration: none;}
+
+
 #dessert{
 	margin : 0 auto;
 	width : 1024px;
@@ -9,14 +15,14 @@
 	float: left;
 }
 
-#dessert .toplist{
-	float: right;
-	text-align: right;
-}
-
 #dessert .introduction{
 	font-size: 32px;
 	text-align: left;
+	font-weight: bold;
+}
+#dessert .toplist{
+	float: right;
+	text-align: right;
 }
 
 #dessert .list li{
@@ -24,6 +30,23 @@
 	font-size: 15px;
 	margin-left: 35px;
 }
+
+#dessert #acategory, #ccategory, #bcategory, #pcategory {
+	display: none;
+}
+
+#dessert .acategory, .ccategory, .bcategory, .pcategory {
+	font-size: 15px;
+	cursor: pointer;
+}
+
+.a_bold {
+	font-weight: bold;
+}
+
+
+
+
 
 #dessert .productlist{
 	padding-top: 150px;
@@ -35,20 +58,31 @@
 	height: 300px;
 }
 
+#dessert .abox .box{
+	text-align: center;
+}
+
+#dessert .abox .box img{
+	margin-top:8px;
+	width: 240px;
+	height: 240px;
+}
+
+#dessert .abox .box .p_name{
+	text-align: center;
+	margin-left: 10px;
+	font-weight: bold;
+}
+
+#dessert .abox .box .p_price{
+	text-align: right;
+	margin-right: 10px;
+}
+
 #dessert .abox:hover {
 	background-color: #fef5d4;
 }
 
-#dessert #acategory, #ccategory, #bcategory, #pcategory {
-	display: none;
-}
-
-#dessert .acategory, .ccategory, .bcategory, .pcategory {
-	background-color: #fef5d4;
-	font-family: 'Noto Sans KR', sans-serif;
-	font-size: 20px;
-	cursor: pointer;
-}
 
 
 
@@ -103,4 +137,6 @@
 	cursor: pointer;
 	
 }
+
+
 

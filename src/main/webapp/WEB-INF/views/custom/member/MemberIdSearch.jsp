@@ -26,6 +26,7 @@
 		  <input id="button" type="hidden">
        </div>
        <div id="a_div">
+       	  <a href="/login" class="ahover">로그인/</a>
        	  <a href="/memberPwSearch" class="ahover">비밀번호 찾기</a>
        </div>
 	</div>
