@@ -114,6 +114,7 @@ a:hover{color: #13018d; text-decoration: none;}
 #searchCon{
 	width: 1000px;
 	margin: 0 auto;
+	height: 100px;
 }
 
 .searchInput{
@@ -141,7 +142,6 @@ a:hover{color: #13018d; text-decoration: none;}
 
 .upBtn{
 	margin-left: 1200px;
-	margin-top: 50px;
 	cursor: pointer;
 	background-color: #fefae9;
 	border: none;
@@ -158,4 +158,8 @@ a:hover{color: #13018d; text-decoration: none;}
 	outline: none;
 }
 
-
+.keyword{
+	margin-left: 210px;
+	margin-top: 10px;
+	font-size: 14px;
+}

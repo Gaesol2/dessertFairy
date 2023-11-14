@@ -24,6 +24,7 @@
 		<div id="searchCon">
 	       		<input type="text" placeholder="Search" class="searchInput" size="40">
 	       		<button class="inputBtn" onclick="dp_menu"><img src="../image/search.png"></button>
+				<p class="keyword">관련 키워드 : 빵, 쿠키, 푸딩, 케이크</p>
 		</div>
 	</div>
    <div id="logo">

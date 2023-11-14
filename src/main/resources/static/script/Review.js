@@ -41,16 +41,16 @@ $().ready(function(){
      $('.replyDel').on('click', function(){
    	   $("form[name=replyForm]").attr('action', "/replydelProc")
    	   $("form[name=replyForm]").submit();
+   	   var yn = confirm("정말 삭제하시겠습니까?")
+		if(yn==true){
+		}else{
+			return false;
+		}
    });
    
    $('.replyUpdate').on('click', function(){
    	   $("form[name=replyForm]").attr('action', "/replyupProc")
    	   $("form[name=replyForm]").submit();
-   	   var yn = confirm("정말 삭제하시겠습니까?\n 구매이력과 포인트가 삭제됩니다.")
-		if(yn==true){
-		}else{
-			return false;
-		}
    });
 	 
 		 let ratingLength = Number($("input[name='ratingLength']").val());
