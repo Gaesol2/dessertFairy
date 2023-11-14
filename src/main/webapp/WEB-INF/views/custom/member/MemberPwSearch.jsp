@@ -25,7 +25,8 @@
 				<input id="button" type="hidden">
 			</div>
 			<div id="a_div">
-	       	   <a href="/memberIdSearch" class="ahover">아이디 찾기</a>
+				<a href="/login" class="ahover">로그인/</a>
+	       	    <a href="/memberIdSearch" class="ahover">아이디 찾기</a>
 	        </div>
 		</div>
 	</form>       
