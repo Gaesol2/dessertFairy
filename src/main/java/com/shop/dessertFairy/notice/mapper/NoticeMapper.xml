@@ -42,7 +42,7 @@
 				       'A')
 		</insert>
 		<update id="updateReadCnt" parameterType="ndto">
-			UPDATE NOTICE SET READCOUNT = READCOUNT+1
+			UPDATE NOTICE SET N_READCOUNT = N_READCOUNT+1
 			WHERE N_NO = #{n_no}
 		</update>
 		<update id="updateProc" parameterType="ndto">
@@ -55,7 +55,7 @@
 				WHERE N_NO = #{n_no}
 		</update>
 		<update id="deleteProc" parameterType="ndto">
-		  UPDATE NOTICE SET STATE = 'D'
+		  UPDATE NOTICE SET N_STATE = 'D'
 		  WHERE N_NO = #{n_no}
 		</update>
 </mapper>

@@ -68,6 +68,26 @@ public class NoticeController {
 		model.addAttribute("contentsJsp", contentsJsp);
 		return page;
 	}
+	
+	@RequestMapping("/noticeUpForm")
+	public String noticeUpForm(HttpServletRequest request, HttpServletResponse response, NoticeDTO ndto, Model model, PageDTO pageDto) {
+		HttpSession session = request.getSession();
+		String contentsJsp = null;
+		String page = null;
+		MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
+		if(mdto!=null && mdto.getM_role().equals("admin")) {
+			page="Main";
+			contentsJsp="./admin/notice/NoticeUpForm";
+		} else {
+			page = "Main";
+			contentsJsp = "./custom/notice/NoticeList";
+		}
+		session.setAttribute("ssKey", mdto);
+		session.setAttribute("notice", ndto);
+		model.addAttribute("contentsJsp", contentsJsp);
+		return page;
+		
+	}
 	@RequestMapping("/noticeProc")
 	public String noticeProc(HttpServletRequest request, HttpServletResponse response, NoticeDTO ndto, Model model, PageDTO pageDto) {
 		// 모든 데이터를 request에 실어서 보내줌
@@ -124,7 +144,7 @@ public class NoticeController {
 				NoticeDTO notice = noticeService.getNotice(ndto);
 				model.addAttribute("notice", notice);
 				page = "Main";
-				contentsJsp = "./notice/Notice";
+				contentsJsp = "./admin/notice/Notice";
 			} else {
 				// 고객용에서도 조회가 되어야 할 듯함(조회수 증가)
 				Map<String, Object> reSet = noticeService.getNoticies(ndto, pageDto);
@@ -135,25 +155,6 @@ public class NoticeController {
 				contentsJsp = "./custom/notice/Notice";
 			}
 		session.setAttribute("ssKey", mdto);
-		model.addAttribute("contentsJsp", contentsJsp);
-		return page;
-	}
-	
-	@RequestMapping("/noticeUpForm")
-	public String noticeUpForm(HttpServletRequest request, HttpServletResponse response, NoticeDTO ndto, Model model, PageDTO pageDto) {
-		HttpSession session = request.getSession();
-		String contentsJsp = null;
-		String page = null;
-		MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
-		if(mdto!=null && mdto.getM_role().equals("admin")) {
-				page = "Main";
-				contentsJsp = "./admin/notice/NoticeUpForm";
-			} else {
-				page = "Main";
-				contentsJsp = "./custom/notice/NoticeList";
-			}
-		session.setAttribute("ssKey", mdto);
-		model.addAttribute("notice", ndto);
 		model.addAttribute("contentsJsp", contentsJsp);
 		return page;
 	}

@@ -16,13 +16,13 @@
             <tr>
                <td class="col1">제목</td>
                <td class="col2">
-               <input type="text" name="n_subject" class="chk" title="제목" value="${notice.n_subject}">
+               <input type="text" name="n_subject" class="chk" title="제목" readonly="readonly" value="${notice.n_subject}">
                </td>
             </tr>
             <tr>
                <td class="col1">작성자</td>
                <td class="col2">
-               <input type="text" name="n_writer" class="chk" value="${notice.n_writer}">
+               <input type="text" name="n_writer" class="chk" readonly="readonly" value="${notice.n_writer}">
                </td>
             </tr>
             <tr>
@@ -34,7 +34,7 @@
             <tr>
                <td class="col1">작성일자</td>
                <td class="col2">
-               <input type="text"  name="n_vdate" class="chk" value="${notice.n_regdate}">  
+               <input type="text"  name="n_vdate" class="chk" readonly="readonly" value="${notice.n_regdate}">  
                </td>
               </tr>
             <tr>

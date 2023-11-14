@@ -2,11 +2,11 @@
  * 
  */
 $().ready(function(){
-    $('.noticeUp').no("click",function(){
+    $('.noticeUp').on("click",function(){
 		$("form[name=topForm]").attr('action',"/noticeUpForm");
 		$("form[name=topForm]").submit();
 	});
-    $('.noticeDel').no("click",function(){
+    $('.noticeDel').on("click",function(){
 		$("form[name=topForm]").attr('action',"/noticeProc");
 		$("input[name=flag]").val('delete');
 		$("form[name=topForm]").submit();

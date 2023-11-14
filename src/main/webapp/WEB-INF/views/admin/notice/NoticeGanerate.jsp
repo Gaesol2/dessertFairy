@@ -48,7 +48,7 @@
            <tfoot>
            <tr>
               <td colspan="3">
-                 <button class="noticeBtn" type="submit">등록</button>
+                 <button class="noticeBtn" type="submit">공지사항 등록</button>
                  <button type="reset">다시쓰기</button>
                  <button type="button" onclick="location.href='notice'">공지사항 목록</button>
               </td>
