@@ -8,6 +8,7 @@ import lombok.ToString;
 public class DessertDTO {
 	private int start;
 	private int end;
+	
 	private int d_rr;
 	private int d_no      ;
 	private String d_category;
@@ -20,4 +21,6 @@ public class DessertDTO {
 	private String d_life    ;
 	private String d_storage ;
 	private String d_allergy ;
+	
+	private String keyword; // 검색 키워드
 }
