@@ -76,4 +76,9 @@ public class MemberServiceImpl implements MemberService {
 		return memberDao.searchId(mdto);
 	}
 
+	@Override
+	public String searchPw(MemberDTO mdto) {		//비밀번호 찾기
+		return memberDao.searchPw(mdto);
+	}
+
 }

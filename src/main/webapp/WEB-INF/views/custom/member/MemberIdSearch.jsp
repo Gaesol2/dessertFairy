@@ -8,7 +8,7 @@
 
 
 <div id="search">
-	<form action="memberSearchProc" method="post" name="idSearchForm">
+	<form action="memberIdSearchProc" method="post" name="idSearchForm">
 	<div id="Box">
 		<p class="Tap">아이디 찾기</p>
 		<div id="idTextBox">
