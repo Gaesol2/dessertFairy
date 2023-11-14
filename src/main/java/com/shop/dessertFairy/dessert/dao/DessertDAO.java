@@ -39,5 +39,9 @@ public interface DessertDAO {
 
 	int updateStocks(List<OrderDTO> list);
 
+	int getSearchCnt();
 
+	List<DessertDTO> getSearchList(DessertDTO ddto);
+
+	
 }

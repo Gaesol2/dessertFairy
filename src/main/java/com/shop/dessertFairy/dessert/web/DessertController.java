@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.shop.dessertFairy.common.RowInterPage;
+import com.shop.dessertFairy.common.dto.PageDTO;
 import com.shop.dessertFairy.dessert.dto.DessertDTO;
 import com.shop.dessertFairy.dessert.service.DessertService;
 
@@ -54,6 +56,34 @@ public class DessertController {
 		
 		return "Main";
 	}
+	
+	@RequestMapping("/search")
+	public String Search(HttpServletRequest request,
+			HttpServletResponse response,
+			Model model, DessertDTO ddto, PageDTO pdto) {
+		
+		  // 검색 단어 저장 및 flag(high/low) 저장
+	      if (ddto.getKeyword() == null) {
+	    	  ddto.setKeyword(request.getParameter("keyword"));
+	      }
+	      String page = null;
+	      System.out.println("===>"+ddto);
+	      System.out.println("===>"+ddto.getKeyword());
+	      
+	      //검색어와 페이지 저장
+	      Map<String, Object> reSet = dessertService.getSearchList(ddto, pdto);
+	      
+	      
+	      model.addAttribute("keyword", ddto.getKeyword());
+	      model.addAttribute("pcnt", reSet.get("pcnt"));
+	      model.addAttribute("sList", reSet.get("sList"));
+	      model.addAttribute("getSearchList", reSet.get("sList"));
+	      model.addAttribute("pdto", reSet.get("pdto"));
+	      model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
+	      page = "Main";
+	      model.addAttribute("contentsJsp", "custom/search/SearchPage");
+	      return page;
+	   }
 
 	
 }
