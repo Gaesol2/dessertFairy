@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <link rel="stylesheet" type="text/css" href="/css/Top.css">
+<link rel="stylesheet" type="text/css" href="/css/PopUp.css">
 <link rel="stylesheet" type="text/css" href="/css/Common.css">
 <link rel="stylesheet" type="text/css" href="/css/Bottom.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -78,6 +79,15 @@
 	       <button class="topSearchBtn"><img src="../image/search.png"></button>
 	   </div>   <!-- topmenu end -->
    <div id="blank">
-        
    </div>   <!-- blank end -->
+<!--   <div id="pop-up"> -->
+<!--   	<div id="popBox1"> -->
+<!--     	<img src="../image/person.svg" class="pop-image"> -->
+<!--     	<p class="popNotice">오늘 하루 표시하지 않습니다.<button class="xBtn" onclick="closePop()">X</button></p> -->
+<!--   	</div> -->
+<!--   	<div id="popBox2"> -->
+<!--     	<img src="../image/person.svg" class="pop-image"> -->
+<!--     	<p class="popNotice">오늘 하루 표시하지 않습니다.<button class="xBtn" onclick="closePop()">X</button></p> -->
+<!--   	</div> -->
+<!--   </div> -->
 </div>   <!-- header end -->

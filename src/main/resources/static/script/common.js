@@ -26,5 +26,43 @@ $().ready(function(){
         $("#searchBox").slideUp(1000)
     });
     
+    
+   
 }); //ready 끝
 
+ function xBtn() {
+            window.close();
+        }
+
+//function getCookie(name) { 
+//	var Found = false var start, end var i = 0 
+//	// cookie 문자열 전체를 검색
+//	while(i <= document.cookie.length) {
+//		 start = i end = start + name.length 
+//		 // name과 동일한 문자가 있다면 
+//		 if(document.cookie.substring(start, end) == name) {Found = true break } i++ }
+//		  // name 문자열을 cookie에서 찾았다면 
+//		 if(Found == true) { 
+//			 start = end + 1 end = document.cookie.indexOf(";", start) 
+//			 // 마지막 부분이라 는 것을 의미(마지막에는 ";"가 없다) 
+//			 if(end < start) end = document.cookie.length 
+//			 // name에 해당하는 value값을 추출하여 리턴한다. 
+//			 return document.cookie.substring(start, end) } 
+//			 // 찾지 못했다면 
+//			 return "" } function openMsgBox() { 
+//				 var eventCookie=getCookie("memo"); 
+//				 if (eventCookie != "no") window.open('팝업창파일','_blank','width=300,height=300,top=50,left=150'); 
+//				 //팝업창의 주소, 같은 도메인에 있어야 한다. 
+//				 } openMsgBox();
+
+
+//function setCookie( name, value, expiredays ) {
+//	 var todayDate = new Date(); 
+//	 todayDate.setDate( todayDate.getDate() + expiredays );
+//	 document.cookie = name + "=" + escape( value ) + ";
+//	 path=/; 
+//	 expires=" + todayDate.toGMTString() + ";" 
+//	 } function closeWin() {
+//		  if ( document.myform.event.checked ) setCookie("memo", "no" , 1); 
+//		  // 1일 간 쿠키적용 
+//}

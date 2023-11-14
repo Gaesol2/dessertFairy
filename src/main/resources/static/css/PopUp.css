@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+
+#pop-up{
+	position: fixed;
+	top: 70px;
+	margin: 0 auto;
+	width: 100%;
+	z-index: 999;
+	
+}
+
+#popBox1{
+	display: inline-block;
+}
+
+#popBox2{
+	display: inline-block;
+}
+
+.pop-image{
+	width:500px; 
+	height:600px;
+	background-color: #eeeeee;
+	display: block;
+}
+
+.xBtn{
+	float: right;
+	color: white;
+	background-color: #042958;
+}
+
+.popNotice{
+	background-color: #042958;
+	color: white;
+	font-size: 12px;
+	padding: 5px;
+}
+
+
+
+
+
+
