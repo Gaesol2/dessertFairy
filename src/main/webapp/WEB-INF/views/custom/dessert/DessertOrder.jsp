@@ -19,19 +19,34 @@
       <ul class="list">
         <li>
            <input type="button" id="acategory" onclick="javascript:category('a')" value="전체보기">
-           <label for="acategory" class="acategory"><a>전체보기</a></label>
+           <label for="acategory" class="acategory">
+           	<c:choose>
+           		<c:when test="${flag='all'}">
+	           		<a class="a_bold">전체보기</a>
+           		</c:when>
+           		<c:otherwise>
+           			<a>전체보기</a>
+           		</c:otherwise>
+           	</c:choose>
+           </label>
         </li>
         <li>
            <input type="button" id="ccategory" onclick="javascript:category('c')" value="쿠키">
-           <label for="ccategory" class="ccategory"><a>쿠키</a></label>
+           <label for="ccategory" class="ccategory">
+           		<a>쿠키</a>
+           </label>
         </li>
         <li>
            <input type="button" id="bcategory" onclick="javascript:category('b')" value="브레드">
-           <label for="bcategory" class="bcategory"><a>브레드</a></label>
+           <label for="bcategory" class="bcategory">
+           		<a>브레드</a>
+           </label>
         </li>
         <li>
            <input type="button" id="pcategory" onclick="javascript:category('p')" value="푸딩">
-           <label for="pcategory" class="pcategory"><a>푸딩</a></label>
+           <label for="pcategory" class="pcategory">
+           		<a>푸딩</a>
+           </label>
         </li>
       </ul>
     </div>

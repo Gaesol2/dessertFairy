@@ -17,6 +17,7 @@
 #dessert .introduction{
 	font-size: 32px;
 	text-align: left;
+	font-weight: bold;
 }
 
 #dessert .list li{
@@ -24,6 +25,23 @@
 	font-size: 15px;
 	margin-left: 35px;
 }
+
+#dessert #acategory, #ccategory, #bcategory, #pcategory {
+	display: none;
+}
+
+#dessert .acategory, .ccategory, .bcategory, .pcategory {
+	font-size: 15px;
+	cursor: pointer;
+}
+
+.a_bold {
+	font-weight: bold;
+}
+
+
+
+
 
 #dessert .productlist{
 	padding-top: 150px;
@@ -34,7 +52,6 @@
 	width: 256px;
 	height: 300px;
 }
-
 
 #dessert .abox .box{
 	text-align: center;
@@ -61,16 +78,6 @@
 	background-color: #fef5d4;
 }
 
-#dessert #acategory, #ccategory, #bcategory, #pcategory {
-	display: none;
-}
-
-#dessert .acategory, .ccategory, .bcategory, .pcategory {
-	background-color: #fef5d4;
-	font-family: 'Noto Sans KR', sans-serif;
-	font-size: 20px;
-	cursor: pointer;
-}
 
 
 

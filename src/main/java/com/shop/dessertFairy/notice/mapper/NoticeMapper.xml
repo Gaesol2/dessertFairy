@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace = "com.shop.dessertFairy.notice.dao.NoticeDAO">
 		<select id="getTotalCnt" resultType="int">
-			SELECT COUNT(N_NO) FROM NOTICET
+			SELECT COUNT(N_NO) FROM NOTICE
 			WHERE N_STATE='A'
 		</select>
 		<select id="getNoticies" resultType="ndto" parameterType="ndto">
@@ -12,7 +12,7 @@
 			(SELECT
 				N_NO, N_SUBJECT, N_CONTENT, N_READCOUNT,
 				N_WRITER, N_VDATE, N_REGDATE, N_STATE
-				FROM NOTICET
+				FROM NOTICE
 				WHERE N_STATE ='A'
 				<if test="n_no!=0">
 					AND N_NO = #{n_no}
@@ -24,19 +24,19 @@
 		</select>
 		<insert id="generateNotice" parameterType="ndto">
 			<selectKey keyProperty="n_no" order="BEFORE" resultType="int">
-				SELECT NVL(MAX(N_NO), 0)+1 FROM NOTICET
+				SELECT NVL(MAX(N_NO), 0)+1 FROM NOTICE
 			</selectKey>
-			INSERT INTO NOTICET(N_NO, N_SUBJECT, N_CONTENT,
+			INSERT INTO NOTICE(N_NO, N_SUBJECT, N_CONTENT,
 				N_WRITER, N_VDATE, N_REGDATE, N_STATE)
 				VALUES(#{n_no}, #{n_subject}, #{n_content},
 				#{n_writer}, #{n_vdate}, sysdate, 'A')
 		</insert>
 		<update id="updateReadCnt" parameterType="ndto">
-			UPDATE NOTICET SET READCOUNT = READCOUNT+1
+			UPDATE NOTICE SET READCOUNT = READCOUNT+1
 			WHERE N_NO = #{n_no}
 		</update>
 		<update id="updateProc" parameterType="ndto">
-		   UPDATE NOTICET SET
+		   UPDATE NOTICE SET
 		        N_SUBJECT = #{n_subject},
 		        N_CONTENT = #{n_content},
 		        N_WRITER = #{n_writer},
@@ -45,7 +45,7 @@
 				WHERE N_NO = #{n_no}
 		</update>
 		<update id="deleteProc" parameterType="ndto">
-		  UPDATE NOTICET SET STATE = 'D'
+		  UPDATE NOTICE SET STATE = 'D'
 		  WHERE N_NO = #{n_no}
 		</update>
 </mapper>
