@@ -19,15 +19,24 @@
   <div class="productlist">
    <table>
       <tr>
-         <c:forEach var="search" items="${sList}">
-            <a class="abox" href="/dessertContent?d_no=${search.d_no}">
-               <div class="box">
-                  <img src="/upload/${search.d_image}">
-                  <p class="p_name">${search.d_name}</p>
-                  <p class="p_price price">${search.d_price}</p>
-               </div>
-            </a>
-         </c:forEach>
+      	<c:choose>
+  	    	<c:when test="${fn:length(sList)>0}"> 
+		         <c:forEach var="search" items="${sList}">
+		            <a class="abox" href="/dessertContent?d_no=${search.d_no}">
+		               <div class="box">
+		                  <img src="/upload/${search.d_image}">
+		                  <p class="p_name">${search.d_name}</p>
+		                  <p class="p_price price">${search.d_price}</p>
+		               </div>
+		            </a>
+		         </c:forEach>
+		    </c:when>
+		    <c:when test="${fn:length(sList)==0}">
+ 	            <tr style="text-align: center;" height="30px;">
+ 	               <th colspan="5">등록된 상품이 없습니다.</th>
+ 	            </tr>
+ 	         </c:when>
+		</c:choose>
       </tr>
    </table>
   </div>
