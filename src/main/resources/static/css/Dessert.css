@@ -9,15 +9,14 @@
 	float: left;
 }
 
-#dessert .toplist{
-	float: right;
-	text-align: right;
-}
-
 #dessert .introduction{
 	font-size: 32px;
 	text-align: left;
 	font-weight: bold;
+}
+#dessert .toplist{
+	float: right;
+	text-align: right;
 }
 
 #dessert .list li{

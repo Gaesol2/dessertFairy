@@ -39,6 +39,7 @@ public class DessertController {
 		//jsp로 보낼 정보 저장
 		model.addAttribute("dessertCnt",resultSet.get("dessertCnt"));
 		model.addAttribute("dessert",resultSet.get("dessert"));
+		model.addAttribute("flag",flag);
 		model.addAttribute("contentsJsp", "custom/dessert/DessertOrder");
 		
 		return "Main";
