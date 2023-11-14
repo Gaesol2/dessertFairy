@@ -8,7 +8,8 @@
 <title>쇼핑몰</title>
 <link rel="stylesheet" type="text/css" href="/css/notice.css">
 </head>
- <script src="script/notice.js"></script>
+ <script src="/script/Notice.js"></script>
+ <script src="/jquery/jquery-3.7.0.min.js"></script>
 	  <div class="clear"></div>
 	  <div id="notice">
    <div class="head">
@@ -33,14 +34,14 @@
          <c:when test="${fn:length(nList)>0}">
            <c:forEach var="notice" items="${nList}" varStatus="i">
                <tr>
-                   <td class="col1">${notice.rr}
+                   <td class="coli1">${notice.rr}
                       <input type="hidden" value="${notice.n_no}">
                     </td>
-                  <td class="col4"><a href="/noticeDetail?n_no=${notice.n_no}">${notice.n_subject}</a></td>
-                  <td class="col4" style="text-align: center;">${notice.n_writer}</td>
-                  <td class="col1 price">${notice.n_readcount}</td>
-                  <td class="col3">${notice.n_regdate}</td>
-                  <td class="col3">${notice.n_vdate}</td>
+                  <td class="coli4"><a href="/noticeDetail?n_no=${notice.n_no}">${notice.n_subject}</a></td>
+                  <td class="coli4" style="text-align: center;">${notice.n_writer}</td>
+                  <td class="coli1 price">${notice.n_readcount}</td>
+                  <td class="coli3">${notice.n_regdate}</td>
+                  <td class="coli3">${notice.n_vdate}</td>
                </tr>
            </c:forEach>
          </c:when>
