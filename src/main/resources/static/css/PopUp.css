@@ -1,21 +1,10 @@
 @charset "UTF-8";
 
-
-#pop-up{
+.popBox{
 	position: fixed;
 	top: 70px;
-	margin: 0 auto;
-	width: 100%;
+	left: 270px;
 	z-index: 999;
-	
-}
-
-#popBox1{
-	display: inline-block;
-}
-
-#popBox2{
-	display: inline-block;
 }
 
 .pop-image{
@@ -25,7 +14,7 @@
 	display: block;
 }
 
-.xBtn{
+.xBtn1, .xBtn2{
 	float: right;
 	color: white;
 	background-color: #042958;

@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="/css/Dessert.css">
 <script src="/script/Dessert.js"></script>
 <div id="dessert">
-  <div id="top">
+  <div id="">
     <div class="Mainlist">
       <p class="introduction">제품소개</p>
     </div>

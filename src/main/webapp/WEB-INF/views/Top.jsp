@@ -80,14 +80,4 @@
 	   </div>   <!-- topmenu end -->
    <div id="blank">
    </div>   <!-- blank end -->
-<!--   <div id="pop-up"> -->
-<!--   	<div id="popBox1"> -->
-<!--     	<img src="../image/person.svg" class="pop-image"> -->
-<!--     	<p class="popNotice">오늘 하루 표시하지 않습니다.<button class="xBtn" onclick="closePop()">X</button></p> -->
-<!--   	</div> -->
-<!--   	<div id="popBox2"> -->
-<!--     	<img src="../image/person.svg" class="pop-image"> -->
-<!--     	<p class="popNotice">오늘 하루 표시하지 않습니다.<button class="xBtn" onclick="closePop()">X</button></p> -->
-<!--   	</div> -->
-<!--   </div> -->
 </div>   <!-- header end -->

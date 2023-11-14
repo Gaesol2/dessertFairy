@@ -27,12 +27,12 @@ $().ready(function(){
     });
     
     
-   
 }); //ready 끝
 
- function xBtn() {
-            window.close();
-        }
+   function closePop(obj){
+	   $(obj).closest(".popBox").css('display', 'none');
+   }
+ 
 
 //function getCookie(name) { 
 //	var Found = false var start, end var i = 0 

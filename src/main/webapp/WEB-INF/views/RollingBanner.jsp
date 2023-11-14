@@ -3,7 +3,13 @@
     
 <script src="/script/rollingbanner.js"></script>
 <link rel="stylesheet" type="text/css" href="/css/RollingBanner.css">
+<link rel="stylesheet" type="text/css" href="/css/PopUp.css">
 
+
+<div class="popBox">
+	<img src="../image/person.svg" class="pop-image">
+	<p class="popNotice">오늘 하루 표시하지 않습니다.<button class="xBtn1" onclick="closePop(this)">X</button></p>
+</div>
 <div id="bannercontents">
 	<div class="banner">
 		<ul>

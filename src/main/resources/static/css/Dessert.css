@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+a:link{color: #13018d; text-decoration: none;}
+a:visited{color: #13018d; text-decoration: none;}
+a:active{color:#13018d; text-decoration: none;}
+a:hover{color: #13018d; text-decoration: none;}
+
+
 #dessert{
 	margin : 0 auto;
 	width : 1024px;
