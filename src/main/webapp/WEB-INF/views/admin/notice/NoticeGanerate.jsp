@@ -31,9 +31,9 @@
                <td class="cl3">작성자 이름을 입력하시오.</td>
             </tr>
             <tr>
-               <td class="cl1">내용</td>
-               <td class="cl2">
-                 <textarea class="chk" rows="10" cols="60" title="공지사항 내용" name="n_content"></textarea>
+	            <td class="cl1">내용</td>
+	            <td class="cl2">
+	            <textarea class="chk" rows="10" cols="60" title="공지사항 내용" name="n_content" ></textarea>
                </td>
                <td class="cl3">내용을 입력하시오</td>
             </tr>

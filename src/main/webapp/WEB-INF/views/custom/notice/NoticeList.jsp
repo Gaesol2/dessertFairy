@@ -53,7 +53,6 @@
       </c:choose>
       <tr style="text-align: right;height: 30px;">
       <th colspan="6" style="text-align: right; border: 1px solid #ffffff;">
-        <input type="button" value="공지사항등록" onclick="location.href='noticeGanerate'">
       </th>
       </tr>
      <tfoot>

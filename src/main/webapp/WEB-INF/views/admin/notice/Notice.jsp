@@ -34,7 +34,7 @@
             <tr>
                <td class="col1">내용</td>
                <td class="col2">
-                 <textarea class="chk" rows="10" cols="60" name="n_content" readonly="readonly" value="${notice.n_content}"></textarea>
+                 <textarea class="chk" rows="10" cols="60" name="n_content" readonly="readonly">${notice.n_content}</textarea>
                </td>
             </tr>
             <tr>

@@ -8,7 +8,7 @@
     <form action="noticeProc" name="topForm1" method="post">
        <table>
        <thead>
-          <tr>
+           <tr>
              <th colspan="3">공지사항등록</th>
           </tr>
         </thead>

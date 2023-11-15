@@ -10,11 +10,11 @@
 <script src="/script/Notice.js"></script>
 <script src="/jquery/jquery-3.7.0.min.js"></script>
 <body>
-	<form action="noticeProc?flag=update" name="topForm" method="post">
+	<form action="" name="topForm" method="post">
 		<table>
 			<thead>
 				<tr>
-					<th colspan="2">공지사항등록</th>
+					<th colspan="2">공지사항수정</th>
 				</tr>
 			</thead>
 			<tbody>
