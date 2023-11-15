@@ -3,13 +3,10 @@
  */
 
 	$().ready(function(){
-		alert(1);
 	   $(".conSubmit").on("click",function(){
-		   alert(2);
 		   if(validate()){
 	      $("form[name=conForm]").submit();
 	      }
-		alert(11111);
 	   });
 	
 		 

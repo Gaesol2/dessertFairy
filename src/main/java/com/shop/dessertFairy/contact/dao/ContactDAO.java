@@ -12,10 +12,18 @@ public interface ContactDAO {
 
 	int getContactCnt();
 
-	List<ReviewDTO> getContactList(ContactDTO tdto);
+	List<ContactDTO> getContactList(ContactDTO tdto);
 
 	int contactWrite(ContactDTO tdto);
 
 	ContactDTO getContactcontent(ContactDTO tdto);
 
+
+	
+	
+	//admin
+	
+	List<ContactDTO> getAdminList(ContactDTO tdto);
+
+	ContactDTO getAdminContent(ContactDTO tdto);
 }

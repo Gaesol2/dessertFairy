@@ -15,4 +15,12 @@ public interface ContactService {
 	ContactDTO getContactcontent(ContactDTO tdto);
 
 
+
+	
+	
+	//admin
+	
+	Map<String, Object> getAdminList(ContactDTO tdto, PageDTO pageDto);
+
+	ContactDTO getAdminContent(ContactDTO tdto);
 }

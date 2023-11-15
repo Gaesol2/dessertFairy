@@ -12,18 +12,17 @@
 </head>
 <body>
 <div id="contact">
-    <div>
-		<div id="contactList">
-			<p class="introduction">문의 글</p>
-		</div>
-		<div class="topList">
-			<ul class="list">
-				<li><a href="/myPage">내 정보</a></li>
-				<li><a href="/cartList">장바구니</a></li>
-				<li><a href="/orderList">주문목록</a></li>
-				<li><a href="/contactList">문의하기</a></li>
-			</ul>
-		</div>
+	<div>
+	    <div class="mainList">
+			<p class="reviewName">상점관리</p>
+	    </div>
+	    <div class="topList">
+	      <ul class="list">
+	        <li><a href="/shopMgt">후기 목록</a></li>
+	        <li><a href="/adminContact">문의 목록</a></li>
+	        <li><a href="/reviewWrite">배너 변경</a></li>
+	      </ul>
+	    </div>
 	</div>
 	 <div id="ContentContact">
 		  <div id="contactMain">
