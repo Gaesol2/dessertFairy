@@ -32,11 +32,11 @@
 		</foreach>
 	</insert>
 	
-	<select id="getOrderCnt" resultType="int">
+	<select id="getOrderCnt" parameterType="odto" resultType="int">				<!-- 총 주문 수 -->
 		SELECT COUNT(O_NO) FROM ORDERT
 	</select>
 	
-	<select id="getOrderList" parameterType="odto" resultType="odto">
+	<select id="getOrderList" parameterType="odto" resultType="odto">			<!-- 주문 목록 페이지 -->
 		SELECT *FROM
 		(SELECT ROWNUM AS O_RR, A.* 
         FROM 
@@ -53,4 +53,60 @@
 	 WHERE O_RR BETWEEN #{start} AND #{end}
 	</select>
 
+	<select id="getAdminOrderList" parameterType="odto" resultType="odto">				<!-- admin 주문 목록 페이지 -->
+		SELECT * FROM
+	    (SELECT ROWNUM AS RR, A.*
+	      FROM
+		  (SELECT  O.O_NO, O.D_NO, D.D_NAME, O.O_QUANTITY, O.O_AMOUNT,
+			       M.M_ID, M.M_NAME, O_REGDATE, O.O_PRICE, M_ROLE,
+			       D.D_STOCK, O.O_STATE
+			FROM ORDERT O
+			INNER JOIN DESSERT D
+			  ON O.D_NO = D.D_NO
+			INNER JOIN MEMBER M
+			  ON O.M_ID = M.M_ID
+		  <if test="m_role=='mem'"><!-- mem_id!=null -->
+     		 WHERE O.M_ID= #{m_id} and #{m_role}='mem'<!--and이후에 삭제 -->
+		  </if>
+		ORDER BY O_NO DESC) A)
+	   <![CDATA[
+	    WHERE RR>=#{start} AND RR <=#{end} 
+	   ]]> 
+	</select>
+	
+	<update id="updateOrderState" parameterType="list">						<!-- admin 주문목록에서 상태 수정 -->
+	  <foreach collection="list" item="item" 
+	     index="index" separator=";" open="DECLARE BEGIN" close="; END;">
+			UPDATE ORDERT SET
+	        O_STATE = #{item.o_state},
+	        O_REGDATE = SYSDATE
+			WHERE O_NO=#{item.o_no}
+			AND D_NO = #{item.d_no}
+			AND M_ID = #{item.m_id}
+	 </foreach>
+   </update>
+   
+   <select id="OrderDetail" parameterType="odto" resultType="odto">			<!-- admin 주문 상세 페이지 -->
+   		SELECT  O.O_NO, O.D_NO,
+	         (SELECT D_NAME FROM DESSERT WHERE D_NO=#{d_no}) D_NAME,
+	          O.O_QUANTITY, 
+	          O.M_ID, 
+	         (SELECT M_NAME FROM MEMBER WHERE M_ID = #{m_id}) M_NAME,
+	         O_REGDATE, O.O_PRICE, 
+	         (SELECT D_STOCK FROM DESSERT WHERE D_NO= #{d_no}) D_STOCK, 
+	         O.O_STATE,
+	         O.O_AMOUNT
+		FROM ORDERT O 
+	       WHERE M_ID = #{m_id}
+	       AND O_NO =#{o_no} 
+	       AND D_NO =#{d_no}
+   </select>
+   
+   <update id="updateOrder" parameterType="odto">		<!-- admin 주문 수정 페이지 -->
+   		UPDATE ORDERT
+   		SET O_STATE = #{o_state}
+   		WHERE O_NO = #{o_no}
+   		AND D_NO = #{d_no}
+   		AND M_ID = #{m_id}
+   </update>
 </mapper>
