@@ -1,5 +1,6 @@
 package com.shop.dessertFairy.order.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import java.util.Hashtable;
@@ -12,6 +13,10 @@ public interface OrderService {
 	public int insertOrder(Hashtable<Integer, OrderDTO> hCartList);
 
 	public Map<String, Object> getOrderList(OrderDTO odto, PageDTO pdto);
+
+	public Map<String, Object> getAdminOrderList(OrderDTO odto, PageDTO pdto);
+
+	public void orderStateUpdate(ArrayList<String> tdArr);
 
 	
 }

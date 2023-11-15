@@ -47,7 +47,7 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public Map<String, Object> getOrderList(OrderDTO odto, PageDTO pdto) {
 
-		int oCnt = orderDao.getOrderCnt();
+		int oCnt = orderDao.getOrderCnt(odto);
 		Map<String, Object> resultSet = new HashMap<String, Object>();
 		
 		//페이지 계산
@@ -85,5 +85,77 @@ public class OrderServiceImpl implements OrderService {
 		   
 		return resultSet;
 	}
+
+	@Override
+	public Map<String, Object> getAdminOrderList(OrderDTO odto, PageDTO pdto) {
+		int oCnt = orderDao.getOrderCnt(null);
+		Map<String, Object> resultSet = new HashMap<String, Object>();
+		
+	//페이지 계산
+	   if(pdto.getCurBlock()<=0) pdto.setCurBlock(1);
+	   if(pdto.getCurPage()<=0) pdto.setCurPage(1);
+	   
+	 //현재 페이지 계산
+	   int start = (pdto.getCurPage()-1)*RowInterPage.ROW_OF_PAGE +1;
+	   int end = (pdto.getCurPage()*RowInterPage.ROW_OF_PAGE)>oCnt?
+			   oCnt:pdto.getCurPage()*RowInterPage.ROW_OF_PAGE;
+	   odto.setStart(start);
+	   odto.setEnd(end);
+	   
+	   int pgCnt = (oCnt%RowInterPage.ROW_OF_PAGE==0)?
+			   oCnt/RowInterPage.ROW_OF_PAGE:
+				   oCnt/RowInterPage.ROW_OF_PAGE+1;
+	   
+	   //페이지 블럭
+	   int pgBlock = (pgCnt%RowInterPage.PAGE_OF_BLOCK==0)?
+			   pgCnt/RowInterPage.PAGE_OF_BLOCK:pgCnt/RowInterPage.PAGE_OF_BLOCK+1;
+	   int startPg = (pdto.getCurBlock()-1)*RowInterPage.PAGE_OF_BLOCK+1;
+	   int endPg = (pdto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK>pgCnt)?
+			   pgCnt:pdto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK;
+	   
+	   pdto.setPgCnt(pgCnt);
+	   pdto.setPgBlock(pgBlock);
+	   pdto.setStartPg(startPg);
+	   pdto.setEndPg(endPg);
+	   
+	   List<OrderDTO> adminOrderList = orderDao.getAdminOrderList(odto);
+	   resultSet.put("pdto", pdto);
+	   resultSet.put("oCnt", oCnt);
+	   resultSet.put("adminOrderList", adminOrderList);
+	   
+	   return resultSet;
+	}
+
+	@Override
+	public void orderStateUpdate(ArrayList<String> tdArr) {
+
+		List<OrderDTO> list = new ArrayList<OrderDTO>();
+		
+		for(int i=0; i<tdArr.size(); i+=4) {
+			OrderDTO odto = new OrderDTO();
+	   		int n=0, no=0;
+	   		String mid=null;
+			n =tdArr.get(i).indexOf(":");
+			no = Integer.parseInt(tdArr.get(i).substring(n+1));
+			odto.setO_no(no);
+			  
+			n =tdArr.get(i+1).indexOf(":");
+			no = Integer.parseInt(tdArr.get(i+1).substring(n+1));
+			odto.setD_no(no);
+			 
+			n =tdArr.get(i+2).indexOf(":");
+			mid = tdArr.get(i+2).substring(n+1);
+			odto.setM_id(mid);
+			  
+			n =tdArr.get(i+3).indexOf(":");
+			mid = tdArr.get(i+3).substring(n+1);
+			odto.setO_state(mid);
+			
+			list.add(odto);
+		}
+		
+		orderDao.updateOrderState(list);
+	}
+
 
 }

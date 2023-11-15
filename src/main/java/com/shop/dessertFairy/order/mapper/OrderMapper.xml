@@ -32,7 +32,7 @@
 		</foreach>
 	</insert>
 	
-	<select id="getOrderCnt" resultType="int">
+	<select id="getOrderCnt" parameterType="odto" resultType="int">
 		SELECT COUNT(O_NO) FROM ORDERT
 	</select>
 	
@@ -53,4 +53,37 @@
 	 WHERE O_RR BETWEEN #{start} AND #{end}
 	</select>
 
+	<select id="getAdminOrderList" parameterType="odto" resultType="odto">
+		SELECT * FROM
+	    (SELECT ROWNUM AS RR, A.*
+	      FROM
+		  (SELECT  O.O_NO, O.D_NO, D.D_NAME, O.O_QUANTITY, O.O_AMOUNT,
+			       M.M_ID, M.M_NAME, O_REGDATE, O.O_PRICE, M_ROLE,
+			       D.D_STOCK, O.O_STATE
+			FROM ORDERT O
+			INNER JOIN DESSERT D
+			  ON O.D_NO = D.D_NO
+			INNER JOIN MEMBER M
+			  ON O.M_ID = M.M_ID
+		  <if test="m_role=='mem'"><!-- mem_id!=null -->
+     		 WHERE O.M_ID= #{m_id} and #{m_role}='mem'<!--and이후에 삭제 -->
+		  </if>
+		ORDER BY O_NO DESC) A)
+	   <![CDATA[
+	    WHERE RR>=#{start} AND RR <=#{end} 
+	   ]]> 
+	</select>
+	
+	<update id="updateOrderState" parameterType="list" >
+	  <foreach collection="list" item="item" 
+	     index="index" separator=";" open="DECLARE BEGIN" close="; END;">
+			UPDATE ORDERT SET
+	        STATE = #{item.state},
+	        O_REGDATE = SYSDATE
+			WHERE O_NO=#{item.o_no}
+			AND D_NO = #{item.d_no}
+			AND M_ID = #{item.m_id}
+	 </foreach>
+   </update>
+   
 </mapper>
