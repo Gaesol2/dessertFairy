@@ -16,4 +16,6 @@ public interface ContactDAO {
 
 	int contactWrite(ContactDTO tdto);
 
+	ContactDTO getContactcontent(ContactDTO tdto);
+
 }

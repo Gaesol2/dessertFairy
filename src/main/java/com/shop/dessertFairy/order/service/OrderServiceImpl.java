@@ -47,7 +47,7 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public Map<String, Object> getOrderList(OrderDTO odto, PageDTO pdto) {			// 주문 목록
 
-		int oCnt = orderDao.getOrderCnt(odto);
+		int oCnt = orderDao.getMemOrderCnt(odto);							//회원 총 주문 건수
 		Map<String, Object> resultSet = new HashMap<String, Object>();
 		
 		//페이지 계산
@@ -60,7 +60,8 @@ public class OrderServiceImpl implements OrderService {
 				   oCnt:pdto.getCurPage()*RowInterPage.ROW_OF_PAGE;
 		   odto.setStart(start);
 		   odto.setEnd(end);
-		   
+		   System.out.println("스타트 : "+start);
+		   System.out.println("엔드 : "+end);
 		   int pgCnt = (oCnt%RowInterPage.ROW_OF_PAGE==0)?
 				   oCnt/RowInterPage.ROW_OF_PAGE:
 					   oCnt/RowInterPage.ROW_OF_PAGE+1;
@@ -88,7 +89,7 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public Map<String, Object> getAdminOrderList(OrderDTO odto, PageDTO pdto) {				// admin 주문목록
-		int oCnt = orderDao.getOrderCnt(null);
+		int oCnt = orderDao.getOrderCnt(null);							// admin 전체 주문 건수
 		Map<String, Object> resultSet = new HashMap<String, Object>();
 		
 	//페이지 계산
@@ -166,6 +167,11 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public void updateOrder(OrderDTO odto) {			// admin 주문 수정
 		orderDao.updateOrder(odto);
+	}
+
+	@Override
+	public OrderDTO memOrderDetail(OrderDTO odto) {
+		return orderDao.memOrderDetail(odto);
 	}
 
 

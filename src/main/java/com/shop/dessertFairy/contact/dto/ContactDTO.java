@@ -16,7 +16,7 @@ public class ContactDTO {
 	private String t_content;
 	private String t_regdate;
 	private String t_passwd;
-	private int t_secret;
+	private String t_secret;
 	private String m_id;
 
 }

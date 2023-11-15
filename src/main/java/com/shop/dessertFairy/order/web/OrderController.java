@@ -48,9 +48,10 @@ public class OrderController {
 	   MemberDTO ssKey = (MemberDTO)session.getAttribute("ssKey");
 	   Map<String, Object> resultSet = null;
 	   
-	   if(session.getAttribute("ssKey") != null) {
+	   if(ssKey != null) {
 		   
 		   if(ssKey.getM_role().equals("mem")) {
+			   odto.setM_id(ssKey.getM_id());
 			   resultSet = orderService.getOrderList(odto, pdto);
 			   model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
 			   model.addAttribute("pdto", resultSet.get("pdto"));
@@ -111,4 +112,29 @@ public class OrderController {
       return "page";
    }
    
+   @RequestMapping("/memOrderDetail")
+   public String MemOrderDetail(HttpServletRequest request,
+		   						HttpServletResponse response,
+		   						OrderDTO odto,
+		   						Model model) {
+	   String page = null;
+	   HttpSession session = request.getSession();
+	   MemberDTO ssKey = (MemberDTO)session.getAttribute("ssKey");
+	   
+	   if(ssKey != null) {
+		   odto = orderService.memOrderDetail(odto);
+		   model.addAttribute("odto", odto);
+		   model.addAttribute("contentsJsp", "custom/mypage/OrderDetail");
+		   page = "Main";
+	   }else {
+		   String msg = "로그인이 필요합니다.";
+		   model.addAttribute("msg", msg);
+		   model.addAttribute("url", "/login");
+		   page="MsgPage";
+	   }
+	   
+	   session.setAttribute("ssKey", ssKey);
+	   
+	   return page;
+   }
 }

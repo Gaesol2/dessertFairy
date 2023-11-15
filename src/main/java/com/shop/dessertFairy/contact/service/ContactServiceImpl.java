@@ -74,4 +74,10 @@ public class ContactServiceImpl implements ContactService {
 	      return contactDao.contactWrite(tdto);
 	}
 
+
+	@Override
+	public ContactDTO getContactcontent(ContactDTO tdto) {
+		return contactDao.getContactcontent(tdto);
+	}
+
 }
