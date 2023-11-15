@@ -86,6 +86,25 @@
 						<input type="hidden" id="sample6_extraAddress">
 					</span>
 				</div>
+				<div class="regisBox">
+					<p class="col4">*비밀번호 힌트</p>
+					<span>
+						<select name="m_quest">
+							<option value="당신의 보물 1호는?">당신의 보물 1호는?</option>
+							<option value="가장 기억에 남는 선생님 이름은?">가장 기억에 남는 선생님 이름은?</option>
+							<option value="direct">직접 입력</option>
+						</select>
+						<input type="text" name="direct_quest" size="25" title="비밀번호 힌트">
+					</span>
+				</div>
+				<div class="clear"></div>
+				<div class="regisBox">
+					<p class="col4">*힌트 답</p>
+					<span>
+						<input type="text" class="chk" name="m_answer" size="25" title="비밀번호 힌트 답">
+					</span>
+				</div>
+				<div class="clear"></div>
 		</div>
 		<div id="joinBtn">
 			<button class="m_join" type="button">회원가입</button>

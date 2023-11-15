@@ -18,7 +18,10 @@
 							M_ZIPCODE,
 							M_ADDRESS,
 							M_ADDRESS2,
-							M_ROLE)
+							M_ROLE,
+							M_QUEST,
+							M_ANSWER
+							)
 				 	VALUES(	#{m_id},
 				 			#{m_name},
 				 			#{m_passwd},
@@ -28,7 +31,9 @@
 				 			#{m_zipcode},
 				 			#{m_address},
 				 			#{m_address2},
-				 			'mem')
+				 			'mem',
+				 			#{m_quest},
+							#{m_answer})
 	 </insert>
 	 
 	 <select id="getMember" parameterType="mdto" resultType="mdto">		<!-- 로그인 -->
@@ -64,6 +69,18 @@ WHERE M_ID = #{m_id}
 		SET M_PASSWD = #{m_passwd}
 		WHERE M_ID = #{m_id}
 	</update>
+	
+	<select id="answerSearch" parameterType="mdto" resultType="String">
+		SELECT m_answer
+		FROM member
+		WHERE m_id = #{m_id} AND m_answer = #{m_answer}
+	</select>
+	
+	<select id="questSearch" parameterType="String" resultType="String">
+		SELECT m_quest
+		FROM member
+		WHERE m_id = #{m_id}
+	</select>
 	
 <!-- admin start -->
 	<select id="memberTot">			<!-- 전체 회원 수 -->

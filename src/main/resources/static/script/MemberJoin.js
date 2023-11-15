@@ -77,6 +77,20 @@ $().ready(function(){
 				pCombiCheck = false;
 			} 
 		});
+		
+	$("input[name='direct_quest']").hide();
+	
+	$("select[name='m_quest']").change(function(){
+		if($("select[name='m_quest']").val()=="direct"){
+			$("input[name='direct_quest']").show();
+			$("input[name='direct_quest']").addClass("chk");
+		} else {
+			$("input[name='direct_quest']").val("");
+			$("input[name='direct_quest']").removeClass("chk");
+			$("input[name='direct_quest']").hide();
+		}
+	})
+
 
  	/*  $('#phone').keyup(function(){		// 휴대전화 번호 자동 하이픈 삽입
 	 	  	var regex =  /^[0-9\-]+$/;
