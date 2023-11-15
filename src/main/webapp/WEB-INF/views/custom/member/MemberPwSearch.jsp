@@ -10,7 +10,8 @@
 		<div id="Box">
 		<p class="Tap">비밀번호 찾기</p>
 			<div id="pwTextBox">
-					<input type="text" class="searchChk idin" name="m_id" title="아이디" size="30" placeholder="아이디를 입력하세요.">
+					<input type="text" class="searchChk idchk in" name="m_id" title="아이디" size="30" placeholder="아이디를 입력하세요.">
+					<font id="idcheck" size="2" color="red" class="possible"></font>
 					<br>
 					<input type="text" class="searchChk in" size="30" name="m_name" title="이름" placeholder="이름을 입력하세요.">
 					<br>
