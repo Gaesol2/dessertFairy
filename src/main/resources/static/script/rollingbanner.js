@@ -28,4 +28,28 @@
 				//이 과정을 반복하면서 계속 롤링하는 배너를 만들 수 있다.
 			});
 		}
+		
+		window.addEventListener("wheel", function(e){
+		    e.preventDefault();
+		},{passive : false});
+		
+		let mHtml = $("html");
+		let page = 1;
+		
+		
+		mHtml.animate({scrollTop : 0},10);
+		
+		$(window).on("wheel", function(e) {
+		    if(mHtml.is(":animated")) return;
+		    if(e.originalEvent.deltaY > 0) {
+		        if(page == 12) return;
+		        page++;
+		    } else if(e.originalEvent.deltaY < 0) {
+		        if(page == 1) return;
+		        page--;
+		    }
+		    var posTop =(page-1) * 800;
+		    mHtml.animate({scrollTop : posTop});
+		})
+	
 	}); 

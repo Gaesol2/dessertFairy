@@ -319,23 +319,20 @@ public class MemberController {
 				 Model model) {
 			 
 			 int result = 0;
-			 String pw = null;
 			 String msg = null;
 			 String url = "/";
 			 
 				
-			 pw = memberService.searchPw(mdto);
-			 if(pw != null) { 
+			 int pw = memberService.searchPw(mdto);				// memberService 인터페이스의 memberJoin(mdto) 메소드 호출
+			 if(pw >0) { 
 				 msg = "비밀번호를 변경해주시길 바랍니다.";
 				 url = "/pwSearchForm";
 			 } else msg = "회원정보가 없습니다.";
 			 url = "/memberPwSearch";
-				
 			 
 			 
 			 model.addAttribute("msg", msg);
 			 model.addAttribute("url", url);
-			 model.addAttribute("pw", pw);
 			 
 			 return "MsgPage";
 			 

@@ -27,7 +27,7 @@ public interface MemberService {
 
 	String searchId(MemberDTO mdto);			// 회원 아이디 찾기
 
-	String searchPw(MemberDTO mdto);
+	int searchPw(MemberDTO mdto);
 
 
 

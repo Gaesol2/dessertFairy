@@ -91,14 +91,13 @@
 
 #pwTextBox{
 	margin-left: 150px;
-	margin-top: 20px;
+	margin-top: 50px;
 	height: 280px;
 }
 
 #pwSearch{
 	width: 1024px;
 	height: 50px;
-	margin-top : 60px;
 }
 
 #pwSearch .searchBtn{

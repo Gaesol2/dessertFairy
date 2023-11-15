@@ -2,7 +2,8 @@
  * 
  */
 $().ready(function(){
- 	var pcheck = true;	//두개가 다르면 true,같으면 false
+	let idchk=1;
+ 	let pcheck = true;	//두개가 다르면 true,같으면 false
 	
 		$('#idSearch').on('click', function(){
 		var flen = $("form[name=idSearchForm] .idChk").length;
@@ -68,7 +69,7 @@ $().ready(function(){
 //			e.preventDefault();
 //		});
 
-		$('.searchBtn').on('click',function(){		// 로그인
+		$('.searchBtn').on('click',function(){	
 			var flen = $("form[name=pwSearchForm] .searchChk").length;
 		 	for(var i=0; i<flen; i++){
 			if($('.searchChk').eq(i).val()=="" ||
@@ -81,6 +82,14 @@ $().ready(function(){
 		   }
 		    $("form[name=pwSearchForm]").submit();
 		});
+		
+		
+	
+		
+		
+		
+		
+		
+		
 		  
 	});	/*READY END*/
-	
