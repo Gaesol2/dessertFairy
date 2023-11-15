@@ -13,7 +13,11 @@
 <body>
 <div class="popBox">
 	<img src="../image/person.svg" class="pop-image">
-	<p class="popNotice">오늘 하루 표시하지 않습니다.<button class="xBtn1" onclick="closePop(this)">X</button></p>
+	<p class="popNotice">
+		<button onclick="closePop()" id="popClose">오늘 하루 표시하지 않습니다.</button>
+		<label for="popClose" class="popClose">오늘 하루 표시하지 않습니다.</label>
+		<button class="xBtn1" onclick="X()">X</button>
+	</p>
 </div>
 		<div id="bannercontents">
 			<div class="banner">

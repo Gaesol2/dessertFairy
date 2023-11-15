@@ -1,10 +1,19 @@
 @charset "UTF-8";
 
 .popBox{
+	display: block;
 	position: fixed;
 	top: 70px;
 	left: 270px;
 	z-index: 999;
+}
+
+#popClose {
+	display: none;
+}
+
+.popClose {
+	cursor: pointer;
 }
 
 .pop-image{
@@ -14,10 +23,11 @@
 	display: block;
 }
 
-.xBtn1, .xBtn2{
+.xBtn{
 	float: right;
 	color: white;
 	background-color: #042958;
+	cursor: pointer;
 }
 
 .popNotice{
