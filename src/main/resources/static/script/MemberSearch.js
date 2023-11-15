@@ -18,8 +18,8 @@ $().ready(function(){
 		$("form[name=idSearchForm]").submit();
 	});
 		// 
-	$('#pwSearch').on('click', function(){
-		var flen = $("form[name=pwSearchForm] .pwChk").length;
+	$('#pwChange').on('click', function(){
+		var flen = $("form[name=pwChangeForm] .pwChk").length;
 		for(var i=0; i<flen; i++){
 			if($('.pwChk').eq(i).val()=="" ||
 		       $('.pwChk').eq(i).val()==null ||
@@ -28,6 +28,11 @@ $().ready(function(){
 			  $('.pwChk').eq(i).focus();
 			  return false;
 			}
+		}
+		if(pcheck){
+			alert("비밀번호가 일치하지 않습니다.")
+		} else {
+			$("form[name=pwChangeForm]").submit();
 		}
 	}); 
 		
@@ -62,7 +67,20 @@ $().ready(function(){
 //			//스크롤 변경 방지
 //			e.preventDefault();
 //		});
-		
+
+		$('.searchBtn').on('click',function(){		// 로그인
+			var flen = $("form[name=pwSearchForm] .searchChk").length;
+		 	for(var i=0; i<flen; i++){
+			if($('.searchChk').eq(i).val()=="" ||
+		       $('.searchChk').eq(i).val()==null ||
+		       $('.searchChk').eq(i).val().trim()==""){
+			  alert($('.searchChk').eq(i).attr('title')+'를 입력하시오.');
+			  $('.searchChk').eq(i).focus();
+			  return false;
+			}
+		   }
+		    $("form[name=pwSearchForm]").submit();
+		});
 		  
 	});	/*READY END*/
 	

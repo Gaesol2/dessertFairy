@@ -63,9 +63,8 @@
 					<p class="col6">*전화번호</p>
 					<span>
 <!-- 						<input type="hidden" id="phone" class="chk" name="m_phone" size="30" title="전화번호" > -->
-						<input type="text" id="phone" class="chk" value="010" readonly="readonly"/>-
-				        <input type='text' id="phone" class="chk" name="m_phone1" size="10" title="전화번호"/>-
-				        <input type='text' id="phone" class="chk" name="m_phone2" size="10" title="전화번호"/>
+						<input type="text" id="phone" class="chk" value="010" readonly="readonly" size="5"/>-
+				        <input type='text' id="phone" class="chk" name="m_phone" size="30" title="전화번호"/>
 					</span>
 				</div>
 				<div class="clear"></div>

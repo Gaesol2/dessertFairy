@@ -94,5 +94,11 @@ WHERE M_ID = #{m_id}
 		WHERE m_id = #{m_id}
 	</select>
 <!-- admin end -->
-
+	
+	<select id="searchPw" parameterType="mdto" resultType="mdto">
+		SELECT M_PASSWD
+		FROM MEMBER
+		WHERE M_ID = #{m_id} AND M_NAME = #{m_name} AND M_PHONE = #{m_phone}
+	</select>
+	
  </mapper>

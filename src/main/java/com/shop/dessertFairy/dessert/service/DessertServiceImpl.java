@@ -168,4 +168,46 @@ public class DessertServiceImpl implements DessertService {
       
    }
 
+	@Override
+	public Map<String, Object> getSearchList(DessertDTO ddto, PageDTO pdto) {
+		
+		int pcnt = dessertDao.getSearchCnt();                     //상품 총 개수 
+		Map<String, Object> resultSet = new HashMap<String, Object>();
+		   
+		//페이지 계산
+		   if(pdto.getCurBlock()<=0) pdto.setCurBlock(1);
+		   if(pdto.getCurPage()<=0) pdto.setCurPage(1);
+		   
+		   //현재 페이지 계산
+		   int start = (pdto.getCurPage()-1)*RowInterPage.ROW_OF_PAGE +1;
+		   int end = (pdto.getCurPage()*RowInterPage.ROW_OF_PAGE)>pcnt?
+				   pcnt:pdto.getCurPage()*RowInterPage.ROW_OF_PAGE;
+		   ddto.setStart(start);
+		   ddto.setEnd(end);
+		   
+		   int pgCnt = (pcnt%RowInterPage.ROW_OF_PAGE==0)?
+				   pcnt/RowInterPage.ROW_OF_PAGE:
+					   pcnt/RowInterPage.ROW_OF_PAGE+1;
+		   
+		   //페이지 블럭
+		   int pgBlock = (pgCnt%RowInterPage.PAGE_OF_BLOCK==0)?
+				   pgCnt/RowInterPage.PAGE_OF_BLOCK:pgCnt/RowInterPage.PAGE_OF_BLOCK+1;
+		   int startPg = (pdto.getCurBlock()-1)*RowInterPage.PAGE_OF_BLOCK+1;
+		   int endPg = (pdto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK>pcnt)?
+				   pgCnt:pdto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK;
+		   
+		   pdto.setPgCnt(pgCnt);
+		   pdto.setPgBlock(pgBlock);
+		   pdto.setStartPg(startPg);
+		   pdto.setEndPg(endPg);
+		
+		
+		List<DessertDTO> sList = dessertDao.getSearchList(ddto);
+		resultSet.put("pdto", pdto);
+		resultSet.put("pcnt", pcnt);
+		resultSet.put("sList", sList);
+		
+		return resultSet;
+	}
+
 }
