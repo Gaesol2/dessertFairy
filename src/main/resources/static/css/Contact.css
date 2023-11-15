@@ -32,7 +32,9 @@
 	font-weight: bold;
 }
 
-
+.secretImg{
+	padding-top: 5px;
+}
 
 
 
@@ -227,6 +229,144 @@
 
 
 
+/* contact content */
+
+
+#ContentContact{
+	float: left;
+	margin-top: 170px;
+}
+
+#contactMain{
+	width: 1024px;
+	height: 40px;
+	line-height : 40px;
+	border-top: solid 2px black;
+	border-bottom: solid 1px black;
+}
+
+#contactMain .contentSubject, #contactMain .contentWrite, #contactMain .contentRegdate{
+	display: inline-block;
+}
+
+.contentSubject, .contentWrite, .contentRegdate{
+	font-size : 13px;
+	height: 30px;
+	background-color: #fefae9;
+}
+
+.contentSubject{
+	margin-left: 20px;
+	font-weight : bold;
+	width: 680px;
+}
+
+.contentWrite{
+	width : 120px;
+	text-align: right;
+	font-weight : bold;
+}
+
+.contentRegdate{
+	margin-left : 10px;
+	text-align: center;
+}
+
+.contentStar{
+	margin-left : 10px;
+	text-align: center;
+	color: rgba(250, 208, 0, 0.99);
+}
+
+
+
+
+#contentMiddle{
+	padding : 100px 0 20px 0;
+	text-align: center;
+}
+
+#contentMiddle img{
+	display: block;
+}
+
+#contentMiddle div{
+	position: relative;
+	display: inline-block;
+	*display : inline;
+	zoom: 1;
+}
+
+#contentBottom{
+	height : 270px;
+	margin-top : 100px;
+	border-bottom: solid 1px black; 
+}
+
+.contentContent{
+	margin-left: 200px;
+	
+}
+  
+.contentStar input{
+	width : 90px;
+	text-align : center;
+	border: none;
+	background-color: #fefae9;
+	font-size : 18px;
+	color: rgba(250, 208, 0, 0.99);
+}   
+
+#replybox{
+	float : left;
+	width: 1024px;
+	border-bottom: solid 1px black;
+}  
+
+.adminReply{
+	margin-top : 30px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.replycontent{
+	margin-top: 50px;
+	margin-left: 270px;
+}
+
+.replys{
+	width: 500px;
+	height: 200px;
+	font-size: 15px;
+	background-color: #fefae9;
+	border: none;
+	box-sizing: border-box;
+	outline: none;
+	padding: 10px;
+}
+
+#myreviewBtn{
+	float: left;
+	width: 1024px;
+	height: 100px;
+	margin-top : 65px;
+	margin-left: 370px;
+}
+
+#myreviewBtn .modify{
+	font-size: 18px;
+	color : #064695;
+	padding : 10px 30px 10px 30px;
+	background-color : #fefae9;
+	border : solid 1px #064695;
+	text-align: center;
+}
+
+#myreviewBtn .modify:hover{
+    text-shadow: 0 0 0 #fefae9;
+    background-color : #064695;
+    color : #fefae9;
+}
 
 
 

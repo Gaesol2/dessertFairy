@@ -44,4 +44,16 @@
          ,#{m_id}
       )
    </insert>
+   
+   <select id="getContactcontent" parameterType="tdto" resultType="tdto">
+		SELECT T_NO
+			   ,T_SUBJECT
+			   ,T_CONTENT
+			   ,TO_CHAR(T_REGDATE,'YYYY-MM-DD') AS T_REGDATE
+			   ,T_PASSWD
+			   ,T_SECRET
+			   ,M_ID
+		FROM CONTACT
+		WHERE T_NO = #{t_no}
+	</select>
 </mapper>

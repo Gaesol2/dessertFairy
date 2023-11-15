@@ -10,19 +10,16 @@
 
 <div id="contact">
   <div>
-    <div>
-		<div id="contactList">
-			<p class="introduction">문의하기</p>
-		</div>
-		<div class="topList">
-			<ul class="list">
-				<li><a href="/myPage">내 정보</a></li>
-				<li><a href="/cartList">장바구니</a></li>
-				<li><a href="/orderList">주문목록</a></li>
-				<li class="reList"><a href="/contactList">문의하기</a></li>
-			</ul>
-		</div>
-	</div>
+    <div class="mainList">
+		<p class="reviewName">상점관리</p>
+    </div>
+    <div class="topList">
+      <ul class="list">
+        <li><a href="/shopMgt">후기 목록</a></li>
+        <li><a href="/adminContact">문의 목록</a></li>
+        <li><a href="/reviewWrite">배너 변경</a></li>
+      </ul>
+    </div>
   </div>
   <div id="contactContent">
   	<a href="/contactWrite">문의 글쓰기</a>
@@ -62,10 +59,10 @@
 			        <c:if test="${contact.t_secret eq 'N'}" >
 			            <img src="${pageContext.request.contextPath}/image/secret.png" class="secretImg" width="20" height="20" alt="비밀글" />
 			            <c:choose>
-			                <c:when test="${ssKey == null and ssKey.m_role=='admin'}">
+			                <c:when test="${ssKey.m_id == contact.m_id || ssKey.m_role=='admin'}">
 			                    <a href="/contactContent?t_no=${contact.t_no}">${contact.t_subject}</a>
 			                </c:when>
-			                <c:otherwise>비밀글은 작성자와 관리자만 볼 수 있습니다.</c:otherwise>
+			                <c:otherwise><a href="/contactContent?t_no=${contact.t_no}">${contact.t_subject}비밀글은 작성자와 관리자만 볼 수 있습니다.</a></c:otherwise>
 			            </c:choose>
 			        </c:if>
 			        <c:if test="${contact.t_secret eq 'Y'}" >

@@ -141,4 +141,35 @@ public class ContactController {
 		   
 		   return "MsgPage";
 	   }
+	
+	
+	
+	@RequestMapping("/contactContent") //리뷰 내용보기
+	   public String ContactContent (HttpServletRequest request, HttpServletResponse response,
+	         Model model, ContactDTO tdto, PageDTO pageDto) {
+		   
+		   //세션 받아오기
+		   HttpSession session = request.getSession();
+		   
+		   //변수 선언해주기
+		   String contentsJsp = "/custom/mypage/ContactContent";
+			String page = null;
+			
+			//ssKey 세션에 있는 정보를 MemberDTO 타입의 mdto에 저장
+			MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
+			
+			
+			ContactDTO contact = contactService.getContactcontent(tdto);
+			model.addAttribute("contact", contact);
+			
+			//페이지 불러오기
+			page = "custom/mypage/ContactContent";
+			
+			//세션에 저장
+			session.setAttribute("ssKey", mdto);
+			model.addAttribute("contentsJsp", page);
+			
+			
+			return "Main";
+		}
 }

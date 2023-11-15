@@ -7,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.shop.dessertFairy.common.RowInterPage;
 import com.shop.dessertFairy.common.dto.PageDTO;
+import com.shop.dessertFairy.contact.dto.ContactDTO;
+import com.shop.dessertFairy.contact.service.ContactService;
 import com.shop.dessertFairy.member.dto.MemberDTO;
 import com.shop.dessertFairy.review.dto.ReviewDTO;
 import com.shop.dessertFairy.review.service.ReviewService;
@@ -24,6 +24,9 @@ public class AdminShopController {
 	
    @Autowired
    ReviewService reviewService;
+   
+   @Autowired
+   ContactService contactService;
 	
    @RequestMapping("/shopMgt")
    public String ShopMgt(HttpServletRequest request,
@@ -244,4 +247,49 @@ public class AdminShopController {
 	   
 	   return page;
    }
+   
+   
+   
+   
+   //문의하기
+   @RequestMapping("/adminContact")
+	  public String AdminContact(HttpServletRequest request,
+			              HttpServletResponse response,
+			              Model model,
+			              ContactDTO tdto,
+			              PageDTO pageDto) {
+		
+		//변수 선언
+	    String page = null;
+	    MemberDTO ssKey = null;
+	    String contentsJsp = "/admin/shop/ContactList";
+	    
+	    //HttpSession 세션 객체 생성 및 세션 정보 받아오기
+		HttpSession session = request.getSession();
+		
+		ssKey = (MemberDTO) session.getAttribute("ssKey");
+		contentsJsp = "/admin/shop/ContactList";
+		page = "Main";
+		
+		
+		//리스트 목록과 페이지 수 계산한것을 불러온 것
+		Map<String, Object> reSet = contactService.getContactList(tdto, pageDto);
+		//세션 저장
+		
+		session.setAttribute("ssKey", ssKey);
+		
+		//데이터 저장
+		model.addAttribute("cnt", reSet.get("cnt"));
+		model.addAttribute("contactList", reSet.get("contactList"));
+		model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
+		model.addAttribute("contentsJsp",contentsJsp);
+		model.addAttribute("pageDto",pageDto);
+		
+		
+		return page;
+	}
+   
+   
+   
+   
 }

@@ -6,7 +6,6 @@
 <script src="/script/Contact.js"></script>
 <link rel="stylesheet" type="text/css" href="/css/Contact.css">
 <div id="contact">
-  <div>
     <div>
 		<div id="contactList">
 			<p class="introduction">문의 글쓰기</p>
@@ -20,7 +19,6 @@
 			</ul>
 		</div>
 	</div>
-  </div>
   <form action="contactWriteProc" name="conForm" id="myform" method="post">
        <div id="conWrite">
        	 <p class="spanName">제목</p>
@@ -28,8 +26,13 @@
          
          <p class="spanWrite">작성자</p>
          <span><input type="text" name="m_id" class="chkc in" title="작성자" size="30" value="${m_id}" disabled="disabled"></span>
-       
-         <p class="spanSecret">비밀글<input type="checkbox" name="t_secret" title="비밀여부" class="chkb chkbox"></p>
+       	 
+       </div>
+       <div class="form-inline">
+	       	<input type="radio" name="t_secret" id="cs_open" value="Y" class="radio" />
+	       		<span class="ml_10">공개</span>&nbsp;&nbsp;&nbsp;&nbsp;
+	  		<input type="radio" name="t_secret" id="cs_open" value="N" class="radio" />
+	  			<span class="ml_10">비공개</span>&nbsp;
        </div>
        
        <div id="conContent">
