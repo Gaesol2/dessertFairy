@@ -47,8 +47,8 @@ public class AdminOrderController {
 				   model.addAttribute("pdto", resultSet.get("pdto"));
 				   model.addAttribute("oCnt", resultSet.get("oCnt"));
 				   model.addAttribute("adminOrderList", resultSet.get("adminOrderList"));
-				   session.setAttribute("ssKey", ssKey);
 				   model.addAttribute("contentsJsp", "admin/order/OrderMgt");
+				   session.setAttribute("ssKey", ssKey);
 				   page = "Main";
 			}
 			else page = "redirect:/";
@@ -78,6 +78,7 @@ public class AdminOrderController {
 		if(ssKey != null && ssKey.getM_role().equals("admin")) {
 			try {
 				orderService.orderStateUpdate(tdArr);
+				session.setAttribute("ssKey", ssKey);
 			}catch (Exception e) {
 				e.getMessage();
 			}
@@ -86,7 +87,6 @@ public class AdminOrderController {
 			msg = "잘못된 경로 접근입니다.";
 		}
 		
-		session.setAttribute("ssKey", ssKey);
 	}
 
 	@RequestMapping("orderDetail")												// 주문 상세
@@ -103,8 +103,8 @@ public class AdminOrderController {
 			odto = orderService.OrderDetail(odto);
 			model.addAttribute("odto", odto);
 			model.addAttribute("contentsJsp", "admin/order/OrderDetail");
-			page = "Main";
 			session.setAttribute("ssKey", ssKey);
+			page = "Main";
 		}else {
 			msg = "관리자 로그인이 필요합니다.";
 			model.addAttribute("msg", msg);

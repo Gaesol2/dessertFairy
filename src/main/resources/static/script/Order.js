@@ -65,3 +65,4 @@ $().ready(function(){
 	 $('form[name=orDetailForm] input[name=m_id]').val(mid);
 	 $('form[name=orDetailForm]').submit();
    }
+   

@@ -6,15 +6,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>주문 내역 페이지</title>
 <link rel="stylesheet" type="text/css" href="/css/DessertOrder.css">
 </head>
 <link rel="stylesheet" type="text/css" href="/css/Mypage.css">
 <script src="/script/mypage.js"></script>
+<script src="/script/Order.js"></script>
 <div id="mypage">
 	<div>
 		<div id="mypageList">
-			<p class="introduction">주문목록</p>
+			<p class="introduction" name="m_id">${m_id}님의 주문목록</p>
 		</div>
 		<div class="topList">
 			<ul class="list">
@@ -37,6 +38,7 @@
 			<tr>
 				<th>주문 번호</th>
 				<th>상품번호</th>
+				<th>상품명</th>
 				<th>가격</th>
 				<th>수량</th>
 				<th>총금액</th>
@@ -45,15 +47,20 @@
 			</tr>
 			<c:choose>
 				<c:when test="${fn:length(orderList)>0}">
-					<c:forEach var="ordert" items="${orderList}">
+					<c:forEach var="order" items="${orderList}">
 						<tr>
-							<td class="dol1">${ordert.o_no}</td>
-							<td class="dol3"><a href="/productDetail?d_no=${ordert.d_no}">${ordert.d_no}</a></td>
-							<td class="dol4">${ordert.o_price}</td>
-							<td class="price dol5">${ordert.o_quantity}</td>
-							<td class="dol6">${ordert.o_amount}</td>
-							<td class="dol6">${ordert.o_regdate}</td>
-							<td class="dol6">${ordert.o_state}</td>
+							<td class="dol1">${order.o_no}</td>
+							<td class="dol3">${order.d_no}</td>
+							<td class="dol4"><a onclick="javascript:orderDetail(this)">${order.d_name}</a>
+								<input type="hidden" name="d_no" value="${order.d_no}">
+								<input type="hidden" name="o_no" value="${order.o_no}">
+								<input type="hidden" name="m_id" value="${order.m_id}">
+							</td>
+							<td class="price dol4">${order.o_price}</td>
+							<td class="price dol5">${order.o_quantity}</td>
+							<td class="price dol6">${order.o_amount}</td>
+							<td class="dol6">${order.o_regdate}</td>
+							<td class="dol6">${order.o_state}</td>
 						</tr>
 					</c:forEach>
 				</c:when>
@@ -90,4 +97,10 @@
 			<input type="hidden" name="curBlock" value="${pageDto.curBlock}">
 		</form>
 	</div>
+	
+	<form action="memOrderDetail" method="post" name="orDetailForm">
+		<input type="hidden" name="d_no" value="${order.d_no}">
+	    <input type="hidden" name="o_no" value="${order.o_no}">
+	    <input type="hidden" name="m_id" value="${order.m_id}">
+	</form>
 </div>
