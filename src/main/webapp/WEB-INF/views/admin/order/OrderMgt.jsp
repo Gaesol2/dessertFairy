@@ -7,6 +7,7 @@
 <title>전체 주문 내역 리스트</title>
 </head>
 <script src="/script/Order.js"></script>
+
 <div id = "orders">
 	<div id = "orders_head">
 		<p>총 주문 내역 : ${oCnt} 건</p>
@@ -33,15 +34,15 @@
 						<td><input type="checkbox" name="check" value = "${i.index}" readonly="readonly"></td>
 						<td>${order.o_no}</td>
 						<td>${order.d_no}</td>
-						<td class="test"><a onclick="javascript:orderDetail(this)">${order.d_name}</a>
-							<input type="hidden" nema="d_no" value="${order.d_no}">
-							<input type="hidden" nema="o_no" value="${order.o_no}">
-							<input type="hidden" nema="m_id" value="${order.m_id}">
+						<td><a onclick="javascript:orderDetail(this)">${order.d_name}</a>
+							<input type="hidden" name="d_no" value="${order.d_no}">
+							<input type="hidden" name="o_no" value="${order.o_no}">
+							<input type="hidden" name="m_id" value="${order.m_id}">
 						</td>
 						<td>${order.m_name}(${order.m_id})</td>
-						<td>${order.o_quantity}</td>
-						<td>${order.o_price}</td>
-						<td>${order.o_amount}</td>
+						<td class="price">${order.o_quantity}</td>
+						<td class="price">${order.o_price}</td>
+						<td class="price">${order.o_amount}</td>
 						<td>${order.o_regdate}</td>
 						<td class="state">
 							<select name="o_state" id="state${i.count}">
@@ -66,7 +67,12 @@
 				<tr><th>주문내역이 없습니다.</th></tr>
 			</c:when>
 		</c:choose>
-		<tr><th><input type="button" class="stateUpBtn" value="상태수정"></th></tr>
+		
+		<tr>
+			<th>
+				<input type="button" class="stateUpBtn" value="상태수정">
+			</th>
+		</tr>
 	</table>
 </div>
 

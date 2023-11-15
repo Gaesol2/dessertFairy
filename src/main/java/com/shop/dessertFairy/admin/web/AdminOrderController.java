@@ -25,7 +25,7 @@ public class AdminOrderController {
 	@Autowired
 	OrderService orderService;
 	
-	@RequestMapping("orderMgt")
+	@RequestMapping("orderMgt")											// 주문 목록
 	public String OrderMgt( HttpServletRequest request,
 							HttpServletResponse response,
 							Model model,
@@ -63,12 +63,15 @@ public class AdminOrderController {
 		return page;
 	}
 	
-	@RequestMapping("orderMgtProc")
+	@RequestMapping("orderMgtProc")										// 주문 목록페이지에서 상태 수정 프로세스
 	public void OrderMgtProc( HttpServletRequest request,
 								HttpServletResponse response,
 								Model model,
 								PageDTO pdto,
 								@RequestParam(value="tdArr[]") ArrayList<String> tdArr) {
+		String msg = null;
+		String url = null;
+		
 		HttpSession session = request.getSession();
 		MemberDTO ssKey = (MemberDTO) session.getAttribute("ssKey");
 		System.out.println("tdArr : "+tdArr);
@@ -78,6 +81,61 @@ public class AdminOrderController {
 			}catch (Exception e) {
 				e.getMessage();
 			}
+		}else {
+			url = "redirect:/";
+			msg = "잘못된 경로 접근입니다.";
 		}
+		
+		session.setAttribute("ssKey", ssKey);
+	}
+
+	@RequestMapping("orderDetail")												// 주문 상세
+	public String OrderDetail(  HttpServletRequest request,
+								HttpServletResponse response,
+								OrderDTO odto,
+								Model model) {
+		String page = null;
+		String msg = null;
+		HttpSession session = request.getSession();
+		MemberDTO ssKey = (MemberDTO) session.getAttribute("ssKey");
+		
+		if(ssKey != null && ssKey.getM_role().equals("admin")) {
+			odto = orderService.OrderDetail(odto);
+			model.addAttribute("odto", odto);
+			model.addAttribute("contentsJsp", "admin/order/OrderDetail");
+			page = "Main";
+			session.setAttribute("ssKey", ssKey);
+		}else {
+			msg = "관리자 로그인이 필요합니다.";
+			model.addAttribute("msg", msg);
+			model.addAttribute("url", "/login");
+			page = "MsgPage";
+		}
+		
+		return page;
+	}
+
+	@RequestMapping("updateOrder")										// 주문 수정
+	public String UpdateOrder(  HttpServletRequest request,
+								HttpServletResponse response,
+								OrderDTO odto,
+								Model model) {
+		String page = null;
+		String msg = null;
+		HttpSession session = request.getSession();
+		MemberDTO ssKey = (MemberDTO) session.getAttribute("ssKey");
+		
+		if(ssKey != null && ssKey.getM_role().equals("admin")) {
+			orderService.updateOrder(odto);
+			session.setAttribute("ssKey", ssKey);
+			page = "redirect:/orderMgt";
+		}else {
+			msg = "관리자 로그인이 필요합니다.";
+			model.addAttribute("msg", msg);
+			model.addAttribute("url", "/login");
+			page = "MsgPage";
+		}
+		
+		return page;
 	}
 }

@@ -45,7 +45,7 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public Map<String, Object> getOrderList(OrderDTO odto, PageDTO pdto) {
+	public Map<String, Object> getOrderList(OrderDTO odto, PageDTO pdto) {			// 주문 목록
 
 		int oCnt = orderDao.getOrderCnt(odto);
 		Map<String, Object> resultSet = new HashMap<String, Object>();
@@ -87,7 +87,7 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public Map<String, Object> getAdminOrderList(OrderDTO odto, PageDTO pdto) {
+	public Map<String, Object> getAdminOrderList(OrderDTO odto, PageDTO pdto) {				// admin 주문목록
 		int oCnt = orderDao.getOrderCnt(null);
 		Map<String, Object> resultSet = new HashMap<String, Object>();
 		
@@ -127,14 +127,16 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public void orderStateUpdate(ArrayList<String> tdArr) {
+	public void orderStateUpdate(ArrayList<String> tdArr) {				// admin 주문 목록페이지에서 상태 수정
 
 		List<OrderDTO> list = new ArrayList<OrderDTO>();
 		
-		for(int i=0; i<tdArr.size(); i+=4) {
+		for(int i=0; i < tdArr.size(); i += 4) {
 			OrderDTO odto = new OrderDTO();
 	   		int n=0, no=0;
 	   		String mid=null;
+	   		String state = null;
+	   		
 			n =tdArr.get(i).indexOf(":");
 			no = Integer.parseInt(tdArr.get(i).substring(n+1));
 			odto.setO_no(no);
@@ -148,13 +150,22 @@ public class OrderServiceImpl implements OrderService {
 			odto.setM_id(mid);
 			  
 			n =tdArr.get(i+3).indexOf(":");
-			mid = tdArr.get(i+3).substring(n+1);
-			odto.setO_state(mid);
-			
+			state = tdArr.get(i+3).substring(n+1);
+			odto.setO_state(state);
 			list.add(odto);
 		}
 		
 		orderDao.updateOrderState(list);
+	}
+
+	@Override
+	public OrderDTO OrderDetail(OrderDTO odto) {			// admin  주문 상세
+		return orderDao.OrderDetail(odto);
+	}
+
+	@Override
+	public void updateOrder(OrderDTO odto) {			// admin 주문 수정
+		orderDao.updateOrder(odto);
 	}
 
 
