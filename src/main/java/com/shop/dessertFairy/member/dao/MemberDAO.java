@@ -30,4 +30,8 @@ public interface MemberDAO {
 
 	String searchId(MemberDTO mdto);		// 회원 아이디 찾기
 
+	String answerSearch(MemberDTO mdto);
+
+	String questSearch(String m_id);   // 비밀번호 찾기 - 아이디 검증
+
 }

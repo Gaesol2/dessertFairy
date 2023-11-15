@@ -44,6 +44,14 @@ public class MemberController {
 		String msg = null;
 		String url = null;
 		
+		System.out.println("direct_quest =========="+mdto.getM_quest());
+		if(request.getParameter("direct_quest")!=null && request.getParameter("direct_quest")!="" && request.getParameter("direct_quest").length()!=0) {
+			String direct_quest = request.getParameter("direct_quest");
+			System.out.println("direct_quest =========="+direct_quest);
+			mdto.setM_quest(direct_quest);
+			System.out.println("direct_quest =========="+mdto.getM_quest());
+		}
+		
 		int r = memberService.memberJoin(mdto);				// memberService 인터페이스의 memberJoin(mdto) 메소드 호출
 		if(r>0) {
 			msg = "회원가입 성공";
@@ -51,7 +59,7 @@ public class MemberController {
 		}
 		else {
 			msg = "회원가입 실패";
-			url = "redirect:register";
+			url = "register";
 		}
 		 model.addAttribute("msg", msg);
 		 model.addAttribute("url", url);
@@ -248,7 +256,9 @@ public class MemberController {
 		      return page;
 		   }
 		 
-		 @RequestMapping("/memberIdSearch")
+		 //검색
+		 
+		 @RequestMapping("/memberIdSearch") //아이디 찾기 폼
 		   public String MemberIdSearch(HttpServletRequest request, 
 				                   HttpServletResponse response, 
 				                   Model model, 
@@ -258,7 +268,7 @@ public class MemberController {
 		      return "Main";
 		   }
 		 
-		 @RequestMapping("/memberPwSearch")
+		 @RequestMapping("/memberPwSearch")  //비밀번호 찾기 폼
 		 public String MemberPwSearch(HttpServletRequest request, 
 				 HttpServletResponse response, 
 				 Model model, 
@@ -267,9 +277,91 @@ public class MemberController {
 			 model.addAttribute("contentsJsp", "custom/member/MemberPwSearch");
 			 return "Main";
 		 }
+		 
+		
+		 
+		 @RequestMapping("/pwSearchForm") //비밀번호 변경하기 폼
+		 public String PwSearchForm(HttpServletRequest request, 
+				 HttpServletResponse response, 
+				 Model model, 
+				 MemberDTO mdto) {
+			 
+			 model.addAttribute("contentsJsp", "custom/member/MemberPwChange");
+			 return "Main";
+		 }
+		 
 
-		 @RequestMapping("/memberSearchProc")
-		 public String MemberSearchProc(HttpServletRequest request, 
+		 @RequestMapping("/memberIdSearchProc") //아이디 찾기 proc
+		 public String MemberIdSearchProc(HttpServletRequest request, 
+				 HttpServletResponse response, 
+				 Model model, 
+				 MemberDTO mdto) {
+			 
+			 int result = 0;
+			 String id = null;
+			 String msg = null;
+			 String url = "/";
+			 
+			 if(mdto != null) {
+				 if(mdto.getM_id() != null) {
+					 result = memberService.updatePasswd(mdto);
+					
+				 }else {
+					 id = memberService.searchId(mdto);
+					 if(id != null) { msg = "회원 아이디 :"+id;
+					   url = "/";
+					 } else msg = "회원정보가 없습니다.";
+					 url = "/memberIdSearch";
+				 }
+			 }
+			 
+			 model.addAttribute("msg", msg);
+			 model.addAttribute("url", url);
+			 
+			 return "MsgPage";
+		 }
+		 
+		 @RequestMapping("/questSearch")  // 비밀번호 찾기 logic
+		 @ResponseBody
+		 public String questSearch(HttpServletRequest request, HttpServletResponse response,
+				 Model model, MemberDTO mdto) {
+		    String quest = memberService.questSearch(mdto.getM_id());
+		    System.out.println("<><><><>"+quest);
+		    return quest;
+		 }
+		 
+		 @RequestMapping("/memberPwSearchProc")	// 비밀번호 찾기 proc					
+		 public String memberPwSearchProc(HttpServletRequest request,
+				 HttpServletResponse response,
+				 MemberDTO mdto,
+				 Model model) {
+			 
+			 int result = 0;
+			 String msg = null;
+			 String url = "/";
+			 
+				
+			 String answer = memberService.answerSearch(mdto);				// memberService 인터페이스의 memberJoin(mdto) 메소드 호출
+			 System.out.println("<><<<<<"+mdto.getM_answer());
+			 System.out.println("<><<<<<"+answer);
+			 if(answer!=null && answer == mdto.getM_answer()) { 
+				 msg = "비밀번호를 변경해주시길 바랍니다.";
+				 url = "/pwSearchForm";
+			 } else {
+				 msg = "답이 틀렸습니다.";
+				 url = "/memberPwSearch";
+			 }
+			 
+			 model.addAttribute("msg", msg);
+			 model.addAttribute("url", url);
+			 
+			 return "MsgPage";
+			 
+		 }
+			
+		 
+		 @RequestMapping("/memberSearchProc") //비밀번호 변경 proc
+		 public String memberSearchProc(HttpServletRequest request, 
 				 HttpServletResponse response, 
 				 Model model, 
 				 MemberDTO mdto) {
@@ -283,13 +375,15 @@ public class MemberController {
 				 if(mdto.getM_id() != null) {
 					 result = memberService.updatePasswd(mdto);
 					 
-					 if(result > 0) msg = "비밀번호가 변경되었습니다.";
-					 else msg = "비밀번호 변경 실패. 관리자에게 문의하세요";
+					 if(result > 0) {
+						 msg = "비밀번호가 변경되었습니다.";
+					 }else msg = "비밀번호 변경 실패. 관리자에게 문의하세요";
+					 		url = "memberPwSearch";
 				 }else {
 					 id = memberService.searchId(mdto);
 					 if(id != null) msg = "회원 아이디 :"+id;
 					 else msg = "회원정보가 없습니다.";
-					 url = "/";
+					 url = "/memberPwSearch";
 				 }
 			 }
 			 

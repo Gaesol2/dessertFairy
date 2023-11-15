@@ -27,12 +27,61 @@ $().ready(function(){
     });
     
     
+	
+	
+    
+
+	//close라는 쿠키가 있으면 팝업창 none
+   if(checkPopupCookie("close")){
+  		$(".popBox").css("display","none"); 
+	}
+	
 }); //ready 끝
 
-   function closePop(obj){
-	   $(obj).closest(".popBox").css('display', 'none');
-   }
- 
+//팝업창 X 버튼 누르면 1회성 none
+function X(){
+	$(".popBox").css('display', 'none');
+}
+
+//다시 보지 않음 누르면 close 쿠키 설정하고 팝업창 none
+function closePop(){
+  // 하루 동안 close 라는 쿠키 유지
+    setCookie("close","close",1);
+	$(".popBox").css("display","none"); 
+}
+
+//close 쿠키 설정
+ function setCookie(name, value, expiredays){
+  let d = new Date();
+  d.setDate(d.getDate() + expiredays);
+  document.cookie = name + "=" + escape( value ) + ";path=/; expires=" + d.toGMTString() + ";";
+}
+
+//close 쿠키 있는지 확인하는 함수
+function checkPopupCookie(cookieName){
+  let cookie = document.cookie;
+
+	// 현재 쿠키가 존재할 경우
+	if(cookie.length > 0){ 
+
+    // set해준 쿠키명이 존재하는지 검색
+    startIndex = cookie.indexOf(cookieName);
+	
+	// 존재 한다면
+    if(startIndex != -1){ 
+    	return true;
+    }else{
+    
+	  // 쿠키 내에 해당 쿠키가 존재하지 않을 경우
+      return false;
+    }
+  
+	}else{
+    // 쿠키 자체가 없을 경우
+    return false;
+  }
+}
+
 
 //function getCookie(name) { 
 //	var Found = false var start, end var i = 0 

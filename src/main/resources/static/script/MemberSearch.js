@@ -2,7 +2,8 @@
  * 
  */
 $().ready(function(){
- 	var pcheck = true;	//두개가 다르면 true,같으면 false
+	let idchk=1;
+ 	let pcheck = true;	//두개가 다르면 true,같으면 false
 	
 		$('#idSearch').on('click', function(){
 		var flen = $("form[name=idSearchForm] .idChk").length;
@@ -18,8 +19,8 @@ $().ready(function(){
 		$("form[name=idSearchForm]").submit();
 	});
 		// 
-	$('#pwSearch').on('click', function(){
-		var flen = $("form[name=pwSearchForm] .pwChk").length;
+	$('#pwChange').on('click', function(){
+		var flen = $("form[name=pwChangeForm] .pwChk").length;
 		for(var i=0; i<flen; i++){
 			if($('.pwChk').eq(i).val()=="" ||
 		       $('.pwChk').eq(i).val()==null ||
@@ -32,7 +33,7 @@ $().ready(function(){
 		if(pcheck){
 			alert("비밀번호가 일치하지 않습니다.")
 		} else {
-			$("form[name=pwSearchForm]").submit();
+			$("form[name=pwChangeForm]").submit();
 		}
 	}); 
 		
@@ -67,7 +68,44 @@ $().ready(function(){
 //			//스크롤 변경 방지
 //			e.preventDefault();
 //		});
+
+		$('.searchBtn').on('click',function(){	
+			var flen = $("form[name=pwSearchForm] .searchChk").length;
+		 	for(var i=0; i<flen; i++){
+			if($('.searchChk').eq(i).val()=="" ||
+		       $('.searchChk').eq(i).val()==null ||
+		       $('.searchChk').eq(i).val().trim()==""){
+			  alert($('.searchChk').eq(i).attr('title')+'를 입력하시오.');
+			  $('.searchChk').eq(i).focus();
+			  return false;
+			}
+		   }
+		    $("form[name=pwSearchForm]").submit();
+		});
+		
+		//비밀번호 찾기
+		$('.m_id').on('propertychange change input paste',function(){		//id 중복체크
+		
+       $.ajax({
+		   async:true,
+		   type:'post',
+		   url:'questSearch',
+		   data:{'m_id':$('.m_id').val()},
+		   dataType:"json",
+		   success:function(data){
+			   if(data!=null){
+				  let quest = data;
+				  alert(quest);
+				  $("input[name='quest']").val(quest);
+			   }else{
+			   	  $("input[name='quest']").val('존재하지 않는 아이디입니다.');
+			   }
+		   }
+	   });	 
+      });	
+		
+		
+		
 		
 		  
 	});	/*READY END*/
-	

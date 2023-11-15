@@ -16,4 +16,7 @@ public class MemberDTO {
 	private String m_address;
 	private String m_address2;
 	private String m_role;
+	private String m_quest;
+	private String m_answer;
+	
 }
