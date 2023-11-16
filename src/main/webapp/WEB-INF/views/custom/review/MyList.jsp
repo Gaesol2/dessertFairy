@@ -15,9 +15,17 @@
     </div>
     <div class="topList">
       <ul class="list">
-        <li><a href="/reviewList">후기 목록</a></li>
-        <li><a href="/reviewWrite">후기 글쓰기</a></li>
-        <li class="reList"><a href="/mylist">내 글보기</a></li>
+      	<c:choose>
+      		<c:when test="${ssKey==null and ssKey.m_role=='mem'}">
+		        <li><a href="/reviewList">후기 목록</a></li>
+		        <li><a href="/reviewWrite">후기 글쓰기</a></li>
+		        <li class="reList"><a href="/mylist">내 글보기</a></li>
+      		</c:when>
+      		
+      		<c:when test="${ssKey!=null and ssKey.m_role=='admin'}">
+		        <li><a href="/memberMgt">회원 목록</a></li>
+      		</c:when>
+      	</c:choose>
       </ul>
     </div>
   </div>
@@ -35,7 +43,16 @@
  	              <c:forEach var="review" items="${myList}"> 
 	               <tr>
 	                  <td class="col1">${review.ratings}</td>
-	                  <td class="col2"><a href="/myContent?r_no=${review.r_no}">${review.r_subject}</a>
+	                  <td class="col2">
+	                  	<c:choose>
+	                  		<c:when test="${ssKey!=null and ssKey.m_role=='admin'}">
+		                 		<a href="/replyContent?r_no=${review.r_no}">${review.r_subject}</a>
+	                  		</c:when>
+	                  		<c:when test="${ssKey==null and ssKey.m_role=='mem'}">
+		                 		<a href="/myContent?r_no=${review.r_no}">${review.r_subject}</a>
+	                  		</c:when>
+	                  	</c:choose>
+	                  </td>
 	                  <td class="col3">${review.m_id}</td>
 	                  <td class="col4">${review.r_readcount}</td>
 	                  <td class="col5">${review.r_regdate}</td>

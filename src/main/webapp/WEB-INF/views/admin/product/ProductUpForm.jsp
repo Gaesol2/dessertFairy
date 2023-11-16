@@ -26,7 +26,7 @@
 	       <td>
 		       	<select name="d_category" title="상품카테고리" value="${ddto.d_category}">
 		       		<option>쿠키</option>
-		       		<option>브래드</option>
+		       		<option>브레드</option>
 		       		<option>푸딩</option>
 		       	</select>
 	       </td>

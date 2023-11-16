@@ -50,7 +50,7 @@ public interface ReviewDAO {
 
 	int reviewTot(String m_id);							//admin 해당 회원의 전체 리뷰 수
 
-	List<MemberDTO> getreviews(String m_id);	// admin해당 회원의 리뷰 목록
+	List<MemberDTO> getreviews(ReviewDTO rdto);	// admin해당 회원의 리뷰 목록
 
 
 
