@@ -36,26 +36,7 @@
 	         <th class="con3">작성자</th>
 	         <th class="con4">작성일</th>
 	      </tr>
-<%-- 	 	      <c:choose> --%>
-<%--   	            <c:when test="${fn:length(contactList)>0}">  --%>
-<%--  	              <c:forEach var="contact" items="${contactList}">  --%>
-<!-- 	               <tr> -->
-<%-- 	               	  <td class="con2">${contact.t_no}</td> --%>
-<%-- 	              <c:if test="${ssKey.m_role=='admin'}"> --%>
-<%-- 	                  <td class="con3"><a href="/contactContent?t_no=${contact.t_no}">${contact.t_subject}</a> --%>
-<%-- 	              </c:if>  --%>
-<%-- 	                  <td class="con4">${contact.m_id}</td> --%>
-<%-- 	                  <td class="con5">${contact.t_readcount}</td> --%>
-<%-- 	                  <td class="con6">${contact.t_regdate}</td> --%>
-<!-- 	               </tr> -->
-<%--  	            </c:forEach> --%>
-<%--  	         </c:when> --%>
-<%--  	         <c:when test="${fn:length(contactList)==0}"> --%>
-<!--  	            <tr style="text-align: center;" height="30px;"> -->
-<!--  	               <th colspan="6">등록된 문의글이 없습니다.</th> -->
-<!--  	            </tr> -->
-<%--  	         </c:when> --%>
-<%--  	      </c:choose> --%>
+
  	      
  	         <c:forEach var="contact" items="${myContact}" varStatus="status">
 			    <tr style="text-align:center;">
@@ -65,13 +46,13 @@
 			            <img src="${pageContext.request.contextPath}/image/secret.png" class="secretImg" width="20" height="20" alt="비밀글" />
 			            <c:choose>
 			                <c:when test="${ssKey.m_id == contact.m_id}">
-			                    <a href="/contactContent?t_no=${contact.t_no}">${contact.t_subject}</a>
+			                    <a href="/myContactContent?t_no=${contact.t_no}">${contact.t_subject}</a>
 			                </c:when>
 			                <c:otherwise>비밀글은 작성자와 관리자만 볼 수 있습니다.</c:otherwise>
 			            </c:choose>
 			        </c:if>
 			        <c:if test="${contact.t_secret eq 'Y'}" >
-			            <a href="/contactContent?t_no=${contact.t_no}">${contact.t_subject}</a>
+			            <a href="/myContactContent?t_no=${contact.t_no}">${contact.t_subject}</a>
 			        </c:if>
 			        </td>
 			        <td><c:out value="${contact.m_id}"/></td>            

@@ -8,6 +8,7 @@
 <script src="/jquery/jquery-3.7.0.min.js"></script>
 <script src="/script/member.js" ></script>
 <script src="/script/Review.js" ></script>
+<script src="/script/Contact.js" ></script>
 </head>
 <body>
 <table>

@@ -234,13 +234,144 @@ public class ContactController {
 		   return page;
 	   }
 	
+	@RequestMapping("/myContactContent") //문의 내용보기
+		public String MyContactContent(HttpServletRequest request, HttpServletResponse response,
+				Model model, ContactDTO tdto, PageDTO pageDto) {
+			
+			//세션 받아오기
+		   HttpSession session = request.getSession();
+		   
+		   //변수 선언해주기
+		   String contentsJsp = "/custom/mypage/MyContactContent";
+		   String page = null;
+		   
+		   //ssKey 세션에 있는 정보를 MemberDTO 타입의 mdto에 저장
+		   MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
+		   
+		  
+		   ContactDTO contact = contactService.getMyContactContent(tdto);
+		   model.addAttribute("contact", contact);
+		   
+		   
+		   //페이지 불러오기
+		   page = "custom/mypage/MyContactContent";
+		   
+		   //세션에 저장
+		   session.setAttribute("ssKey", mdto);
+		   model.addAttribute("contentsJsp", page);
+		   
+		   
+		   return "Main";
+	   }
 	
 	
-	
-	
-	
-	
-	
-	
+	@RequestMapping("/contactUpForm")
+	   public String ContactUpForm(HttpServletRequest request, HttpServletResponse response,
+			   ContactDTO tdto,
+			   Model model,
+			   PageDTO pageDto) {
+		   HttpSession session = request.getSession();
+		   
+		   String contentsJsp = null;
+		   String page = null;
+		   
+		   MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
+		   if(session.getAttribute("ssKey")!=null) {
+			 
+			   ContactDTO contact = contactService.getMyContactUpForm(tdto);
+			   model.addAttribute("contact", contact);
+			   
+			   page = "Main";
+			   contentsJsp = "./custom/mypage/MyContactUpForm";
+		   }else {
+			   page = "Main";
+			   contentsJsp = "./custom/member/Login";
+		   }
+		   
+		   
+		   
+		   session.setAttribute("ssKey", mdto);
+		   model.addAttribute("contentsJsp", contentsJsp);
+		   
+		   return page;
+	   }
+	   
+	   
+	   @RequestMapping("/contactupProc")
+		public String ContactupProc(HttpServletRequest request, HttpServletResponse response,
+				ContactDTO tdto,
+				Model model,
+				PageDTO pageDto) {
+		   
+			HttpSession session = request.getSession();
+			String contentsJsp = null;
+			String page = null;
+			MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
+			
+			
+			 
+			 //결과 처리
+			if(session.getAttribute("ssKey")!=null) {
+				String msg = null;
+				String url = null;
+				int r = 0;
+			   
+				page = "MsgPage";
+				
+				r = contactService.contactupProc(tdto);
+				
+				if(r>0) msg = "수정이 완료 되었습니다.";
+				else msg = "수정을 실패했습니다.";
+				url = "/myContact";
+				ContactDTO contact = contactService.getMyContactContent(tdto);
+			    model.addAttribute("contact", contact);
+			   //점수를 별로 바꾸는 것(jsp에 value값)
+				
+				if(url!=null) model.addAttribute("url", url);
+				if(msg!=null) model.addAttribute("msg", msg);
+					
+			}else {
+				page = "Main";
+				contentsJsp = "custom/mypage/MyContactList";
+			}
+			
+			session.setAttribute("ssKey", mdto);
+			model.addAttribute("contentsJsp", contentsJsp);
+			
+			return page;
+		}
+	   
+	   @RequestMapping("/contactDelProc")
+	   public String ContactDelProc(HttpServletRequest request, HttpServletResponse response,
+			   ContactDTO tdto,
+			   Model model,
+			   PageDTO pageDto) {
+		   HttpSession session = request.getSession();
+		   String contentsJsp = null;
+		   String page = null;
+		   MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
+		   if(session.getAttribute("ssKey")!=null) {
+			   String msg = null;
+			   String url = null;
+			  
+				   page = "MsgPage";
+				   int r = contactService.MyContactDelProc(tdto);
+				   if(r>0) msg = "삭제가 완료 되었습니다.";
+				   else msg = "삭제를 실패했습니다.";
+				   url = "/myContact";
+			
+			   if(url!=null) model.addAttribute("url", url);
+			   if(msg!=null) model.addAttribute("msg", msg);
+			   
+		   }else {
+			   page = "Main";
+			   contentsJsp = "./custom/mypage/MyContactList";
+		   }
+		   
+		   session.setAttribute("ssKey", mdto);
+		   model.addAttribute("contentsJsp", contentsJsp);
+		   
+		   return page;
+	   }
 	
 }
