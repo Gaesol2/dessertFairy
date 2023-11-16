@@ -22,7 +22,9 @@ public interface OrderService {
 
 	public void updateOrder(OrderDTO odto);												//admin 주문 수정
 
-	public OrderDTO memOrderDetail(OrderDTO odto);
+	public OrderDTO memOrderDetail(OrderDTO odto);					//admin 고객관리-고객주문 상세
+
+	public int MUpdateOrder(OrderDTO odto);							//admin 고객관리-고객주문 수정
 
 	
 }

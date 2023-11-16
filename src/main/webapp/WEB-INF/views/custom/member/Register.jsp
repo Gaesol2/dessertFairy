@@ -64,7 +64,8 @@
 					<span>
 <!-- 						<input type="hidden" id="phone" class="chk" name="m_phone" size="30" title="전화번호" > -->
 						<input type="text" id="phone" class="chk" value="010" readonly="readonly" size="5"/>-
-				        <input type='text' id="phone" class="chk" name="m_phone" size="30" title="전화번호"/>
+				        <input type='text' id="phoneNum" class="chk" name="m_phone" size="30" title="전화번호"/>
+				        <font id="phoneCheck" size="2" color="green" class="possible"></font>
 					</span>
 				</div>
 				<div class="clear"></div>

@@ -8,7 +8,7 @@
 		<p>${odto.m_id}(${odto.o_no}) 상세 주문 내역</p>
 	</div>
 	
-	<form action="updateOrder" name="orderDetailForm" method="post">
+	<form action="mUpdateOrder" name="orderDetailForm" method="post">
 		<table>
 			<tr>
 				<th>주문번호</th>
@@ -44,7 +44,7 @@
 				<th>배송상태</th>
 				<td>
 					<select name="o_state" id="state">
-						<option value="1">결재중</option>
+						<option value="1">결제중</option>
 						<option value="2">배송준비</option>
 						<option value="3">배송중</option>
 						<option value="4">배송완료</option>
@@ -64,9 +64,16 @@
 					<input type="submit" value="상태수정">
 				</th>
 				<th>
-					<a href = "/orderList"><input type="button" value="주문목록으로"></a>
+					<a href = "/mOrderList?m_id=${odto.m_id}"><input type="button" value="주문목록으로"></a>
 				</th>
 			</tr>
 		</table>
 	</form>
 </div>
+
+
+<!-- <script type="text/javascript">
+	$(function(){
+	 $(location.replace(location.href);
+	})
+</script> -->

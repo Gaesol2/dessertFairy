@@ -2,6 +2,7 @@ $().ready(function(){
 	var idchk=1;	
  	var pcheck = true;
  	var pCombiCheck = true;
+ 	var phoneCheck = true;
  	
  	$('.m_join').on("click", function(){		// 회원가입 버튼 눌렀을 시 체크
 		if(validate()){
@@ -14,6 +15,13 @@ $().ready(function(){
 				 alert('패스워드 형식이 잘못되었습니다.');
 				 $('#password').focus();
 				 $('font[id=pcombiCheck]').text('');
+				 return false;
+			  }
+
+		    	if(phoneCheck){
+				 alert('전화번호 형식이 잘못되었습니다.');
+				 $('#phoneNum').focus();
+				 $('font[id=phoneCheck]').text('');
 				 return false;
 			  }
 
@@ -78,6 +86,24 @@ $().ready(function(){
 			} 
 		});
 		
+ /*	  $('#phoneNum').keyup(function(){		
+		 var phone = /^([0-9]{7, 8})+$/;
+		 
+		 if(!phone.test($('#phone').val())){
+			 $('font[id=phoneCheck]').text(`7~8자리 숫자만 가능합니다.`);
+			 phoneCheck = true;
+			}else{
+				$('font[id=phoneCheck]').text('');
+				phoneCheck = false;
+			} 
+		});
+		*/
+		/*if(isNaN(myform.phone1.value) || isNaN(myform.phone2.value)){
+				alert("전화번호는 숫자만 입력가능합니다.");
+				myform.phone1.focus(); 
+				return false;
+			}*/
+		
 	$("input[name='direct_quest']").hide();
 	
 	$("select[name='m_quest']").change(function(){
@@ -92,25 +118,6 @@ $().ready(function(){
 	})
 
 
- 	/*  $('#phone').keyup(function(){		// 휴대전화 번호 자동 하이픈 삽입
-	 	  	var regex =  /^[0-9\-]+$/;
-	 	  	var phone = '';
-	 	  	var phoneNum = $('#phone').val();
-	 	  	
-			if(!regex.test(phoneNum)){
-				alert('숫자만 입력 할 수 있습니다.');
-				$('#phone').val('');
-				return false;
-			}else{
-				$('#phone').attr({'maxlength':'13'});
-				phone += value.substr(0, 2);
-				phone += "-";
-				phone += value.substr(4, 7);
-				phone += "-";
-				phone += value.substr(9, 12);
-				$('#phone').val(phone);
-			}
-	});*/
 		
 	  
 });		// ready END
