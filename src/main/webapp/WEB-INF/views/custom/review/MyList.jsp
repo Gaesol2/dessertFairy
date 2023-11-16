@@ -35,7 +35,16 @@
  	              <c:forEach var="review" items="${myList}"> 
 	               <tr>
 	                  <td class="col1">${review.ratings}</td>
-	                  <td class="col2"><a href="/myContent?r_no=${review.r_no}">${review.r_subject}</a>
+	                  <td class="col2">
+	                  	<c:choose>
+	                  		<c:when test="${ssKey!=null and ssKey.m_role=='admin'}">
+		                 		<a href="/replyContent?r_no=${review.r_no}">${review.r_subject}</a>
+	                  		</c:when>
+	                  		<c:when test="${ssKey==null and ssKey.m_role=='mem'}">
+		                 		<a href="/myContent?r_no=${review.r_no}">${review.r_subject}</a>
+	                  		</c:when>
+	                  	</c:choose>
+	                  </td>
 	                  <td class="col3">${review.m_id}</td>
 	                  <td class="col4">${review.r_readcount}</td>
 	                  <td class="col5">${review.r_regdate}</td>

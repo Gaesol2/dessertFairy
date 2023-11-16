@@ -281,9 +281,9 @@ public class ReviewServiceImpl implements ReviewService {
 	public Map<String, Object> getMemberReview(String m_id) {
 		Map<String, Object> resultSet = new HashMap<String, Object>();	// map으로 결과를 담음
 		int reviewTot = reviewDao.reviewTot(m_id);							//전체 회원수
-		List<MemberDTO> reviews = reviewDao.getreviews(m_id);			// 전체 회원 리스트
+		List<MemberDTO> myList = reviewDao.getreviews(m_id);			// 전체 회원 리스트
 		resultSet.put("reviewTot", reviewTot);							// map 키와 값 저장
-		resultSet.put("reviews", reviews);								// map 키와 값 저장
+		resultSet.put("myList", myList);								// map 키와 값 저장
 		
 		return resultSet;
 	}
