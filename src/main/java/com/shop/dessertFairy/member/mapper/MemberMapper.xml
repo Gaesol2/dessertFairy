@@ -84,7 +84,7 @@ WHERE M_ID = #{m_id}
 	
 <!-- admin start -->
 	<select id="memberTot">			<!-- 전체 회원 수 -->
-		SELECT COUNT(m_id) FROM MEMBER
+		SELECT COUNT(m_id)-1 FROM MEMBER
 	</select>
 	
 	<select id="getMembers" parameterType="mdto" resultType="mdto">	<!-- 전체 회원 리스트 -->
