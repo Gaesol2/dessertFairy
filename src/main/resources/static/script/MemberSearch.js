@@ -84,24 +84,21 @@ $().ready(function(){
 		});
 		
 		//비밀번호 찾기
-		$('.m_id').on('propertychange change input paste',function(){		//id 중복체크
-		
-       $.ajax({
-		   async:true,
-		   type:'post',
-		   url:'questSearch',
-		   data:{'m_id':$('.m_id').val()},
-		   dataType:"json",
-		   success:function(data){
-			   if(data!=null){
-				  let quest = data;
-				  alert(quest);
-				  $("input[name='quest']").val(quest);
-			   }else{
-			   	  $("input[name='quest']").val('존재하지 않는 아이디입니다.');
+		$('.m_id').on('propertychange input paste',function(){
+			let m_id = $('.m_id').val();
+	       $.ajax({
+			   async:true,
+			   type:'post',
+			   url:'questSearch',
+			   data:{"m_id":m_id},
+			   dataType:"json",
+			   complete:function(data){
+				  let quest = JSON.stringify(data).split(',');
+				  let quest2 = quest[1];
+				  let quest3 = quest2.replace('"responseText":"','').replace('"','');
+				  $("input[name='quest']").val(quest3);
 			   }
-		   }
-	   });	 
+		   });	 
       });	
 		
 		
