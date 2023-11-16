@@ -371,14 +371,59 @@
 
 
 
+/* my contact */
+
+#myBtn{
+	float : left;
+	width: 1024px;
+	height: 100px;
+	margin-top : 65px;
+	margin-left: 420px;
+}
+
+#myBtn button{
+	font-size: 16px;
+	color : #064695;
+	padding : 10px 30px 10px 30px;
+	background-color : #fefae9;
+	border : solid 1px #064695;
+	text-align: center;
+}
+
+#myBtn button:hover{
+    text-shadow: 0 0 0 #fefae9;
+    background-color : #064695;
+    color : #fefae9;
+}
+
+#contentPasswd{
+	padding : 20px;
+	border-bottom: solid 1px black; 
+}
 
 
+#contactPasswd{
+    width: 1024px;
+	height: 100px;
+	border-bottom: solid 1px black;
+}
+  
+.spanPasswd{
+	font-size: 15px;
+	font-weight: bold;
+	margin: 20px 40px 20px 100px;
+	display: inline-block;
+}
 
+.explanation{
+	margin-left: 100px;
+	color: #d1d1dc;
+}
 
-
-
-
-
+#myupform{
+	margin-top: 170px;
+	float : left;
+}
 
 
 

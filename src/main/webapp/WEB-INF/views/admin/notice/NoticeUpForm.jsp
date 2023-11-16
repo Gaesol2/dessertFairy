@@ -10,6 +10,7 @@
 <script src="/script/Notice.js"></script>
 <script src="/jquery/jquery-3.7.0.min.js"></script>
 <body>
+<div id="nupform">
 	<form action="" name="topForm" method="post">
 		<table>
 			<thead>
@@ -65,5 +66,6 @@
 			</tfoot>
 		</table>
 	</form>
+</div>
 </body>
 </html>

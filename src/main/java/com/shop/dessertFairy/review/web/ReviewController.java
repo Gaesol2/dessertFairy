@@ -352,7 +352,7 @@ public class ReviewController {
 	   MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
 	   if(session.getAttribute("ssKey")!=null) {
 		 
-		   ReviewDTO review = reviewService.getMycontent(rdto);
+		   ReviewDTO review = reviewService.getMyupform(rdto);
 		   model.addAttribute("review", review);
 		   
 		   

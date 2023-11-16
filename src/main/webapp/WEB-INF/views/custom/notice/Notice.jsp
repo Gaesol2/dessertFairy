@@ -5,7 +5,8 @@
 <link type="text/css" rel="stylesheet" href="/css/notice.css">
 <script type="text/javascript" src="/script/Notice.js"></script>
 <script src="/jquery/jquery-3.7.0.min.js"></script>
-    <form action="noticeProc" name="topForm1" method="post">
+<div id="nnotice">
+    <form action="noticeProc" name="topForm" method="post">
        <table>
        <thead>
            <tr>
@@ -53,3 +54,4 @@
         </tfoot>
        </table>
     </form>
+</div>
