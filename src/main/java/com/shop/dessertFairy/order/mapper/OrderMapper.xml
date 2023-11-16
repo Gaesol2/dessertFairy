@@ -120,7 +120,7 @@
    		AND M_ID = #{m_id}
    </update>
    
-   <select id="memOrderDetail" parameterType="odto" resultType="odto">
+   <select id="memOrderDetail" parameterType="odto" resultType="odto">			<!-- admin 고객관리-주문상세 -->
    		SELECT  O.O_NO, O.D_NO,
 	         (SELECT D_NAME FROM DESSERT WHERE D_NO=#{d_no}) D_NAME,
 	          O.O_QUANTITY, 
@@ -135,4 +135,12 @@
 	       AND O_NO =#{o_no} 
 	       AND D_NO =#{d_no}
    </select>
+   
+   <update id="MUpdateOrder" parameterType="odto">			<!-- admin 고객관리-주문수정 -->
+   		UPDATE ORDERT
+   		SET O_STATE = #{o_state}
+   		WHERE O_NO = #{o_no}
+   		AND D_NO = #{d_no}
+   		AND M_ID = #{m_id}
+   </update>
 </mapper>

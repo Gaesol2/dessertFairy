@@ -170,8 +170,13 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public OrderDTO memOrderDetail(OrderDTO odto) {
+	public OrderDTO memOrderDetail(OrderDTO odto) {		//admin 고객관리-주문상세
 		return orderDao.memOrderDetail(odto);
+	}
+
+	@Override
+	public int MUpdateOrder(OrderDTO odto) {			// admin 고객관리-주문수정
+		return orderDao.MUpdateOrder(odto);
 	}
 
 

@@ -74,7 +74,6 @@ public class AdminOrderController {
 		
 		HttpSession session = request.getSession();
 		MemberDTO ssKey = (MemberDTO) session.getAttribute("ssKey");
-		System.out.println("tdArr : "+tdArr);
 		if(ssKey != null && ssKey.getM_role().equals("admin")) {
 			try {
 				orderService.orderStateUpdate(tdArr);

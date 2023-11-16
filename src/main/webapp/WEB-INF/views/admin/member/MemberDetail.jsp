@@ -41,7 +41,7 @@
 		
 			<tfoot>
 				<tr>
-					<td><a href="/mOrder">주문내역</a></td>
+					<td><a href="/mOrderList?m_id=${member.m_id}">주문내역</a></td>
 					<td><a href="/mReviewMgt?m_id=${member.m_id}">회원리뷰</a></td>
 					<td><a href="/memberMgt">회원목록</a></td>
 				</tr>
