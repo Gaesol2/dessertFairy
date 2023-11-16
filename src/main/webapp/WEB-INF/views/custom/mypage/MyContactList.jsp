@@ -26,8 +26,8 @@
 	</div>
 	<div id="contactContent">
   		<div id="contactBtn">
-		  	<a href="/myContact" class="writeBtn">내 글보기 /</a>
-		  	<a href="/contactWrite" class="writeBtn">문의 글쓰기</a>
+		  	<a href="/myContact" class="now">내 글보기 /</a>
+		  	<a href="/contactWrite">문의 글쓰기</a>
   		</div>
   		<table class="conTable">
 	      <tr>
@@ -57,15 +57,14 @@
 <%--  	         </c:when> --%>
 <%--  	      </c:choose> --%>
  	      
- 	      
- 	      <c:forEach var="contact" items="${contactList}" varStatus="status">
+ 	         <c:forEach var="contact" items="${myContact}" varStatus="status">
 			    <tr style="text-align:center;">
 			        <td><c:out value="${contact.t_no}"/></td> 
 			        <td>    
 			        <c:if test="${contact.t_secret eq 'N'}" >
 			            <img src="${pageContext.request.contextPath}/image/secret.png" class="secretImg" width="20" height="20" alt="비밀글" />
 			            <c:choose>
-			                <c:when test="${ssKey.m_id == contact.m_id || ssKey.m_role=='admin'}">
+			                <c:when test="${ssKey.m_id == contact.m_id}">
 			                    <a href="/contactContent?t_no=${contact.t_no}">${contact.t_subject}</a>
 			                </c:when>
 			                <c:otherwise>비밀글은 작성자와 관리자만 볼 수 있습니다.</c:otherwise>
@@ -79,20 +78,10 @@
 			        <td><c:out value="${contact.t_regdate}"/></td>
 			    </tr>
 			</c:forEach>
- 	      
- 	      
- 	      
- 	      
- 	      
- 	      
- 	      
- 	      
- 	      
- 	      
- 	      
- 	      
- 	      
- 	      
+			
+			
+			
+			
 	  </table>
 	  <table class="pageBtn">
 	   <tr>

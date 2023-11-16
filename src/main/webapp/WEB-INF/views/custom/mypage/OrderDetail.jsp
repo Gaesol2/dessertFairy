@@ -5,7 +5,7 @@
 <title>상세 주문 내역</title>
 <div id = "order_detail_box">
 	<div id = "order_detail_head">
-		<p>${odto.d_name}님의 상세 주문 내역</p>
+		<p>${odto.m_name}님의 상세 주문 내역</p>
 	</div>
 	
 	<table>

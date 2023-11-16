@@ -47,13 +47,13 @@ public class OrderController {
 	   HttpSession session = request.getSession();
 	   MemberDTO ssKey = (MemberDTO)session.getAttribute("ssKey");
 	   Map<String, Object> resultSet = null;
-	   
 	   if(ssKey != null) {
 		   
 		   if(ssKey.getM_role().equals("mem")) {
 			   odto.setM_id(ssKey.getM_id());
 			   resultSet = orderService.getOrderList(odto, pdto);
 			   model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
+			   model.addAttribute("mdto", mdto);
 			   model.addAttribute("pdto", resultSet.get("pdto"));
 			   model.addAttribute("oCnt", resultSet.get("oCnt"));
 			   model.addAttribute("orderList", resultSet.get("orderList"));

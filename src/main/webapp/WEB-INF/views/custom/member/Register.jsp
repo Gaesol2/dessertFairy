@@ -64,7 +64,8 @@
 					<span>
 <!-- 						<input type="hidden" id="phone" class="chk" name="m_phone" size="30" title="전화번호" > -->
 						<input type="text" id="phone" class="chk" value="010" readonly="readonly" size="5"/>-
-				        <input type='text' id="phone" class="chk" name="m_phone" size="30" title="전화번호"/>
+				        <input type='text' id="phoneNum" class="chk" name="m_phone" size="30" title="전화번호"/>
+				        <font id="phoneCheck" size="2" color="green" class="possible"></font>
 					</span>
 				</div>
 				<div class="clear"></div>
@@ -89,7 +90,7 @@
 				<div class="regisBox">
 					<p class="col4">*비밀번호 힌트</p>
 					<span>
-						<select name="m_quest">
+						<select name="m_quest" class="hint">
 							<option value="당신의 보물 1호는?">당신의 보물 1호는?</option>
 							<option value="가장 기억에 남는 선생님 이름은?">가장 기억에 남는 선생님 이름은?</option>
 							<option value="direct">직접 입력</option>

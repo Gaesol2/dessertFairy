@@ -26,7 +26,10 @@ public interface OrderDAO {
 
 	void updateOrder(OrderDTO odto);					// admin 주문수정
 
-	OrderDTO memOrderDetail(OrderDTO odto);
+	OrderDTO memOrderDetail(OrderDTO odto);				//admin 고객관리-주문상세
+
+
+	int MUpdateOrder(OrderDTO odto);					//admin 고객관리-주문수정
 
 
 }
