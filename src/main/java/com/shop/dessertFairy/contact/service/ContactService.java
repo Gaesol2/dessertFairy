@@ -16,7 +16,14 @@ public interface ContactService {
 
 	Map<String, Object> getMyContactList(ContactDTO tdto, PageDTO pageDto);
 
+	ContactDTO getMyContactContent(ContactDTO tdto);
 
+	ContactDTO getMyContactUpForm(ContactDTO tdto);
+	
+	int contactupProc(ContactDTO tdto);
+	
+	int MyContactDelProc(ContactDTO tdto);
+	
 	
 	
 	//admin
@@ -24,5 +31,9 @@ public interface ContactService {
 	Map<String, Object> getAdminList(ContactDTO tdto, PageDTO pageDto);
 
 	ContactDTO getAdminContent(ContactDTO tdto);
+
+
+
+
 
 }

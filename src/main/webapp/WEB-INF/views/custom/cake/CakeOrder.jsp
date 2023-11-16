@@ -91,6 +91,34 @@
     	<a href="/productOrder"><input class="orderBtn" type="button" value="주문하기"></a>
 	</div><!-- 날짜 끝 -->
 </div><!-- 케이크 예약 끝 -->
+
+<div id="cakeImg">
+	<img src="../image/ordercake1.jpg" class="orderCake">
+	<p class="cakeDetail">생크림 케이크</p>
+	<br>
+	<img src="../image/ordercake2.jpg" class="orderCake">
+	<p class="cakeDetail">초코 생크림 케이크</p>
+	<br>
+	<img src="../image/ordercake3.jpg" class="orderCake">
+	<p class="cakeDetail">계절 과일 생크림 조각케이크</p>
+	<br>
+	<img src="../image/ordercake4.jpg" class="orderCake">
+	<p class="cakeDetail">계절 과일 생크림 케이크</p>
+	<br>
+	<img src="../image/ordercake5.jpg" class="orderCake">
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="cakecontent"><!-- 안내사항 시작 -->
 	<div class="noti">안내사항</div>
 	<div class="notilist">

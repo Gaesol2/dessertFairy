@@ -20,6 +20,15 @@ public interface ContactDAO {
 
 	List<ContactDTO> getMyContactList(ContactDTO tdto);
 
+	ContactDTO getMyContactContent(ContactDTO tdto);
+	
+	int contactupProc(ContactDTO tdto);
+	
+	int MyContactDelProc(ContactDTO tdto);
+	
+	
+	
+	
 	
 	
 	//admin
@@ -27,5 +36,10 @@ public interface ContactDAO {
 	List<ContactDTO> getAdminList(ContactDTO tdto);
 
 	ContactDTO getAdminContent(ContactDTO tdto);
+
+
+
+
+
 
 }

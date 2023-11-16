@@ -28,21 +28,21 @@
 	 <div id="ContentContact">
 		  <div id="contactMain">
 		         <span class="contentSubject">${contact.t_subject}
-		         	<input type="hidden" name="t_subject" readonly="readonly" value="${contact.t_subject}" class="chkb" size="40">
+		         	<input type="hidden" name="t_subject" readonly="readonly" value="${contact.t_subject}" size="40">
 		         </span>
 		         
 		         <span class="contentWrite">${contact.m_id}
-		         	<input type="hidden" name="m_id" readonly="readonly" value="${contact.m_id}" class="chkb" size="15">
+		         	<input type="hidden" name="m_id" readonly="readonly" value="${contact.m_id}" size="15">
 		         </span>
 		         
 		         <span class="contentRegdate">${contact.t_regdate}
-		         	<input type="hidden" name="t_regdate" readonly="readonly" value="${contact.t_regdate}" class="chkb" size="10">
+		         	<input type="hidden" name="t_regdate" readonly="readonly" value="${contact.t_regdate}" size="10">
 		         </span>
 		         
 		  </div>
 		  <div id="contentBottom">
 			  	<span class="contentContent">${contact.t_content}
-			    	<input type="hidden" name="t_content" readonly="readonly" value="${contact.t_content}" class="chkb" size="10">
+			    	<input type="hidden" name="t_content" readonly="readonly" value="${contact.t_content}" size="10">
 			  	</span>
 		  </div>
 	</div>

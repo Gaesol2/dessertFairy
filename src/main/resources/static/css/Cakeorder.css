@@ -205,3 +205,30 @@
 	font-weight: bold;
 }
 /* cakecontent end*/
+
+
+
+
+
+/* cakeImg */
+
+#cakeImg{
+	width: 1024px;
+	margin: 0 auto;
+	margin-bottom: 200px;
+	border-top: solid 2px black;
+}
+
+.orderCake{
+	margin-top: 100px;
+	margin-left: 150px;
+	width: 700px;
+	height: 700px;
+}
+
+.cakeDetail{
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+}
+
