@@ -217,7 +217,7 @@
 			WHERE M_ID = #{m_id}
 		</select>
 		
-		<select id="getreviews" parameterType="string" resultType="rdto">		<!-- admin 멤버 리뷰 페이지 -->
+		<select id="getreviews" parameterType="rdto" resultType="rdto">		<!-- admin 멤버 리뷰 페이지 -->
 			SELECT * FROM 
 		       (SELECT ROWNUM AS R_RR, A.* 
 		    FROM 

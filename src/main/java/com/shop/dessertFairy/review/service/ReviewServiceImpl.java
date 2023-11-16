@@ -278,15 +278,58 @@ public class ReviewServiceImpl implements ReviewService {
 
 
 	@Override
-	public Map<String, Object> getMemberReview(String m_id) {
-		Map<String, Object> resultSet = new HashMap<String, Object>();	// map으로 결과를 담음
-		int reviewTot = reviewDao.reviewTot(m_id);							//전체 회원수
-		List<MemberDTO> myList = reviewDao.getreviews(m_id);			// 전체 회원 리스트
-		resultSet.put("reviewTot", reviewTot);							// map 키와 값 저장
-		resultSet.put("myList", myList);								// map 키와 값 저장
+	public Map<String, Object> getMemberReview(ReviewDTO rdto, PageDTO pdto) {
+		int cnt = reviewDao.getReviewCnt();
+		Map<String, Object> resultSet = new HashMap<String, Object>(); 
+		if(pdto.getCurBlock()<=0) pdto.setCurBlock(1);
+		if(pdto.getCurPage()<=0) pdto.setCurPage(1);
 		
+		int start = (pdto.getCurPage()-1)*RowInterPage.ROW_OF_PAGE +1;
+		int end = (pdto.getCurPage()*RowInterPage.ROW_OF_PAGE)>cnt?
+				   cnt:pdto.getCurPage()*RowInterPage.ROW_OF_PAGE;
+		rdto.setStart(start);
+		rdto.setEnd(end);
+		   
+		   int pgCnt = (cnt%RowInterPage.ROW_OF_PAGE==0)?
+				   cnt/RowInterPage.ROW_OF_PAGE:
+					   cnt/RowInterPage.ROW_OF_PAGE+1;
+		   
+		   //페이지 블럭
+		   int pgBlock = (pgCnt%RowInterPage.PAGE_OF_BLOCK==0)?
+				   pgCnt/RowInterPage.PAGE_OF_BLOCK:pgCnt/RowInterPage.PAGE_OF_BLOCK+1;
+		   int startPg = (pdto.getCurBlock()-1)*RowInterPage.PAGE_OF_BLOCK+1;
+		   int endPg = (pdto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK>pgCnt)?
+				   pgCnt:pdto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK;
+		   
+		   pdto.setPgCnt(pgCnt);
+		   pdto.setPgBlock(pgBlock);
+		   pdto.setStartPg(startPg);
+		   pdto.setEndPg(endPg);
+//		int reviewTot = reviewDao.reviewTot(m_id); 
+			List<MemberDTO> myList = reviewDao.getreviews(rdto); 
+//			resultSet.put("reviewTot", reviewTot);
+			resultSet.put("myList", myList); 
+			resultSet.put("pdto", pdto); 
+			resultSet.put("cnt", cnt);
+	 
 		return resultSet;
 	}
+
+
+	
+	/*
+	 * @Override public Map<String, Object> getMemberReview(String m_id, PageDTO
+	 * pdto) { Map<String, Object> resultSet = new HashMap<String, Object>(); //
+	 * map으로 결과를 담음 //페이지 계산 if(pdto.getCurBlock()<=0) pdto.setCurBlock(1);
+	 * if(pdto.getCurPage()<=0) pdto.setCurPage(1);
+	 * 
+	 * int reviewTot = reviewDao.reviewTot(m_id); //전체 회원수 List<MemberDTO> myList =
+	 * reviewDao.getreviews(m_id); // 전체 회원 리스트 resultSet.put("reviewTot",
+	 * reviewTot); // map 키와 값 저장 resultSet.put("myList", myList); // map 키와 값 저장
+	 * 
+	 * return resultSet; }
+	 */
+	 
 
 
 

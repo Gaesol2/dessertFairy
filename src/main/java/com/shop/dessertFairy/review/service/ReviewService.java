@@ -37,7 +37,7 @@ public interface ReviewService {
 
    int replydelProc(ReviewDTO rdto);
 
-   Map<String, Object> getMemberReview(String m_id);
+   Map<String, Object> getMemberReview(ReviewDTO rdto, PageDTO pdto);
    
    
    

@@ -1,6 +1,7 @@
 package com.shop.dessertFairy.admin.web;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,16 +86,29 @@ public class AdminMemberController {
 	public String mReviewMgt(	HttpServletRequest request,
 								HttpServletResponse response,
 								Model model,
-								ReviewDTO rdto) {
+								MemberDTO mdto,
+								ReviewDTO rdto,
+								PageDTO pdto) {
 		String page = null;
 		HttpSession session = request.getSession();			//현재 사용자의 세션을 받아옴
 		MemberDTO ssKey = (MemberDTO) session.getAttribute("ssKey");
-		
 		if(ssKey != null && ssKey.getM_role().equals("admin")) {
-				Map<String, Object> myList = new HashMap<String, Object>();
-				myList = reviewService.getMemberReview(rdto.getM_id());
+				Map<String, Object> myList = reviewService.getMemberReview(rdto, pdto);
+				List<ReviewDTO>list = (List<ReviewDTO>)myList.get("myList");
+				for(ReviewDTO rvdto : list) {
+					 String ratings = "";
+					  for(int i=0; i <rvdto.getR_star(); i++) {
+						   ratings += "★";
+					   }
+					   for(int i=0; i <5-rvdto.getR_star(); i++) {
+						    ratings += "☆";
+					   }
+					   rvdto.setRatings(ratings);
+				}
 				model.addAttribute("reviewTot", myList.get("reviewTot"));
 				model.addAttribute("myList", myList.get("myList"));
+				model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
+				model.addAttribute("pdto",pdto);
 				model.addAttribute("contentsJsp", "custom/review/MyList");
 				page = "Main";
 			}
