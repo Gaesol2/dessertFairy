@@ -67,11 +67,30 @@
 }
 #nganerate{
 	margin: 0 auto;
-	width: 850px;
+	width: 800px;
 	height: 300px;
-	line-height: 50px;
-	
+	line-height: 30px;
 }
+#nupform table{
+	margin: 0 auto;
+	width: 700px;
+	height: 350px;
+	line-height: 30px;
+}
+#nnotice table{
+	margin: 0 auto;
+	width: 700px;
+	height: 350px;
+	line-height: 30px;
+}
+
+
+
+
+
+
+
+
 
 
 

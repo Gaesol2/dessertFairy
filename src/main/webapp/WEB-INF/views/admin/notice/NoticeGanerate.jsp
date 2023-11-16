@@ -33,7 +33,7 @@
             <tr>
 	            <td class="cl1">내용</td>
 	            <td class="cl2">
-	            <textarea class="chk" rows="10" cols="60" title="공지사항 내용" name="n_content" ></textarea>
+	            <textarea class="chk" style="resize: none;" rows="10" cols="60" title="공지사항 내용" name="n_content" ></textarea>
                </td>
                <td class="cl3">내용을 입력하시오</td>
             </tr>
@@ -48,8 +48,7 @@
            <tfoot>
            <tr>
               <td colspan="3">
-                 <button class="noticeBtn" type="submit">공지사항 등록</button>
-                 <button type="reset">다시쓰기</button>
+                 <button class="noticeBtn" type="button">공지사항 등록</button>
                  <button type="button" onclick="location.href='notice'">공지사항 목록</button>
               </td>
            </tr>
