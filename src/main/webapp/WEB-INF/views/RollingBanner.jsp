@@ -22,11 +22,9 @@
 		<div id="bannercontents">
 			<div class="banner">
 				<ul>
-					<li><img src="../image/banner1.png" width="1024px" height="550px;"></li>
-					<li><img src="../image/banner2.png" width="1024px" height="550px;"></li>
-					<li><img src="../image/banner3.png" width="1024px" height="550px;"></li>
-					<li><img src="../image/banner4.png" width="1024px" height="550px;"></li>
-					<li><img src="../image/banner5.png" width="1024px" height="550px;"></li>
+					<li><img src="../image/banner1.png" width="1024px" height="500px;"></li>
+					<li><img src="../image/banner2.png" width="1024px" height="500px;"></li>
+					<li><img src="../image/banner3.png" width="1024px" height="500px;"></li>
 				</ul>
 			</div>
 		</div>
