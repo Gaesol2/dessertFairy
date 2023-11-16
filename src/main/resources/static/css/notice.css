@@ -53,19 +53,25 @@
 .noticelist th,td{
 	border: 1px solid black;
 }
-.col1{
+.coli1{
 	width: 40px;
 }
-.col2{
+.coli2{
 	width: 230px;
 }
-.col3{
+.coli3{
 	width: 100px;
 }
-.col4{
+.coli4{
 	width: 90px;
 }
-
+#nganerate{
+	margin: 0 auto;
+	width: 850px;
+	height: 300px;
+	line-height: 50px;
+	
+}
 
 
 
