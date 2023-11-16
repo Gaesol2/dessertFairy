@@ -172,4 +172,75 @@ public class ContactController {
 			
 			return "Main";
 		}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//내 글보기
+	@RequestMapping("/myContact") //내 글보기 목록
+	   public String MyContact(HttpServletRequest request, HttpServletResponse response,
+			   Model model, ContactDTO tdto,
+			   PageDTO pageDto) { 
+		   
+		   //변수 선언
+		   String page = null;
+		   String msg = null;
+		   String url = null;
+		   MemberDTO ssKey = null;
+		   String contentsJsp = "/custom/mypage/MyContactList";
+		   
+		   //HttpSession 세션 객체 생성 및 세션 정보 받아오기
+		   HttpSession session = request.getSession();
+		   
+		   //세션이 있으면 ReviewMyList 페이지로 보내고 없으면 로그인 창으로 보내기
+		   if(session.getAttribute("ssKey")!=null) {
+			   ssKey = (MemberDTO) session.getAttribute("ssKey");
+			   MemberDTO mdto = memberService.getMember(ssKey);
+			   tdto.setM_id(ssKey.getM_id());
+			   page = "Main";
+			   url = "myContact";
+		   }
+		   else {
+			   msg = "로그인이 필요합니다.";
+			   page = "MsgPage";
+			   url = "login";
+		   }
+		   
+		   
+		   //리스트 목록과 페이지 수 계산한것을 불러온 것
+		   Map<String, Object> reSet = contactService.getMyContactList(tdto, pageDto);
+		   
+		   
+		   List<ContactDTO>list=(List<ContactDTO>) reSet.get("myContact");
+			
+		   //세션 저장
+		   session.setAttribute("tdto", ssKey);
+		   //데이터 저장
+		   model.addAttribute("cnt", reSet.get("cnt"));
+		   model.addAttribute("myContact", list);
+		   model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
+		   model.addAttribute("contentsJsp",contentsJsp);
+		   model.addAttribute("pageDto",pageDto);
+		   model.addAttribute("page",page);
+		   model.addAttribute("url",url);
+		   model.addAttribute("msg",msg);
+		   
+		   
+		   return page;
+	   }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

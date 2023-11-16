@@ -18,6 +18,7 @@ public interface ContactDAO {
 
 	ContactDTO getContactcontent(ContactDTO tdto);
 
+	List<ContactDTO> getMyContactList(ContactDTO tdto);
 
 	
 	
@@ -26,4 +27,5 @@ public interface ContactDAO {
 	List<ContactDTO> getAdminList(ContactDTO tdto);
 
 	ContactDTO getAdminContent(ContactDTO tdto);
+
 }
