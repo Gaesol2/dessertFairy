@@ -3,22 +3,19 @@
  */
 
 	$().ready(function(){
-		alert(1);
 	   $(".conSubmit").on("click",function(){
-		   alert(2);
 		   if(validate()){
 	      $("form[name=conForm]").submit();
 	      }
-		alert(11111);
 	   });
 	
 		 
-	   });//ready 끝
 	   
 	   window.load(function(){
 		   alert(1);
 	   })
 
+	   });//ready 끝
   
 //chk에 대해서 점검
 function validate(){

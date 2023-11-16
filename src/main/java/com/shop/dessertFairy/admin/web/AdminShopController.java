@@ -251,6 +251,9 @@ public class AdminShopController {
    
    
    
+   
+   
+   
    //문의하기
    @RequestMapping("/adminContact")
 	  public String AdminContact(HttpServletRequest request,
@@ -273,7 +276,7 @@ public class AdminShopController {
 		
 		
 		//리스트 목록과 페이지 수 계산한것을 불러온 것
-		Map<String, Object> reSet = contactService.getContactList(tdto, pageDto);
+		Map<String, Object> reSet = contactService.getAdminList(tdto, pageDto);
 		//세션 저장
 		
 		session.setAttribute("ssKey", ssKey);
@@ -289,6 +292,38 @@ public class AdminShopController {
 		return page;
 	}
    
+   @RequestMapping("/adminContactContent")
+   public String AdminContactContent(HttpServletRequest request,
+		   HttpServletResponse response,
+		   Model model,
+		   ContactDTO tdto,
+		   PageDTO pageDto) {
+	   
+	   //세션 받아오기
+	   HttpSession session = request.getSession();
+	   
+	   //변수 선언해주기
+	   String contentsJsp = "/admin/shop/ContactContent";
+	   String page = null;
+	   
+	   //ssKey 세션에 있는 정보를 MemberDTO 타입의 mdto에 저장
+	   MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
+	   
+	  
+	   ContactDTO contact = contactService.getAdminContent(tdto);
+	   model.addAttribute("contact", contact);
+	   
+	   
+	   //페이지 불러오기
+	   page = "admin/shop/ContactContent";
+	   
+	   //세션에 저장
+	   session.setAttribute("ssKey", mdto);
+	   model.addAttribute("contentsJsp", page);
+	   
+	   
+	   return "Main";
+   }
    
    
    

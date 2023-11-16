@@ -26,6 +26,15 @@
 	padding: 0 10px;
 }
 
+.hint{
+	border-radius: 7px;
+	border: solid 1px #eeeeee;
+	height: 40px;
+	box-sizing: border-box;
+	outline: none;
+	padding: 0 10px;
+}
+
 .possible{
 	margin-left: 380px;
 }

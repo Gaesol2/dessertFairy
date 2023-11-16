@@ -22,7 +22,7 @@
     </div>
   </div>
   <div id="contactContent">
-  	<a href="/contactWrite">문의 글쓰기</a>
+  	<a href="/contactWrite">문의글 목록</a>
   		<table class="conTable">
 	      <tr>
 	         <th class="con2">번호</th>
@@ -60,13 +60,13 @@
 			            <img src="${pageContext.request.contextPath}/image/secret.png" class="secretImg" width="20" height="20" alt="비밀글" />
 			            <c:choose>
 			                <c:when test="${ssKey.m_id == contact.m_id || ssKey.m_role=='admin'}">
-			                    <a href="/contactContent?t_no=${contact.t_no}">${contact.t_subject}</a>
+			                    <a href="/adminContactContent?t_no=${contact.t_no}">${contact.t_subject}</a>
 			                </c:when>
-			                <c:otherwise><a href="/contactContent?t_no=${contact.t_no}">${contact.t_subject}비밀글은 작성자와 관리자만 볼 수 있습니다.</a></c:otherwise>
+			                <c:otherwise><a href="/adminContactContent?t_no=${contact.t_no}">${contact.t_subject}비밀글은 작성자와 관리자만 볼 수 있습니다.</a></c:otherwise>
 			            </c:choose>
 			        </c:if>
 			        <c:if test="${contact.t_secret eq 'Y'}" >
-			            <a href="/contactContent?t_no=${contact.t_no}">${contact.t_subject}</a>
+			            <a href="/adminContactContent?t_no=${contact.t_no}">${contact.t_subject}</a>
 			        </c:if>
 			        </td>
 			        <td><c:out value="${contact.m_id}"/></td>            

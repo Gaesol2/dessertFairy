@@ -26,14 +26,24 @@
 			<selectKey keyProperty="n_no" order="BEFORE" resultType="int">
 				SELECT NVL(MAX(N_NO), 0)+1 FROM NOTICE
 			</selectKey>
-			INSERT INTO NOTICE(N_NO, N_SUBJECT, N_CONTENT,
-				N_WRITER, N_VDATE, N_REGDATE, N_STATE)
-				VALUES(#{n_no}, #{n_subject}, #{n_content},
-				#{n_writer}, #{n_vdate}, sysdate, 'A')
+			INSERT INTO NOTICE(N_NO, 
+							   N_SUBJECT, 
+							   N_CONTENT,
+							   N_WRITER, 
+							   N_VDATE, 
+							   N_REGDATE, 
+							   N_STATE)
+				VALUES(#{n_no},
+				       #{n_subject}, 
+				       #{n_content},
+				       #{n_writer}, 
+				       #{n_vdate}, 
+				       sysdate, 
+				       'A')
 		</insert>
 		<update id="updateReadCnt" parameterType="ndto">
-			UPDATE NOTICE SET READCOUNT = READCOUNT+1
-			WHERE N_NO = #{n_no}
+		       UPDATE NOTICE SET N_READCOUNT = N_READCOUNT+1
+		       WHERE N_NO = #{n_no}
 		</update>
 		<update id="updateProc" parameterType="ndto">
 		   UPDATE NOTICE SET
@@ -45,7 +55,7 @@
 				WHERE N_NO = #{n_no}
 		</update>
 		<update id="deleteProc" parameterType="ndto">
-		  UPDATE NOTICE SET STATE = 'D'
+		  UPDATE NOTICE SET N_STATE = 'D'
 		  WHERE N_NO = #{n_no}
 		</update>
 </mapper>
