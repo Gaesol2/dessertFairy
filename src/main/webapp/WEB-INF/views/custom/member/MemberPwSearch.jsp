@@ -20,10 +20,10 @@
 			<div id="pwSearch">
 				<input type="button" class="searchBtn" value="비밀번호 찾기">
 			</div>
+			<div id="a_div">
+				<a href="/login" class="ahover">로그인/</a>
+		      	<a href="/memberIdSearch" class="ahover">아이디 찾기</a>
+		    </div>
 		</form>       
 	</div>
-	<div id="a_div">
-		<a href="/login" class="ahover">로그인/</a>
-      	    <a href="/memberIdSearch" class="ahover">아이디 찾기</a>
-       </div>
 </div>

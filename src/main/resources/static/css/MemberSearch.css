@@ -8,6 +8,7 @@
 }
  
 #a_div{
+	margin-top: 20px;
 	margin-left: 400px;
 } 
    
@@ -64,7 +65,7 @@
 	margin-top : 50px;
 }
 
-#idSearch .searchBtn{
+.searchBtn{
 	font-size: 18px;
 	color : #064695;
 	padding : 15px 200px 15px 200px;
@@ -74,7 +75,7 @@
 	margin-left: 55px;
 }
 
-#idSearch .searchBtn:hover{
+.searchBtn:hover{
     text-shadow: 0 0 0 #fefae9;
     background-color : #064695;
     color : #fefae9;

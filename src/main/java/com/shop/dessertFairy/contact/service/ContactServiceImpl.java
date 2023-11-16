@@ -33,7 +33,7 @@ public class ContactServiceImpl implements ContactService {
 		   
 		   
 		   
-		   List<ReviewDTO> contactList = null;
+		   List<ContactDTO> contactList = null;
 		   int cnt = 0;
 		   cnt = contactDao.getContactCnt();
 		   //현재 페이지 계산
@@ -80,4 +80,117 @@ public class ContactServiceImpl implements ContactService {
 		return contactDao.getContactcontent(tdto);
 	}
 
+
+	
+	
+	
+	
+	
+	
+	
+	//admin
+
+
+	@Override
+	public Map<String, Object> getAdminList(ContactDTO tdto, PageDTO pageDto) {
+		//결과를 반환할 HashMap 선언
+		Map<String, Object> reSet = new HashMap<String, Object>();
+		
+		
+		//페이지 계산
+		if(pageDto.getCurBlock()<=0) pageDto.setCurBlock(1);
+		if(pageDto.getCurPage()<=0) pageDto.setCurPage(1);
+		
+		
+		
+		List<ContactDTO> contactList = null;
+		int cnt = 0;
+		cnt = contactDao.getContactCnt();
+		//현재 페이지 계산
+		int start = (pageDto.getCurPage()-1)*RowInterPage.ROW_OF_PAGE +1;
+		int end = (pageDto.getCurPage()*RowInterPage.ROW_OF_PAGE)>cnt?
+				cnt:pageDto.getCurPage()*RowInterPage.ROW_OF_PAGE;
+		tdto.setStart(start);
+		tdto.setEnd(end);
+		
+		int pgCnt = (cnt%RowInterPage.ROW_OF_PAGE==0)?
+				cnt/RowInterPage.ROW_OF_PAGE:
+					cnt/RowInterPage.ROW_OF_PAGE+1;
+		
+		//페이지 블럭
+		int pgBlock = (pgCnt%RowInterPage.PAGE_OF_BLOCK==0)?
+				pgCnt/RowInterPage.PAGE_OF_BLOCK:pgCnt/RowInterPage.PAGE_OF_BLOCK+1;
+		int startPg = (pageDto.getCurBlock()-1)*RowInterPage.PAGE_OF_BLOCK+1;
+		int endPg = (pageDto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK>pgCnt)?
+				pgCnt:pageDto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK;
+		
+		pageDto.setPgCnt(pgCnt);
+		pageDto.setPgBlock(pgBlock);
+		pageDto.setStartPg(startPg);
+		pageDto.setEndPg(endPg);
+		
+		contactList = contactDao.getAdminList(tdto);		
+		
+		
+		reSet.put("pageDto", pageDto);
+		reSet.put("cnt", cnt);
+		reSet.put("contactList", contactList);
+		return reSet;
+	}
+	
+	@Override
+	public ContactDTO getAdminContent(ContactDTO tdto) {
+		return contactDao.getAdminContent(tdto);
+	}
+
+
+	@Override
+	public Map<String, Object> getMyContactList(ContactDTO tdto, PageDTO pageDto) {
+		//결과를 반환할 HashMap 선언
+		Map<String, Object> reSet = new HashMap<String, Object>();
+		
+		
+		//페이지 계산
+		if(pageDto.getCurBlock()<=0) pageDto.setCurBlock(1);
+		if(pageDto.getCurPage()<=0) pageDto.setCurPage(1);
+		
+		
+		
+		List<ContactDTO> myContact = null;
+		int cnt = 0;
+		
+		cnt = contactDao.getContactCnt();
+		//현재 페이지 계산
+		int start = (pageDto.getCurPage()-1)*RowInterPage.ROW_OF_PAGE +1;
+		int end = (pageDto.getCurPage()*RowInterPage.ROW_OF_PAGE)>cnt?
+				cnt:pageDto.getCurPage()*RowInterPage.ROW_OF_PAGE;
+		tdto.setStart(start);
+		tdto.setEnd(end);
+		
+		int pgCnt = (cnt%RowInterPage.ROW_OF_PAGE==0)?
+				     cnt/RowInterPage.ROW_OF_PAGE:
+				     cnt/RowInterPage.ROW_OF_PAGE+1;
+		
+		//페이지 블럭
+		int pgBlock = (pgCnt%RowInterPage.PAGE_OF_BLOCK==0)?
+				pgCnt/RowInterPage.PAGE_OF_BLOCK:pgCnt/RowInterPage.PAGE_OF_BLOCK+1;
+		int startPg = (pageDto.getCurBlock()-1)*RowInterPage.PAGE_OF_BLOCK+1;
+		int endPg = (pageDto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK>pgCnt)?
+				pgCnt:pageDto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK;
+		
+		pageDto.setPgCnt(pgCnt);
+		pageDto.setPgBlock(pgBlock);
+		pageDto.setStartPg(startPg);
+		pageDto.setEndPg(endPg);
+		
+		myContact = contactDao.getMyContactList(tdto);
+		
+		
+		
+		reSet.put("pageDto", pageDto);
+		reSet.put("cnt", cnt);
+		reSet.put("myContact", myContact);
+		return reSet;
+	}
 }
+

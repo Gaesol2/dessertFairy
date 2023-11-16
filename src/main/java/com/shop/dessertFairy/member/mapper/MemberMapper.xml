@@ -73,7 +73,7 @@ WHERE M_ID = #{m_id}
 	<select id="answerSearch" parameterType="mdto" resultType="String">
 		SELECT m_answer
 		FROM member
-		WHERE m_id = #{m_id} AND m_answer = #{m_answer}
+		WHERE m_id = #{m_id}
 	</select>
 	
 	<select id="questSearch" parameterType="String" resultType="String">

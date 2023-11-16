@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -287,6 +288,7 @@ public class MemberController {
 				 MemberDTO mdto) {
 			 
 			 model.addAttribute("contentsJsp", "custom/member/MemberPwChange");
+			 model.addAttribute("mdto",mdto);
 			 return "Main";
 		 }
 		 
@@ -325,9 +327,7 @@ public class MemberController {
 		 @ResponseBody
 		 public String questSearch(HttpServletRequest request, HttpServletResponse response,
 				 Model model, MemberDTO mdto) {
-		    String quest = memberService.questSearch(mdto.getM_id());
-		    System.out.println("<><><><>"+quest);
-		    return quest;
+		    return memberService.questSearch(mdto.getM_id());
 		 }
 		 
 		 @RequestMapping("/memberPwSearchProc")	// 비밀번호 찾기 proc					
@@ -336,32 +336,31 @@ public class MemberController {
 				 MemberDTO mdto,
 				 Model model) {
 			 
-			 int result = 0;
 			 String msg = null;
 			 String url = "/";
 			 
-				
+			 mdto.setM_id(request.getParameter("m_id"));
+			 
 			 String answer = memberService.answerSearch(mdto);				// memberService 인터페이스의 memberJoin(mdto) 메소드 호출
-			 System.out.println("<><<<<<"+mdto.getM_answer());
-			 System.out.println("<><<<<<"+answer);
-			 if(answer!=null && answer == mdto.getM_answer()) { 
+			 if(mdto.getM_answer().equals(answer)) { 
 				 msg = "비밀번호를 변경해주시길 바랍니다.";
-				 url = "/pwSearchForm";
+				 url = "/pwSearchForm?m_id="+mdto.getM_id();
 			 } else {
-				 msg = "답이 틀렸습니다.";
+				 msg = "정보가 일치하지 않습니다.";
 				 url = "/memberPwSearch";
 			 }
 			 
 			 model.addAttribute("msg", msg);
 			 model.addAttribute("url", url);
+			 model.addAttribute("mdto",mdto);
 			 
 			 return "MsgPage";
 			 
 		 }
 			
 		 
-		 @RequestMapping("/memberSearchProc") //비밀번호 변경 proc
-		 public String memberSearchProc(HttpServletRequest request, 
+		 @RequestMapping("/pwChangeProc") //비밀번호 변경 proc
+		 public String PwChangeProc(HttpServletRequest request, 
 				 HttpServletResponse response, 
 				 Model model, 
 				 MemberDTO mdto) {
@@ -371,19 +370,17 @@ public class MemberController {
 			 String msg = null;
 			 String url = "/";
 			 
+			 System.out.println("아아아아아"+mdto.getM_id());
+			 
 			 if(mdto != null) {
-				 if(mdto.getM_id() != null) {
-					 result = memberService.updatePasswd(mdto);
-					 
-					 if(result > 0) {
-						 msg = "비밀번호가 변경되었습니다.";
-					 }else msg = "비밀번호 변경 실패. 관리자에게 문의하세요";
-					 		url = "memberPwSearch";
+				 result = memberService.updatePasswd(mdto);
+				 
+				 if(result > 0) {
+					 msg = "비밀번호가 변경되었습니다.";
+					 url = "login";
 				 }else {
-					 id = memberService.searchId(mdto);
-					 if(id != null) msg = "회원 아이디 :"+id;
-					 else msg = "회원정보가 없습니다.";
-					 url = "/memberPwSearch";
+					 msg = "비밀번호 변경 실패. 관리자에게 문의하세요";
+					 url = "memberPwSearch";
 				 }
 			 }
 			 

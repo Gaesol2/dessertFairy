@@ -6,26 +6,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>주문 내역 페이지</title>
+<title>고객관리 회원 주문 내역 페이지</title>
 <link rel="stylesheet" type="text/css" href="/css/DessertOrder.css">
 </head>
 <link rel="stylesheet" type="text/css" href="/css/Mypage.css">
-<script src="/script/mypage.js"></script>
 <script src="/script/Order.js"></script>
-<div id="mypage">
-	<div>
-		<div id="mypageList">
-			<p class="introduction" name="m_id">${mdto.m_id}님의 주문목록</p>
+<div id="mem_order">
+		<div id="mem_OrderList">
+			<p class="introduction" name="m_id">${m_id}님의 주문목록</p>
 		</div>
-		<div class="topList">
-			<ul class="list">
-				<li><a href="/myPage">내 정보</a></li>
-				<li><a href="/cartList">장바구니</a></li>
-				<li class="reList"><a href="/orderList">주문목록</a></li>
-				<li><a href="/contactList">문의하기</a></li>
-			</ul>
-		</div>
-	</div>
 	
 	<div class="total">
       <ul class="list">
@@ -97,6 +86,11 @@
 					</c:if>
 				</td>
 			</tr>
+			<tr>
+				<th>
+					<a href = "/memberMgt"><input type="button" value="회원 목록으로"></a>
+				</th>
+			</tr>
 		</table>
 		
 		<form action="" name="content" method="post">
@@ -106,7 +100,7 @@
 		</form>
 	</div>
 	
-	<form action="memOrderDetail" method="post" name="orDetailForm">
+	<form action="mOrderDetail" method="post" name="orDetailForm">
 		<input type="hidden" name="d_no" value="${order.d_no}">
 	    <input type="hidden" name="o_no" value="${order.o_no}">
 	    <input type="hidden" name="m_id" value="${order.m_id}">
