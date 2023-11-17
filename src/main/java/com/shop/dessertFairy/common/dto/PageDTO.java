@@ -15,5 +15,7 @@ public class PageDTO {
 	private int curBlock=1;
 	private int startPg=1;
 	private int endPg=1;
+	private int start = 1;
+	private int end = 1;
 	
 }

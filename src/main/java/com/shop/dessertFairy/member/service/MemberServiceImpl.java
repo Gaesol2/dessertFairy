@@ -53,9 +53,10 @@ public class MemberServiceImpl implements MemberService {
 	public Map<String, Object> getMembers(MemberDTO mdto, PageDTO pageDto) {	//admin 전체 회원수와 회원리스트
 		
 		Map<String, Object> resultSet = new HashMap<String, Object>();	// map으로 결과를 담음
-		int memberTot = memberDao.memberTot();							//전체 회원수
+		int cnt = memberDao.memberTot();
+		//전체 회원수
 		List<MemberDTO> members = memberDao.getMembers(mdto);			// 전체 회원 리스트
-		resultSet.put("memberTot", memberTot);							// map 키와 값 저장
+		resultSet.put("memberTot", cnt);							// map 키와 값 저장
 		resultSet.put("members", members);								// map 키와 값 저장
 		
 		return resultSet;

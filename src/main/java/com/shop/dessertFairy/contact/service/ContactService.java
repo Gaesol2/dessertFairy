@@ -8,7 +8,7 @@ import com.shop.dessertFairy.review.dto.ReviewDTO;
 
 public interface ContactService {
 
-	Map<String, Object> getContactList(ContactDTO tdto, PageDTO pageDto);
+	Map<String, Object> getContactList(ContactDTO tdto, PageDTO pdto);
 
 	int contactWrite(ContactDTO tdto);
 
