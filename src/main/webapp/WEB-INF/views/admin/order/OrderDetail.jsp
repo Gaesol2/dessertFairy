@@ -3,6 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <meta charset="UTF-8">
 <title>상세 주문 내역</title>
+<link rel="stylesheet" type="text/css" href="/css/Order.css">
+<script src="/script/Order.js"></script>
+
 <div id = "order_detail_box">
 	<div id = "order_detail_head">
 		<p>${odto.m_id}(${odto.o_no}) 상세 주문 내역</p>
