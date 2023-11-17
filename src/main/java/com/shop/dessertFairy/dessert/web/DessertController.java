@@ -36,6 +36,9 @@ public class DessertController {
 		//비즈니스 로직을 통해 dessertCnt와 dessertList 받아오기
 		resultSet = dessertService.getDessertList(flag);
 		
+		//best 딱지 붙이기
+		
+		
 		//jsp로 보낼 정보 저장
 		model.addAttribute("dessertCnt",resultSet.get("dessertCnt"));
 		model.addAttribute("dessert",resultSet.get("dessert"));
