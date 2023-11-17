@@ -38,6 +38,7 @@ public class DessertController {
 		
 		//best 딱지 붙이기
 		
+		
 		//jsp로 보낼 정보 저장
 		model.addAttribute("dessertCnt",resultSet.get("dessertCnt"));
 		model.addAttribute("dessert",resultSet.get("dessert"));

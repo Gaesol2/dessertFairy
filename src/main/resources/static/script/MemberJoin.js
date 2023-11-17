@@ -2,7 +2,7 @@ $().ready(function(){
 	var idchk=1;	
  	var pcheck = true;
  	var pCombiCheck = true;
- 	var phoneCheck = true;
+ 	var phoneCheck = false;
  	
  	$('.m_join').on("click", function(){		// 회원가입 버튼 눌렀을 시 체크
 		if(validate()){
