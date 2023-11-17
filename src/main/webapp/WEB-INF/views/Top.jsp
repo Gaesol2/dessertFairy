@@ -40,23 +40,23 @@
 		</div>   <!-- top logo -->
 		<div id="mainmenu">
 			<c:choose>
-			<c:when test="${ssKey!=null and ssKey.m_role=='admin'}">
-			 	<ul>
-					 <li><a href="/shopMgt">상점 관리</a></li>
-				     <li><a href="/productMgt">상품 관리</a></li>
-				     <li><a href="/orderMgt">주문 관리</a></li>
-				     <li><a href="/memberMgt">고객 관리</a></li>
-			    </ul>
-			</c:when>
-			
-			<c:when test="${ssKey==null or ssKey.m_role=='mem'}">
-			   <ul>
-			      <li><a href="/cake">주문제작 케이크</a></li>
-			      <li><a href="/dessert">디저트</a></li>
-			      <li><a href="/reviewList">포토후기</a></li>
-			      <li><a href="/myPage">마이페이지</a></li>
-			   </ul>
-			</c:when>
+				<c:when test="${ssKey!=null and ssKey.m_role=='admin'}">
+				 	<ul>
+						 <li><a href="/shopMgt">상점 관리</a></li>
+					     <li><a href="/productMgt">상품 관리</a></li>
+					     <li><a href="/orderMgt">주문 관리</a></li>
+					     <li><a href="/memberMgt">고객 관리</a></li>
+				    </ul>
+				</c:when>
+				
+				<c:when test="${ssKey==null or ssKey.m_role=='mem'}">
+				   <ul>
+				      <li><a href="/cake">주문제작 케이크</a></li>
+				      <li><a href="/dessert">디저트</a></li>
+				      <li><a href="/reviewList">포토후기</a></li>
+				      <li><a href="/myPage">마이페이지</a></li>
+				   </ul>
+				</c:when>
 			</c:choose>
 		 
 		</div>   <!-- mainmenu end -->

@@ -217,20 +217,23 @@
 			WHERE M_ID = #{m_id}
 		</select>
 		
-		<select id="getreviews" parameterType="string" resultType="rdto">		<!-- admin 멤버 리뷰 페이지 -->
-			SELECT 	R_NO,
-					R_SUBJECT,
-					R_CONTENT,
-					R_REGDATE,
-					R_READCOUNT,
-					R_PASSWD,
-					R_STAR,
-					R_IMAGE,
-					M_ID,
-					R_PATH,
-					R_REPLY
+		<select id="getreviews" parameterType="rdto" resultType="rdto">		<!-- admin 멤버 리뷰 페이지 -->
+			SELECT * FROM 
+		       (SELECT ROWNUM AS R_RR, A.* 
+		    FROM 
+				(SELECT R_NO
+					   ,R_SUBJECT
+					   ,R_CONTENT
+					   ,TO_CHAR(R_REGDATE,'YYYY-MM-DD') AS R_REGDATE
+					   ,R_READCOUNT
+					   ,R_PASSWD
+					   ,R_STAR
+					   ,R_IMAGE
+					   ,M_ID
+					   ,R_PATH
 			FROM REVIEW
-			WHERE M_ID = #{m_id}
+			ORDER BY R_NO DESC) A)
+     		WHERE M_ID = #{m_id}
 		</select>
 	<!-- admin end -->
 	
