@@ -9,26 +9,27 @@
 		</selectKey>
 		
 		<foreach collection="list" item="odto" index="index" open="INSERT ALL " close="SELECT * FROM DUAL" separator=" ">
-			INTO ORDERT(
-				o_no
-				,o_price
-				,o_quantity
-				,o_regdate
-				,o_state
-				,o_amount
-				,m_id
-				,d_no
-			)
-			VALUES(
-				 #{o_no}
-				,#{odto.o_price}
-				,#{odto.o_quantity}
-				,SYSDATE
-				,1
-				,#{odto.o_price}*#{odto.o_quantity}
-				,#{odto.m_id}
-				,#{odto.d_no}
-			)
+			 INTO ORDERT(
+            o_no
+            ,o_price
+            ,o_quantity
+            ,o_regdate
+            ,o_state
+            ,o_amount
+            ,m_id
+            ,d_no
+         )
+         VALUES(
+             #{o_no}
+            ,#{odto.o_price}
+            ,#{odto.o_quantity}
+            ,SYSDATE
+            ,1
+            ,#{odto.o_price}*#{odto.o_quantity}
+            ,#{odto.m_id}
+            ,#{odto.d_no}
+         )
+
 		</foreach>
 	</insert>
 	
@@ -45,7 +46,7 @@
 		 (SELECT O.O_NO,
 				 O.O_PRICE,
 				 O.O_QUANTITY,
-				 O.O_REGDATE,
+				 TO_CHAR(O.O_REGDATE,'YYYY-MM-DD') AS O_REGDATE,
 				 O.O_STATE,
 				 O.O_AMOUNT,
 				 O.M_ID,
@@ -67,9 +68,18 @@
 		SELECT * FROM
 	    (SELECT ROWNUM AS RR, A.*
 	      FROM
-		  (SELECT  O.O_NO, O.D_NO, D.D_NAME, O.O_QUANTITY, O.O_AMOUNT,
-			       M.M_ID, M.M_NAME, O_REGDATE, O.O_PRICE, M_ROLE,
-			       D.D_STOCK, O.O_STATE
+		  (SELECT  O.O_NO,
+		  		   O.D_NO, 
+		  		   D.D_NAME, 
+		  		   O.O_QUANTITY, 
+		  		   O.O_AMOUNT,
+			       M.M_ID, 
+			       M.M_NAME, 
+			       TO_CHAR(O.O_REGDATE,'YYYY-MM-DD') AS O_REGDATE, 
+			       O.O_PRICE, 
+			       M_ROLE,
+			       D.D_STOCK, 
+			       O.O_STATE
 			FROM ORDERT O
 			INNER JOIN DESSERT D
 			  ON O.D_NO = D.D_NO

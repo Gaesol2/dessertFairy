@@ -1,0 +1,207 @@
+@charset "UTF-8";
+
+
+#order{
+	margin : 0 auto;
+	width : 1024px;
+}
+
+#mainList{
+	float: left;
+}
+
+.introduction{
+	font-size: 32px;
+	text-align: left;
+	font-weight: bold;
+}
+
+.topList{
+	float: right;
+	text-align: right;
+}
+
+.list li{
+	display: inline-block;
+	font-size: 15px;
+	margin-left: 35px;
+}
+
+.reList{
+	font-weight: bold;
+}
+
+.pageBtn{
+	width: 1024px;
+	margin-top : 20px;
+	text-align: center;
+}
+
+
+/* order List */
+
+.list{
+	text-align: right;
+	margin-bottom: 5px;
+}
+
+#orderList{
+	margin-top: 130px;
+	margin-left: 20px;
+	float: left;
+}
+
+.orderTable{
+	width: 1024px;
+	border-top : solid 2px black;
+	border-collapse: collapse;
+	
+}
+
+.orderTable tr{
+	border-bottom: solid 1px black;
+	border-top: solid 1px black;
+}
+
+.orderTable tr{
+	height: 45px;
+}
+
+
+.ool1{
+	width: 100px;
+	text-align: center;
+}
+
+.ool2{
+	width: 100px;
+	text-align: center;
+}
+
+.ool3{
+	width: 400px;
+	text-align: center;
+}
+
+.ool4{
+	width: 100px;
+	text-align: center;
+}
+
+.ool5{
+	width: 50px;
+	text-align: center;
+}
+
+.ool6{
+	width: 100px;
+	text-align: center;
+}
+
+.ool7{
+	width: 100px;
+	text-align: center;
+}
+
+.ool8{
+	width: 100px;
+	text-align: center;
+}
+
+.ool9{
+	width: 100px;
+	text-align: center;
+}
+
+
+
+
+
+/* order detail */
+
+#order_detail_head{
+	width: 1024px;
+}
+
+#orderName{
+	height:70px;
+	border-bottom: solid 1px black;
+}
+
+.memOrderDetail{
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+
+#order_detail_head{
+	margin: 0 auto;
+	width: 1024px;
+	margin-top: 100px;
+	padding-bottom : 50px;
+}
+
+#orderDetail_img{
+	float: left;
+	width: 400px;
+	margin-top: 50px;
+}
+
+#orderMain{
+	float: right;
+	width : 600px;
+}
+
+.ol{
+	padding: 15px;
+	width: 600px;
+}
+
+.ol1{
+	width : 100px;
+	display: inline-block;
+	text-align: right;
+	margin: 0 50px;
+}
+
+	
+.ol2 .in{
+	border-radius: 7px;
+	border: solid 1px #eeeeee;
+	height: 40px;
+	box-sizing: border-box;
+	outline: none;
+	padding: 0 10px;
+}
+
+.odl{
+	padding: 5px 30px;
+	border: solid 1px #eeeeee;
+	border-radius: 7px;
+	background-color: white;
+}
+
+.orderBtn{
+	padding : 10px 30px 10px 30px;
+	margin-top : 65px;
+	margin-left: 150px;
+	background-color : #fefae9;
+	border : solid 1px #064695;
+}
+
+.orderBtn:hover{
+    text-shadow: 0 0 0 #fefae9;
+    background-color : #064695;
+    color : #fefae9;
+}
+
+
+
+
+
+
+
+
+
+

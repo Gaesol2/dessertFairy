@@ -2,19 +2,16 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<!DOCTYPE html>
-<html>
-<head>
 <meta charset="UTF-8">
-<title>주문 내역 페이지</title>
-<link rel="stylesheet" type="text/css" href="/css/DessertOrder.css">
-</head>
+<link rel="stylesheet" type="text/css" href="/css/Order.css">
 <link rel="stylesheet" type="text/css" href="/css/Mypage.css">
 <script src="/script/mypage.js"></script>
 <script src="/script/Order.js"></script>
-<div id="mypage">
+
+
+<div id="order">
 	<div>
-		<div id="mypageList">
+		<div id="mainList">
 			<p class="introduction" name="m_id">${mdto.m_id}님의 주문목록</p>
 		</div>
 		<div class="topList">
@@ -27,16 +24,14 @@
 		</div>
 	</div>
 	
-	<div class="total">
-      <ul class="list">
-        <li>총 상품수: ${oCnt} 가지</li>
-      </ul>
-    </div>
     
-	<div id="orderList">
+    <div id="orderList">
+    	<ul class="list">
+       		 <li>총 상품수: ${oCnt} 가지</li>
+      	</ul>
 		<table class="orderTable">
 			<tr>
-				<th>주문 번호</th>
+				<th>주문번호</th>
 				<th>상품번호</th>
 				<th>상품명</th>
 				<th>가격</th>
@@ -49,18 +44,18 @@
 				<c:when test="${fn:length(orderList)>0}">
 					<c:forEach var="order" items="${orderList}">
 						<tr>
-							<td class="dol1">${order.o_no}</td>
-							<td class="dol3">${order.d_no}</td>
-							<td class="dol4"><a onclick="javascript:orderDetail(this)">${order.d_name}</a>
+							<td class="ool1">${order.o_no}</td>
+							<td class="ool2">${order.d_no}</td>
+							<td class="ool3"><a onclick="javascript:orderDetail(this)">${order.d_name}</a>
 								<input type="hidden" name="d_no" value="${order.d_no}">
 								<input type="hidden" name="o_no" value="${order.o_no}">
 								<input type="hidden" name="m_id" value="${order.m_id}">
 							</td>
-							<td class="price dol4">${order.o_price}</td>
-							<td class="price dol5">${order.o_quantity}</td>
-							<td class="price dol6">${order.o_amount}</td>
-							<td class="dol6">${order.o_regdate}</td>
-							<td class="dol6">
+							<td class="price ool4">${order.o_price}</td>
+							<td class="price ool5">${order.o_quantity}</td>
+							<td class="price ool6">${order.o_amount}</td>
+							<td class="ool7">${order.o_regdate}</td>
+							<td class="ool8">
 								<c:choose>
 									<c:when test="${order.o_state==1}">결제중</c:when>
 									<c:when test="${order.o_state==2}">배송준비</c:when>
@@ -68,6 +63,11 @@
 									<c:when test="${order.o_state==4}">배송완료</c:when>
 									<c:when test="${order.o_state==5}">구매확정</c:when>
 								</c:choose>
+							</td>
+							<td  class="ool9">
+								<c:if test="${order.o_state==5}">
+									<a href="/reviewWrite">리뷰쓰기</a>
+								</c:if>
 							</td>
 						</tr>
 					</c:forEach>
@@ -80,6 +80,7 @@
 				</c:when>
 			</c:choose>
 		</table>
+    </div>
 		
 		<table class="pageBtn">
 			<tr>
@@ -104,7 +105,6 @@
 			<input type="hidden" name="curPage" value="${pageDto.curPage}">
 			<input type="hidden" name="curBlock" value="${pageDto.curBlock}">
 		</form>
-	</div>
 	
 	<form action="memOrderDetail" method="post" name="orDetailForm">
 		<input type="hidden" name="d_no" value="${order.d_no}">
