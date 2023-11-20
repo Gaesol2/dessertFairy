@@ -39,41 +39,41 @@
 		</dl>
 		<span class="option">
 		 케이크 크기 :
-		<select class="optionlist"> 
-		  <option>선택</option>
-		  <option>도시락</option>
-		  <option>미니</option>
-		  <option>1호</option>
-		  <option>2호</option>
-		  <option>3호</option>
-		</select>
+			<select> 
+			  <option>선택</option>
+			  <option>도시락</option>
+			  <option>미니</option>
+			  <option>1호</option>
+			  <option>2호</option>
+			  <option>3호</option>
+			</select>
 		</span>
 		<span class="option">
 		 빵시트 선택 :
-		<select class="optionlist"> 
-		  <option>선택</option>
-		  <option>바닐라(기본)</option>
-		  <option>초코</option>
-		  <option>쿠앤크</option>
-		</select>
+			<select> 
+			  <option>선택</option>
+			  <option>바닐라</option>
+			  <option>초코</option>
+			  <option>쿠앤크</option>
+			</select>
 		</span>
 		<span class="option">
 		안크림 선택 :
-		<select> 
-		  <option>선택</option>
-		  <option>생크림(기본)</option>
-		  <option>초코</option>
-		  <option>쿠앤크</option>
-		  <option>크림치즈</option>
-		</select>
+			<select> 
+			  <option>선택</option>
+			  <option>생크림</option>
+			  <option>초코</option>
+			  <option>쿠앤크</option>
+			  <option>크림치즈</option>
+			</select>
 		</span>
 		<span class="option">
 		밖크림 선택 :
-		<select> 
-		  <option>선택</option>
-		  <option>바닐라</option>
-		  <option>초코</option>
-		</select>
+			<select> 
+			  <option>선택</option>
+			  <option>바닐라</option>
+			  <option>초코</option>
+			</select>
 		</span>
 		<p class="letter">레터링 입력 : 
 			<input type="text" class="lettering" placeholder="최대 15글자" maxlength='15'>
@@ -82,6 +82,20 @@
 			<label for="file" class="fileBtn">파일업로드</label>
 			<input id="file" type="file">
 		</p>
+	    <span class="option">
+		픽업할 시간 : 
+	    	<select>
+	    		<option>시간 선택</option>
+	    		<option>10:00-11:00</option>
+	    		<option>11:00-12:00</option>
+	    		<option>12:00-13:00</option>
+	    		<option>13:00-14:00</option>
+	    		<option>14:00-15:00</option>
+	    		<option>15:00-16:00</option>
+	    		<option>16:00-17:00</option>
+	    		<option>17:00-18:00</option>
+	    	</select>
+	    </span>
 	</div><!-- 옵션 끝 -->
 	<div id="pickdate"><!-- 날짜 시작 -->
 		<form action="" method="post" name="pickupdate">
@@ -89,7 +103,7 @@
 		월 : <input type="text" name="month" class="month"><br>
 		일 : <input type="text" name="day" class="day">
 		</form>
-    	<a href="/productOrder"><input class="orderBtn" type="button" value="주문하기"></a>
+	    <a href="/productOrder"><input class="orderBtn" type="button" value="주문하기"></a>
 	</div><!-- 날짜 끝 -->
 
 	<div id="cakeImg">
@@ -153,7 +167,32 @@
 	<div id="map_area">
 		<div id="map"></div>
 		<div id="pickup">
-			<p>픽업 안내</p>
+			<div class="way">
+				<dl>
+			         <dt class="pickDt">찾아오시는 길</dt>
+			         <dd class="pickDd">모란역 5번출구 21m 도보 약 1분</dd>
+			    </dl>
+			    <dl>
+			    	<dt class="pickDt">주소</dt>
+			    	<dd class="pickDd">경기도 성남시 성남대로 1133 우: 07788</dd>
+			    </dl>
+			    <dl>
+			    	<dt class="pickDt">매장 전화</dt>
+			    	<dd class="pickDd">010-1234-1234</dd>
+			    </dl>
+			    <dl>
+			    	<dt class="pickDt">영업 시간</dt>
+			    	<dd class="pickDd">10:00 ~ 18:00</dd>
+			    </dl>
+			    <dl>
+			    	<dt class="pickDt">휴무</dt>
+			    	<dd class="pickDd">매주 수요일 휴무</dd>
+			    </dl>
+			    <dl>
+			    	<dt class="pickDt">주차장 안내</dt>
+			    	<dd class="pickDd">주차를 하셨을 경우 말씀해주시면<br>1시간 무료 이용 가능합니다.</dd>
+			    </dl>
+			</div>
 		</div>
 	</div>
 	

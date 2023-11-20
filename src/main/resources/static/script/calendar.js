@@ -9,13 +9,13 @@ $().ready(function(){
 	//네이버 지도
 	var mapOptions = {
     center: new naver.maps.LatLng(37.4310405, 127.1286330),
-    zoom: 15
+    zoom: 16
 }
 
 	//네이버 지도 객체 생성
 	var map = new naver.maps.Map('map', {
 	    center: new naver.maps.LatLng(37.4310405, 127.1286330),
-	    zoom: 15
+	    zoom: 16
 	});
 	
 	//네이버 지도 마커 설정
@@ -30,7 +30,7 @@ $().ready(function(){
 	var dessertFairy = new naver.maps.LatLng(37.4310405, 127.1286330),
 	    map = new naver.maps.Map('map', {
 	        center: new naver.maps.LatLng(37.4310405, 127.1286330),
-	        zoom: 15
+	        zoom: 16
 	    }),
 	    marker = new naver.maps.Marker({
 	        map: map,
