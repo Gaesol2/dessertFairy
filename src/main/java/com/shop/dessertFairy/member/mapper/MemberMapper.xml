@@ -52,7 +52,7 @@
   </select>
   <update id="memUpProc" parameterType="mdto">
 UPDATE MEMBER SET
-                  M_PASSWD =#{m_passwd}
+                  M_NAME =#{m_name}
                 , M_EMAIL =#{m_email}
                 , M_PHONE =#{m_phone}
                 , M_ZIPCODE =#{m_zipcode}

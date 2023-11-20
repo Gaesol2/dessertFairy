@@ -3,10 +3,7 @@
  */
 
  $().ready(function(){
-	/* $('.update').on('click', function(){
 		
-		 
-	 })*/
 	})
 	
 	function update(flag){
