@@ -74,16 +74,16 @@
 		<table class="pageBtn">
 		   <tr>
 			    <td colspan="6" style="text-align: center;">
-			      <c:if test="${pageDto.startPg>pBlock}">
-			        <a href="orderMgt?curPage=${pageDto.startPg-pBlock}&curBlock=${pageDto.curBlock-1}">[이전]</a>
+			      <c:if test="${pdto.startPg>pBlock}">
+			        <a href="orderMgt?curPage=${pdto.startPg-pBlock}&curBlock=${pdto.curBlock-1}">[이전]</a>
 			      </c:if>
-			      <c:forEach begin="${pageDto.startPg}" end="${pageDto.endPg}" var="p" step="1">
-			        <a href="orderMgt?curPage=${p}&curBlock=${pageDto.curBlock}">
+			      <c:forEach begin="${pdto.startPg}" end="${pdto.endPg}" var="p" step="1">
+			        <a href="orderMgt?curPage=${p}&curBlock=${pdto.curBlock}">
 			          <span><c:out value="${p}" /></span>
 			        </a>&nbsp;&nbsp;
 			      </c:forEach>
-			        <c:if test="${pageDto.endPg<pageDto.pgCnt}">
-			          <a href="orderMgtt?curPage=${pageDto.startPg+pBlock}&curBlock=${pageDto.curBlock+1}">[다음]</a>
+			        <c:if test="${pdto.endPg<pdto.pgCnt}">
+			          <a href="orderMgt?curPage=${pdto.startPg+pBlock}&curBlock=${pdto.curBlock+1}">[다음]</a>
 			        </c:if>
 			    </td>
 		    </tr>

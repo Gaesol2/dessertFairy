@@ -118,7 +118,7 @@ public class AdminMemberController {
 
 		return page;
 	}
-	@RequestMapping("mOrderList")									// admin 고객관리-회원리뷰
+	@RequestMapping("mOrderList")									// admin 고객관리-주문내역
 	public String MemOrderList(	HttpServletRequest request,
 								HttpServletResponse response,
 								Model model,
