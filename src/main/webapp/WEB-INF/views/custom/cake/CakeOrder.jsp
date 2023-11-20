@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=iyykc44paa"></script>
 <title>예약을 원하시는 날짜를 선택해 주세요</title>
 <link rel="stylesheet" type="text/css" href="/css/Cakeorder.css">
 <script src="/script/calendar.js"></script>
@@ -90,62 +91,70 @@
 		</form>
     	<a href="/productOrder"><input class="orderBtn" type="button" value="주문하기"></a>
 	</div><!-- 날짜 끝 -->
-</div><!-- 케이크 예약 끝 -->
 
-<div id="cakeImg">
-	<img src="../image/ordercake1.jpg" class="orderCake">
-	<p class="cakeDetail">생크림 케이크</p>
-	<br>
-	<img src="../image/ordercake2.jpg" class="orderCake">
-	<p class="cakeDetail">초코 생크림 케이크</p>
-	<br>
-	<img src="../image/ordercake3.jpg" class="orderCake">
-	<p class="cakeDetail">계절 과일 생크림 조각케이크</p>
-	<br>
-	<img src="../image/ordercake4.jpg" class="orderCake">
-	<p class="cakeDetail">계절 과일 생크림 케이크</p>
-	<br>
-	<img src="../image/ordercake5.jpg" class="orderCake">
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="cakecontent"><!-- 안내사항 시작 -->
-	<div class="noti">안내사항</div>
-	<div class="notilist">
-		<dl class="detaillist">
-	         <dt class="exp">유통(소비)기한</dt>
-	         <dd class="expdetail">냉장 3일/냉동 받으신 날부터 1주일</dd>
-	    </dl>
-	    <dl class="detaillist">
-	         <dt class="exp">보관방법</dt>
-	         <dd class="expdetail">영상 3~4℃ 에서 냉장보관</dd>
-	    </dl>
-	    <dl class="detaillist">
-	         <dt class="exp">조리방법</dt>
-	         <dd class="expdetail">냉장에 1~2시간 넣어둔 뒤 차갑게 먹으면 맛있습니다.</dd>
-	    </dl>
-	    <dl class="detaillist">
-	         <dt class="exp">알레르기 정보</dt>
-	         <dd class="expdetail">이 제품은 우유, 밀, 달걀을 함유하고 있습니다.</dd>
-	    </dl>
-	    <dl class="detaillist">
-	         <dt class="exp">배송 안내</dt>
-	         <dd class="expdetail">제품 특성상 흔들림에 의해 망가질 수 있어 배송을 하지 않고 있습니다.</dd>
-	    </dl>
-	    <dl class="detaillist">
-	         <dt class="exp">픽업 안내</dt>
-	         <dd class="expdetail">픽업 시간에서 10분 이상 늦으실 경우 제품의 품질이 떨어져 폐기됩니다.</dd>
-	         <dd class="expdetail">만약 늦으실 경우 하단에 전화번호로 미리 알려주시길 바랍니다.</dd>
-	    </dl>
+	<div id="cakeImg">
+		<img src="../image/ordercake1.jpg" class="orderCake">
+		<p class="cakeDetail">생크림 케이크</p>
+		<br>
+		<img src="../image/ordercake2.jpg" class="orderCake">
+		<p class="cakeDetail">초코 생크림 케이크</p>
+		<br>
+		<img src="../image/ordercake3.jpg" class="orderCake">
+		<p class="cakeDetail">계절 과일 생크림 조각케이크</p>
+		<br>
+		<img src="../image/ordercake4.jpg" class="orderCake">
+		<p class="cakeDetail">계절 과일 생크림 케이크</p>
+		<br>
+		<img src="../image/ordercake5.jpg" class="orderCake">
 	</div>
-</div><!-- 안내사항 끝 -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div id="cakecontent"><!-- 안내사항 시작 -->
+		<div class="noti">안내사항</div>
+		<div class="notilist">
+			<dl class="detaillist">
+		         <dt class="exp">유통(소비)기한</dt>
+		         <dd class="expdetail">냉장 3일/냉동 받으신 날부터 1주일</dd>
+		    </dl>
+		    <dl class="detaillist">
+		         <dt class="exp">보관방법</dt>
+		         <dd class="expdetail">영상 3~4℃ 에서 냉장보관</dd>
+		    </dl>
+		    <dl class="detaillist">
+		         <dt class="exp">조리방법</dt>
+		         <dd class="expdetail">냉장에 1~2시간 넣어둔 뒤 차갑게 먹으면 맛있습니다.</dd>
+		    </dl>
+		    <dl class="detaillist">
+		         <dt class="exp">알레르기 정보</dt>
+		         <dd class="expdetail">이 제품은 우유, 밀, 달걀을 함유하고 있습니다.</dd>
+		    </dl>
+		    <dl class="detaillist">
+		         <dt class="exp">배송 안내</dt>
+		         <dd class="expdetail">제품 특성상 흔들림에 의해 망가질 수 있어 배송을 하지 않고 있습니다.</dd>
+		    </dl>
+		    <dl class="detaillist">
+		         <dt class="exp">픽업 안내</dt>
+		         <dd class="expdetail">픽업 시간에서 10분 이상 늦으실 경우 제품의 품질이 떨어져 폐기됩니다.</dd>
+		         <dd class="expdetail">만약 늦으실 경우 하단에 전화번호로 미리 알려주시길 바랍니다.</dd>
+		    </dl>
+		</div>	
+	</div><!-- 안내사항 끝 -->
+	
+	<div id="map_area">
+		<div id="map"></div>
+		<div id="pickup">
+			<p>픽업 안내</p>
+		</div>
+	</div>
+	
+</div><!-- 케이크 예약 끝 -->

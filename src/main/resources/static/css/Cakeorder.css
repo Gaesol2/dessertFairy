@@ -3,7 +3,6 @@
 #cake{
 	margin: 0 auto;
 	width: 1024px;
-	height: 600px;
 }
 
 /* calendar */
@@ -233,3 +232,25 @@
 	text-align: center;
 }
 
+
+/* 네이버 지도 API */
+#map_area {
+	width: 1024px;
+}
+
+#map {
+	width: 480px;
+	height: 400px;
+	float:left;
+}
+
+#pickup {
+	width: 500px;
+	padding: 20px;
+	float:left;
+}
+
+.iw_inner {
+	padding: 10px;
+	text-align: center;
+}

@@ -153,4 +153,5 @@
    		AND D_NO = #{d_no}
    		AND M_ID = #{m_id}
    </update>
+
 </mapper>

@@ -47,10 +47,21 @@
 <update id="updateStocks" parameterType="list">
 	<foreach collection="list" item="odto" separator=";" open="DECLARE BEGIN" close="; END;">
 		UPDATE dessert
-		SET d_stock = d_stock - #{odto.o_quantity}
+		SET d_stock = d_stock - #{odto.o_quantity},
+		d_sale = d_sale + #{odto.o_quantity}
 		WHERE d_no = #{odto.d_no}
 	</foreach>
 </update>
+
+<select id="maxSale" resultType="int">
+	SELECT d_no
+	FROM (
+		SELECT d_no
+		FROM dessert
+		ORDER BY d_sale DESC
+	)
+	WHERE ROWNUM <![CDATA[<=]]> 3
+</select>
 
 	<!-- admin start -->
 	<insert id="insertProduct" parameterType="ddto">	<!-- admin 상품 등록 -->
@@ -68,10 +79,11 @@
 							D_PATH,
 							D_LIFE,
 							D_STORAGE,
-							D_ALLERGY)
+							D_ALLERGY,
+							D_SALE)
 	    VALUES(#{d_no}, #{d_category}, #{d_name}, #{d_detail},
 	           #{d_price}, #{d_stock}, #{d_image}, #{d_path},
-	            #{d_life}, #{d_storage}, #{d_allergy})
+	            #{d_life}, #{d_storage}, #{d_allergy}, 0)
 	  </insert>
 	
 	<select id="getProductCnt" resultType="int">		<!-- admin 상품 리스트 개수 -->

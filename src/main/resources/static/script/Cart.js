@@ -11,10 +11,6 @@ $().ready(function(){
 	//총 결제 금액을 표기하는 함수
 	total();
 	
-	
-})
-
-window.onload = function(){
 	let overStock = $(".overStock");
 	let overStockLength = $("input[name='overStock']").length;
 	let msg = "";
@@ -26,7 +22,8 @@ window.onload = function(){
 		}
 	}
 	
-}
+})
+
 
    //주문 수량 버튼
 function count(obj, flag){

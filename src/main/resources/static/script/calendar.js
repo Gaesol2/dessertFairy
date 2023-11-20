@@ -1,11 +1,65 @@
 /**
  * 
  */
- 		// 웹 페이지가 로드되면 buildCalendar 실행
- 		window.onload = function () {
-			buildCalendar();
- 			$("input[name=month]").val(nowMonth.getMonth()+1);
- 		 }    
+	// 웹 페이지가 로드되면 buildCalendar 실행
+$().ready(function(){
+	buildCalendar();
+	$("input[name=month]").val(nowMonth.getMonth()+1);
+	
+	//네이버 지도
+	var mapOptions = {
+    center: new naver.maps.LatLng(37.4310405, 127.1286330),
+    zoom: 15
+}
+
+	//네이버 지도 객체 생성
+	var map = new naver.maps.Map('map', {
+	    center: new naver.maps.LatLng(37.4310405, 127.1286330),
+	    zoom: 15
+	});
+	
+	//네이버 지도 마커 설정
+	var marker = new naver.maps.Marker({
+	    position: new naver.maps.LatLng(37.4310405, 127.1286330),
+    	map: map
+	});
+
+	//마커에 설명 추가
+	var HOME_PATH = window.HOME_PATH || '.';
+
+	var dessertFairy = new naver.maps.LatLng(37.4310405, 127.1286330),
+	    map = new naver.maps.Map('map', {
+	        center: new naver.maps.LatLng(37.4310405, 127.1286330),
+	        zoom: 15
+	    }),
+	    marker = new naver.maps.Marker({
+	        map: map,
+	        position: dessertFairy
+	    });
+	
+	var contentString = [
+	        '<div class="iw_inner">',
+	        '   <p><strong>dessertFairy</strong></p>',
+	        '   <p>경기도 성남시 성남대로 1133 <br/>',
+	        '   </p>',
+	        '</div>'
+	    ].join('');
+	
+	var infowindow = new naver.maps.InfoWindow({
+	    content: contentString
+	});
+	
+	naver.maps.Event.addListener(marker, "click", function(e) {
+	    if (infowindow.getMap()) {
+	        infowindow.close();
+	    } else {
+	        infowindow.open(map, marker);
+	    }
+	});
+	
+	infowindow.open(map, marker);
+
+})   // ready end
 
         let nowMonth = new Date();  // 현재 달을 페이지를 로드한 날의 달로 초기화
         let today = new Date();     // 페이지를 로드한 날짜를 저장

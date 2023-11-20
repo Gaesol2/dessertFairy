@@ -43,5 +43,7 @@ public interface DessertDAO {
 
 	List<DessertDTO> getSearchList(DessertDTO ddto);
 
+	List<Integer> maxSale();
+
 	
 }
