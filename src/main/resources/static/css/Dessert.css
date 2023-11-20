@@ -103,12 +103,18 @@ a:hover{color: #13018d; text-decoration: none;}
 	float: left;
 	width: 512px;
 	margin-top: 70px;
+	margin-left: 20px;
 }
 
 #dessertContent #dessertTxt {
 	float: left;
-	width: 512px;
+	width: 412px;
 }
+
+#dessertTxt{
+	margin-left: 30px;
+}
+
 
 #dessertTxt .dessertTap .category{
 	font-size: 16px;
