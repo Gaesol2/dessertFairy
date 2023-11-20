@@ -65,7 +65,9 @@
 				</c:when>
 				
 				<c:when test="${fn:length(adminOrderList)==0}">
-					<tr><th>주문내역이 없습니다.</th></tr>
+					<tr class="notList">
+						<th>주문내역이 없습니다.</th>
+					</tr>
 				</c:when>
 			</c:choose>
 		</table>

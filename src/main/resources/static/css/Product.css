@@ -28,7 +28,13 @@
 	margin-left: 35px;
 }
 
+.notList{
+	text-align: center;
+}
 
+.notList th{
+	padding-top: 20px;
+}
 
 
 

@@ -32,6 +32,14 @@
 	font-weight: bold;
 }
 
+.notList{
+	text-align: center;
+}
+
+.notList th{
+	padding-top: 20px;
+}
+
 /* 내 정보 */
 
 #myInfo{
