@@ -60,12 +60,21 @@ a:hover{color: #13018d; text-decoration: none;}
 
 #dessert .abox .box{
 	text-align: center;
+	position: relative;
 }
 
-#dessert .abox .box img{
+#dessert .abox .box .abox_img{
 	margin-top:8px;
 	width: 240px;
 	height: 240px;
+}
+
+#dessert .abox .box .hot {
+	width: 100px;
+	height: 100px;
+	position:absolute;
+	left:0px;
+	top:0px;
 }
 
 #dessert .abox .box .p_name{
@@ -137,6 +146,5 @@ a:hover{color: #13018d; text-decoration: none;}
 	cursor: pointer;
 	
 }
-
 
 
