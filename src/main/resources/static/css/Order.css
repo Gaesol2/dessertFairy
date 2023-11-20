@@ -275,3 +275,96 @@
 }
 
 
+
+
+
+/* admin detail */
+
+#adminOrderDetail{
+	height: 80px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.ordList{
+	height: 25px;
+	text-align: right;
+	border-bottom: solid 1px black;
+}
+
+.ordList:hover{
+	color: #064695;
+	font-weight: bold;
+}
+
+#adminOrderMain{
+	width : 600px;
+	margin-left: 280px;
+	margin-top: 50px;
+}
+
+.ol{
+	padding: 15px;
+	width: 600px;
+}
+
+.ol1{
+	width : 100px;
+	display: inline-block;
+	text-align: right;
+	margin: 0 50px;
+}
+
+	
+.ol2 .in{
+	border-radius: 7px;
+	border: solid 1px #eeeeee;
+	height: 40px;
+	box-sizing: border-box;
+	outline: none;
+	padding: 0 10px;
+}
+
+.odl{
+	padding: 5px 30px;
+	border: solid 1px #eeeeee;
+	border-radius: 7px;
+	background-color: white;
+}
+
+.orderBtn{
+	padding : 10px 30px 10px 30px;
+	margin-top : 65px;
+	margin-left: 180px;
+	background-color : #fefae9;
+	border : solid 1px #064695;
+}
+
+.orderBtn:hover{
+    text-shadow: 0 0 0 #fefae9;
+    background-color : #064695;
+    color : #fefae9;
+}
+
+#state{
+	border-radius: 7px;
+	border: solid 1px #eeeeee;
+	height: 40px;
+	box-sizing: border-box;
+	outline: none;
+	padding: 0 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
