@@ -112,6 +112,16 @@ public class OrderController {
       return "page";
    }
    
+   @RequestMapping("/productOrder")
+   public String ProductOrder(HttpServletRequest request, HttpServletResponse response,
+		   Model model, OrderDTO odto) {
+	   
+		   
+	   model.addAttribute("contentsJsp", "custom/order/ProductOrder");
+		
+		return "Main";
+	}
+   
    @RequestMapping("/memOrderDetail")
    public String MemOrderDetail(HttpServletRequest request,
 		   						HttpServletResponse response,
