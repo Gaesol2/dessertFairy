@@ -37,6 +37,14 @@
 	text-align: center;
 }
 
+.notList{
+	text-align: center;
+}
+
+.notList th{
+	padding-top: 20px;
+}
+
 
 /* order List */
 

@@ -45,7 +45,7 @@
 				</c:when>
 				
 				<c:when test="${fn:length(pList)==0}">
-					<tr style="text-align:center;height: 30px;">
+					<tr class="notList">
 						<th colspan="5"> 등록된 상품이 없습니다.</th>
 					</tr>
 				</c:when>
