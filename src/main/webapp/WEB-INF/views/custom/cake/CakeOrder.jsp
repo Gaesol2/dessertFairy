@@ -10,12 +10,12 @@
  		<table class="Calendar">
             <thead>
                 <tr class="day">
-                    <td class="pointer" onClick="prevCalendar(), inputMonth();">&#60;</td>
+                    <td class="pointer" onClick="prevCalendar(), inputMonth(), inputPrevDay();">&#60;</td>
                     <td colspan="5">
                         <span id="calYear"></span>년
                         <span id="calMonth"></span>월
                     </td>
-                    <td class="pointer" onClick="nextCalendar(), inputMonth();">&#62;</td>
+                    <td class="pointer" onClick="nextCalendar(), inputMonth(), inputNextDay();">&#62;</td>
                 </tr>
                 <tr class="day">
                     <td>일</td>
@@ -32,6 +32,7 @@
             </tbody>
         </table>
 	</div><!-- 캘린더 끝 -->
+<form action="cakeOrderProc" method="post" name="cakeOrder">
 	<div id="cakedetail"><!-- 옵션 시작 -->
 		<dl>
 			<dt class="cakename">주문 제작 케이크</dt>
@@ -39,52 +40,52 @@
 		</dl>
 		<span class="option">
 		 케이크 크기 :
-			<select> 
+			<select name="c_size"> 
 			  <option>선택</option>
-			  <option>도시락</option>
-			  <option>미니</option>
-			  <option>1호</option>
-			  <option>2호</option>
-			  <option>3호</option>
+			  <option>도시락 (-5000원)</option>
+			  <option>미니 (-3000원)</option>
+			  <option selected>1호</option>
+			  <option>2호 (+6000원)</option>
+			  <option>3호 (+11000원)</option>
 			</select>
 		</span>
 		<span class="option">
 		 빵시트 선택 :
-			<select> 
+			<select name="c_sheet"> 
 			  <option>선택</option>
 			  <option>바닐라</option>
-			  <option>초코</option>
-			  <option>쿠앤크</option>
+			  <option>초코 (+1000원)</option>
+			  <option>쿠앤크 (+1500원)</option>
 			</select>
 		</span>
 		<span class="option">
 		안크림 선택 :
-			<select> 
+			<select name="c_incream"> 
 			  <option>선택</option>
 			  <option>생크림</option>
-			  <option>초코</option>
-			  <option>쿠앤크</option>
-			  <option>크림치즈</option>
+			  <option>초코 (+1000원)</option>
+			  <option>크림치즈 (+1000원)</option>
+			  <option>쿠앤크 (+1500원)</option>
 			</select>
 		</span>
 		<span class="option">
 		밖크림 선택 :
-			<select> 
+			<select name="c_outcream"> 
 			  <option>선택</option>
 			  <option>바닐라</option>
-			  <option>초코</option>
+			  <option>초코 (+1000원)</option>
 			</select>
 		</span>
 		<p class="letter">레터링 입력 : 
 			<input type="text" class="lettering" placeholder="최대 15글자" maxlength='15'>
 		</p>
-		<p class="letter">디자인 이미지 : 
-			<label for="file" class="fileBtn">파일업로드</label>
-			<input id="file" type="file">
+		<p class="option">픽업 날짜 : 
+			<input type="text" name="c_month" class="month" readonly="readonly"> 월 
+			<input type="text" name="c_day" class="day" readonly="readonly"> 일
 		</p>
 	    <span class="option">
 		픽업할 시간 : 
-	    	<select>
+	    	<select name="c_pickupdate">
 	    		<option>시간 선택</option>
 	    		<option>10:00-11:00</option>
 	    		<option>11:00-12:00</option>
@@ -96,16 +97,26 @@
 	    		<option>17:00-18:00</option>
 	    	</select>
 	    </span>
+		<p class="letter">디자인 이미지 : 
+			<label for="file" class="fileBtn">파일업로드</label>
+			<input id="file" type="file" name="image">
+			<font class="file_name"></font>
+		</p>
+		<p class="letter">상세 요구사항 : 
+			<label for="detail" class="detalBtn">요구사항 작성</label>
+			<input id="detail" type="button">
+			<span class="detail_name"></span>
+			<input type="hidden" class="c_request" name="c_request">
+		</p>
+	<div id="cakePrice">
+		<p class="letter"> 금액 : 
+			<span class="price"></span>
+			<input type="hidden" name="c_price" readonly="readonly">
+		</p>
+	</div>
 	</div><!-- 옵션 끝 -->
-	<div id="pickdate"><!-- 날짜 시작 -->
-		<form action="" method="post" name="pickupdate">
-		<p class="expdate">픽업 날짜</p>
-		월 : <input type="text" name="month" class="month"><br>
-		일 : <input type="text" name="day" class="day">
-		</form>
 	    <a href="/productOrder"><input class="orderBtn" type="button" value="주문하기"></a>
-	</div><!-- 날짜 끝 -->
-
+</form>
 	<div id="cakeImg">
 		<img src="../image/ordercake1.jpg" class="orderCake">
 		<p class="cakeDetail">생크림 케이크</p>

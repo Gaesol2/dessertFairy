@@ -3,10 +3,10 @@
  */
 
  $().ready(function(){
-	/* $('.update').on('click', function(){
+	$(".update_pw").on("click", function(){
+			location.href="pwSearchForm";
+		})
 		
-		 
-	 })*/
 	  $('.submit1').on("click",function(){
 		 var flen = $("form[name=topForm1] .chk1").length;
          for(var i=0; i<flen; i++){
@@ -35,25 +35,6 @@
 				return false;
 			}
 		}
-	}
-		
-		
-	function setParentText(){
-		 var pw1 = $('#pwck').val() //popup에서 받은 pass
-		 if(pw1==null || pw1.length==0){
-			 alert('패스워드를 입력하세요');
-			$('#pwck').focus();
-			 return false;
-		 }
-		 var pw2 = $("#pw", opener.document).val(); //opener의 pw
-		 if(pw1==pw2){
-			$("#upForm", opener.document).submit();
-			this.window.close();
-		}else{
-			alert('비밀번호 오류');
-			this.window.close();
-		}
-		
 	}
 
 	 

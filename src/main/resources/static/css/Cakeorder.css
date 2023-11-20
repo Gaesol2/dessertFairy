@@ -84,7 +84,6 @@
 	float: right;
 	width: 390px;
 	margin-right : 50px;
-	border-bottom: solid 1px black;
 }
 
 #cake #pickdate{
@@ -179,24 +178,35 @@
 	padding: 0 10px;
 }
 
-#cake .fileBtn{
+#cake .detalBtn, .fileBtn{
 	display : inline-block;
 	text-align : center;
-	width : 70px;
+	width : 90px;
 	height : 20px;
 	padding : 5px;
 	font-size : 13px;
 	background-color: #F5D042;
 	border-radius: 4px;
+	cursor: pointer;
 }
 
-#cake #file{
+#cake #file, #detail{
 	display:none;
 }
 
 #cake .pointer {
 	cursor:pointer;
  }
+ 
+.detail_name{
+	width: 100px;
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow : hidden;
+    display: inline-block;
+    position: relative;
+    top: 5px;
+}
 /* cakedetail end*/
  
 /* cakecontent */
@@ -227,6 +237,13 @@
 	font-size: 18px;
 	font-weight: bold;
 }
+
+#cake #cakePrice{
+	width: 390px;
+	margin-right : 50px;
+	border-top: solid 1px black;
+}
+
 /* cakecontent end*/
 
 
@@ -295,7 +312,19 @@
 }
 
 
+/* CakeRequest.jsp start */
+#cakeRequest {
+	width: 500px;
+	height: 300px;
+}
 
+#cakeRequest textarea {
+	resize: none;
+	width: 560px;
+	height: 200px;
+}
+
+/* CakeRequest.jsp end */
 
 
 
