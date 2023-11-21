@@ -173,4 +173,10 @@ a:hover{color: #13018d; text-decoration: none;}
 	padding: 3px;
 }
 
-
+.countUp, .countDown{
+	width: 18px;
+	height: 18px;
+	background-color : #064695;
+	color: #fefae9;
+	border-radius: 3px;
+}
