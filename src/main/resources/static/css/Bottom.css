@@ -68,7 +68,7 @@
 	filter: invert(99%) sepia(92%) saturate(506%) hue-rotate(301deg) brightness(107%) contrast(103%);
 }
 
-a.upBtn {
+a.upCircle {
 	width: 24px;
 	height: 24px;
 	border: 1px solid #042958;
@@ -87,7 +87,7 @@ a.upBtn {
 	font-weight: 0;
 }
 
-a.upBtn:hover {
+a.upCircle:hover {
 	background-color: #042958;
 	color: #fefae9;
 }
