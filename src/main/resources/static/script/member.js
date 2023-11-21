@@ -15,14 +15,12 @@
 		}else{
 		 $("#upForm").attr("action", "/memDelete");	
 		var yn = confirm("정말 탈퇴하시겠습니까?\n 구매이력과 포인트가 소멸됩니다.")
-		if(yn==true){
-		
-		}else{
+		if(yn==false){
 			return false;
 		}
 		 
-		}
-		}
+	}
+}
 		
 		
 	function setParentText(){

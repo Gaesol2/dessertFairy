@@ -244,6 +244,9 @@
 	border-top: solid 1px black;
 }
 
+#cake #cakePrice .price{
+	font-weight: bold;
+}
 /* cakecontent end*/
 
 
