@@ -1,26 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib  uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+ 
 <meta charset="UTF-8">    
-<title>쇼핑몰</title>
 <link rel="stylesheet" type="text/css" href="/css/notice.css">
 <script src="/script/Notice.js"></script>
 
 <div id="notice">
 	<div class="head">
-	<p class="noList">공지사항목록</p>          
-	<p class="count">총 등록글수:${totCnt} </p>
+		<p class="noList">공지사항</p>          
 	</div>
-	<div id="noticeList">
+	<div id="customNoticeList">
+		<p class="count">총 등록글수:${cnt} </p>
 		<table class="noticeTable">
 			<tr>
-			  <th class="nol1">번호</th>
-			  <th class="nol2">제목</th>
-			  <th class="nol3">작성자</th>
-			  <th class="nol4">조회수</th>
-			  <th class="nol5">등록일</th>
-			  <th class="nol6">유효일</th>
+				<th class="nol1">번호</th>
+				<th class="nol2">제목</th>
+				<th class="nol3">작성자</th>
+				<th class="nol4">조회수</th>
+				<th class="nol5">등록일</th>
+				<th class="nol6">유효일</th>
 			</tr>
 			<c:choose>
 				<c:when test="${fn:length(nList)>0}">
@@ -43,25 +43,23 @@
 					</tr>
 				</c:when>
 			</c:choose>
+		</table>
+		<table class="pageBtn">
 			<tr>
-			    <td colspan="6" style="text-align: center; border: 1px solid #ffffff;">
-					<c:if test="${pageDto.startPg>pBlock}">
-						<a href="notice?curPage=${pageDto.startPg-pBlock}&curBlock=${pageDto.curBlock-1}">[이전]</a>
+				<td colspan="6">
+					<c:if test="${pdto.startPg>pBlock}">
+						<a href="notice?curPage=${pdto.startPg-pBlock}&curBlock=${pdto.curBlock-1}">[이전]</a>
 					</c:if>
-					<c:forEach begin="${pageDto.startPg}" end="${pageDto.endPg}" var="p" step="1">
-						<a href="notice?curPage=${p}&curBlock=${pageDto.curBlock}">
-							<span><c:out value="${p}"/></span>
+					<c:forEach begin="${pdto.startPg}" end="${pdto.endPg}" var="p" step="1">
+						<a href="notice?curPage=${p}&curBlock=${pdto.curBlock}">
+							<span><c:out value="${p}" /></span>
 						</a>&nbsp;&nbsp;
 					</c:forEach>
-					<c:if test="${pageDto.endPg<pageDto.pgCnt}">
-						<a href="notice?curPage=${pageDto.startPg+pBlock}&curBlock=${pageDto.curBlock+1}">[다음]</a>
-					</c:if>  
-			    </td>
+					<c:if test="${pdto.endPg<pdto.pgCnt}">
+						<a href="notice?curPage=${pdto.startPg+pBlock}&curBlock=${pdto.curBlock+1}">[다음]</a>
+					</c:if>
+				</td>
 			</tr>
 		</table>
 	</div>
 </div>
-
-
-
-

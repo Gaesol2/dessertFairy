@@ -12,7 +12,7 @@
 <div id="order">
 	<div>
 		<div id="mainList">
-			<p class="introduction" name="m_id">${mdto.m_id}님의 주문목록</p>
+			<p class="introduction" name="m_id">${m_name}님의 주문목록</p>
 		</div>
 		<div class="topList">
 			<ul class="list">

@@ -28,14 +28,14 @@ public class NoticeController {
 	   public String noticeList(HttpServletRequest request, HttpServletResponse response,
 	                      NoticeDTO ndto,
 	                      Model model,
-	                      PageDTO pageDto) {
+	                      PageDTO pdto) {
 	      Map<String, Object> reSet
-	                   = noticeService.getNoticies(ndto, pageDto);
+	                   = noticeService.getNoticies(ndto, pdto);
 	      HttpSession session = request.getSession();
 	      String contentsJsp = null;
 	      String page = null;
-	      MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
-	      if(mdto!=null && mdto.getM_role().equals("admin")) {
+	      MemberDTO sdto = (MemberDTO) session.getAttribute("ssKey");
+	      if(sdto!=null && sdto.getM_role().equals("admin")) {
 	            page = "Main";
 	            contentsJsp = "./admin/notice/NoticeList";
 	     
@@ -43,10 +43,10 @@ public class NoticeController {
 	         page = "Main";
 	         contentsJsp = "./custom/notice/NoticeList";
 	      }
-	      session.setAttribute("ssKey", mdto);
-	      model.addAttribute("pageDto", reSet.get("pageDto"));
+	      session.setAttribute("ssKey", sdto);
+	      model.addAttribute("pdto", reSet.get("pdto"));
 	      model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
-	      model.addAttribute("totCnt", reSet.get("totCnt"));
+	      model.addAttribute("cnt", reSet.get("cnt"));
 	      model.addAttribute("nList", reSet.get("noticeList"));
 	      model.addAttribute("contentsJsp", contentsJsp);
 	      

@@ -220,7 +220,7 @@ public class ReviewServiceImpl implements ReviewService {
 	   
 	   replyList = reviewDao.getReplyList(rdto);	
 	   
-	   reSet.put("pageDto", pdto);
+	   reSet.put("pdto", pdto);
 	   reSet.put("cnt", cnt);
 	   reSet.put("replyList", replyList);
 	   return reSet;

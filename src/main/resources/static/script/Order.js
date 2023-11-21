@@ -53,6 +53,15 @@ $().ready(function(){
 			  } 
 			});
 			
+	$(".orl2").each(function(){
+		var rows = $(".orl2:contains('"+$(this).text()+"')");
+		
+		if(rows.length > 1){
+			rows.eq(0).attr("rowspan", rows.length);
+			rows.not(":eq(0)").remove();
+		}
+	});
+			
 		 
 })//ready 끝
 

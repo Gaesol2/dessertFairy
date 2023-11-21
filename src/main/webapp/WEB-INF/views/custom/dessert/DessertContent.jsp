@@ -44,8 +44,8 @@
 						<dt>주문 수량</dt>
 						<dd>
 						   <input type="text" value="1" class="count" readonly="readonly" name="o_quantity">
-						   <input type="button" class="countUp" value="△">
-						   <input type="button" class="countDown" value="▽">         
+						   <input type="button" class="countUp" value="▲">
+						   <input type="button" class="countDown" value="▼">         
 						</dd>
 						   <dt>주문 가격</dt>
 						<dd>
