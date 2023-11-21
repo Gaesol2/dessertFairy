@@ -5,12 +5,11 @@
 #notice{
 	margin : 0 auto;
 	width : 1024px;
-	height: 800px;
 }
 
 .noList{
-	text-align: center;
-	font-size: 21px;
+	text-align: left;
+	font-size: 32px;
 	font-weight: bold;
 }
 
@@ -89,13 +88,29 @@
 
 /* custom noticeList */
 
-.count{
-	text-align: right;
+#customNoticeList{
+	margin-top: 140px;
+	margin-left: 20px;
+	float: left;
 }
 
+#customNoticeList .noticeTable{
+	width: 1024px;
+	border-top : solid 2px black;
+	border-collapse: collapse;
+	
+}
 
+#customNoticeList .noticeTable tr{
+	border-bottom: solid 1px black;
+	border-top: solid 1px black;
+	height: 45px;
+}
 
-
+.count{
+	text-align: right;
+	margin-bottom: 10px;
+}
 
 
 
@@ -200,13 +215,51 @@
 	color: #fefae9;
 }
 
+#noticeDetailList{
+	width: 1024px;
+	height: 600px;
+	margin-top: 150px;
+	border-top: solid 2px black;
+}
 
+.noticeDetailTable{
+	margin: 0 auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	
+}
 
+.noticeDetailTable textarea {
+	width : 400px;
+    height: 200px;
+    border-radius: 5px;
+	border: solid 1px #eeeeee;
+    resize: none;
+	font-size: 16px;
+	box-sizing: border-box;
+	outline: none;
+	padding: 5px 10px;
+	margin: 10px 0;
+}
 
+#notiBtnBox{
+	margin-left: 470px;
+	margin-top: 50px;
+}
 
+#notiBtnBox .notiBtn{
+	color : #064695;
+	padding : 10px 30px 10px 30px;
+	background-color : #fefae9;
+	border : solid 1px #064695;
+	text-align: center;
+}
 
-
-
+#notiBtnBox .notiBtn:hover{
+    text-shadow: 0 0 0 #fefae9;
+    background-color : #064695;
+    color : #fefae9;
+}
 
 
 
