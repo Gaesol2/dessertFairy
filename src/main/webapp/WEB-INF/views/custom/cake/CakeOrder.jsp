@@ -40,7 +40,7 @@
 		</dl>
 		<span class="option">
 		 케이크 크기 :
-			<select name="c_size" onChange="cake_change()" onFocus="cake_focus()" > 
+			<select name="c_size" onChange="cake_change()" onFocus="cake_focus()"> 
 			  <option value="도시락" >도시락 (-5000원)</option>
 			  <option value="미니">미니 (-3000원)</option>
 			  <option value="1호" selected>1호</option>
@@ -108,7 +108,7 @@
 			<input type="hidden" class="c_request" name="c_request">
 		</p>
 	<div id="cakePrice">
-		<p class="letter"> 금액 : 
+		<p class="letter"><strong> 금액 : </strong>
 			<span class="price">21000</span>
 			<input type="hidden" name="c_price" readonly="readonly">
 		</p>
