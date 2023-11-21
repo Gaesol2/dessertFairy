@@ -27,7 +27,7 @@ public interface ReviewService {
    
    //어드민 시작
 
-   Map<String, Object> getReplyList(ReviewDTO rdto, PageDTO pageDto);
+   Map<String, Object> getReplyList(ReviewDTO rdto, PageDTO pdto);
 
    ReviewDTO getReplyContent(ReviewDTO rdto);
 
@@ -37,7 +37,7 @@ public interface ReviewService {
 
    int replydelProc(ReviewDTO rdto);
 
-   Map<String, Object> getMemberReview(ReviewDTO rdto, PageDTO pdto);
+   Map<String, Object> getMemList(ReviewDTO rdto, PageDTO pageDto);
    
    
    

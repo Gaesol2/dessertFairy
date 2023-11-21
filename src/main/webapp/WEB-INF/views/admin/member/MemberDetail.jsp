@@ -6,7 +6,7 @@
 <link type="text/css" rel="stylesheet" href="/css/Member.css">
 
 <div id="member">
-	<h2 class="memName">${member.m_name} 님</h2>
+	<h2 class="memName">${member.m_name}님의 정보</h2>
 	<table class="memberDetail">
 		<thead>
 			<tr>

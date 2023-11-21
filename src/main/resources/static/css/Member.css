@@ -169,29 +169,49 @@
 
 /* admin memberList */
 
+.mainlist{
+	float: left;
+}
+
+.introduction{
+	font-size: 32px;
+	text-align: left;
+	font-weight: bold;
+}
+
+.topList{
+	float: right;
+	text-align: right;
+}
+
+.list li{
+	display: inline-block;
+	font-size: 15px;
+	margin-left: 35px;
+}
+
 #member{
 	margin: 0 auto;
 	width: 1024px;
 }
 
-#memTot{
-	text-align: right;
-}
-
 #mList{
+	float: left;
 	width: 1024px;
-	margin-top: 50px;
+	margin-top: 180px;
 }
 
 .memberList{
 	width: 1024px;
 	border-collapse: collapse;
+	border-top: solid 2px black;
 }
 
 .memberList tr{
 	width: 1024px;
 	height: 40px;
 	border-bottom: solid 1px black;
+	
 }
 
 
@@ -227,7 +247,7 @@
 
 .memberDetail{
 	width: 1024px;
-	margin-top: 50px;
+	margin-top: 100px;
 	border-collapse: collapse;
 	border-top : solid 2px black;
 }
@@ -281,7 +301,7 @@
 
 #memberBtn{
 	width: 1024px;
-	margin-top : 50px;
+	margin-top : 80px;
 	margin-left: 370px;
 }
 

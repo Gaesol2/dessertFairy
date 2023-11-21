@@ -131,7 +131,7 @@
 						</dd>
 					</dl>
 					<div id="bakeBtn">
-						<a href="/cake" class="bakeGo">주문하러 가기</a>
+						<a href="/dessert" class="bakeGo">주문하러 가기</a>
 					</div>
 				</div>
 			</div>

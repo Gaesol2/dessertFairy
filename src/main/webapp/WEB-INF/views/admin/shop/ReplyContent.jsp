@@ -20,16 +20,9 @@
 		    </div>
 		    <div class="topList">
 		      <ul class="list">
-		      	<c:choose>
-		      		<c:when test="${ssKey==null and ssKey.m_role=='mem'}">
-				        <li><a href="/shopMgt">후기 목록</a></li>
-				        <li><a href="/reviewWrite">배너 변경</a></li>
-		      		</c:when>
-		      		<c:when test="${ssKey!=null and ssKey.m_role=='admin'}">
-				        <li><a href="/mReviewMgt?m_id=${review.m_id}">리뷰 목록</a></li>
-				        <li><a href="/reviewWrite">배너 변경</a></li>
-		      		</c:when>
-		      	</c:choose>
+		      	<li><a href="/shopMgt">후기 목록</a></li>
+				<li><a href="/adminContact">문의 목록</a></li>
+				<li><a href="/reviewWrite">배너 변경</a></li>
 		      </ul>
 		    </div>
 		  </div>

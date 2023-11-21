@@ -37,7 +37,7 @@ public class ContactController {
 			              HttpServletResponse response,
 			              Model model,
 			              ContactDTO tdto,
-			              PageDTO pageDto) {
+			              PageDTO pdto) {
 		
 		//변수 선언
 	    String page = null;
@@ -53,7 +53,7 @@ public class ContactController {
 		
 		
 		//리스트 목록과 페이지 수 계산한것을 불러온 것
-		Map<String, Object> reSet = contactService.getContactList(tdto, pageDto);
+		Map<String, Object> reSet = contactService.getContactList(tdto, pdto);
 		//세션 저장
 		
 		session.setAttribute("ssKey", ssKey);
@@ -63,7 +63,7 @@ public class ContactController {
 		model.addAttribute("contactList", reSet.get("contactList"));
 		model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
 		model.addAttribute("contentsJsp",contentsJsp);
-		model.addAttribute("pageDto",pageDto);
+		model.addAttribute("pdto",pdto);
 		
 		
 		return page;

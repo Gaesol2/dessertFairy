@@ -66,7 +66,7 @@
 
 	<select id="getAdminOrderList" parameterType="odto" resultType="odto">				<!-- admin 주문 목록 페이지 -->
 		SELECT * FROM
-	    (SELECT ROWNUM AS RR, A.*
+	    (SELECT ROWNUM AS o_rr, A.*
 	      FROM
 		  (SELECT  O.O_NO,
 		  		   O.D_NO, 
@@ -90,7 +90,7 @@
 		  </if>
 		ORDER BY O_NO DESC) A)
 	   <![CDATA[
-	    WHERE RR>=#{start} AND RR <=#{end} 
+	    WHERE o_rr>=#{start} AND o_rr <=#{end} 
 	   ]]> 
 	</select>
 	

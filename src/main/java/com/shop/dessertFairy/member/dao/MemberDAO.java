@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.shop.dessertFairy.common.dto.PageDTO;
 import com.shop.dessertFairy.member.dto.MemberDTO;
 
 

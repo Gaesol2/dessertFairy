@@ -42,7 +42,7 @@
 }
 
 .notList th{
-	padding-top: 20px;
+	padding: 20px 0;
 }
 
 
@@ -547,8 +547,16 @@
 
 
 
+/* mem review List */
 
+.memMainList{
+	width: 1024px;
+}
 
-
+.memReviewName{
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold; 
+}
 
 

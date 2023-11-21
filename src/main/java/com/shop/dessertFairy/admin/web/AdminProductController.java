@@ -93,18 +93,21 @@ public class AdminProductController {
 		String page=null;
 		MemberDTO ssKey = null;
 	    DessertDTO beforeDto = null;
+	    String contentsJsp = null;
 		HttpSession session = request.getSession();
 		if(session.getAttribute("ssKey")!=null ) {
 			ssKey = (MemberDTO) session.getAttribute("ssKey");
 			if(ssKey.getM_role().equals("admin")) {
 				beforeDto = dessertService.getProduct(ddto.getD_no());
-				page="admin/product/ProductUpForm";
+				page="Main";
+				contentsJsp = "admin/product/ProductUpForm";
 			}else page="redirect:/";
 		}else {
 			page="redirect:/";
 		}
 		//모든 상품 리스트를 갖고 오기 --getProductList
 		model.addAttribute("ddto", beforeDto);
+		model.addAttribute("contentsJsp", contentsJsp);
 		session.setAttribute("ssKey", ssKey);
 		
 		return page;

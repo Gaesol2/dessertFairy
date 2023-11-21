@@ -235,6 +235,30 @@
 			ORDER BY R_NO DESC) A)
      		WHERE M_ID = #{m_id}
 		</select>
+		
+		<select id="getMemList" resultType="rdto">
+			SELECT * FROM 
+	       (SELECT ROWNUM AS R_RR, A.* 
+	        FROM 
+			(SELECT R_NO
+				   ,R_SUBJECT
+				   ,R_CONTENT
+				   ,TO_CHAR(R_REGDATE,'YYYY-MM-DD') AS R_REGDATE
+				   ,R_READCOUNT
+				   ,R_PASSWD
+				   ,R_STAR
+				   ,R_IMAGE
+				   ,M_ID
+				   ,R_PATH
+			FROM REVIEW
+		  ORDER BY R_NO DESC) A)
+	     WHERE M_ID = #{m_id}
+		</select>
+		
+		
+		
+		
+		
 	<!-- admin end -->
 	
 	

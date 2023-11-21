@@ -220,24 +220,24 @@
 	font-weight: bold;
 }
 
-#orderList{
-	margin-top: 40px;
+#adminOrderList{
+	margin-top: 150px;
 	float: left;
 }
 
-#orderList .listTable{
+#adminOrderList .listTable{
 	width: 100%;
 	border-top : solid 2px black;
 	border-collapse: collapse;
 	
 }
 
-#orderList .listTable tr{
+#adminOrderList .listTable tr{
 	border-bottom: solid 1px black;
 	border-top: solid 1px black;
 }
 
-#orderList .listTable tr{
+#adminOrderList .listTable tr{
 	height: 45px;
 }
 
