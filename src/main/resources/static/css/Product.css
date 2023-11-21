@@ -125,6 +125,11 @@
 	margin-top: 100px;
 }
 
+.deImg{
+	width: 350px;
+	height: 400px;
+}
+
 #detailMain{
 	float: left;
 	width: 670px;
@@ -137,11 +142,11 @@
 	margin-bottom: 20px;
 }
 
-.co{
+.po{
 	padding: 10px;
 }
 
-.col{
+.pol{
 	display: inline-block;
 	width: 100px;
 	text-align: right;
@@ -185,49 +190,34 @@
 
 /* 상품 등록 */
 
-.productUp{
-	text-align: center;
-}
-
-.upForm{
-	margin-top: 100px;
+#productUpForm{
 	width: 1024px;
-}
-
-#upMain{
-	margin-left: 200px;
-}
-
-.box{
-	padding: 10px;
-}
-
-.boxName{
-	display: inline-block;
-	width: 100px;
-	text-align: right;
-	margin: 0 100px;
-}
-
-.opt{
-	width: 70px;
-	height : 40px;
-	border-radius: 7px;
-	text-align: center;
-}
-
-
-
-
-#UpBtn{
 	float: left;
-	width: 1024px;
-	height: 100px;
-	margin-top : 65px;
-	margin-left: 450px;
+	margin-top: 100px;
 }
 
-#UpBtn .regis{
+#productUpImage{
+	float: left;
+	width: 350px;
+}
+
+.UpImg{
+	width: 350px;
+	height: 400px;
+	margin-top: 50px;
+}
+
+#productUp{
+	float: left;
+	width: 620px;
+}
+
+#proUpBtn{
+	margin-top: 100px;
+	margin-left: 100px;
+}
+
+#proUpBtn .productUpBtn{
 	font-size: 16px;
 	color : #064695;
 	padding : 6px 15px 6px 15px;
@@ -236,11 +226,19 @@
 	text-align: center;
 }
 
-#UpBtn .regis:hover{
+#proUpBtn .productUpBtn:hover{
     text-shadow: 0 0 0 #fefae9;
     background-color : #064695;
     color : #fefae9;
 }
+
+
+
+
+
+
+
+
 
 
 

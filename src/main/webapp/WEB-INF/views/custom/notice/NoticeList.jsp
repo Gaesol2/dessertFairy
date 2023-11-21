@@ -26,7 +26,7 @@
 				<c:when test="${fn:length(nList)>0}">
 					<c:forEach var="notice" items="${nList}" varStatus="i">
 						<tr>
-							<td class="nol1">${notice.rr}
+							<td class="nol1">${notice.n_rr}
 								<input type="hidden" value="${notice.n_no}">
 							</td>
 							<td class="nol2"><a href="/noticeDetail?n_no=${notice.n_no}">${notice.n_subject}</a></td>
