@@ -37,9 +37,16 @@
 	 </insert>
 	 
 	 <select id="getMember" parameterType="mdto" resultType="mdto">		<!-- 로그인 -->
-	     SELECT M_ID, M_NAME, M_ROLE, M_PASSWD
-				, M_EMAIL, M_PHONE, M_ZIPCODE, M_ADDRESS
-				, M_ADDRESS2, M_ROLE
+	     SELECT M_ID, 
+	     		M_NAME, 
+	     		M_ROLE, 
+	     		M_PASSWD, 
+	     		M_EMAIL, 
+	     		M_PHONE, 
+	     		M_ZIPCODE, 
+	     		M_ADDRESS,
+	     		M_ADDRESS2, 
+	     		M_ROLE
 	     FROM MEMBER
 	     WHERE M_ID = #{m_id} and M_PASSWD = #{m_passwd}
   </select>
@@ -90,10 +97,11 @@ WHERE M_ID = #{m_id}
 	<select id="getMembers" parameterType="mdto" resultType="mdto">	<!-- 전체 회원 리스트 -->
 		SELECT  M_ID,
 				M_NAME,
-				M_REGDATE,
+				TO_CHAR(M_REGDATE,'YYYY-MM-DD') AS M_REGDATE,
 				M_ROLE
 		FROM MEMBER
 		WHERE M_ROLE = 'mem'
+		ORDER BY M_REGDATE
 	</select>
 	
 	<select id="getMemberDetail" parameterType="string" resultType="mdto">
@@ -102,7 +110,7 @@ WHERE M_ID = #{m_id}
 				M_PASSWD,
 				M_EMAIL,
 				M_PHONE,
-				M_REGDATE,
+				TO_CHAR(M_REGDATE,'YYYY-MM-DD') AS M_REGDATE,
 				M_ZIPCODE,
 				M_ADDRESS,
 				M_ADDRESS2,

@@ -211,8 +211,13 @@
 /* admin list */
 
 #orders_head{
-	margin-top: 50px;
 	text-align: right;
+}
+
+.orderMain{
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
 }
 
 #orderList{
@@ -282,6 +287,24 @@
 	text-align: center;
 }
 
+#odmBtn{
+	margin-left: 920px;
+}
+
+#odmBtn .adminOrderBtn{
+	color : #064695;
+	padding : 5px 20px 5px 20px;
+	background-color : #fefae9;
+	border : solid 1px #064695;
+	text-align: center;
+}
+
+#odmBtn .adminOrderBtn:hover{
+    text-shadow: 0 0 0 #fefae9;
+    background-color : #064695;
+    color : #fefae9;
+}
+
 
 
 
@@ -334,27 +357,6 @@
 	padding: 0 10px;
 }
 
-.odl{
-	padding: 5px 30px;
-	border: solid 1px #eeeeee;
-	border-radius: 7px;
-	background-color: white;
-}
-
-.orderBtn{
-	padding : 10px 30px 10px 30px;
-	margin-top : 65px;
-	margin-left: 180px;
-	background-color : #fefae9;
-	border : solid 1px #064695;
-}
-
-.orderBtn:hover{
-    text-shadow: 0 0 0 #fefae9;
-    background-color : #064695;
-    color : #fefae9;
-}
-
 #state{
 	border-radius: 7px;
 	border: solid 1px #eeeeee;
@@ -364,7 +366,25 @@
 	padding: 0 10px;
 }
 
+#odBtn{
+	margin-top: 50px;
+	margin-left: 150px;
+}
 
+#odBtn .adminDetailBtn{
+	font-size: 16px;
+	color : #064695;
+	padding : 10px 50px 10px 50px;
+	background-color : #fefae9;
+	border : solid 1px #064695;
+	text-align: center;
+}
+
+#odBtn .adminDetailBtn:hover{
+    text-shadow: 0 0 0 #fefae9;
+    background-color : #064695;
+    color : #fefae9;
+}
 
 
 

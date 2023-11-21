@@ -9,7 +9,6 @@
 <link rel="stylesheet" type="text/css" href="/css/Review.css">
 <script src="/script/Review.js"></script>
 <div id="review">
-	<%-- <h2>${reviews.m_id}님의 전체 게시글 수 : 전체 게시글 수 : ${reviewTot}</h2> --%>
 	<table class="listTable">
 	    <tr>
 	       <th>글번호</th>
@@ -25,8 +24,8 @@
 	       <th>아이디</th>
 	    </tr>
       	<c:choose>
-        	<c:when test="${reviewTot>0}"> 
-        		<c:forEach var="reviews" items="${reviews}"> 
+        	<c:when test="${myList>0}"> 
+        		<c:forEach var="reviews" items="${myList}"> 
 		             <tr>
 		                <td class="col2"><a href="/myContent?r_no=${reviews.r_no}">${reviews.r_subject}</a>
 		                <td class="col1">${reviews.r_subject}</td>
@@ -43,7 +42,7 @@
         		</c:forEach>
         	</c:when>
         	
-	        <c:when test="${reviewTot==0}">
+	        <c:when test="${myList==0}">
 	           <tr style="text-align: center;" height="30px;">
 	              <th colspan="5">등록된 후기가 없습니다.</th>
 	           </tr>
@@ -54,25 +53,25 @@
 	<table class="pageBtn">
 		<tr>
 			<td colspan="6" style="text-align: center;">
-				<c:if test="${pageDto.startPg>pBlock}">
-				  <a href="mylist?curPage=${pageDto.startPg-pBlock}&curBlock=${pageDto.curBlock-1}">[이전]</a>
+				<c:if test="${pdto.startPg>pBlock}">
+				  <a href="mReviewMgt?curPage=${pdto.startPg-pBlock}&curBlock=${pdto.curBlock-1}">[이전]</a>
 				</c:if>
 				    
-				<c:forEach begin="${pageDto.startPg}" end="${pageDto.endPg}" var="p" step="1">
-				  <a href="mylist?curPage=${p}&curBlock=${pageDto.curBlock}">
+				<c:forEach begin="${pdto.startPg}" end="${pdto.endPg}" var="p" step="1">
+				  <a href="mReviewMgt?curPage=${p}&curBlock=${pdto.curBlock}">
 				    <span><c:out value="${p}" /></span>
 				  </a>&nbsp;&nbsp;
 				</c:forEach>
 			
-				<c:if test="${pageDto.endPg<pageDto.pgCnt}">
-				  <a href="mylist?curPage=${pageDto.startPg+pBlock}&curBlock=${pageDto.curBlock+1}">[다음]</a>
+				<c:if test="${pdto.endPg<pdto.pgCnt}">
+				  <a href="mReviewMgt?curPage=${pdto.startPg+pBlock}&curBlock=${pdto.curBlock+1}">[다음]</a>
 				</c:if>
 			</td>
 		</tr>
 	 </table>
 	<form action="" name="content" method="post">
 		<input type="hidden" name="bno" value="">
-		<input type="hidden" name="curPage" value="${pageDto.curPage}">
-		<input type="hidden" name="curBlock" value="${pageDto.curBlock}">
+		<input type="hidden" name="curPage" value="${pdto.curPage}">
+		<input type="hidden" name="curBlock" value="${pdto.curBlock}">
 	</form>
 </div>
