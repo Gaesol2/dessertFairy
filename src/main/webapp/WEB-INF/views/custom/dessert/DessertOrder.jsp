@@ -49,12 +49,17 @@
   <div class="productlist">
    <table>
       <tr>
-         <c:forEach var="d" items="${dessert}">
-            <a class="abox" href="/dessertContent?d_no=${d.d_no}">
+         <c:forEach var="dessert" items="${dessert}" varStatus="status">
+            <a class="abox" href="/dessertContent?d_no=${dessert.d_no}">
                <div class="box">
-                  <img src="/upload/${d.d_image}">
-                  <p class="p_name">${d.d_name}</p>
-                  <p class="p_price price">${d.d_price }</p>
+        			<c:forEach var="sale" items="${maxSale}">
+               	  		<c:if test="${dessert.d_no == sale }">
+		               	  	<img src="image/Hot.png" class="hot">
+		           	    </c:if>
+        			</c:forEach>
+                  <img src="/upload/${dessert.d_image}" class="abox_img">
+                  <p class="p_name">${dessert.d_name}</p>
+                  <p class="p_price price">${dessert.d_price }</p>
                </div>
             </a>
          </c:forEach>

@@ -37,28 +37,37 @@
 	         <th class="con4">작성일</th>
 	      </tr>
 
- 	      
- 	         <c:forEach var="contact" items="${myContact}" varStatus="status">
-			    <tr style="text-align:center;">
-			        <td><c:out value="${contact.t_no}"/></td> 
-			        <td>    
-			        <c:if test="${contact.t_secret eq 'N'}" >
-			            <img src="${pageContext.request.contextPath}/image/secret.png" class="secretImg" width="20" height="20" alt="비밀글" />
-			            <c:choose>
-			                <c:when test="${ssKey.m_id == contact.m_id}">
-			                    <a href="/myContactContent?t_no=${contact.t_no}">${contact.t_subject}</a>
-			                </c:when>
-			                <c:otherwise>비밀글은 작성자와 관리자만 볼 수 있습니다.</c:otherwise>
-			            </c:choose>
-			        </c:if>
-			        <c:if test="${contact.t_secret eq 'Y'}" >
-			            <a href="/myContactContent?t_no=${contact.t_no}">${contact.t_subject}</a>
-			        </c:if>
-			        </td>
-			        <td><c:out value="${contact.m_id}"/></td>            
-			        <td><c:out value="${contact.t_regdate}"/></td>
-			    </tr>
-			</c:forEach>
+			
+			<c:choose>
+				<c:when test="${fn:length(nList)>=0}">
+					<c:forEach var="contact" items="${myContact}" varStatus="status">
+					    <tr style="text-align:center;">
+					        <td><c:out value="${contact.t_no}"/></td> 
+					        <td>    
+					        <c:if test="${contact.t_secret eq 'N'}" >
+					            <img src="${pageContext.request.contextPath}/image/secret.png" class="secretImg" width="20" height="20" alt="비밀글" />
+					            <c:choose>
+					                <c:when test="${ssKey.m_id == contact.m_id}">
+					                    <a href="/myContactContent?t_no=${contact.t_no}">${contact.t_subject}</a>
+					                </c:when>
+					                <c:otherwise>비밀글은 작성자와 관리자만 볼 수 있습니다.</c:otherwise>
+					            </c:choose>
+					        </c:if>
+					        <c:if test="${contact.t_secret eq 'Y'}" >
+					            <a href="/myContactContent?t_no=${contact.t_no}">${contact.t_subject}</a>
+					        </c:if>
+					        </td>
+					        <td><c:out value="${contact.m_id}"/></td>            
+					        <td><c:out value="${contact.t_regdate}"/></td>
+					    </tr>
+					</c:forEach>
+				</c:when>
+				<c:when test="${fn:length(nList)==0}">
+					<tr class="notList">
+						<th colspan="6">등록된 글이없습니다.</th>
+					</tr>
+				</c:when>
+			</c:choose>
 			
 			
 			

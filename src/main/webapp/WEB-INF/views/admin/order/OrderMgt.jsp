@@ -10,10 +10,16 @@
 <script src="/script/Order.js"></script>
 
 <div id = "order">
-	<div id = "orders_head">
-		<p>총 주문 내역 : ${oCnt} 건</p>
+	<div class="mainlist">
+	    <p class="introduction">주문관리</p>
 	</div>
-	<div id="orderList">
+	<div class="topList">
+      <ul class="list">
+        <li>총 주문 내역 : ${oCnt} 건</li>
+      </ul>
+    </div>
+	
+	<div id="adminOrderList">
 		<table class="listTable">
 			<tr>
 				<th>선택</th>
@@ -54,52 +60,54 @@
 									<option value="5">구매확정</option>
 								</select>
 								<script type="text/javascript">
-					               $(function(){
-					            	   //배송관련 상태
-					            	   $("#state"+'${i.count}').val('${order.o_state}')
-					               })
-				              	</script>
+								$(function(){
+									 //배송관련 상태
+									 $("#state"+'${i.count}').val('${order.o_state}')
+								})
+								</script>
 							</td>
 						</tr>
 					</c:forEach>
 				</c:when>
-				
+			
 				<c:when test="${fn:length(adminOrderList)==0}">
-					<tr><th>주문내역이 없습니다.</th></tr>
+					<tr class="notList">
+						<th>주문내역이 없습니다.</th>
+					</tr>
 				</c:when>
 			</c:choose>
 		</table>
 		<table class="pageBtn">
-		   <tr>
-			    <td colspan="6" style="text-align: center;">
-			      <c:if test="${pageDto.startPg>pBlock}">
-			        <a href="orderMgt?curPage=${pageDto.startPg-pBlock}&curBlock=${pageDto.curBlock-1}">[이전]</a>
-			      </c:if>
-			      <c:forEach begin="${pageDto.startPg}" end="${pageDto.endPg}" var="p" step="1">
-			        <a href="orderMgt?curPage=${p}&curBlock=${pageDto.curBlock}">
-			          <span><c:out value="${p}" /></span>
-			        </a>&nbsp;&nbsp;
-			      </c:forEach>
-			        <c:if test="${pageDto.endPg<pageDto.pgCnt}">
-			          <a href="orderMgtt?curPage=${pageDto.startPg+pBlock}&curBlock=${pageDto.curBlock+1}">[다음]</a>
-			        </c:if>
-			    </td>
-		    </tr>
-	   </table>
-	   <div>
-			<input type="button" class="stateUpBtn" value="상태수정">
-	   </div>
+			<tr>
+				<td colspan="6" style="text-align: center;">
+					<c:if test="${pdto.startPg>pBlock}">
+						<a href="orderMgt?curPage=${pdto.startPg-pBlock}&curBlock=${pdto.curBlock-1}">[이전]</a>
+					</c:if>
+					<c:forEach begin="${pdto.startPg}" end="${pdto.endPg}" var="p" step="1">
+						<a href="orderMgt?curPage=${p}&curBlock=${pdto.curBlock}">
+							<span><c:out value="${p}" /></span>
+						</a>&nbsp;&nbsp;
+					</c:forEach>
+					<c:if test="${pdto.endPg<pdto.pgCnt}">
+						<a href="orderMgt?curPage=${pdto.startPg+pBlock}&curBlock=${pdto.curBlock+1}">[다음]</a>
+					</c:if>
+				</td>
+			</tr>
+		</table>
+		<div id="odmBtn">
+			<input type="button" class="stateUpBtn adminOrderBtn" value="상태수정">
+		</div>
 	</div>
-<form action="" name="content" method="post">
+	<form action="" name="content" method="post">
 		<input type="hidden" name="bno" value="">
 		<input type="hidden" name="curPage" value="${pageDto.curPage}">
 		<input type="hidden" name="curBlock" value="${pageDto.curBlock}">
-</form>
-<form action="orderDetail" method="post" name="orDetailForm">
-	<input type="hidden" name="d_no" value="${order.d_no}">
-    <input type="hidden" name="o_no" value="${order.o_no}">
-	<input type="hidden" name="m_id" value="${order.m_id}">
-</form>
-
+	</form>
+	<form action="orderDetail" method="post" name="orDetailForm">
+		<input type="hidden" name="d_no" value="${order.d_no}">
+		<input type="hidden" name="o_no" value="${order.o_no}">
+		<input type="hidden" name="m_id" value="${order.m_id}">
+	</form>
+	
 </div>
 <form action="/orderMgt"></form>

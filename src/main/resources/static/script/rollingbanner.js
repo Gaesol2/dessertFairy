@@ -51,5 +51,9 @@
 		    var posTop =(page-1) * 800;
 		    mHtml.animate({scrollTop : posTop});
 		})
+		
+		$(".upCircle").on("click",function(){
+			page = 1;
+		})
 	
 	}); 

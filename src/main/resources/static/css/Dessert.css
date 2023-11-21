@@ -60,12 +60,21 @@ a:hover{color: #13018d; text-decoration: none;}
 
 #dessert .abox .box{
 	text-align: center;
+	position: relative;
 }
 
-#dessert .abox .box img{
+#dessert .abox .box .abox_img{
 	margin-top:8px;
 	width: 240px;
 	height: 240px;
+}
+
+#dessert .abox .box .hot {
+	width: 100px;
+	height: 100px;
+	position:absolute;
+	left:0px;
+	top:0px;
 }
 
 #dessert .abox .box .p_name{
@@ -86,6 +95,13 @@ a:hover{color: #13018d; text-decoration: none;}
 
 
 
+
+
+
+
+/* dessert content */
+
+
 #dessertContent {
 	margin : 0 auto;
 	width : 1024px;
@@ -95,23 +111,38 @@ a:hover{color: #13018d; text-decoration: none;}
 #dessertContent #dessertImg {
 	float: left;
 	width: 512px;
+	margin-top: 70px;
+	margin-left: 20px;
 }
 
 #dessertContent #dessertTxt {
 	float: left;
-	width: 512px;
+	width: 412px;
 }
 
-#dessertContent #dessertTxt .category {
+#dessertTxt{
+	margin-left: 30px;
+}
+
+
+#dessertTxt .dessertTap .category{
 	font-size: 16px;
-	font-weight: bold;
+	font-weight : bold;
+	color: #80471C;
 }
 
-#dessertContent #dessertTxt .title {
-	font-size: 30px;
-	font-weight: bold;
-	margin-top: 20px;
-	color: #042958;
+#dessertTxt .dessertTap .dessertname{
+	font-size: 32px;
+	font-weight : bold;
+	color: #80471C;
+}
+
+#dessertTxt .dessertTap .namedetail{
+	font-size : 13px;
+	font-weight : bold;
+	width : 390px;
+	padding-bottom : 15px;
+	color: #a2a2a2;
 }
 
 #dessertContent #dessertTxt .line {
@@ -125,18 +156,21 @@ a:hover{color: #13018d; text-decoration: none;}
 	color: #042958;
 }
 
-#dessertContent #dessertTxt #btn_cart, #btn_order {
-	display: none;
-}
 
 #dessertContent #dessertTxt .btn_cart, .btn_order {
-	margin: 10px;
-	font-size: 26px;
-	border: 1px solid #fef5d4;
-	background-color: #fef5d4;
+	margin-top : 15px;
+	width: 200px;
+	height: 60px;
+	float: left;
+	border : solid 1px #ECE4D3;
+	background-color: #F5ECDC;
+	font-size: 18px;
 	cursor: pointer;
 	
 }
 
+.dessertMain dt, .dessertMain dd{
+	padding: 3px;
+}
 
 

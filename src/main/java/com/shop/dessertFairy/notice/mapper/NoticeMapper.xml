@@ -7,7 +7,7 @@
 		</select>
 		<select id="getNoticies" resultType="ndto" parameterType="ndto">
 			SELECT * FROM
-			(SELECT ROWNUM AS RR, A.*
+			(SELECT ROWNUM AS N_RR, A.*
 			FROM
 			(SELECT
 				N_NO, N_SUBJECT, N_CONTENT, N_READCOUNT,
@@ -17,9 +17,9 @@
 				<if test="n_no!=0">
 					AND N_NO = #{n_no}
 				</if>
-				ORDER BY N_NO DESC) A)
+				ORDER BY N_NO) A)
 				<if test="start!=0 and end!=0">
-				WHERE RR BETWEEN #{start} and #{end}
+				WHERE N_RR BETWEEN #{start} and #{end}
 				</if>
 		</select>
 		<insert id="generateNotice" parameterType="ndto">

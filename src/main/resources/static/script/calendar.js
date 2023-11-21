@@ -1,11 +1,79 @@
 /**
  * 
  */
- 		// 웹 페이지가 로드되면 buildCalendar 실행
- 		window.onload = function () {
-			buildCalendar();
- 			$("input[name=month]").val(nowMonth.getMonth()+1);
- 		 }    
+	// 웹 페이지가 로드되면 buildCalendar 실행
+$().ready(function(){
+	// 캘린더 띄우기
+	buildCalendar();
+	
+	//파일 업로드 옆에 글씨 띄우기
+	$("#file").on("change",function(){
+		let arr_fileName = $("input[name='image']").val().split("\\");
+		let length_fileName = arr_fileName.length;
+		let fileName = arr_fileName[length_fileName-1];
+		$("font[class='file_name']").text(fileName);
+	})
+	
+	//케이크 상세 요구사항 입력 창 띄우기
+	$("#detail").on("click", function(){
+		openWin = window.open("/cakeRequest","CakeRequest",
+		"width=600, height=300, toolbar=no, location=no, menubar=no, resizable=no, scrollbars=no")
+	})
+	
+	//네이버 지도
+	var mapOptions = {
+    center: new naver.maps.LatLng(37.4310405, 127.1286330),
+    zoom: 16
+}
+
+	//네이버 지도 객체 생성
+	var map = new naver.maps.Map('map', {
+	    center: new naver.maps.LatLng(37.4310405, 127.1286330),
+	    zoom: 16
+	});
+	
+	//네이버 지도 마커 설정
+	var marker = new naver.maps.Marker({
+	    position: new naver.maps.LatLng(37.4310405, 127.1286330),
+    	map: map
+	});
+
+	//마커에 설명 추가
+	var HOME_PATH = window.HOME_PATH || '.';
+
+	var dessertFairy = new naver.maps.LatLng(37.4310405, 127.1286330),
+	    map = new naver.maps.Map('map', {
+	        center: new naver.maps.LatLng(37.4310405, 127.1286330),
+	        zoom: 16
+	    }),
+	    marker = new naver.maps.Marker({
+	        map: map,
+	        position: dessertFairy
+	    });
+	
+	var contentString = [
+	        '<div class="iw_inner">',
+	        '   <p><strong>dessertFairy</strong></p>',
+	        '   <p>경기도 성남시 성남대로 1133 <br/>',
+	        '   </p>',
+	        '</div>'
+	    ].join('');
+	
+	var infowindow = new naver.maps.InfoWindow({
+	    content: contentString
+	});
+	
+	naver.maps.Event.addListener(marker, "click", function(e) {
+	    if (infowindow.getMap()) {
+	        infowindow.close();
+	    } else {
+	        infowindow.open(map, marker);
+	    }
+	});
+	
+	infowindow.open(map, marker);
+
+})   // ready end
 
         let nowMonth = new Date();  // 현재 달을 페이지를 로드한 날의 달로 초기화
         let today = new Date();     // 페이지를 로드한 날짜를 저장
@@ -56,6 +124,8 @@
                     newDIV.onclick = function () { choiceDate(this); }
                 }
             }
+            $("input[name='c_month']").val(nowMonth.getMonth()+1);   // 월 자동 표시
+            $("input[name='c_day']").val($(".today").text());   // 일 자동 표시
         }
 
         // 날짜 선택
@@ -65,7 +135,7 @@
             }
             
             newDIV.classList.add("choiceDay");           // 선택된 날짜에 "choiceDay" class 추가
- 			$("input[name=day]").val($(".choiceDay").text());
+ 			$("input[name='c_day']").val($(".choiceDay").text());
         }
 
         // 이전달 버튼 클릭
@@ -89,6 +159,30 @@
         }
         
         function inputMonth(){
-			$("input[name=month]").val(nowMonth.getMonth()+1);
-			
+			$("input[name='c_month']").val(nowMonth.getMonth()+1);
 		}
+		
+		function inputNextDay(){
+			$("input[name='c_day']").val(firstDate);   // 일 자동 표시
+		}
+
+		function inputPrevDay(){
+			$("input[name='c_day']").val(lastDate);   // 일 자동 표시
+		}
+		
+		//케이크 요구사항
+		function setCakeText(){
+		 let text = $('#cakeRequest textarea').val(); //popup에서 받은 textarea
+		 if(text==null || text.length==0){
+			 alert('내용을 입력하세요');
+			$('#cakeRequest textarea').focus();
+			 return false;
+		 } else{
+			$("input[name='c_request']", opener.document).val(text);
+			$(".detail_name", opener.document).text(text);
+			this.window.close();
+		 }
+		
+		//파일 업로드 옆에 글씨 띄우기
+	}
+	 

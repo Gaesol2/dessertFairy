@@ -10,7 +10,7 @@ public class NoticeDTO {
 	
 	private int start;
 	private int end;
-	private int rr;
+	private int n_rr;
 	private int n_no;
 	private String n_subject;
 	private String n_content;

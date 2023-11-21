@@ -41,8 +41,13 @@ public class DessertServiceImpl implements DessertService {
       //전체 상품 개수 반환해주는 로직
       int dessertCnt = dessertDao.getDessertCnt();
       
+      //잘 팔리는 상품 BEST 3 반환해주는 로직
+      List<Integer> maxSale = new ArrayList<>();
+      maxSale = dessertDao.maxSale();
+      
       resultSet.put("dessert", dessert);
       resultSet.put("endBox", dessertCnt);
+      resultSet.put("maxSale", maxSale);
       
       return resultSet;
    }
@@ -163,7 +168,6 @@ public class DessertServiceImpl implements DessertService {
       }
       
       return dessertDao.updateStocks(list);
-      
    }
 
 	@Override

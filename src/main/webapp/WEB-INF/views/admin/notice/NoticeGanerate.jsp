@@ -1,59 +1,52 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+    
 <meta charset="UTF-8">
-<link type="text/css" rel="stylesheet" href="/css/notice.css">
+<link type="text/css" rel="stylesheet" href="/css/Notice.css">
 <script src="/script/Notice.js"></script>
-<script src="/jquery/jquery-3.7.0.min.js"></script>
-  <div id="nganerate">
-    <form action="/noticeProc" name="topForm" method="post">
-       <table>
-       <thead>
-          <tr>
-             <th colspan="3">공지사항등록</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr>
-               <td class="cl1">제목</td>
-               <td class="cl2">
-               <input type="text" name="n_subject" class="chk" title="제목"
-                   placeholder="제목을 입력하시오">
-               </td>
-               <td class="cl3">제목을 입력하시오.</td>
-            </tr>
-            <tr>
-               <td class="cl1">작성자</td>
-               <td class="cl2">
-               <input type="text" name="n_writer" class="chk" title="작성자" value="${ssKey.m_name}"
-                   placeholder="작성자 이름을 입력하시오.">
-               </td>
-               <td class="cl3">작성자 이름을 입력하시오.</td>
-            </tr>
-            <tr>
-	            <td class="cl1">내용</td>
-	            <td class="cl2">
-	            <textarea class="chk" style="resize: none;" rows="10" cols="60" title="공지사항 내용" name="n_content" ></textarea>
-               </td>
-               <td class="cl3">내용을 입력하시오</td>
-            </tr>
-            <tr>
-               <td class="cl1">공지종료</td>
-               <td class="cl2">
-               <input type="date"  name="n_vdate" class="chk" title="종료일">  
-               </td>
-               <td class="cl3">공지사항 종료일을 선택하시오</td>
-              </tr>
-            </tbody>
-           <tfoot>
-           <tr>
-              <td colspan="3">
-                 <button class="noticeBtn" type="button">공지사항 등록</button>
-                 <button type="button" onclick="location.href='notice'">공지사항 목록</button>
-              </td>
-           </tr>
-        </tfoot>
-       </table>
-       <input type="hidden" name="flag" value="insert">
-    </form>
-  </div>
+
+<div id="notice">
+	<form action="/noticeProc" name="topForm" method="post" class="ganerateForm">
+		<div>
+			<p class="noList">공지사항등록</p>  
+		</div>
+		<div id="ganerateList">
+			<table class="ganerate">
+				<tbody>
+					<tr class="nl">
+						<td class="nl1">제목</td>
+						<td class="nl2">
+							<input type="text" name="n_subject" class="chk in" title="제목" size="52">
+						</td>
+					</tr>
+					<tr class="nl">
+						<td class="nl1">작성자</td>
+						<td class="nl2">
+							<input type="text" name="n_writer" readonly="readonly" class="chk in" title="작성자" value="${ssKey.m_name}" size="3">
+						</td>
+					</tr>
+					<tr class="nl">
+						<td class="nl1">내용</td>
+						<td class="nl2">
+							<textarea class="chk" title="공지사항 내용" name="n_content" ></textarea>
+						</td>
+					</tr>
+					<tr class="nl">
+						<td class="nl1">공지종료</td>
+						<td class="nl2">
+							<input type="date"  name="n_vdate" class="chk in" title="종료일">  
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<div class="line"></div>
+			
+			<div id="noticeBtnBox">
+				<button class="noticeBtn" type="button">공지사항 등록</button>
+				<button class="ganerateBtn" type="button" onclick="location.href='notice'">공지사항 목록</button>
+			</div>
+		</div>
+		<input type="hidden" name="flag" value="insert">
+	</form>
+</div>

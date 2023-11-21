@@ -37,7 +37,13 @@
 	text-align: center;
 }
 
+.notList{
+	text-align: center;
+}
 
+.notList th{
+	padding: 20px 0;
+}
 
 
 /* review List */
@@ -541,8 +547,16 @@
 
 
 
+/* mem review List */
 
+.memMainList{
+	width: 1024px;
+}
 
-
+.memReviewName{
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold; 
+}
 
 

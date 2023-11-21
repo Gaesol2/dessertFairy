@@ -64,7 +64,8 @@
 		   <c:choose>
 			   	<c:when test="${ssKey!=null}">
 			      <ul>
-			         <li>${ssKey.m_name}님</li>
+			         <li class="name">${ssKey.m_name}</li>
+			         <li class="nim">님</li>
 			         <li><a href="/logoutProc">로그아웃</a></li>
 			      </ul>
 			   	</c:when>

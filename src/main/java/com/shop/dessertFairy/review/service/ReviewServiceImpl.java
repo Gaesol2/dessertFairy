@@ -252,41 +252,52 @@ public class ReviewServiceImpl implements ReviewService {
 
 
 	@Override
-	public Map<String, Object> getMemberReview(ReviewDTO rdto, PageDTO pdto) {
-		int cnt = reviewDao.getReviewCnt();
-		Map<String, Object> resultSet = new HashMap<String, Object>(); 
-		if(pdto.getCurBlock()<=0) pdto.setCurBlock(1);
-		if(pdto.getCurPage()<=0) pdto.setCurPage(1);
+	public Map<String, Object> getMemList(ReviewDTO rdto, PageDTO pageDto) {
+		//결과를 반환할 HashMap 선언
+		Map<String, Object> reSet = new HashMap<String, Object>();
 		
-		int start = (pdto.getCurPage()-1)*RowInterPage.ROW_OF_PAGE +1;
-		int end = (pdto.getCurPage()*RowInterPage.ROW_OF_PAGE)>cnt?
-				   cnt:pdto.getCurPage()*RowInterPage.ROW_OF_PAGE;
+		
+		//페이지 계산
+		if(pageDto.getCurBlock()<=0) pageDto.setCurBlock(1);
+		if(pageDto.getCurPage()<=0) pageDto.setCurPage(1);
+		
+		
+		
+		List<ReviewDTO> memList = null;
+		int cnt = 0;
+		if(rdto.getR_no()>0) {
+			reviewDao.updateReadCnt(rdto);
+		}
+			cnt = reviewDao.getReviewCnt();
+		//현재 페이지 계산
+		int start = (pageDto.getCurPage()-1)*RowInterPage.ROW_OF_PAGE +1;
+		int end = (pageDto.getCurPage()*RowInterPage.ROW_OF_PAGE)>cnt?
+				cnt:pageDto.getCurPage()*RowInterPage.ROW_OF_PAGE;
 		rdto.setStart(start);
 		rdto.setEnd(end);
-		   
-		   int pgCnt = (cnt%RowInterPage.ROW_OF_PAGE==0)?
-				   cnt/RowInterPage.ROW_OF_PAGE:
-					   cnt/RowInterPage.ROW_OF_PAGE+1;
-		   
-		   //페이지 블럭
-		   int pgBlock = (pgCnt%RowInterPage.PAGE_OF_BLOCK==0)?
-				   pgCnt/RowInterPage.PAGE_OF_BLOCK:pgCnt/RowInterPage.PAGE_OF_BLOCK+1;
-		   int startPg = (pdto.getCurBlock()-1)*RowInterPage.PAGE_OF_BLOCK+1;
-		   int endPg = (pdto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK>pgCnt)?
-				   pgCnt:pdto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK;
-		   
-		   pdto.setPgCnt(pgCnt);
-		   pdto.setPgBlock(pgBlock);
-		   pdto.setStartPg(startPg);
-		   pdto.setEndPg(endPg);
-//		int reviewTot = reviewDao.reviewTot(m_id); 
-			List<MemberDTO> myList = reviewDao.getreviews(rdto); 
-//			resultSet.put("reviewTot", reviewTot);
-			resultSet.put("myList", myList); 
-			resultSet.put("pdto", pdto); 
-			resultSet.put("cnt", cnt);
-	 
-		return resultSet;
+		
+		int pgCnt = (cnt%RowInterPage.ROW_OF_PAGE==0)?
+				     cnt/RowInterPage.ROW_OF_PAGE:
+				     cnt/RowInterPage.ROW_OF_PAGE+1;
+		
+		//페이지 블럭
+		int pgBlock = (pgCnt%RowInterPage.PAGE_OF_BLOCK==0)?
+				pgCnt/RowInterPage.PAGE_OF_BLOCK:pgCnt/RowInterPage.PAGE_OF_BLOCK+1;
+		int startPg = (pageDto.getCurBlock()-1)*RowInterPage.PAGE_OF_BLOCK+1;
+		int endPg = (pageDto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK>pgCnt)?
+				pgCnt:pageDto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK;
+		
+		pageDto.setPgCnt(pgCnt);
+		pageDto.setPgBlock(pgBlock);
+		pageDto.setStartPg(startPg);
+		pageDto.setEndPg(endPg);
+		
+		memList = reviewDao.getMemList(rdto);
+		
+		reSet.put("pageDto", pageDto);
+		reSet.put("cnt", cnt);
+		reSet.put("memList", memList);
+		return reSet;
 	}
 
 

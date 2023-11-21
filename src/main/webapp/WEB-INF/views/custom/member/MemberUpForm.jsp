@@ -37,8 +37,8 @@
             <div class="col">
                <p class="col1">비밀번호</p>
                <span class="col2">
-                  <input type="password" class="in" name="m_passwd" value="${mdto.m_passwd}"size="30">
-                  <input type="button" value="비밀번호 변경">
+                  <input type="password" class="in" name="m_passwd" value="${mdto.m_passwd}" size="30" readonly="readonly">
+                  <input class="update_pw" type="button" value="비밀번호 변경">
                </span>
             </div>
             <div class="col">

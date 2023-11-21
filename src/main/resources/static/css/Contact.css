@@ -46,6 +46,14 @@
 	font-weight: bold;
 }
 
+.notList{
+	text-align: center;
+}
+
+.notList th{
+	padding-top: 20px;
+}
+
 
 /* 문의 목록*/
 

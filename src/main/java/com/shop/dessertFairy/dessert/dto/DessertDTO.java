@@ -21,6 +21,7 @@ public class DessertDTO {
 	private String d_life    ;
 	private String d_storage ;
 	private String d_allergy ;
+	private int d_sale;
 	
 	private String keyword; // 검색 키워드
 }

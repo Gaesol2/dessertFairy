@@ -48,9 +48,9 @@ public interface ReviewDAO {
 
 	int replydelProc(ReviewDTO rdto);
 
-	int reviewTot(String m_id);							//admin 해당 회원의 전체 리뷰 수
+	List<ReviewDTO> getMemList(ReviewDTO rdto);
 
-	List<MemberDTO> getreviews(ReviewDTO rdto);	// admin해당 회원의 리뷰 목록
+
 
 
 

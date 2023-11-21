@@ -37,6 +37,14 @@
 	text-align: center;
 }
 
+.notList{
+	text-align: center;
+}
+
+.notList th{
+	padding-top: 20px;
+}
+
 
 /* order List */
 
@@ -203,28 +211,33 @@
 /* admin list */
 
 #orders_head{
-	margin-top: 50px;
 	text-align: right;
 }
 
-#orderList{
-	margin-top: 40px;
+.orderMain{
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+#adminOrderList{
+	margin-top: 150px;
 	float: left;
 }
 
-#orderList .listTable{
+#adminOrderList .listTable{
 	width: 100%;
 	border-top : solid 2px black;
 	border-collapse: collapse;
 	
 }
 
-#orderList .listTable tr{
+#adminOrderList .listTable tr{
 	border-bottom: solid 1px black;
 	border-top: solid 1px black;
 }
 
-#orderList .listTable tr{
+#adminOrderList .listTable tr{
 	height: 45px;
 }
 
@@ -273,5 +286,113 @@
 	width: 120px;
 	text-align: center;
 }
+
+#odmBtn{
+	margin-left: 920px;
+}
+
+#odmBtn .adminOrderBtn{
+	color : #064695;
+	padding : 5px 20px 5px 20px;
+	background-color : #fefae9;
+	border : solid 1px #064695;
+	text-align: center;
+}
+
+#odmBtn .adminOrderBtn:hover{
+    text-shadow: 0 0 0 #fefae9;
+    background-color : #064695;
+    color : #fefae9;
+}
+
+
+
+
+
+/* admin detail */
+
+#adminOrderDetail{
+	height: 80px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.ordList{
+	height: 25px;
+	text-align: right;
+	border-bottom: solid 1px black;
+}
+
+.ordList:hover{
+	color: #064695;
+	font-weight: bold;
+}
+
+#adminOrderMain{
+	width : 600px;
+	margin-left: 280px;
+	margin-top: 50px;
+}
+
+.ol{
+	padding: 15px;
+	width: 600px;
+}
+
+.ol1{
+	width : 100px;
+	display: inline-block;
+	text-align: right;
+	margin: 0 50px;
+}
+
+	
+.ol2 .in{
+	border-radius: 7px;
+	border: solid 1px #eeeeee;
+	height: 40px;
+	box-sizing: border-box;
+	outline: none;
+	padding: 0 10px;
+}
+
+#state{
+	border-radius: 7px;
+	border: solid 1px #eeeeee;
+	height: 40px;
+	box-sizing: border-box;
+	outline: none;
+	padding: 0 10px;
+}
+
+#odBtn{
+	margin-top: 50px;
+	margin-left: 150px;
+}
+
+#odBtn .adminDetailBtn{
+	font-size: 16px;
+	color : #064695;
+	padding : 10px 50px 10px 50px;
+	background-color : #fefae9;
+	border : solid 1px #064695;
+	text-align: center;
+}
+
+#odBtn .adminDetailBtn:hover{
+    text-shadow: 0 0 0 #fefae9;
+    background-color : #064695;
+    color : #fefae9;
+}
+
+
+
+
+
+
+
+
+
 
 

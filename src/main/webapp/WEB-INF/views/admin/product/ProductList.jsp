@@ -2,20 +2,19 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>        
-<head>
+
 <meta charset="UTF-8">
-<title>상품 관리</title>
-</head>
 <link rel="stylesheet" type="text/css" href="/css/Product.css">
 <script src="/script/productmgt.js"></script>
+
 <div id="product">
 	<div class="mainlist">
 	    <p class="productName">상품등록</p>
 	</div>
 	<div class="total">
-      <ul class="list">
-        <li>총 상품수: ${pcnt} 가지</li>
-      </ul>
+		<ul class="list">
+			<li>총 상품수: ${pcnt} 가지</li>
+		</ul>
     </div>
 	<div id="productList">
 		<div id="productBtn">	
@@ -45,7 +44,7 @@
 				</c:when>
 				
 				<c:when test="${fn:length(pList)==0}">
-					<tr style="text-align:center;height: 30px;">
+					<tr class="notList">
 						<th colspan="5"> 등록된 상품이 없습니다.</th>
 					</tr>
 				</c:when>
@@ -75,10 +74,3 @@
 		</form>
 	</div>
 </div>
-
-
-
-
-
-
-

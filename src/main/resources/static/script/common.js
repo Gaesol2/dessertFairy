@@ -25,11 +25,6 @@ $().ready(function(){
    $(".upBtn").click(function(){
         $("#searchBox").slideUp(1000)
     });
-    
-    
-	
-	
-    
 
 	//close라는 쿠키가 있으면 팝업창 none
    if(checkPopupCookie("close")){

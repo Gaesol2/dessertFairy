@@ -22,13 +22,15 @@ a:hover{color: #13018d; text-decoration: none;}
 }
 
 #mainmenu{
-	width: 50%;
+	width: 480px;
 	height: 70px;
 	float: left;
 	line-height: 70px;
 	text-align: center;
 	font-weight: bold;
 	font-size: 16px;
+	margin-left: 20px;
+	margin-top: 3px;
 } 
 
 
@@ -39,7 +41,7 @@ a:hover{color: #13018d; text-decoration: none;}
 }
 
 #mainmenu li {
-	width: 25%;
+	width: 120px;
 	font-size: 14px;
 	font-weight: bold;
 }
@@ -50,12 +52,11 @@ a:hover{color: #13018d; text-decoration: none;}
 }
 
 #topmenu{
-	width: 200px;
-	height: 70px;
+	width: 240px;
 	float: left;
-	line-height: 70px;
 	text-align: center;
-	margin-left: 50px;
+	margin-left: 10px;
+	margin-top: 27px;
 }
 
 #topmenu ul{
@@ -63,8 +64,19 @@ a:hover{color: #13018d; text-decoration: none;}
 }
 
 #topmenu li {
-	width: 50px;
-	font-size: 12px;
+	width: 70px;
+	font-size: 12.5px;
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow : hidden;
+}
+
+#topmenu .name{
+	text-align: right;
+}
+
+#topmenu li.nim{
+	width: 13px;
 }
 
 .topSearchBtn img{
@@ -164,3 +176,4 @@ a:hover{color: #13018d; text-decoration: none;}
 	margin-top: 10px;
 	font-size: 14px;
 }
+

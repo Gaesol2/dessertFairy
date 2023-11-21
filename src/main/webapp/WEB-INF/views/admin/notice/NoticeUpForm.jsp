@@ -1,71 +1,54 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
+    
 <meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<link rel="stylesheet" type="text/css" href="/css/notice.css">
+<link type="text/css" rel="stylesheet" href="/css/Notice.css">
 <script src="/script/Notice.js"></script>
-<script src="/jquery/jquery-3.7.0.min.js"></script>
-<body>
-<div id="nupform">
-	<form action="" name="topForm" method="post">
-		<table>
-			<thead>
-				<tr>
-					<th colspan="2">공지사항수정</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td class="cl1">공지사항번호</td>
-					<td class="cl2">
-						<input type="text" name="n_no" readonly="readonly" value="${notice.n_no}">
-					</td>
-				</tr>
-				<tr>
-					<td class="cl1">제목</td>
-					<td class="cl2">
-						<input type="text" name="n_subject" class="chk" title="공지사항제목" value="${notice.n_subject}">
-					</td>
-				</tr>
-				<tr>
-					<td class="cl1">작성자</td>
-					<td class="cl2">
-						<input type="text" name="n_writer" value="${notice.n_writer}">
-					</td>
-				</tr>
-				<tr>
-					<td class="cl1">내용</td>
-					<td class="cl2">
-						<textarea class="chk" title="공지사항내용" rows="10" cols="60" name="n_content" style="resize: none;">${notice.n_content}</textarea>
-					</td>
-				</tr>
-				<tr>
-					<td class="cl1">작성일자</td>
-					<td class="cl2">
-						<input type="text" name="n_regdate" disabled="disabled" value="${notice.n_regdate}">
-					</td>
-				</tr>
-				<tr>
-					<td class="cl1">공지종료</td>
-					<td class="cl2">
-						<input type="date" name="n_vdate" class="chk" title="공지종료일" value="${notice.n_vdate}">
-					</td>
-				</tr>
-			</tbody>
-			<tfoot>
-				<tr>
-					<td colspan="3">
-						<button type="button" class="submit">공지사항 수정</button>
-						<button type="button" onclick="location.href='notice'">공지사항 목록</button>
-					</td>
-				</tr>
-			</tfoot>
-		</table>
+
+<div id="notice">
+	<form action="" name="topForm" method="post" class="ganerateForm">
+	<input type="hidden" name="n_no" readonly="readonly" value="${notice.n_no}">
+		<div>
+			<p class="noList">공지사항수정</p>  
+		</div>
+		<div id="ganerateList">
+			<table class="ganerate">
+				<tbody>
+					
+					<tr class="nl">
+						<td class="nl1">제목</td>
+						<td class="nl2">
+							<input type="text" name="n_subject" class="chk in" title="제목" size="52" value="${notice.n_subject}">
+						</td>
+					</tr>
+					<tr class="nl">
+						<td class="nl1">작성자</td>
+						<td class="nl2">
+							<input type="text" name="n_writer" readonly="readonly" class="chk in" title="작성자" value="${notice.n_writer}" size="3">
+						</td>
+					</tr>
+					<tr class="nl">
+						<td class="nl1">내용</td>
+						<td class="nl2">
+							<textarea class="chk" title="공지사항 내용" name="n_content" >${notice.n_content}</textarea>
+						</td>
+					</tr>
+					<tr class="nl">
+						<td class="nl1">공지종료</td>
+						<td class="nl2">
+							<input type="date"  name="n_vdate" class="chk in" title="종료일" value="${notice.n_vdate}">  
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<div class="line"></div>
+			
+			<div id="noticeBtnBox">
+				<button type="button" class="submit">공지사항 수정</button>
+                <button type="button" onclick="location.href='notice'">공지사항 목록</button>
+			</div>
+		</div>
+		<input type="hidden" name="flag" value="insert">
 	</form>
 </div>
-</body>
-</html>
