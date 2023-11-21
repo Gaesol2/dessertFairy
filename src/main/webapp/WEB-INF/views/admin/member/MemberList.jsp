@@ -6,9 +6,14 @@
 <link type="text/css" rel="stylesheet" href="/css/Member.css">
 
 <div id="member">
-	<div id="memTot">
-		총 회원수 : &nbsp;${memberTot}
+	<div class="mainlist">
+	    <p class="introduction">고객관리</p>
 	</div>
+	<div class="topList">
+      <ul class="list">
+        <li>총 회원수 : &nbsp;${memberTot}</li>
+      </ul>
+    </div>
 	
 	<div id="mList">
 		<c:choose>
