@@ -40,7 +40,7 @@
 		</dl>
 		<span class="option">
 		 케이크 크기 :
-			<select name="c_size" onChange="cake_change()" onFocus="cake_focus()"> 
+			<select name="c_size" onChange="change()" onFocus="cake_focus()"> 
 			  <option value="도시락" >도시락 (-5000원)</option>
 			  <option value="미니">미니 (-3000원)</option>
 			  <option value="1호" selected>1호</option>
@@ -52,27 +52,27 @@
 		 빵시트 선택 :
 			<select name="c_sheet" title="빵시트" class="chk"> 
 			  <option value="none">선택</option>
-			  <option>바닐라</option>
-			  <option>초코 (+1000원)</option>
-			  <option>쿠앤크 (+1500원)</option>
+			  <option value="바닐라">바닐라</option>
+			  <option value="초코">초코 (+1000원)</option>
+			  <option value="쿠앤크">쿠앤크 (+1500원)</option>
 			</select>
 		</span>
 		<span class="option">
 		안크림 선택 :
 			<select name="c_incream" title="안크림" class="chk"> 
 			  <option value="none">선택</option>
-			  <option>생크림</option>
-			  <option>초코 (+1000원)</option>
-			  <option>크림치즈 (+1000원)</option>
-			  <option>쿠앤크 (+1500원)</option>
+			  <option value="바닐라">생크림</option>
+			  <option value="초코">초코 (+1000원)</option>
+			  <option value="크림치즈">크림치즈 (+1000원)</option>
+			  <option value="쿠앤크">쿠앤크 (+1500원)</option>
 			</select>
 		</span>
 		<span class="option">
 		밖크림 선택 :
 			<select name="c_outcream" title="밖크림" class="chk"> 
 			  <option value="none">선택</option>
-			  <option>바닐라</option>
-			  <option>초코 (+1000원)</option>
+			  <option value="바닐라">바닐라</option>
+			  <option value="초코">초코 (+1000원)</option>
 			</select>
 		</span>
 		<p class="letter">레터링 입력 : 
