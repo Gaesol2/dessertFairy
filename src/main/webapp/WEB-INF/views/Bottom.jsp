@@ -25,5 +25,5 @@
 		<img src="../image/blog.png" class="blog">
 		<img src="../image/youtube.png" class="youtube">
 	</div>	<!-- address3 end -->
-	<a class="upBtn" href="#">^</a>
+	<a class="upCircle" href="#">^</a>
 </div>	<!-- footer end -->
