@@ -9,7 +9,7 @@
 <div id="review">
 	<div class="memMainList">
 	
-		<p class="memReviewName">${reviews.m_name}님의 후기목록</p>
+		<p class="memReviewName">${rdto.m_id}님의 후기목록</p>
 		<input type="text" name="m_id" value="${member.m_id}">
 	</div>
 	<div id="myList">

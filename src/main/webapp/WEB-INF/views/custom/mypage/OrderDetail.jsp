@@ -63,7 +63,7 @@
 				</span>
 			</div>
 			<div class="ol">
-				<a href = "/orderList"><input type="button" value="주문목록으로" class="orderBtn"></a>
+				<a href = "/orderList?m_id=${odto.m_name}"><input type="button" value="주문목록으로" class="orderBtn"></a>
 			</div>
 		</div>
 	</div>

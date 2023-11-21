@@ -85,6 +85,7 @@ public class AdminMemberController {
 	public String mReviewMgt(	HttpServletRequest request,
 								HttpServletResponse response,
 								Model model,
+								MemberDTO mdto,
 								ReviewDTO rdto,
 								PageDTO pageDto) {
 		
@@ -98,8 +99,8 @@ public class AdminMemberController {
 	   //HttpSession 세션 객체 생성 및 세션 정보 받아오기
 	   HttpSession session = request.getSession();
 	   
-	   String m_id = request.getParameter("m_id");
-	   rdto.setM_id(m_id);
+	//   String m_id = request.getParameter("m_id");
+	 //  rdto.setM_id(m_id);
 	   
 	   //세션이 있으면 ReviewMyList 페이지로 보내고 없으면 로그인 창으로 보내기
 	   if(session.getAttribute("ssKey")!=null) {
@@ -130,6 +131,7 @@ public class AdminMemberController {
 	   //세션 저장
 	   session.setAttribute("ssKey", ssKey);
 	   //데이터 저장
+	   model.addAttribute("rdto", rdto);
 	   model.addAttribute("cnt", reSet.get("cnt"));
 	   model.addAttribute("memList", list);
 	   model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);

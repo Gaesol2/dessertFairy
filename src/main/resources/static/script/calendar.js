@@ -20,6 +20,43 @@ $().ready(function(){
 		"width=600, height=300, toolbar=no, location=no, menubar=no, resizable=no, scrollbars=no")
 	})
 	
+	//빈칸 체크
+	 $('.orderBtn').on('click',function(){
+			var flen = $("form[name=cakeOrder] .chk").length;
+		 	for(var i=0; i<flen; i++){
+			if($('.chk').eq(i).val()=="none"){
+			  alert($('.chk').eq(i).attr('title')+'를 선택하시오.');
+			  return false;
+			}
+		   }
+		    $("form[name=cakeOrder]").submit();
+		});
+	
+	
+		//total_
+		let total_price=21000;
+		
+	 $("select[name='c_size']").on("change",function(){
+		let price = $(".price").text().replace(",","");
+		let size = $("select[name='c_size'] > option:selected").val();
+
+		if(previous=="도시락") total_price+=5000;	
+		else if(previous=="미니") total_price+=3000;
+		else if(previous=="1호") total_price=total_price;
+		else if(previous=="2호") total_price-=6000;
+		else if(previous=="3호") total_price-=11000;
+		
+		if(size=="도시락") total_price-=5000;		
+		else if(size=="미니") total_price-=3000;
+		else if(size=="1호") total_price=total_price;
+		else if(size=="2호") total_price+=6000;
+		else if(size=="3호") total_price+=11000;
+		
+		alert(total_price);
+		$(".price").text(total_price);
+	})
+	
+	
 	//네이버 지도
 	var mapOptions = {
     center: new naver.maps.LatLng(37.4310405, 127.1286330),
@@ -141,12 +178,16 @@ $().ready(function(){
         // 이전달 버튼 클릭
         function prevCalendar() {
             nowMonth = new Date(nowMonth.getFullYear(), nowMonth.getMonth() - 1, nowMonth.getDate());   // 현재 달을 1 감소
+            let lastDate = new Date(nowMonth.getFullYear(), nowMonth.getMonth() + 1, 0).getDate();  // 이번달 마지막날
             buildCalendar();    // 달력 다시 생성
+            $(".day").val(lastDate);
         }
         // 다음달 버튼 클릭
         function nextCalendar() {
             nowMonth = new Date(nowMonth.getFullYear(), nowMonth.getMonth() + 1, nowMonth.getDate());   // 현재 달을 1 증가
+            let firstDate = new Date(nowMonth.getFullYear(), nowMonth.getMonth(), 1).getDate();     // 이번달 1일
             buildCalendar();    // 달력 다시 생성
+            $(".day").val(firstDate);   // 일 자동 표시
         }
 
         // input값이 한자리 숫자인 경우 앞에 '0' 붙혀주는 함수
@@ -159,15 +200,7 @@ $().ready(function(){
         }
         
         function inputMonth(){
-			$("input[name='c_month']").val(nowMonth.getMonth()+1);
-		}
-		
-		function inputNextDay(){
-			$("input[name='c_day']").val(firstDate);   // 일 자동 표시
-		}
-
-		function inputPrevDay(){
-			$("input[name='c_day']").val(lastDate);   // 일 자동 표시
+			$(".month").val(nowMonth.getMonth()+1);
 		}
 		
 		//케이크 요구사항
@@ -183,6 +216,15 @@ $().ready(function(){
 			this.window.close();
 		 }
 		
-		//파일 업로드 옆에 글씨 띄우기
 	}
+	
+	//ㄴ딛ㅊㅅ 선택 이전 값 불러오기
+	 let previous = '';
+	 function cake_change(){
+		  $("select").blur();
+  		  alert(previous);
+	 }
 	 
+	function cake_focus() {
+		previous = $("select").val();
+	}
