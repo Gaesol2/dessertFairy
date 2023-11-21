@@ -10,12 +10,12 @@
  		<table class="Calendar">
             <thead>
                 <tr class="day">
-                    <td class="pointer" onClick="prevCalendar(), inputMonth(), inputPrevDay();">&#60;</td>
+                    <td class="pointer" onClick="prevCalendar(), inputMonth();">&#60;</td>
                     <td colspan="5">
                         <span id="calYear"></span>년
                         <span id="calMonth"></span>월
                     </td>
-                    <td class="pointer" onClick="nextCalendar(), inputMonth(), inputNextDay();">&#62;</td>
+                    <td class="pointer" onClick="nextCalendar(), inputMonth();">&#62;</td>
                 </tr>
                 <tr class="day">
                     <td>일</td>
@@ -40,19 +40,18 @@
 		</dl>
 		<span class="option">
 		 케이크 크기 :
-			<select name="c_size"> 
-			  <option>선택</option>
-			  <option>도시락 (-5000원)</option>
-			  <option>미니 (-3000원)</option>
-			  <option selected>1호</option>
-			  <option>2호 (+6000원)</option>
-			  <option>3호 (+11000원)</option>
+			<select name="c_size" onChange="cake_change()" onFocus="cake_focus()" > 
+			  <option value="도시락" >도시락 (-5000원)</option>
+			  <option value="미니">미니 (-3000원)</option>
+			  <option value="1호" selected>1호</option>
+			  <option value="2호">2호 (+6000원)</option>
+			  <option value="3호">3호 (+11000원)</option>
 			</select>
 		</span>
 		<span class="option">
 		 빵시트 선택 :
-			<select name="c_sheet"> 
-			  <option>선택</option>
+			<select name="c_sheet" title="빵시트" class="chk"> 
+			  <option value="none">선택</option>
 			  <option>바닐라</option>
 			  <option>초코 (+1000원)</option>
 			  <option>쿠앤크 (+1500원)</option>
@@ -60,8 +59,8 @@
 		</span>
 		<span class="option">
 		안크림 선택 :
-			<select name="c_incream"> 
-			  <option>선택</option>
+			<select name="c_incream" title="안크림" class="chk"> 
+			  <option value="none">선택</option>
 			  <option>생크림</option>
 			  <option>초코 (+1000원)</option>
 			  <option>크림치즈 (+1000원)</option>
@@ -70,8 +69,8 @@
 		</span>
 		<span class="option">
 		밖크림 선택 :
-			<select name="c_outcream"> 
-			  <option>선택</option>
+			<select name="c_outcream" title="밖크림" class="chk"> 
+			  <option value="none">선택</option>
 			  <option>바닐라</option>
 			  <option>초코 (+1000원)</option>
 			</select>
@@ -85,8 +84,8 @@
 		</p>
 	    <span class="option">
 		픽업할 시간 : 
-	    	<select name="c_pickupdate">
-	    		<option>시간 선택</option>
+	    	<select name="c_pickupdate" title="픽업 시간" class="chk">
+	    		<option value="none">시간 선택</option>
 	    		<option>10:00-11:00</option>
 	    		<option>11:00-12:00</option>
 	    		<option>12:00-13:00</option>
@@ -110,7 +109,7 @@
 		</p>
 	<div id="cakePrice">
 		<p class="letter"> 금액 : 
-			<span class="price"></span>
+			<span class="price">21000</span>
 			<input type="hidden" name="c_price" readonly="readonly">
 		</p>
 	</div>
