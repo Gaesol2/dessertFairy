@@ -1,6 +1,5 @@
 package com.shop.dessertFairy.admin.web;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -86,38 +85,64 @@ public class AdminMemberController {
 	public String mReviewMgt(	HttpServletRequest request,
 								HttpServletResponse response,
 								Model model,
-								MemberDTO mdto,
 								ReviewDTO rdto,
-								PageDTO pdto) {
-		String page = null;
-		HttpSession session = request.getSession();			//현재 사용자의 세션을 받아옴
-		MemberDTO ssKey = (MemberDTO) session.getAttribute("ssKey");
-		if(ssKey != null && ssKey.getM_role().equals("admin")) {
-				Map<String, Object> myList = reviewService.getMemberReview(rdto, pdto);
-				List<ReviewDTO>list = (List<ReviewDTO>)myList.get("myList");
-				for(ReviewDTO rvdto : list) {
-					 String ratings = "";
-					  for(int i=0; i <rvdto.getR_star(); i++) {
-						   ratings += "★";
-					   }
-					   for(int i=0; i <5-rvdto.getR_star(); i++) {
-						    ratings += "☆";
-					   }
-					   rvdto.setRatings(ratings);
-				}
-				model.addAttribute("reviewTot", myList.get("reviewTot"));
-				model.addAttribute("myList", myList.get("myList"));
-				model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
-				model.addAttribute("pdto",pdto);
-				model.addAttribute("contentsJsp", "custom/review/MyList");
-				page = "Main";
-			}
-			else page = "redirect:/";
+								PageDTO pageDto) {
 		
-		session.setAttribute("ssKey", ssKey);
-
-		return page;
-	}
+	//변수 선언
+	   String page = null;
+	   String msg = null;
+	   String url = null;
+	   MemberDTO ssKey = null;
+	   String contentsJsp = "/admin/member/MemberReviewList";
+	   
+	   //HttpSession 세션 객체 생성 및 세션 정보 받아오기
+	   HttpSession session = request.getSession();
+	   
+	   String m_id = request.getParameter("m_id");
+	   rdto.setM_id(m_id);
+	   
+	   //세션이 있으면 ReviewMyList 페이지로 보내고 없으면 로그인 창으로 보내기
+	   if(session.getAttribute("ssKey")!=null) {
+		   ssKey = (MemberDTO) session.getAttribute("ssKey");
+		   page = "Main";
+		   url = "mReviewMgt";
+	   }
+	   else {
+		   msg = "로그인이 필요합니다.";
+		   page = "MsgPage";
+		   url = "login";
+	   }
+	   
+	   
+	   //리스트 목록과 페이지 수 계산한것을 불러온 것
+	   Map<String, Object> reSet = reviewService.getMemList(rdto, pageDto);
+	   List<ReviewDTO>list=(List<ReviewDTO>) reSet.get("memList");
+		for(ReviewDTO rvdto : list) {
+			 String ratings = "";
+			  for(int i=0; i <rvdto.getR_star(); i++) {
+				   ratings += "★";
+			   }
+			   for(int i=0; i <5-rvdto.getR_star(); i++) {
+				    ratings += "☆";
+			   }
+			   rvdto.setRatings(ratings);
+		}
+	   //세션 저장
+	   session.setAttribute("ssKey", ssKey);
+	   //데이터 저장
+	   model.addAttribute("cnt", reSet.get("cnt"));
+	   model.addAttribute("memList", list);
+	   model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
+	   model.addAttribute("contentsJsp",contentsJsp);
+	   model.addAttribute("pageDto",pageDto);
+	   model.addAttribute("page",page);
+	   model.addAttribute("url",url);
+	   model.addAttribute("msg",msg);
+	   
+	   
+	   return page;
+   }
+	
 	@RequestMapping("mOrderList")									// admin 고객관리-주문내역
 	public String MemOrderList(	HttpServletRequest request,
 								HttpServletResponse response,
