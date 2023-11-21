@@ -16,7 +16,7 @@
 			<ul class="list">
 				<li class="reList"><a href="/myPage">내 정보</a></li>
 				<li><a href="/cartList">장바구니</a></li>
-				<li><a href="/orderList?m_id=${mdto.m_id}">주문목록</a></li>
+				<li><a href="/orderList?m_name=${mdto.m_name}">주문목록</a></li>
 				<li><a href="/contactList">문의하기</a></li>
 			</ul>
 		</div>
