@@ -17,6 +17,7 @@
       ,d_storage
       ,d_allergy
    FROM dessert
+   ORDER BY D_SALE DESC
    <if test='flag != null and !flag.equals("all")'>
       WHERE d_category = #{flag}
    </if>
