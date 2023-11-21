@@ -53,7 +53,8 @@ public class OrderController {
 			   odto.setM_id(ssKey.getM_id());
 			   resultSet = orderService.getOrderList(odto, pdto);
 			   model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
-			   model.addAttribute("mdto", mdto);
+//			   model.addAttribute("mdto", mdto);
+			   model.addAttribute("m_name", ssKey.getM_name());
 			   model.addAttribute("pdto", resultSet.get("pdto"));
 			   model.addAttribute("oCnt", resultSet.get("oCnt"));
 			   model.addAttribute("orderList", resultSet.get("orderList"));
@@ -68,7 +69,7 @@ public class OrderController {
 	         model.addAttribute("url", url);
 	         page = "MsgPage";
 	      }
-			
+		
 		  return page;
 	  }
    
@@ -126,11 +127,11 @@ public class OrderController {
    public String MemOrderDetail(HttpServletRequest request,
 		   						HttpServletResponse response,
 		   						OrderDTO odto,
+		   						MemberDTO mdto,
 		   						Model model) {
 	   String page = null;
 	   HttpSession session = request.getSession();
 	   MemberDTO ssKey = (MemberDTO)session.getAttribute("ssKey");
-	   
 	   if(ssKey != null) {
 		   odto = orderService.memOrderDetail(odto);
 		   model.addAttribute("odto", odto);
@@ -143,6 +144,7 @@ public class OrderController {
 		   page="MsgPage";
 	   }
 	   
+	   model.addAttribute("m_name", ssKey.getM_name());
 	   session.setAttribute("ssKey", ssKey);
 	   
 	   return page;

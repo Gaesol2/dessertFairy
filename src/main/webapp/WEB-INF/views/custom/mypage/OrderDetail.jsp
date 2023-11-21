@@ -7,7 +7,7 @@
 <script src="/script/Order.js"></script>
 <div id ="order">
 	<div id="orderName">
-		<p class="memOrderDetail" name="m_id">${odto.m_name}님의 상세 주문 내역</p>
+		<p class="memOrderDetail" name="m_name">${m_name}님의 상세 주문 내역</p>
 	</div>
 	<div id="order_detail_head">
 		<div id="orderDetail_img">
@@ -63,7 +63,7 @@
 				</span>
 			</div>
 			<div class="ol">
-				<a href = "/orderList?m_id=${odto.m_name}"><input type="button" value="주문목록으로" class="orderBtn"></a>
+				<a href = "/orderList?m_id=${mdto.m_id}"><input type="button" value="주문목록으로" class="orderBtn"></a>
 			</div>
 		</div>
 	</div>

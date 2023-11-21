@@ -4,7 +4,7 @@
 <mapper namespace = "com.shop.dessertFairy.order.dao.OrderDAO">
 	<insert id="insertOrder" parameterType="list">
 	
-		<selectKey keyProperty="o_no" resultType="int" order="BEFORE">
+		<selectKey keyProperty="o_no" resultType="int" order="BEFORE">			<!-- order="BEFORE" 주문번호 똑같게 -->
 			SELECT NVL(MAX(o_no), 0)+1 AS o_no FROM ORDERT
 		</selectKey>
 		
