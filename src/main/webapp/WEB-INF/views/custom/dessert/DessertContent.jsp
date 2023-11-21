@@ -1,15 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-<head>
+
 <meta charset="UTF-8">
-<title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="/css/Dessert.css">
 <script src="/script/Dessert.js"></script>
-</head>
-<body>
+
 <div id="dessertContent">
 	<div id="dessertImg">
 		<img src="/upload/${dessert.d_image}" height="450px" width="450px">
@@ -48,8 +44,8 @@
 						<dt>주문 수량</dt>
 						<dd>
 						   <input type="text" value="1" class="count" readonly="readonly" name="o_quantity">
-						   <input type="button" class="countUp" value="△">
-						   <input type="button" class="countDown" value="▽">         
+						   <input type="button" class="countUp" value="▲">
+						   <input type="button" class="countDown" value="▼">         
 						</dd>
 						   <dt>주문 가격</dt>
 						<dd>
@@ -76,5 +72,3 @@
 		</c:choose>
 	</div>
 </div> <!-- dessertContent end -->
-</body>
-</html>

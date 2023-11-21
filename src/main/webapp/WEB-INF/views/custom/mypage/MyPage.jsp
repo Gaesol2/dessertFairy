@@ -66,9 +66,9 @@
 		</div>
 	</div>	
 	<div id="tabBtn"> 
-			<input class="button"  name="update" type="button" onclick="update('u')" value="정보수정"/>
+			<input class="button"  name="update" type="button" onclick="update('u')" value="정보수정">
 			  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<input class="button"  name="delete" type="button" onclick="update('d')" value="회원탈퇴"/>
+			<input class="button"  name="delete" type="button" onclick="update('d')" value="회원탈퇴">
 	</div>
 <form name="upForm" id="upForm" action="" method="post">
   <input type="hidden" id="memID" name="m_id" value="${mdto.m_id}">

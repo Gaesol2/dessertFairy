@@ -1,6 +1,7 @@
 /**
  * 
  */
+
 	// 웹 페이지가 로드되면 buildCalendar 실행
 $().ready(function(){
 	// 캘린더 띄우기
@@ -33,27 +34,46 @@ $().ready(function(){
 		});
 	
 	
-		//total_
+		//total_price 초기값
 		let total_price=21000;
-		
-	 $("select[name='c_size']").on("change",function(){
-		let price = $(".price").text().replace(",","");
+		//select 선택 이전 값 불러오기
+	 	let previous = '';
+	 	
+	 	$("select").on("focus", function(){
+			previous = $("select").val();
+		 })
+	 
+	 $("select").on("change",function(){
+		 $("select").blur();
+		//let price = $(".price").text().replace(",","");
 		let size = $("select[name='c_size'] > option:selected").val();
+		let sheet = $("select[name='c_sheet'] > option:selected").val();
+		let incream = $("select[name='c_incream'] > option:selected").val();
+		let outcream = $("select[name='c_outcream'] > option:selected").val();
+		let pickupdate = $("select[name='c_pickupdate'] > option:selected").val();
 
+		// c_size 이전 select 가격 복구
+		if(previous=="도시락") total_price+=5000;	
+		else if(previous=="미니") total_price+=3000;
+		else if(previous=="1호") total_price=total_price;
+		else if(previous=="2호") total_price-=6000;
+		else if(previous=="3호") total_price-=11000;
+
+		// c_sheet 이전 select 가격 복구
 		if(previous=="도시락") total_price+=5000;	
 		else if(previous=="미니") total_price+=3000;
 		else if(previous=="1호") total_price=total_price;
 		else if(previous=="2호") total_price-=6000;
 		else if(previous=="3호") total_price-=11000;
 		
+		// c_size 새로운 가격 반영
 		if(size=="도시락") total_price-=5000;		
 		else if(size=="미니") total_price-=3000;
 		else if(size=="1호") total_price=total_price;
 		else if(size=="2호") total_price+=6000;
 		else if(size=="3호") total_price+=11000;
 		
-		alert(total_price);
-		$(".price").text(total_price);
+		$(".price").text(total_price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g,","));
 	})
 	
 	
@@ -218,13 +238,5 @@ $().ready(function(){
 		
 	}
 	
-	//ㄴ딛ㅊㅅ 선택 이전 값 불러오기
-	 let previous = '';
-	 function cake_change(){
-		  $("select").blur();
-  		  alert(previous);
-	 }
-	 
-	function cake_focus() {
-		previous = $("select").val();
-	}
+	
+	

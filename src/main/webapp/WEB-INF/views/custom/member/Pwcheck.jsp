@@ -7,6 +7,7 @@
 <title>비밀번호 확인</title>
 <script src="/jquery/jquery-3.7.0.min.js"></script>
 <script src="/script/mypage.js" ></script>
+<script src="/script/member.js" ></script>
 </head>
 <body>
 <table>
@@ -17,7 +18,7 @@
   <tr>
     <td colspan="2">
     <input type="button" value="확인" 
-           onclick="setParentText(this);" style="mamargin-right: 20px;">
+           onclick="setParentText(this);">
     <input type="button" value="닫기" 
            onclick="window.close()">
     </td>
