@@ -6,7 +6,7 @@
 		SELECT COUNT(T_NO) FROM CONTACT
 	</select>
 	
-	<select id="getContactList" resultType="tdto">
+	<select id="getContactList" parameterType="pdto" resultType="tdto">
 		SELECT * FROM 
        (SELECT ROWNUM AS T_RR, A.* 
         FROM 

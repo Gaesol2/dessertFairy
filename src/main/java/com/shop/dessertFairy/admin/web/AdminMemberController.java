@@ -34,7 +34,7 @@ public class AdminMemberController {
 							HttpServletResponse response,
 							Model model,
 							MemberDTO mdto,
-							PageDTO pageDto) {
+							PageDTO pdto) {
 		HttpSession session = request.getSession();			//현재 사용자의 세션을 받아옴
 		MemberDTO ssKey = null;
 		String page = null;
@@ -42,10 +42,10 @@ public class AdminMemberController {
 		if(session.getAttribute("ssKey") != null) {
 			ssKey = (MemberDTO) session.getAttribute("ssKey");
 			if(ssKey.getM_role().equals("admin")) {
-				Map<String, Object> resultSet = memberService.getMembers(mdto, pageDto);
+				Map<String, Object> resultSet = memberService.getMembers(mdto, pdto);
 				model.addAttribute("memberTot", resultSet.get("memberTot"));
 				model.addAttribute("members", resultSet.get("members"));
-				model.addAttribute("pageDto", resultSet.get("pageDto"));
+				model.addAttribute("pdto", resultSet.get("pdto"));
 				model.addAttribute("contentsJsp", "admin/member/MemberList");
 				session.setAttribute("ssKey", ssKey);
 				page = "Main";

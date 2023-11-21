@@ -19,4 +19,7 @@ public class MemberDTO {
 	private String m_quest;
 	private String m_answer;
 	
+	private int start;
+	private int end;
+	
 }

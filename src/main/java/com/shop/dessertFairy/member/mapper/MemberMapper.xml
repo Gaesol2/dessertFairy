@@ -88,12 +88,23 @@ WHERE M_ID = #{m_id}
 	</select>
 	
 	<select id="getMembers" parameterType="mdto" resultType="mdto">	<!-- 전체 회원 리스트 -->
-		SELECT  M_ID,
-				M_NAME,
-				M_REGDATE,
-				M_ROLE
+		<!-- SELECT  M_ID,
+            M_NAME,
+            M_REGDATE,
+            M_ROLE
+        FROM MEMBER
+        WHERE M_ROLE = 'mem'
+        AND ROWNUM BETWEEN #{start,jdbcType=NUMERIC} AND #{end,jdbcType=NUMERIC} -->
+        SELECT * FROM 
+       (SELECT ROWNUM AS T_RR, A.* 
+        FROM 
+		(SELECT M_ID,
+            M_NAME,
+            M_REGDATE,
+            M_ROLE
 		FROM MEMBER
-		WHERE M_ROLE = 'mem'
+	    ORDER BY M_ID DESC) A)
+        WHERE T_RR BETWEEN #{start,jdbcType=NUMERIC} and #{end,jdbcType=NUMERIC}
 	</select>
 	
 	<select id="getMemberDetail" parameterType="string" resultType="mdto">

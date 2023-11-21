@@ -19,7 +19,7 @@ public interface MemberService {
 
 	int memDelete(MemberDTO custom);
 
-	Map<String, Object> getMembers(MemberDTO mdto, PageDTO pageDto);	//admin 전체 회원수와 회원리스트
+	Map<String, Object> getMembers(MemberDTO mdto, PageDTO pdto);	//admin 전체 회원수와 회원리스트
 
 	MemberDTO getMemberDetail(String m_id);							//admin 멤버 디테일 정보
 

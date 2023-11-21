@@ -33,7 +33,7 @@ public class AdminShopController {
                        HttpServletResponse response,
                        Model model,
                        ReviewDTO rdto,
-                       PageDTO pageDto) {
+                       PageDTO pdto) {
 	   
 	   String page = null;
        MemberDTO ssKey = null;
@@ -51,7 +51,7 @@ public class AdminShopController {
          }
        }
     //리스트 목록과 페이지 수 계산한것을 불러온 것
-		Map<String, Object> reSet = reviewService.getReplyList(rdto, pageDto);
+		Map<String, Object> reSet = reviewService.getReplyList(rdto, pdto);
 		
 		
 		List<ReviewDTO>list=(List<ReviewDTO>) reSet.get("replyList");
@@ -73,7 +73,7 @@ public class AdminShopController {
 		model.addAttribute("replyList", list);
 		model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
 		model.addAttribute("contentsJsp",contentsJsp);
-		model.addAttribute("pageDto",pageDto);
+		model.addAttribute("pdto",pdto);
 		
 		
 		return page;

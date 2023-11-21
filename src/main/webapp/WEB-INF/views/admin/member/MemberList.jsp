@@ -36,6 +36,28 @@
 							<td>${member.m_role}</td>
 						</tr>
 					</c:forEach>
+					<table class="pageBtn">
+					   <tr>
+						<td colspan="6">
+						  <c:if test="${pdto.startPg>pBlock}">
+						   <a href="memberMgt?curPage=${pdto.startPg-pBlock}&curBlock=${pdto.curBlock-1}">[이전]</a>
+						 </c:if>
+						 <c:forEach begin="${pdto.startPg}" end="${pdto.endPg}" var="p" step="1">
+						   <a href="memberMgt?curPage=${p}&curBlock=${pdto.curBlock}">
+						     <span><c:out value="${p}" /></span>
+						   </a>&nbsp;&nbsp;
+						 </c:forEach>
+						 	  <c:if test="${pdto.endPg<pageDto.pgCnt}">
+						    	<a href="memberMgt?curPage=${pdto.startPg+pBlock}&curBlock=${pdto.curBlock+1}">[다음]</a>
+						    </c:if>
+						</td>
+					  </tr>
+					</table>
+					<form action="" name="content" method="post">
+						<input type="hidden" name="bno" value="">
+						<input type="hidden" name="curPage" value="${pdto.curPage}">
+						<input type="hidden" name="curBlock" value="${pdto.curBlock}">
+					</form>
 				</table>
 			</c:when>		
 		</c:choose>

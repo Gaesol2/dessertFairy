@@ -27,7 +27,7 @@ public interface ReviewService {
    
    //어드민 시작
 
-   Map<String, Object> getReplyList(ReviewDTO rdto, PageDTO pageDto);
+   Map<String, Object> getReplyList(ReviewDTO rdto, PageDTO pdto);
 
    ReviewDTO getReplyContent(ReviewDTO rdto);
 
