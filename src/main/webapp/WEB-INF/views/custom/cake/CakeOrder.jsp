@@ -114,7 +114,7 @@
 		</p>
 	</div>
 	</div><!-- 옵션 끝 -->
-	    <a href="/productOrder"><input class="orderBtn" type="button" value="주문하기"></a>
+	    <input class="orderBtn" type="button" value="주문하기">
 </form>
 	<div id="cakeImg">
 		<img src="../image/ordercake1.jpg" class="orderCake">

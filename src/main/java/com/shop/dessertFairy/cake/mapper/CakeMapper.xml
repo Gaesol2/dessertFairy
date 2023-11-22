@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "com.shop.dessertFairy.cake.dao.CakeDAO">
+
+	<insert id="cakeOrderProc" parameterType="cdto">
+		INSERT cake
+		SET (
+			C_NO
+			,C_SHEET
+			,C_INCREAM
+			,C_OUTCREAM
+			,C_SIZE
+			,C_WRITE
+			,C_IMAGE
+			,C_REQUEST
+			,C_PRICE
+			,C_REGDATE
+			,C_STATE
+			,C_MONTH
+			,M_ID
+			,C_PATH
+			,C_DAY)
+		VALUES(
+			#{c_no      }
+			,#{c_sheet   }
+			,#{c_incream }
+			,#{c_outcream}
+			,#{c_size    }
+			,#{c_write   }
+			,#{c_image   }
+			,#{c_request }
+			,#{c_price   }
+			,SYSDATE
+			,'주문 완료'
+			,#{c_month   }
+			,#{m_id      }
+			,#{c_path    }
+			,#{c_day     })	
+	</insert>
+	
+</mapper>
