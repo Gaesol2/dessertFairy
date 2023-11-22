@@ -51,7 +51,7 @@
 }
 
 .notList th{
-	padding-top: 20px;
+	padding: 20px 0;
 }
 
 
@@ -71,6 +71,7 @@
 	
 }
 
+
 #contactContent .conTable tr{
 	border-bottom: solid 1px black;
 	border-top: solid 1px black;
@@ -81,7 +82,7 @@
 }
 
 .con1{
-	width: 60px;
+	width: 100px;
 }
 
 .con2{
@@ -89,11 +90,27 @@
 }
 
 .con3{
-	width: 150px;
+	width: 300px;
 }
 
 .con4{
 	width: 150px;
+}
+
+.con5{
+	text-align: center;
+}
+
+.con6{
+	text-align: left;
+}
+
+.con7{
+	text-align: center;
+}
+
+.con8{
+	text-align: center;
 }
 
 
@@ -117,9 +134,7 @@
 #conWrite{
 	float: left;
 	width: 1024px;
-	height: 200px;
 	border-top : solid 2px black;
-	border-bottom: solid 1px black;
 }
 
 #conWrite .spanName, #conWrite .spanWrite{
@@ -150,15 +165,14 @@
 	padding-right: 20px;
 }
 
-.spanSecret{
-	font-size: 15px;
-	font-weight: bold;
-	margin: 40px 20px 20px 120px;
-	padding-right: 20px;
+.form-inline{
+	float: left;
+    width: 1024px;
+	border-bottom: solid 1px black;
 }
 
-.chkbox{
-	margin-left: 40px;
+.secretBox{
+	margin: 20px 130px;
 }
 
 #conContent{
@@ -192,7 +206,6 @@
 #conPasswd{
 	float: left;
     width: 1024px;
-	height: 100px;
 	border-bottom: solid 1px black;
 }
   
@@ -234,13 +247,13 @@
 
 
 
-
 /* contact content */
 
 
 #ContentContact{
 	float: left;
 	margin-top: 170px;
+	border-bottom: solid 1px black;
 }
 
 #contactMain{
@@ -264,11 +277,11 @@
 .contentSubject{
 	margin-left: 20px;
 	font-weight : bold;
-	width: 680px;
+	width:680px;
 }
 
 .contentWrite{
-	width : 120px;
+	width : 220px;
 	text-align: right;
 	font-weight : bold;
 }
@@ -304,14 +317,18 @@
 }
 
 #contentBottom{
-	height : 270px;
+	width : 600px;
+	height : 500px;
 	margin-top : 100px;
-	border-bottom: solid 1px black; 
+	margin-left: 220px;
+	white-space: pre-line;
 }
 
 .contentContent{
-	margin-left: 200px;
-	
+	width : 600px;
+	white-space: pre-wrap;
+	word-wrap:break-word;
+	word-break:break-all;
 }
   
 .contentStar input{
@@ -403,18 +420,6 @@
     background-color : #064695;
     color : #fefae9;
 }
-
-#contentPasswd{
-	padding : 20px;
-	border-bottom: solid 1px black; 
-}
-
-
-#contactPasswd{
-    width: 1024px;
-	height: 100px;
-	border-bottom: solid 1px black;
-}
   
 .spanPasswd{
 	font-size: 15px;
@@ -434,6 +439,34 @@
 }
 
 
+.myconList{
+	margin-left: 950px;
+}
 
+.myconList:hover{
+	font-weight: bold;
+}
 
+#conBtn{
+	float : left;
+	width: 1024px;
+	height: 100px;
+	margin-top : 65px;
+	margin-left: 470px;
+}
+
+#conBtn .contactUpdate{
+	font-size: 16px;
+	color : #064695;
+	padding : 10px 30px 10px 30px;
+	background-color : #fefae9;
+	border : solid 1px #064695;
+	text-align: center;
+}
+
+#conBtn .contactUpdate:hover{
+    text-shadow: 0 0 0 #fefae9;
+    background-color : #064695;
+    color : #fefae9;
+}
 

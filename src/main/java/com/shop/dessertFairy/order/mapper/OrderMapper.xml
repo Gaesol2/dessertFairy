@@ -108,7 +108,7 @@
    
    <select id="OrderDetail" parameterType="odto" resultType="odto">			<!-- admin 주문 상세 페이지 -->
    SELECT  O.O_NO, O.D_NO,
-	          D.D_NAME,
+	          D.D_NAME, D.D_IMAGE,
 	          O.O_QUANTITY, 
 	          O.M_ID, 
 	          M.M_NAME,
@@ -141,8 +141,8 @@
    		UPDATE ORDERT
    		SET O_STATE = #{o_state}
    		WHERE O_NO = #{o_no}
-   		AND D_NO = #{d_no}
-   		AND M_ID = #{m_id}
+   		<!-- AND D_NO = #{d_no}
+   		AND M_ID = #{m_id} -->
    </update>
    
    <select id="memOrderDetail" parameterType="odto" resultType="odto">			<!-- admin 고객관리-주문상세 -->

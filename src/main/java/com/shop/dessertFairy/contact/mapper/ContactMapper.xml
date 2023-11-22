@@ -88,7 +88,6 @@
 	<update id="contactupProc" parameterType="tdto">
 	   UPDATE CONTACT SET
 	   T_SUBJECT = #{t_subject},
-	   M_ID = #{m_id},
 	   T_SECRET = #{t_secret},
 	   T_CONTENT = #{t_content},
 	   T_PASSWD = #{t_passwd}

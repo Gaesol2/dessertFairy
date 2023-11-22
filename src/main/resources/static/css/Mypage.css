@@ -64,18 +64,18 @@
 	border-bottom: solid 2px black;
 }
 
-.col{
+.mpl{
 	padding: 15px;
 }
 
-.col1{
+.mpl1{
 	width : 100px;
 	display: inline-block;
 	text-align: right;
 	margin: 0 100px;
 }
 	
-.col2 .in{
+.mpl2 .in{
 	border-radius: 7px;
 	border: solid 1px #eeeeee;
 	height: 40px;

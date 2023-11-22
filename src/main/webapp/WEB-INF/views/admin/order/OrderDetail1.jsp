@@ -8,7 +8,7 @@
 
 <div id = "order">
 	<div id = "adminOrderDetail">
-		<p>${odto.m_id}님 상세 주문 내역</p>
+		<p>${DetailList[0].m_name}님 상세 주문 내역</p>
 	</div>
 	
 	<div class="ordList"><a href = "/orderMgt">주문목록으로</a></div>
@@ -18,54 +18,55 @@
 			<div class="ol">
 				<p class="ol1">주문번호</p>
 				<span class="ol2">
-					<input type="text" class="in" name="o_no" readonly="readonly" value="${odto.o_no}"size="5">
+					<input type="text" class="in" name="o_no" readonly="readonly" value="${DetailList[0].o_no}"size="5">
 				</span>
 			</div>
 			
-			<c:forEach var="odto" items="${odto}">
-				<table id="orderTable">
-					<tr>
-						<th>상품이름</th>
-					</tr>
-					
-					<tr>
-						<td>${odto.value.d_name}</td>
-					</tr>
-				</table>
+			<c:forEach var="odto" items="${DetailList}">
+				<div class="ol">
+					<table id="orderTable">
+						<thead>
+							<tr><th><td><img src="/upload/${odto.d_image}"></td><th><tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th>상품명</th>
+								<th>단가</th>
+								<th>구매수량</th>
+							</tr>
+							
+							<tr>
+								<td>
+									<input type="text" class="in" name="d_name" readonly="readonly" value="${odto.d_name}"size="30">
+								</td>
+								<td>
+									<input type="text" class="in" name="o_price" readonly="readonly" value="${odto.o_price}"size="10">원
+								</td>
+								<td>
+									<input type="text" class="in" name="o_quantity" readonly="readonly" value="${odto.o_quantity}"size="5">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<c:set var="total" value="${total + odto.o_price}" />
 			</c:forEach>
-			<div class="ol">
-				<p class="ol1">상품명</p>
-				<span class="ol2">
-					<input type="text" class="in" name="d_name" readonly="readonly" value="${odto.d_name}"size="30">
-				</span>
-			</div>
-			<div class="ol">
-				<p class="ol1">단가</p>
-				<span class="ol2">
-					<input type="text" class="in" name="o_price" readonly="readonly" value="${odto.o_price}"size="10">원
-				</span>
-			</div>
-			<div class="ol">
-				<p class="ol1">구매수량</p>
-				<span class="ol2">
-					<input type="text" class="in" name="o_quantity" readonly="readonly" value="${odto.o_quantity}"size="5">
-				</span>
-			</div>
+ 
 			<div class="ol">
 				<p class="ol1">결제금액</p>
 				<span class="ol2">
-					<input type="text" class="in" name="o_amount" readonly="readonly" value="${odto.o_amount}"size="10">원
+					<input type="text" class="in" name="o_amount" readonly="readonly" value="${total}"size="10">원
 				</span>
 			</div>
 			<div class="ol">
 				<p class="ol1">고객정보</p>
 				<span class="ol2">
-					<input type="text" class="in" name="m_name" readonly="readonly" value="${odto.m_name}(${odto.m_id})"size="30">
+					<input type="text" class="in" name="m_name" readonly="readonly" value="${DetailList[0].m_name}(${DetailList[0].m_id})"size="30">
 				</span>
 			</div>
 			<div class="ol">
 				<p class="ol1">배송상태</p>
-				
+				<input type="hidden" value="${DetailList[0].o_state}" name="state">
 				<select name="o_state" id="state">
 					<option value="1">결제중</option>
 					<option value="2">배송준비</option>
@@ -77,12 +78,14 @@
 				<script type="text/javascript">
 					$(function(){
 						 //배송관련 상태
-						 $("#state").val('${odto.o_state}')
+						 for(int i=0; i<${DetailList}.size; i++)
+						 $("#state").val('${DetailList[i].o_state}')
 					})
 				</script>
 			</div>
+ 			
 			<div id="odBtn">
-				<input type="submit" value="상태수정" class="stateUpBtn adminDetailBtn">
+				<input type="submit" value="상태수정" class="DetailstateUpBtn adminDetailBtn">
 			</div>
 		</div>
 	</form>

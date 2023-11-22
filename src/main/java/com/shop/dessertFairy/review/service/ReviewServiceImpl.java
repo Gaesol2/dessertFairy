@@ -23,46 +23,22 @@ public class ReviewServiceImpl implements ReviewService {
    ReviewDAO reviewDao;
    
    @Override
-   public Map<String, Object> getReviewList(ReviewDTO rdto, PageDTO pageDto, String orderby) {
+   public Map<String, Object> getReviewList(ReviewDTO rdto, PageDTO pdto, String orderby) {
 	   
 	   //결과를 반환할 HashMap 선언
 	   Map<String, Object> reSet = new HashMap<String, Object>();
 	   
 	   
-	   //페이지 계산
-	   if(pageDto.getCurBlock()<=0) pageDto.setCurBlock(1);
-	   if(pageDto.getCurPage()<=0) pageDto.setCurPage(1);
-	   
-	   
-	   
 	   List<ReviewDTO> reviewList = null;
-	   int cnt = 0;
 	   if(rdto.getR_no()>0) {
 		   reviewDao.updateReadCnt(rdto);
 	   }
-	   cnt = reviewDao.getReviewCnt();
-	   //현재 페이지 계산
-	   int start = (pageDto.getCurPage()-1)*RowInterPage.ROW_OF_PAGE +1;
-	   int end = (pageDto.getCurPage()*RowInterPage.ROW_OF_PAGE)>cnt?
-			   cnt:pageDto.getCurPage()*RowInterPage.ROW_OF_PAGE;
-	   rdto.setStart(start);
-	   rdto.setEnd(end);
+	  
+	   int cnt = reviewDao.getReviewCnt();
+	   pdto = Page.page(cnt, pdto);
+	   rdto.setStart(pdto.getStart());
+	   rdto.setEnd(pdto.getEnd());
 	   
-	   int pgCnt = (cnt%RowInterPage.ROW_OF_PAGE==0)?
-			   cnt/RowInterPage.ROW_OF_PAGE:
-				   cnt/RowInterPage.ROW_OF_PAGE+1;
-	   
-	   //페이지 블럭
-	   int pgBlock = (pgCnt%RowInterPage.PAGE_OF_BLOCK==0)?
-			   pgCnt/RowInterPage.PAGE_OF_BLOCK:pgCnt/RowInterPage.PAGE_OF_BLOCK+1;
-	   int startPg = (pageDto.getCurBlock()-1)*RowInterPage.PAGE_OF_BLOCK+1;
-	   int endPg = (pageDto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK>pgCnt)?
-			   pgCnt:pageDto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK;
-	   
-	   pageDto.setPgCnt(pgCnt);
-	   pageDto.setPgBlock(pgBlock);
-	   pageDto.setStartPg(startPg);
-	   pageDto.setEndPg(endPg);
 	   
 	   if(orderby.equals("new")) {
 		   reviewList = reviewDao.getReviewList(rdto);		
@@ -72,7 +48,7 @@ public class ReviewServiceImpl implements ReviewService {
 		   reviewList = reviewDao.getReviewListOrderby(map);
 	   }
 	   
-	   reSet.put("pageDto", pageDto);
+	   reSet.put("pdto", pdto);
 	   reSet.put("cnt", cnt);
 	   reSet.put("reviewList", reviewList);
 	   return reSet;
@@ -108,45 +84,19 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public Map<String, Object> getMyList(ReviewDTO rdto, PageDTO pageDto, String orderby) {
+	public Map<String, Object> getMyList(ReviewDTO rdto, PageDTO pdto, String orderby) {
 		//결과를 반환할 HashMap 선언
 				Map<String, Object> reSet = new HashMap<String, Object>();
 				
 				
-				//페이지 계산
-				if(pageDto.getCurBlock()<=0) pageDto.setCurBlock(1);
-				if(pageDto.getCurPage()<=0) pageDto.setCurPage(1);
-				
-				
-				
 				List<ReviewDTO> myList = null;
-				int cnt = 0;
 				if(rdto.getR_no()>0) {
 					reviewDao.updateReadCnt(rdto);
 				}
-					cnt = reviewDao.getReviewCnt();
-				//현재 페이지 계산
-				int start = (pageDto.getCurPage()-1)*RowInterPage.ROW_OF_PAGE +1;
-				int end = (pageDto.getCurPage()*RowInterPage.ROW_OF_PAGE)>cnt?
-						cnt:pageDto.getCurPage()*RowInterPage.ROW_OF_PAGE;
-				rdto.setStart(start);
-				rdto.setEnd(end);
-				
-				int pgCnt = (cnt%RowInterPage.ROW_OF_PAGE==0)?
-						     cnt/RowInterPage.ROW_OF_PAGE:
-						     cnt/RowInterPage.ROW_OF_PAGE+1;
-				
-				//페이지 블럭
-				int pgBlock = (pgCnt%RowInterPage.PAGE_OF_BLOCK==0)?
-						pgCnt/RowInterPage.PAGE_OF_BLOCK:pgCnt/RowInterPage.PAGE_OF_BLOCK+1;
-				int startPg = (pageDto.getCurBlock()-1)*RowInterPage.PAGE_OF_BLOCK+1;
-				int endPg = (pageDto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK>pgCnt)?
-						pgCnt:pageDto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK;
-				
-				pageDto.setPgCnt(pgCnt);
-				pageDto.setPgBlock(pgBlock);
-				pageDto.setStartPg(startPg);
-				pageDto.setEndPg(endPg);
+					int cnt = reviewDao.getReviewCnt();
+					   pdto = Page.page(cnt, pdto);
+					   rdto.setStart(pdto.getStart());
+					   rdto.setEnd(pdto.getEnd());
 				
 				if(orderby.equals("new")) {
 					myList = reviewDao.getMyList(rdto);	
@@ -156,7 +106,7 @@ public class ReviewServiceImpl implements ReviewService {
 					myList = reviewDao.getReviewListOrderby(map);
 				}
 				
-				reSet.put("pageDto", pageDto);
+				reSet.put("pdto", pdto);
 				reSet.put("cnt", cnt);
 				reSet.put("myList", myList);
 				return reSet;
@@ -252,49 +202,22 @@ public class ReviewServiceImpl implements ReviewService {
 
 
 	@Override
-	public Map<String, Object> getMemList(ReviewDTO rdto, PageDTO pageDto) {
+	public Map<String, Object> getMemList(ReviewDTO rdto, PageDTO pdto) {
 		//결과를 반환할 HashMap 선언
 		Map<String, Object> reSet = new HashMap<String, Object>();
 		
-		
-		//페이지 계산
-		if(pageDto.getCurBlock()<=0) pageDto.setCurBlock(1);
-		if(pageDto.getCurPage()<=0) pageDto.setCurPage(1);
-		
-		
-		
 		List<ReviewDTO> memList = null;
-		int cnt = 0;
 		if(rdto.getR_no()>0) {
 			reviewDao.updateReadCnt(rdto);
 		}
-			cnt = reviewDao.getReviewCnt();
-		//현재 페이지 계산
-		int start = (pageDto.getCurPage()-1)*RowInterPage.ROW_OF_PAGE +1;
-		int end = (pageDto.getCurPage()*RowInterPage.ROW_OF_PAGE)>cnt?
-				cnt:pageDto.getCurPage()*RowInterPage.ROW_OF_PAGE;
-		rdto.setStart(start);
-		rdto.setEnd(end);
-		
-		int pgCnt = (cnt%RowInterPage.ROW_OF_PAGE==0)?
-				     cnt/RowInterPage.ROW_OF_PAGE:
-				     cnt/RowInterPage.ROW_OF_PAGE+1;
-		
-		//페이지 블럭
-		int pgBlock = (pgCnt%RowInterPage.PAGE_OF_BLOCK==0)?
-				pgCnt/RowInterPage.PAGE_OF_BLOCK:pgCnt/RowInterPage.PAGE_OF_BLOCK+1;
-		int startPg = (pageDto.getCurBlock()-1)*RowInterPage.PAGE_OF_BLOCK+1;
-		int endPg = (pageDto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK>pgCnt)?
-				pgCnt:pageDto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK;
-		
-		pageDto.setPgCnt(pgCnt);
-		pageDto.setPgBlock(pgBlock);
-		pageDto.setStartPg(startPg);
-		pageDto.setEndPg(endPg);
+			int cnt = reviewDao.getReviewCnt();
+			   pdto = Page.page(cnt, pdto);
+			   rdto.setStart(pdto.getStart());
+			   rdto.setEnd(pdto.getEnd());
 		
 		memList = reviewDao.getMemList(rdto);
 		
-		reSet.put("pageDto", pageDto);
+		reSet.put("pdto", pdto);
 		reSet.put("cnt", cnt);
 		reSet.put("memList", memList);
 		return reSet;

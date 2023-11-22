@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.jdt.internal.compiler.tool.PathFileObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +12,6 @@ import com.shop.dessertFairy.common.dto.PageDTO;
 import com.shop.dessertFairy.member.dao.MemberDAO;
 import com.shop.dessertFairy.member.dto.MemberDTO;
 import com.shop.dessertFairy.review.dao.ReviewDAO;
-import com.shop.dessertFairy.review.dto.ReviewDTO;
 
 @Service
 public class MemberServiceImpl implements MemberService {

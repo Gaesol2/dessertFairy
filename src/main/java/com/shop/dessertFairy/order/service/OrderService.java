@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import java.util.Hashtable;
+import java.util.List;
 import java.util.Map;
 
 import com.shop.dessertFairy.common.dto.PageDTO;
@@ -18,7 +19,7 @@ public interface OrderService {
 
 	public void orderStateUpdate(ArrayList<String> tdArr);								//admin 주문 목록페이지에서 상태 수정
 
-	public OrderDTO OrderDetail(OrderDTO odto);											//admin 주문 상세
+	public List<OrderDTO> OrderDetail(OrderDTO odto);											//admin 주문 상세
 
 	public void updateOrder(OrderDTO odto);												//admin 주문 수정
 

@@ -185,7 +185,7 @@ public class ContactController {
 	@RequestMapping("/myContact") //내 글보기 목록
 	   public String MyContact(HttpServletRequest request, HttpServletResponse response,
 			   Model model, ContactDTO tdto,
-			   PageDTO pageDto) { 
+			   PageDTO pdto) { 
 		   
 		   //변수 선언
 		   String page = null;
@@ -200,7 +200,7 @@ public class ContactController {
 		   //세션이 있으면 ReviewMyList 페이지로 보내고 없으면 로그인 창으로 보내기
 		   if(session.getAttribute("ssKey")!=null) {
 			   ssKey = (MemberDTO) session.getAttribute("ssKey");
-			   MemberDTO mdto = memberService.getMember(ssKey);
+			   MemberDTO sdto = memberService.getMember(ssKey);
 			   tdto.setM_id(ssKey.getM_id());
 			   page = "Main";
 			   url = "myContact";
@@ -213,7 +213,7 @@ public class ContactController {
 		   
 		   
 		   //리스트 목록과 페이지 수 계산한것을 불러온 것
-		   Map<String, Object> reSet = contactService.getMyContactList(tdto, pageDto);
+		   Map<String, Object> reSet = contactService.getMyContactList(tdto, pdto);
 		   
 		   
 		   List<ContactDTO>list=(List<ContactDTO>) reSet.get("myContact");
@@ -225,7 +225,7 @@ public class ContactController {
 		   model.addAttribute("myContact", list);
 		   model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
 		   model.addAttribute("contentsJsp",contentsJsp);
-		   model.addAttribute("pageDto",pageDto);
+		   model.addAttribute("pdto",pdto);
 		   model.addAttribute("page",page);
 		   model.addAttribute("url",url);
 		   model.addAttribute("msg",msg);
@@ -307,18 +307,14 @@ public class ContactController {
 			String contentsJsp = null;
 			String page = null;
 			MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
-			
-			
 			 
 			 //결과 처리
 			if(session.getAttribute("ssKey")!=null) {
 				String msg = null;
 				String url = null;
-				int r = 0;
 			   
 				page = "MsgPage";
-				
-				r = contactService.contactupProc(tdto);
+				int r = contactService.contactupProc(tdto);
 				
 				if(r>0) msg = "수정이 완료 되었습니다.";
 				else msg = "수정을 실패했습니다.";

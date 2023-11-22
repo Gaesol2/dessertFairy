@@ -1,5 +1,6 @@
 package com.shop.dessertFairy.admin.web;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -87,7 +88,7 @@ public class AdminMemberController {
 								Model model,
 								MemberDTO mdto,
 								ReviewDTO rdto,
-								PageDTO pageDto) {
+								PageDTO pdto) {
 		
 	//변수 선언
 	   String page = null;
@@ -116,7 +117,7 @@ public class AdminMemberController {
 	   
 	   
 	   //리스트 목록과 페이지 수 계산한것을 불러온 것
-	   Map<String, Object> reSet = reviewService.getMemList(rdto, pageDto);
+	   Map<String, Object> reSet = reviewService.getMemList(rdto, pdto);
 	   List<ReviewDTO>list=(List<ReviewDTO>) reSet.get("memList");
 		for(ReviewDTO rvdto : list) {
 			 String ratings = "";
@@ -136,7 +137,7 @@ public class AdminMemberController {
 	   model.addAttribute("memList", list);
 	   model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
 	   model.addAttribute("contentsJsp",contentsJsp);
-	   model.addAttribute("pageDto",pageDto);
+	   model.addAttribute("pdto",pdto);
 	   model.addAttribute("page",page);
 	   model.addAttribute("url",url);
 	   model.addAttribute("msg",msg);
@@ -191,8 +192,9 @@ public class AdminMemberController {
 			MemberDTO ssKey = (MemberDTO) session.getAttribute("ssKey");
 			
 			if(ssKey != null && ssKey.getM_role().equals("admin")) {
-				odto = orderService.OrderDetail(odto);
-				model.addAttribute("odto", odto);
+				List<OrderDTO> reset = new ArrayList<>();
+				reset = orderService.OrderDetail(odto);
+				model.addAttribute("odto", reset);
 				model.addAttribute("contentsJsp", "admin/member/MemberOrderDetail");
 				page = "Main";
 			}else {

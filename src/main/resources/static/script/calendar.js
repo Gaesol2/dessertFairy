@@ -30,27 +30,17 @@ $().ready(function(){
 			  return false;
 			}
 		   }
-		    $("form[name=cakeOrder]").submit();
+		    $("form[name='cakeOrder']").submit();
 		});
 	
 	
 		//total_price 초기값
 		let total_price=21000;
-		//select 선택 이전 값 불러오기
-	 	let previous = '';
-	 	
-	 	$("select").on("focus", function(){
-			previous = $("select").val();
-		 })
 	 
-	 $("select").on("change",function(){
+	 //케이크 사이즈 옵션 가격
+	 $("select[name='c_size']").on("change",function(){
 		 $("select").blur();
-		//let price = $(".price").text().replace(",","");
 		let size = $("select[name='c_size'] > option:selected").val();
-		let sheet = $("select[name='c_sheet'] > option:selected").val();
-		let incream = $("select[name='c_incream'] > option:selected").val();
-		let outcream = $("select[name='c_outcream'] > option:selected").val();
-		let pickupdate = $("select[name='c_pickupdate'] > option:selected").val();
 
 		// c_size 이전 select 가격 복구
 		if(previous=="도시락") total_price+=5000;	
@@ -58,22 +48,68 @@ $().ready(function(){
 		else if(previous=="1호") total_price=total_price;
 		else if(previous=="2호") total_price-=6000;
 		else if(previous=="3호") total_price-=11000;
-
-		// c_sheet 이전 select 가격 복구
-		if(previous=="도시락") total_price+=5000;	
-		else if(previous=="미니") total_price+=3000;
-		else if(previous=="1호") total_price=total_price;
-		else if(previous=="2호") total_price-=6000;
-		else if(previous=="3호") total_price-=11000;
 		
 		// c_size 새로운 가격 반영
-		if(size=="도시락") total_price-=5000;		
+		if(size=="도시락") total_price-=5000;
 		else if(size=="미니") total_price-=3000;
 		else if(size=="1호") total_price=total_price;
 		else if(size=="2호") total_price+=6000;
 		else if(size=="3호") total_price+=11000;
+
+		$(".price").text(total_price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g,","));
+		$("input[name='c_price']").val(total_price);
+	})
+	
+	//빵시트 옵션 가격
+	 $("select[name='c_sheet']").on("change",function(){
+		 $("select").blur();
+		let sheet = $("select[name='c_sheet'] > option:selected").val();
+
+		// c_size 이전 select 가격 복구
+		if(previous=="초코") total_price-=1000;
+		else if(previous=="쿠앤크") total_price-=1500;
+		
+		// c_sheet 새로운 가격 반영		
+		if(sheet=="초코") total_price+=1000;
+		else if(sheet=="쿠앤크") total_price+=1500;
 		
 		$(".price").text(total_price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g,","));
+		$("input[name='c_price']").val(total_price);
+	})
+	
+	 //안크림 옵션 가격
+	 $("select[name='c_incream']").on("change",function(){
+		 $("select").blur();
+		let incream = $("select[name='c_incream'] > option:selected").val();
+
+		// c_size 이전 select 가격 복구
+		if(previous=="초코") total_price-=1000;	
+		else if(previous=="크림치즈") total_price-=1000;
+		else if(previous=="쿠앤크") total_price-=1500;
+		
+		// c_incream 새로운 가격 반영
+		if(incream=="초코") total_price+=1000;
+		else if(incream=="크림치즈") total_price+=1000;
+		else if(incream=="쿠앤크") total_price+=1500;
+		
+		$(".price").text(total_price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g,","));
+		$("input[name='c_price']").val(total_price);
+	})
+	
+	 //밖크림 옵션 가격
+	 $("select[name='c_outcream']").on("change",function(){
+		 $("select").blur();
+		let outcream = $("select[name='c_outcream'] > option:selected").val();
+
+		// c_size 이전 select 가격 복구
+		if(previous=="초코") total_price-=1000;	
+		else if(previous=="크림치즈") total_price-=1000;
+		else if(previous=="쿠앤크") total_price-=1500;
+		
+		if(outcream=="초코") total_price+=1000;
+		
+		$(".price").text(total_price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g,","));
+		$("input[name='c_price']").val(total_price);
 	})
 	
 	
@@ -238,5 +274,10 @@ $().ready(function(){
 		
 	}
 	
-	
+	//select 선택 이전 값 불러오기
+	 let previous = "";
+ 	 function size_focus(){previous = $("select[name='c_size']").val();} 
+ 	 function sheet_focus(){previous = $("select[name='c_sheet']").val();} 
+ 	 function incream_focus(){previous = $("select[name='c_incream']").val();} 
+ 	 function outcream_focus(){previous = $("select[name='c_outcream']").val();} 
 	

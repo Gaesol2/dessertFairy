@@ -28,8 +28,8 @@
    });
    
    $('.contactUpdate').on('click', function(){
-   	   $("form[name=contactForm]").attr('action', "/contactupProc")
-   	   $("form[name=contactForm]").submit();
+   	   $("form[name=contactUpForm]").attr('action', "/contactupProc")
+   	   $("form[name=contactUpForm]").submit();
    });
 	   
 	   
