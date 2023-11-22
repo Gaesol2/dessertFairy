@@ -1,5 +1,6 @@
 package com.shop.dessertFairy.admin.web;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -191,8 +192,9 @@ public class AdminMemberController {
 			MemberDTO ssKey = (MemberDTO) session.getAttribute("ssKey");
 			
 			if(ssKey != null && ssKey.getM_role().equals("admin")) {
-				odto = orderService.OrderDetail(odto);
-				model.addAttribute("odto", odto);
+				List<OrderDTO> reset = new ArrayList<>();
+				reset = orderService.OrderDetail(odto);
+				model.addAttribute("odto", reset);
 				model.addAttribute("contentsJsp", "admin/member/MemberOrderDetail");
 				page = "Main";
 			}else {

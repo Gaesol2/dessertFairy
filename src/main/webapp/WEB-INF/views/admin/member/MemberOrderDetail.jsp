@@ -21,30 +21,30 @@
 	                <input type="hidden" name="m_id" value="${odto.m_id}">
 				</span>
 			</div>
-			<div class="md">
-				<p class="md1">상품명</p>
-				<span class="md2">
-					<input type="text" class="in" name="d_name" readonly="readonly" value="${odto.d_name}"size="30">
-				</span>
-			</div>
-			<div class="md">
-				<p class="md1">단가</p>
-				<span class="md2">
-					<input type="text" class="in" name="o_price" readonly="readonly" value="${odto.o_price}"size="10">
-				</span>
-			</div>
-			<div class="md">
-				<p class="md1">구매수량</p>
-				<span class="md2">
-					<input type="text" class="in" name="o_quantity" readonly="readonly" value="${odto.o_quantity}"size="10">
-				</span>
-			</div>
-			<div class="md">
-				<p class="md1">결제금액</p>
-				<span class="md2">
-					<input type="text" class="in" name="o_amount" readonly="readonly" value="${odto.o_amount}"size="10">
-				</span>
-			</div>
+				<div class="md">
+					<p class="md1">상품명</p>
+					<span class="md2">
+						<input type="text" class="in" name="d_name" readonly="readonly" value="${odto.d_name}"size="30">
+					</span>
+				</div>
+				<div class="md">
+					<p class="md1">단가</p>
+					<span class="md2">
+						<input type="text" class="in" name="o_price" readonly="readonly" value="${odto.o_price}"size="10">
+					</span>
+				</div>
+				<div class="md">
+					<p class="md1">구매수량</p>
+					<span class="md2">
+						<input type="text" class="in" name="o_quantity" readonly="readonly" value="${odto.o_quantity}"size="10">
+					</span>
+				</div>
+				<div class="md">
+					<p class="md1">결제금액</p>
+					<span class="md2">
+						<input type="text" class="in" name="o_amount" readonly="readonly" value="${odto.o_amount}"size="10">
+					</span>
+				</div>
 			<div class="md">
 				<p class="md1">고객정보</p>
 				<span class="md2">

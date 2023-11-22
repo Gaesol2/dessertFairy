@@ -18,11 +18,10 @@
 		<p class="reviewName">포토후기</p>
 	   </div>
 	   <div class="topList">
-	     <ul class="list">
-	       <li><a href="/reviewList">후기 목록</a></li>
-	       <li><a href="/reviewWrite">후기 글쓰기</a></li>
-	       <li><a href="/mylist">내 글보기</a></li>
-	     </ul>
+	    <ul class="list">
+		  <li><a href="/reviewList">후기 목록</a></li>
+		  <li><a href="/mylist">내 글보기</a></li>
+		</ul>
 	   </div>
 	 </div>
 	 <div id="Contentreview">

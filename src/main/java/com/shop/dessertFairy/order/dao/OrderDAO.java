@@ -22,7 +22,7 @@ public interface OrderDAO {
 
 	void updateOrderState(List<OrderDTO> list);			// admin 주문 목록페이지에서 상태 수정
 
-	OrderDTO OrderDetail(OrderDTO odto);				// admin 주문 상세
+	List<OrderDTO> OrderDetail(OrderDTO odto);				// admin 주문 상세
 
 	void updateOrder(OrderDTO odto);					// admin 주문수정
 

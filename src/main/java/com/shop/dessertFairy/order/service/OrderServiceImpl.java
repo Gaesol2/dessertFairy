@@ -114,8 +114,11 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public OrderDTO OrderDetail(OrderDTO odto) {			// admin  주문 상세
-		return orderDao.OrderDetail(odto);
+	public List<OrderDTO> OrderDetail(OrderDTO odto) {			// admin  주문 상세
+		List<OrderDTO> DetailList = new ArrayList<>();
+		DetailList = orderDao.OrderDetail(odto);
+		
+		return DetailList;
 	}
 
 	@Override
