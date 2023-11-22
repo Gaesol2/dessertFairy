@@ -35,7 +35,9 @@ public class CakeController {
 		HttpSession session = request.getSession();
 		MemberDTO sdto = (MemberDTO) session.getAttribute("ssKey");
 		
-		
+		if(sdto==null) {
+			
+		}
 		System.out.println("케이크=========>"+cdto);
 		return null;
 	}
