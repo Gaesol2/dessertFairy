@@ -36,12 +36,6 @@ $().ready(function(){
 	
 		//total_price 초기값
 		let total_price=21000;
-		//select 선택 이전 값 불러오기
-	 	let previous = '';
-	 	
-	 	$("select").on("focus", function(){
-			previous = $("select").val();
-		 })
 	 
 	 $("select").on("change",function(){
 		 $("select").blur();
@@ -50,7 +44,6 @@ $().ready(function(){
 		let sheet = $("select[name='c_sheet'] > option:selected").val();
 		let incream = $("select[name='c_incream'] > option:selected").val();
 		let outcream = $("select[name='c_outcream'] > option:selected").val();
-		let pickupdate = $("select[name='c_pickupdate'] > option:selected").val();
 
 		// c_size 이전 select 가격 복구
 		if(previous=="도시락") total_price+=5000;	
@@ -58,20 +51,21 @@ $().ready(function(){
 		else if(previous=="1호") total_price=total_price;
 		else if(previous=="2호") total_price-=6000;
 		else if(previous=="3호") total_price-=11000;
-
-		// c_sheet 이전 select 가격 복구
-		if(previous=="도시락") total_price+=5000;	
-		else if(previous=="미니") total_price+=3000;
-		else if(previous=="1호") total_price=total_price;
-		else if(previous=="2호") total_price-=6000;
-		else if(previous=="3호") total_price-=11000;
+		else if(previous=="초코") total_price-=1000;	
+		else if(previous=="크림치즈") total_price-=1000;
+		else if(previous=="쿠앤크") total_price-=1500;
 		
-		// c_size 새로운 가격 반영
-		if(size=="도시락") total_price-=5000;		
+		// c_incream 새로운 가격 반영
+		if(size=="도시락") total_price-=5000;
 		else if(size=="미니") total_price-=3000;
 		else if(size=="1호") total_price=total_price;
 		else if(size=="2호") total_price+=6000;
 		else if(size=="3호") total_price+=11000;
+		
+		
+		if(sheet=="초코") total_price+=1000;
+		else if(sheet=="크림치즈") total_price+=1000;
+		else if(sheet=="쿠앤크") total_price+=1500;
 		
 		$(".price").text(total_price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g,","));
 	})
@@ -238,5 +232,12 @@ $().ready(function(){
 		
 	}
 	
-	
+	//select 선택 이전 값 불러오기
+	 let previous = "";
+
+ 	 function cake_focus(){
+		previous = $("select").val();
+		alert(previous);
+		  $("select").blur();
+	 } 
 	
