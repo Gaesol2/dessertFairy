@@ -56,7 +56,7 @@ public class OrderController {
 //			   model.addAttribute("mdto", mdto);
 			   model.addAttribute("m_name", ssKey.getM_name());
 			   model.addAttribute("pdto", resultSet.get("pdto"));
-			   model.addAttribute("oCnt", resultSet.get("oCnt"));
+			   model.addAttribute("cnt", resultSet.get("cnt"));
 			   model.addAttribute("orderList", resultSet.get("orderList"));
 			   session.setAttribute("ssKey", ssKey);
 			   model.addAttribute("contentsJsp", "custom/mypage/OrderList");	

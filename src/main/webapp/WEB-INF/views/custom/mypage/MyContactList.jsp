@@ -39,7 +39,7 @@
 
 			
 			<c:choose>
-				<c:when test="${fn:length(nList)>=0}">
+				<c:when test="${fn:length(myContact)>=0}">
 					<c:forEach var="contact" items="${myContact}" varStatus="status">
 					    <tr style="text-align:center;">
 					        <td><c:out value="${contact.t_no}"/></td> 
@@ -62,7 +62,7 @@
 					    </tr>
 					</c:forEach>
 				</c:when>
-				<c:when test="${fn:length(nList)==0}">
+				<c:when test="${fn:length(myContact)==0}">
 					<tr class="notList">
 						<th colspan="6">등록된 글이없습니다.</th>
 					</tr>
@@ -76,16 +76,16 @@
 	  <table class="pageBtn">
 	   <tr>
 	    <td colspan="6">
-	      <c:if test="${pageDto.startPg>pBlock}">
-	        <a href="contactList?curPage=${pageDto.startPg-pBlock}&curBlock=${pageDto.curBlock-1}">[이전]</a>
+	      <c:if test="${pdto.startPg>pBlock}">
+	        <a href="contactList?curPage=${pdto.startPg-pBlock}&curBlock=${pdto.curBlock-1}">[이전]</a>
 	      </c:if>
-	      <c:forEach begin="${pageDto.startPg}" end="${pageDto.endPg}" var="p" step="1">
-	        <a href="contactList?curPage=${p}&curBlock=${pageDto.curBlock}">
+	      <c:forEach begin="${pdto.startPg}" end="${pdto.endPg}" var="p" step="1">
+	        <a href="contactList?curPage=${p}&curBlock=${pdto.curBlock}">
 	          <span><c:out value="${p}" /></span>
 	        </a>&nbsp;&nbsp;
 	      </c:forEach>
-	        <c:if test="${pageDto.endPg<pageDto.pgCnt}">
-	          <a href="contactList?curPage=${pageDto.startPg+pBlock}&curBlock=${pageDto.curBlock+1}">[다음]</a>
+	        <c:if test="${pdto.endPg<pdto.pgCnt}">
+	          <a href="contactList?curPage=${pdto.startPg+pBlock}&curBlock=${pdto.curBlock+1}">[다음]</a>
 	        </c:if>
 	     </td>
 	    </tr>

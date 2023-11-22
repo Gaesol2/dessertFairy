@@ -38,6 +38,7 @@
 							<td class="mol4">${member.m_role}</td>
 						</tr>
 					</c:forEach>
+					</table>
 					<table class="pageBtn">
 					   <tr>
 						<td colspan="6">
@@ -60,7 +61,6 @@
 						<input type="hidden" name="curPage" value="${pdto.curPage}">
 						<input type="hidden" name="curBlock" value="${pdto.curBlock}">
 					</form>
-				</table>
 			</c:when>		
 		</c:choose>
 	</div>
