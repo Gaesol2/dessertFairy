@@ -44,7 +44,7 @@ public class ReviewController {
    public String reviewList(HttpServletRequest request, HttpServletResponse response,
          Model model,
          ReviewDTO rdto,
-         PageDTO pageDto) { 
+         PageDTO pdto) { 
 	   
         //변수 선언
 	    String page = null;
@@ -63,7 +63,7 @@ public class ReviewController {
 		if(orderby==null) orderby = "new";
 		
 		//리스트 목록과 페이지 수 계산한것을 불러온 것
-		Map<String, Object> reSet = reviewService.getReviewList(rdto, pageDto, orderby);
+		Map<String, Object> reSet = reviewService.getReviewList(rdto, pdto, orderby);
 		List<ReviewDTO>list=(List<ReviewDTO>) reSet.get("reviewList");
 		for(ReviewDTO rvdto : list) {
 			 String ratings = "";
@@ -85,7 +85,7 @@ public class ReviewController {
 		model.addAttribute("reviewList", list);
 		model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
 		model.addAttribute("contentsJsp",contentsJsp);
-		model.addAttribute("pageDto",pageDto);
+		model.addAttribute("pdto",pdto);
 		model.addAttribute("orderby",orderby);
 		
 		
@@ -230,7 +230,7 @@ public class ReviewController {
    @RequestMapping("/mylist") //내 글보기 목록
    public String mylist(HttpServletRequest request, HttpServletResponse response,
 		   Model model, ReviewDTO rdto,
-		   PageDTO pageDto) { 
+		   PageDTO pdto) { 
 	   
 	   //변수 선언
 	   String page = null;
@@ -245,7 +245,7 @@ public class ReviewController {
 	   //세션이 있으면 ReviewMyList 페이지로 보내고 없으면 로그인 창으로 보내기
 	   if(session.getAttribute("ssKey")!=null) {
 		   ssKey = (MemberDTO) session.getAttribute("ssKey");
-		   MemberDTO mdto = memberService.getMember(ssKey);
+		   MemberDTO sdto = memberService.getMember(ssKey);
 		   rdto.setM_id(ssKey.getM_id());
 		   page = "Main";
 		   url = "mylist";
@@ -261,7 +261,7 @@ public class ReviewController {
 	   if(orderby==null) orderby = "new";
 	   
 	   //리스트 목록과 페이지 수 계산한것을 불러온 것
-	   Map<String, Object> reSet = reviewService.getMyList(rdto, pageDto, orderby);
+	   Map<String, Object> reSet = reviewService.getMyList(rdto, pdto, orderby);
 	   List<ReviewDTO>list=(List<ReviewDTO>) reSet.get("myList");
 		for(ReviewDTO rvdto : list) {
 			 String ratings = "";
@@ -274,13 +274,13 @@ public class ReviewController {
 			   rvdto.setRatings(ratings);
 		}
 	   //세션 저장
-	   session.setAttribute("mdto", ssKey);
+	   session.setAttribute("sdto", ssKey);
 	   //데이터 저장
 	   model.addAttribute("cnt", reSet.get("cnt"));
 	   model.addAttribute("myList", list);
 	   model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
 	   model.addAttribute("contentsJsp",contentsJsp);
-	   model.addAttribute("pageDto",pageDto);
+	   model.addAttribute("pdto",pdto);
 	   model.addAttribute("orderby",orderby);
 	   model.addAttribute("page",page);
 	   model.addAttribute("url",url);

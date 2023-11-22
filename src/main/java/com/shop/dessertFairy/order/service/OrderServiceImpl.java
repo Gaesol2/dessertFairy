@@ -48,41 +48,17 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public Map<String, Object> getOrderList(OrderDTO odto, PageDTO pdto) {			// 주문 목록
 
-		int oCnt = orderDao.getMemOrderCnt(odto);							//회원 총 주문 건수
 		Map<String, Object> resultSet = new HashMap<String, Object>();
 		
-		//페이지 계산
-		   if(pdto.getCurBlock()<=0) pdto.setCurBlock(1);
-		   if(pdto.getCurPage()<=0) pdto.setCurPage(1);
-		   
-		 //현재 페이지 계산
-		   int start = (pdto.getCurPage()-1)*RowInterPage.ROW_OF_PAGE +1;
-		   int end = (pdto.getCurPage()*RowInterPage.ROW_OF_PAGE)>oCnt?
-				   oCnt:pdto.getCurPage()*RowInterPage.ROW_OF_PAGE;
-		   odto.setStart(start);
-		   odto.setEnd(end);
-		   System.out.println("스타트 : "+start);
-		   System.out.println("엔드 : "+end);
-		   int pgCnt = (oCnt%RowInterPage.ROW_OF_PAGE==0)?
-				   oCnt/RowInterPage.ROW_OF_PAGE:
-					   oCnt/RowInterPage.ROW_OF_PAGE+1;
-		   
-		   //페이지 블럭
-		   int pgBlock = (pgCnt%RowInterPage.PAGE_OF_BLOCK==0)?
-				   pgCnt/RowInterPage.PAGE_OF_BLOCK:pgCnt/RowInterPage.PAGE_OF_BLOCK+1;
-		   int startPg = (pdto.getCurBlock()-1)*RowInterPage.PAGE_OF_BLOCK+1;
-		   int endPg = (pdto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK>pgCnt)?
-				   pgCnt:pdto.getCurBlock()*RowInterPage.PAGE_OF_BLOCK;
-		   
-		   pdto.setPgCnt(pgCnt);
-		   pdto.setPgBlock(pgBlock);
-		   pdto.setStartPg(startPg);
-		   pdto.setEndPg(endPg);
+		int cnt = orderDao.getMemOrderCnt(odto);
+		   pdto = Page.page(cnt, pdto);
+		   odto.setStart(pdto.getStart());
+		   odto.setEnd(pdto.getEnd());
 		   
 		   List<OrderDTO> orderList = orderDao.getOrderList(odto);
 		   
 		   resultSet.put("pdto", pdto);
-		   resultSet.put("oCnt", oCnt);
+		   resultSet.put("cnt", cnt);
 		   resultSet.put("orderList", orderList);
 		   
 		return resultSet;
