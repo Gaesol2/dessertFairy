@@ -35,10 +35,19 @@ public class CakeController {
 		HttpSession session = request.getSession();
 		MemberDTO sdto = (MemberDTO) session.getAttribute("ssKey");
 		
+		String msg = null;
+		String page = null;
+		String url = null;
+		
 		if(sdto==null) {
+			msg = "로그인이 필요합니다.";
+			page = "MsgPage";
+			url = "login";
+		} else {
 			
 		}
+		
 		System.out.println("케이크=========>"+cdto);
-		return null;
+		return page;
 	}
 }
