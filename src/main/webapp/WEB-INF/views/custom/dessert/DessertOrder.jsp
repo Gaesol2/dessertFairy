@@ -54,6 +54,9 @@
 				<c:forEach var="dessert" items="${dessert}" varStatus="status">
 					<a class="abox" href="/dessertContent?d_no=${dessert.d_no}">
 						<div class="box">
+							<c:if test="${dessert.d_stock==0}">
+								<div class="black"><strong>SOLD OUT</strong></div>
+							</c:if>
 							<c:forEach var="sale" items="${maxSale}">
 								<c:if test="${dessert.d_no == sale }">
 									<img src="image/Hot.png" class="hot">
