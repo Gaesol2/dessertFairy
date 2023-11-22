@@ -2,7 +2,7 @@
 
 /* 공용 */
 
-#mypage{
+#cart{
 	margin : 0 auto;
 	width : 1024px;
 }
@@ -49,6 +49,7 @@
 #cartContent .cart_table{
 	text-align: center;
 	border-collapse: collapse;
+	border-top: 2px solid black;
 }
 
 #cartContent .cart_table td, th{
@@ -57,7 +58,7 @@
 }
 
 #cartContent .cart_table th{
-	padding: 3px 0;
+	padding: 5px 0;
 }
 
 #cartContent .cart_table .col1{
@@ -85,6 +86,7 @@
 	display: none;
 }
 
+
 .cartdelBtn{
 	width: 20px;
 	height: 20px;
@@ -109,33 +111,32 @@
 
 
 #cartContent .price_table{
-	width: 1024px;
+	width: 700px;
 	text-align: center;
-	margin: 0 auto;
 	padding: 50px 0;
-	border-bottom: solid 1px black;
+	margin-top: 50px;
+	margin-left: 30px;
+	float: left;
 }
 
-#cartContent .price_table tr{
-	margin: 20px 0;
-}
 
 #cartContent .price_table th, td{
 	width: 160px;
 	border: none;
 }
 
-.plus, .minus{
+.plus, .same{
 	font-size: 24px;
 }
 
 .CartorderBtn{
-	padding : 15px 40px 15px 40px;
-	margin-top : 65px;
-	margin-left: 450px;
+	padding : 15px 35px 15px 35px;
+	margin-top: 100px;
+	margin-right: 50px;
 	font-size: 16px;
 	background-color : #fefae9;
 	border : solid 1px #064695;
+	float: right;
 }
 
 .CartorderBtn:hover{
@@ -143,7 +144,6 @@
     background-color : #064695;
     color : #fefae9;
 }
-
 
 
 
