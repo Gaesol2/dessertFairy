@@ -107,7 +107,22 @@
    </update>
    
    <select id="OrderDetail" parameterType="odto" resultType="odto">			<!-- admin 주문 상세 페이지 -->
-   		SELECT  O.O_NO, O.D_NO,
+   SELECT  O.O_NO, O.D_NO,
+	          D.D_NAME,
+	          O.O_QUANTITY, 
+	          O.M_ID, 
+	          M.M_NAME,
+	         O.O_REGDATE, O.O_PRICE, 
+	          D.D_STOCK, 
+	         O.O_STATE,
+	         O.O_AMOUNT
+         FROM ORDERT O
+		INNER JOIN DESSERT D
+		  ON O.D_NO = D.D_NO
+		INNER JOIN MEMBER M
+		  ON O.M_ID = M.M_ID
+	       WHERE O_NO = #{o_no}
+   		<!-- SELECT  O.O_NO, O.D_NO,
 	         (SELECT D_NAME FROM DESSERT WHERE D_NO=#{d_no}) D_NAME,
 	          O.O_QUANTITY, 
 	          O.M_ID, 
@@ -119,7 +134,7 @@
 		FROM ORDERT O 
 	       WHERE M_ID = #{m_id}
 	       AND O_NO =#{o_no} 
-	       AND D_NO =#{d_no}
+	       AND D_NO =#{d_no} -->
    </select>
    
    <update id="updateOrder" parameterType="odto">		<!-- admin 주문 수정 페이지 -->

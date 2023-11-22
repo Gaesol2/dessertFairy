@@ -1,6 +1,7 @@
 package com.shop.dessertFairy.admin.web;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.shop.dessertFairy.common.RowInterPage;
 import com.shop.dessertFairy.common.dto.PageDTO;
@@ -87,7 +89,8 @@ public class AdminOrderController {
 		}
 		
 	}
-
+	
+	@ResponseBody
 	@RequestMapping("orderDetail")												// 주문 상세
 	public String OrderDetail(  HttpServletRequest request,
 								HttpServletResponse response,
@@ -97,11 +100,14 @@ public class AdminOrderController {
 		String msg = null;
 		HttpSession session = request.getSession();
 		MemberDTO ssKey = (MemberDTO) session.getAttribute("ssKey");
+		System.out.println("결과 : "+odto);
+		Map<String, Object> result = new HashMap<String, Object>();
 		
 		if(ssKey != null && ssKey.getM_role().equals("admin")) {
-			odto = orderService.OrderDetail(odto);
-			model.addAttribute("odto", odto);
-			model.addAttribute("contentsJsp", "admin/order/OrderDetail");
+			result = (Map<String, Object>) orderService.OrderDetail(odto);
+			
+			model.addAttribute("odto", result);
+			model.addAttribute("contentsJsp", "admin/order/OrderDetail1");
 			session.setAttribute("ssKey", ssKey);
 			page = "Main";
 		}else {

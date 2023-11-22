@@ -20,15 +20,15 @@
     </div>
 	
 	<div id="adminOrderList">
-		<table class="listTable">
+		<table class="listTable" id="orderTable">
 			<tr>
 				<th>선택</th>
 				<th>주문번호</th>
 				<th>상품번호</th>
 				<th>상품명</th>
 				<th>회원명(회원 아이디)</th>
-				<th>주문수량</th>
-				<th>단가</th>
+				<!-- <th>주문수량</th>
+				<th>단가</th> -->
 				<th>결제금액</th>
 				<th>결제일</th>
 				<th>주문상태</th>
@@ -39,7 +39,11 @@
 					<c:forEach var = "order" items = "${adminOrderList}" varStatus = "i">
 						<tr>
 							<td class="orl1"><input type="checkbox" name="check" value = "${i.index}" readonly="readonly"></td>
-							<td class="orl2">${order.o_no}</td>
+							<td class="orl2"><a onclick="javascript:orderDetail(this)">${order.o_no}</a>
+								<input type="hidden" name="d_no" value="${order.d_no}">
+								<input type="hidden" name="o_no" value="${order.o_no}">
+								<input type="hidden" name="m_id" value="${order.m_id}">
+							</td>
 							<td class="orl3">${order.d_no}</td>
 							<td class="orl4"><a onclick="javascript:orderDetail(this)">${order.d_name}</a>
 								<input type="hidden" name="d_no" value="${order.d_no}">
@@ -47,8 +51,8 @@
 								<input type="hidden" name="m_id" value="${order.m_id}">
 							</td>
 							<td class="orl5">${order.m_name}(${order.m_id})</td>
-							<td class="price orl6">${order.o_quantity}</td>
-							<td class="price orl7">${order.o_price}</td>
+							<%-- <td class="price orl6">${order.o_quantity}</td> --%>
+							<%-- <td class="price orl7">${order.o_price}</td> --%>
 							<td class="price orl8">${order.o_amount}</td>
 							<td class="orl9">${order.o_regdate}</td>
 							<td class="state">

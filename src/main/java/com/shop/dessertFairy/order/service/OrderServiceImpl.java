@@ -139,7 +139,14 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public OrderDTO OrderDetail(OrderDTO odto) {			// admin  주문 상세
-		return orderDao.OrderDetail(odto);
+		Map<String, Object> result = new HashMap<String, Object>();
+		OrderDTO reset = orderDao.OrderDetail(odto);
+		System.out.println("결과 : "+reset);
+		result =  (Map<String, Object>) orderDao.OrderDetail(odto);
+		System.out.println("서비스 : "+ result);
+		
+		return (OrderDTO) result;
+//		return orderDao.OrderDetail(odto);
 	}
 
 	@Override

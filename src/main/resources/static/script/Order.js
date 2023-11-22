@@ -61,8 +61,57 @@ $().ready(function(){
 			rows.not(":eq(0)").remove();
 		}
 	});
+	
 			
+	/*$(function(){
+    $('#orderTable').each(function() {
+        var table = this;
+        $.each([2,3,4]  합칠 칸 번호 , function(c, v) {
+            var tds = $('>tbody>tr>td:nth-child(' + v + ')', table).toArray();
+            var i = 0, j = 0;
+            for(j = 1; j < tds.length; j ++) {
+                if(tds[i].innerHTML != tds[j].innerHTML) {
+                    $(tds[i]).attr('rowspan', j - i);
+                    i = j;
+                    continue;
+                }
+                $(tds[j]).hide();
+            }
+            j --;
+            if(tds[i].innerHTML == tds[j].innerHTML) {
+                $(tds[i]).attr('rowspan', j - i + 1);
+            }
+        });
+    });
+});*/
 		 
+		 
+	$('#orderTable').on(function(){			
+	  ono = $('input[name=o_no]').val();
+	 $.ajax({
+		   async:true,
+		   type:'post',
+		   data:{"o_no":ono
+		         },
+		   url: 'orderCntOfProduct',
+		   dataType:"json",
+		   success : function(cnt) {
+			 if(cnt>0){
+				 alert('주문내역이 존재합니다.\n 삭제 불가');
+				 return false;
+			  }else{
+				  r = confirm('주문내역이 없습니다. 삭제하시겠습니까?');
+				 if(r){
+					  $('form[name=productDetailForm]').attr('action','/productDel');
+     				  $('form[name=productDetailForm]').submit();
+				 }else{
+					 return false
+				 }
+			  }
+				 
+		     }
+	   });
+  });
 })//ready 끝
 
    function orderDetail(obj){
@@ -74,4 +123,5 @@ $().ready(function(){
 	 $('form[name=orDetailForm] input[name=m_id]').val(mid);
 	 $('form[name=orDetailForm]').submit();
    }
+   
    

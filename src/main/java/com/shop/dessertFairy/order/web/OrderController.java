@@ -110,6 +110,7 @@ public class OrderController {
       model.addAttribute("contentsJsp",contentsJsp);
       session.setAttribute("ssKey", sdto);
       session.setAttribute("hCartList", hCartList);
+      
       return "page";
    }
    
@@ -136,6 +137,7 @@ public class OrderController {
 		   odto = orderService.memOrderDetail(odto);
 		   model.addAttribute("odto", odto);
 		   model.addAttribute("contentsJsp", "custom/mypage/OrderDetail");
+		   
 		   page = "Main";
 	   }else {
 		   String msg = "로그인이 필요합니다.";
