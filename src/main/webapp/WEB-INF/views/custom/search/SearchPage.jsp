@@ -18,12 +18,12 @@
 			<tr>
 				<c:choose>
 					<c:when test="${fn:length(sList)>0}"> 
-						<c:forEach var="search" items="${sList}">
+						<c:forEach var="search" items="${sList}" varStatus="status">
 							<a class="abox" href="/dessertContent?d_no=${search.d_no}">
 								<div class="box">
-									<img src="/upload/${search.d_image}">
+									<img src="/upload/${search.d_image}" class="abox_img">
 									<p class="p_name">${search.d_name}</p>
-									<p class="p_price price">${search.d_price}</p>
+									<p class="p_price price">${search.d_price }</p>
 								</div>
 							</a>
 						</c:forEach>
