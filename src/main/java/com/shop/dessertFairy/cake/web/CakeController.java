@@ -9,6 +9,7 @@ import com.shop.dessertFairy.member.dto.MemberDTO;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class CakeController {
@@ -30,6 +31,12 @@ public class CakeController {
 	@RequestMapping("cakeOrderProc")
 	public String CakeOrderProc(HttpServletRequest request, HttpServletResponse response,
 			Model model, CakeDTO cdto) {
+		
+		HttpSession session = request.getSession();
+		MemberDTO sdto = (MemberDTO) session.getAttribute("ssKey");
+		
+		
+		System.out.println("케이크=========>"+cdto);
 		return null;
 	}
 }
