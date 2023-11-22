@@ -17,10 +17,10 @@
       ,d_storage
       ,d_allergy
    FROM dessert
-   ORDER BY D_SALE DESC
    <if test='flag != null and !flag.equals("all")'>
       WHERE d_category = #{flag}
    </if>
+   ORDER BY D_SALE DESC
 </select>
 
 <select id="getDessertCnt" resultType="int">
@@ -175,14 +175,14 @@
 	<!-- admin End -->
 	
 	
-	<select id="getSearchCnt" resultType="int" parameterType="map">		<!-- admin 상품 리스트 개수 -->
+	<select id="getSearchCnt" resultType="int" parameterType="map">
 		 SELECT COUNT(D_NO) FROM DESSERT
 		 WHERE
          D_NAME LIKE '%'||#{keyword}||'%'
 		 
 	</select>
 	  
-	<select id="getSearchList" parameterType="ddto">	<!-- admin 상품리스트 -->
+	<select id="getSearchList" parameterType="ddto">
 		SELECT * FROM 
        (SELECT ROWNUM AS D_RR, A.* 
         FROM 
