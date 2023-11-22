@@ -27,10 +27,11 @@
 		       		<input type="text" name="keyword" placeholder="Search" class="searchInput" size="40">
 		       		<button class="inputBtn" onclick="dp_menu"><img src="../image/search.png"></button>
 					<p class="keyword">
-						관련 키워드 : 초코,
+						관련 키워드 : 
 						<a href="/dessert?flag=브레드"> 빵,</a>
 						<a href="/dessert?flag=쿠키"> 쿠키,</a>
-						<a href="/dessert?flag=푸딩"> 푸딩</a>
+						<a href="/dessert?flag=푸딩"> 푸딩,</a>
+						<a href="/search?keyword=초코"> 초코</a>
 					</p>
 			</div>
 		</form>

@@ -44,7 +44,21 @@ a:hover{color: #13018d; text-decoration: none;}
 	font-weight: bold;
 }
 
+.black {
+	width: 256px;
+	height: 300px;
+	background-color: black;
+	opacity: 0.5;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
 
+.black strong {
+	font-size: 30px;
+	color: white;
+	line-height: 280px;
+}
 
 
 
@@ -56,6 +70,7 @@ a:hover{color: #13018d; text-decoration: none;}
 	display: inline-block;
 	width: 256px;
 	height: 300px;
+	position: relative;
 }
 
 #dessert .abox .box{

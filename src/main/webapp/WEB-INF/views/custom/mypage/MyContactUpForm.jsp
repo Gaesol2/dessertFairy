@@ -41,20 +41,20 @@
 			</div>
 		</div>
 	  
-	  <div id="conContent">
-	  <p class="spanContent">내용</p>
-	  <span>
-	  	<textarea name="t_content" class="chkc" title="내용" rows="20" cols="50">${contact.t_content}</textarea>
-	      </span>
-	      </div>
-	      <div id="conPasswd">
-	         <p class="spanPasswd">비밀번호</p>
-	         <span><input type="password" name="t_passwd" title="비밀번호" class="chkc in" size="20"
-	                  maxlength="6"></span>
-	         <span class="explanation">*비밀번호는 숫자만 입력 가능하며 4~6글자 입력하시오.</span>
-	      </div>
-	      <div id="conBtn">
-		  <input type="submit" class="contactUpdate" value="등록">
-	      </div>
+		<div id="conContent">
+			<p class="spanContent">내용</p>
+			<span>
+				<textarea name="t_content" class="chkc" title="내용" rows="20" cols="50">${contact.t_content}</textarea>
+			</span>
+		</div>
+		<div id="conPasswd">
+			<p class="spanPasswd">비밀번호</p>
+			<span><input type="password" name="t_passwd" title="비밀번호" class="chkc in" size="20"
+			         maxlength="6"></span>
+			<span class="explanation">*비밀번호는 숫자만 입력 가능하며 4~6글자 입력하시오.</span>
+		</div>
+		<div id="conBtn">
+			<input type="submit" class="contactUpdate" value="등록">
+		</div>
 	</form>
 </div>

@@ -130,8 +130,8 @@
 	</select>
 	
 	<update id="updateReadCnt" parameterType="rdto">
-   UPDATE REVIEW SET R_READCOUNT = R_READCOUNT+1
-   WHERE R_NO = #{r_no}
+	   UPDATE REVIEW SET R_READCOUNT = R_READCOUNT+1
+	   WHERE R_NO = #{r_no}
    </update>
    
    
