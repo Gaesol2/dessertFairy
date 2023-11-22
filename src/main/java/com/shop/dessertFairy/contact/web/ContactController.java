@@ -307,18 +307,14 @@ public class ContactController {
 			String contentsJsp = null;
 			String page = null;
 			MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
-			
-			
 			 
 			 //결과 처리
 			if(session.getAttribute("ssKey")!=null) {
 				String msg = null;
 				String url = null;
-				int r = 0;
 			   
 				page = "MsgPage";
-				
-				r = contactService.contactupProc(tdto);
+				int r = contactService.contactupProc(tdto);
 				
 				if(r>0) msg = "수정이 완료 되었습니다.";
 				else msg = "수정을 실패했습니다.";

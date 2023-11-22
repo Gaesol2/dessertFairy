@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="/css/Contact.css">
 <script src="/script/Contact.js"></script>
@@ -26,40 +25,39 @@
 	</div>
 	<div id="contactContent">
   		<div id="contactBtn">
-		  	<a href="/myContact" class="now">내 글보기 /</a>
-		  	<a href="/contactWrite">문의 글쓰기</a>
+			<a href="/contactList">문의목록 /</a>
+			<a href="/myContact" class="now">내 글보기 /</a>
+			<a href="/contactWrite">문의 글쓰기</a>
   		</div>
-  		<table class="conTable">
-	      <tr>
-	         <th class="con1">번호</th>
-	         <th class="con2">제목</th>
-	         <th class="con3">작성자</th>
-	         <th class="con4">작성일</th>
-	      </tr>
-
-			
+		<table class="conTable">
+			<tr>
+				<th class="con1">번호</th>
+				<th class="con2">제목</th>
+				<th class="con3">작성자</th>
+				<th class="con4">작성일</th>
+			</tr>
 			<c:choose>
 				<c:when test="${fn:length(myContact)>=0}">
 					<c:forEach var="contact" items="${myContact}" varStatus="status">
-					    <tr style="text-align:center;">
-					        <td><c:out value="${contact.t_no}"/></td> 
-					        <td>    
-					        <c:if test="${contact.t_secret eq 'N'}" >
-					            <img src="${pageContext.request.contextPath}/image/secret.png" class="secretImg" width="20" height="20" alt="비밀글" />
-					            <c:choose>
-					                <c:when test="${ssKey.m_id == contact.m_id}">
-					                    <a href="/myContactContent?t_no=${contact.t_no}">${contact.t_subject}</a>
-					                </c:when>
-					                <c:otherwise>비밀글은 작성자와 관리자만 볼 수 있습니다.</c:otherwise>
-					            </c:choose>
-					        </c:if>
-					        <c:if test="${contact.t_secret eq 'Y'}" >
-					            <a href="/myContactContent?t_no=${contact.t_no}">${contact.t_subject}</a>
-					        </c:if>
-					        </td>
-					        <td><c:out value="${contact.m_id}"/></td>            
-					        <td><c:out value="${contact.t_regdate}"/></td>
-					    </tr>
+						<tr>
+							<td class="con5"><c:out value="${contact.t_no}"/></td> 
+							<td class="con6">    
+								<c:if test="${contact.t_secret eq 'N'}" >
+									<img src="${pageContext.request.contextPath}/image/secret.png" class="secretImg" width="20" height="20" alt="비밀글" />
+									<c:choose>
+										<c:when test="${ssKey.m_id == contact.m_id}">
+											<a href="/myContactContent?t_no=${contact.t_no}">${contact.t_subject}</a>
+										</c:when>
+									<c:otherwise>비밀글은 작성자와 관리자만 볼 수 있습니다.</c:otherwise>
+									</c:choose>
+								</c:if>
+								<c:if test="${contact.t_secret eq 'Y'}" >
+									<a href="/myContactContent?t_no=${contact.t_no}">${contact.t_subject}</a>
+								</c:if>
+							</td>
+							<td class="con7"><c:out value="${contact.m_id}"/></td>            
+							<td class="con8"><c:out value="${contact.t_regdate}"/></td>
+						</tr>
 					</c:forEach>
 				</c:when>
 				<c:when test="${fn:length(myContact)==0}">
@@ -68,32 +66,28 @@
 					</tr>
 				</c:when>
 			</c:choose>
-			
-			
-			
-			
-	  </table>
-	  <table class="pageBtn">
-	   <tr>
-	    <td colspan="6">
-	      <c:if test="${pdto.startPg>pBlock}">
-	        <a href="contactList?curPage=${pdto.startPg-pBlock}&curBlock=${pdto.curBlock-1}">[이전]</a>
-	      </c:if>
-	      <c:forEach begin="${pdto.startPg}" end="${pdto.endPg}" var="p" step="1">
-	        <a href="contactList?curPage=${p}&curBlock=${pdto.curBlock}">
-	          <span><c:out value="${p}" /></span>
-	        </a>&nbsp;&nbsp;
-	      </c:forEach>
-	        <c:if test="${pdto.endPg<pdto.pgCnt}">
-	          <a href="contactList?curPage=${pdto.startPg+pBlock}&curBlock=${pdto.curBlock+1}">[다음]</a>
-	        </c:if>
-	     </td>
-	    </tr>
-	  </table>
-	  <form action="" name="content" method="post">
-		<input type="hidden" name="bno" value="">
-		<input type="hidden" name="curPage" value="${pageDto.curPage}">
-		<input type="hidden" name="curBlock" value="${pageDto.curBlock}">
-	 </form>
+		</table>
+		<table class="pageBtn">
+			<tr>
+				<td colspan="6">
+					<c:if test="${pdto.startPg>pBlock}">
+						<a href="contactList?curPage=${pdto.startPg-pBlock}&curBlock=${pdto.curBlock-1}">[이전]</a>
+					</c:if>
+					<c:forEach begin="${pdto.startPg}" end="${pdto.endPg}" var="p" step="1">
+						<a href="contactList?curPage=${p}&curBlock=${pdto.curBlock}">
+							<span><c:out value="${p}" /></span>
+						</a>&nbsp;&nbsp;
+					</c:forEach>
+					<c:if test="${pdto.endPg<pdto.pgCnt}">
+						<a href="contactList?curPage=${pdto.startPg+pBlock}&curBlock=${pdto.curBlock+1}">[다음]</a>
+					</c:if>
+				</td>
+			</tr>
+		</table>
+		<form action="" name="content" method="post">
+			<input type="hidden" name="bno" value="">
+			<input type="hidden" name="curPage" value="${pageDto.curPage}">
+			<input type="hidden" name="curBlock" value="${pageDto.curBlock}">
+		</form>
   	</div>
 </div>

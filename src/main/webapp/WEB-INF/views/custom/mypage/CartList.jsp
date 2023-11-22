@@ -6,7 +6,8 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="/css/Cart.css">
 <script src="/script/Cart.js"></script>
-<div id="mypage">
+
+<div id="cart">
 	<div>
 		<div id="cartList">
 			<p class="introduction">장바구니</p>
@@ -24,7 +25,7 @@
 		<form action="orderProc" method="post">
 			<c:choose>
 				<c:when test="${fn:length(hCartList)==0}">
-					장바구니 목록이 없습니다.
+					<p>장바구니 목록이 없습니다.</p>
 				</c:when>
 				<c:when test="${hCartList!=null}">
 					<p>총 <strong>${fn:length(hCartList)}</strong> 개의 <strong>상품</strong>이 있습니다.</p>
@@ -36,7 +37,7 @@
 								<th>가격</th>
 								<th>수량</th>
 								<th>총 가격</th>
-								<th>삭제</th>
+								<th></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -81,14 +82,14 @@
 							<td class="amount price"></td>
 							<td class="plus">+</td>
 							<td class="delivery price"></td>
-							<td class="minus">=</td>
+							<td class="same">=</td>
 							<td class="total_amount price"></td>
 						</tr>
 					</table>
 				</c:when>
 			</c:choose>
 			<div>
-				<input type="submit" value="결제하기" class="">
+				<input type="submit" value="결제하기" class="CartorderBtn">
 			</div>
 		</form>
 	</div><!--   cartContent end -->

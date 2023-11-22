@@ -92,6 +92,7 @@ public class ContactServiceImpl implements ContactService {
 	
 	@Override
 	public int contactupProc(ContactDTO tdto) {
+		System.out.println("이거 버려?");
 		return contactDao.contactupProc(tdto);
 	}
 	
