@@ -30,9 +30,7 @@ public class ReviewServiceImpl implements ReviewService {
 	   
 	   
 	   List<ReviewDTO> reviewList = null;
-	   if(rdto.getR_no()>0) {
 		   reviewDao.updateReadCnt(rdto);
-	   }
 	  
 	   int cnt = reviewDao.getReviewCnt();
 	   pdto = Page.page(cnt, pdto);
@@ -80,6 +78,8 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Override
 	public ReviewDTO getReviewcontent(ReviewDTO rdto) {
+		 reviewDao.updateReadCnt(rdto);
+		
 		return reviewDao.getReviewcontent(rdto);
 	}
 
