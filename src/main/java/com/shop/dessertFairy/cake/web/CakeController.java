@@ -60,14 +60,10 @@ public class CakeController {
 		} else {
 			page = "Main";
 			contentsJsp = "custom/cake/CakeComplete";
+			cdto.setC_path(resourcesLocation);
+			cdto.setM_id(sdto.getM_id());
+			int result = cakeService.cakeOrderProc(cdto, file);
 		}
-		
-		cdto.setC_path(resourcesLocation);
-		
-		cdto.setM_id(sdto.getM_id());
-		
-		int result = cakeService.cakeOrderProc(cdto, file);
-		
 		
 		System.out.println("케이크=========>"+cdto);
 		model.addAttribute("msg",msg);

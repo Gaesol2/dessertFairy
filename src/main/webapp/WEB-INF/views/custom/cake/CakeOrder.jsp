@@ -76,7 +76,7 @@
 			</select>
 		</span>
 		<p class="letter">레터링 입력 : 
-			<input type="text" class="lettering" name="write" placeholder="최대 15글자" maxlength='15'>
+			<input type="text" class="lettering" name="c_write" placeholder="최대 15글자" maxlength='15'>
 		</p>
 		<p class="option">픽업 날짜 : 
 			<input type="text" name="c_month" class="month" readonly="readonly"> 월 
