@@ -236,19 +236,37 @@ $().ready(function(){
             nowMonth = new Date(nowMonth.getFullYear(), nowMonth.getMonth() - 1, nowMonth.getDate());   // 현재 달을 1 감소
             let lastDate = new Date(nowMonth.getFullYear(), nowMonth.getMonth() + 1, 0).getDate();  // 이번달 마지막날
             buildCalendar();    // 달력 다시 생성
-            if(nowMonth<nowMonth.getMonth()){
-				
+            
+             if(nowMonth.getFullYear()==today.getFullYear()){
+	             if(nowMonth.getMonth()<today.getMonth()+1){
+	          	    $("input[name='c_day']").val(today.getDate());
+				} else {
+		            $("input[name='c_day']").val(lastDate);   // 일 자동 표시
+				}				
+			} else if(nowMonth.getFullYear()>today.getFullYear()){
+		            $("input[name='c_day']").val(lastDate);   // 일 자동 표시				
 			} else {
-            	$(".day").val(lastDate);
-				
+	          	    $("input[name='c_day']").val(today.getDate());
 			}
         }
+        
         // 다음달 버튼 클릭
         function nextCalendar() {
             nowMonth = new Date(nowMonth.getFullYear(), nowMonth.getMonth() + 1, nowMonth.getDate());   // 현재 달을 1 증가
             let firstDate = new Date(nowMonth.getFullYear(), nowMonth.getMonth(), 1).getDate();     // 이번달 1일
             buildCalendar();    // 달력 다시 생성
-            $(".day").val(firstDate);   // 일 자동 표시
+            
+            if(nowMonth.getFullYear()==today.getFullYear()){
+	             if(nowMonth.getMonth()<today.getMonth()+1){
+	          	    $("input[name='c_day']").val(today.getDate());
+				} else {
+		            $("input[name='c_day']").val(firstDate);   // 일 자동 표시
+				}				
+			} else if(nowMonth.getFullYear()>today.getFullYear()){
+		            $("input[name='c_day']").val(firstDate);   // 일 자동 표시				
+			} else {
+	          	    $("input[name='c_day']").val(today.getDate());
+			}
         }
 
         // input값이 한자리 숫자인 경우 앞에 '0' 붙혀주는 함수
@@ -261,7 +279,17 @@ $().ready(function(){
         }
         
         function inputMonth(){
-			$(".month").val(nowMonth.getMonth()+1);
+			if(nowMonth.getFullYear()==today.getFullYear()){
+	             if(nowMonth.getMonth()<today.getMonth()+1){
+	          	    $(".month").val(today.getMonth()+1);
+				} else {
+		            $(".month").val(nowMonth.getMonth()+1);   // 일 자동 표시
+				}				
+			} else if(nowMonth.getFullYear()>today.getFullYear()){
+		            $(".month").val(nowMonth.getMonth()+1);   // 일 자동 표시				
+			} else {
+	          	    $(".month").val(today.getMonth()+1);
+			}
 		}
 		
 		//케이크 요구사항
