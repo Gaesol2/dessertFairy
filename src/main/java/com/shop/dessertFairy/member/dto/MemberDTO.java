@@ -21,5 +21,6 @@ public class MemberDTO {
 	
 	private int start;
 	private int end;
+	private int m_rr;
 	
 }
