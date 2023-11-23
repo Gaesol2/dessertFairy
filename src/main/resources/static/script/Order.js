@@ -62,6 +62,15 @@ $().ready(function(){
 		}
 	});
 	
+	/*OrderDetail.jsp의 selectBOX 기본값 넣어주기*/
+	var stateSelect = document.getElementById('o_state');
+	var leng = stateSelect.options.length;
+	var state = document.getElementById("stateInput").value;
+	for(let i=0; i<leng; i++){
+		if(stateSelect.options[i].value == state){
+			stateSelect.options[i].selected = true;
+		}
+	}
 			
 	/*$(function(){
     $('#orderTable').each(function() {

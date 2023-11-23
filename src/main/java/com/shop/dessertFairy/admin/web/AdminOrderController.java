@@ -108,7 +108,7 @@ public class AdminOrderController {
 			 DetailList = orderService.OrderDetail(odto);
 			
 			model.addAttribute("DetailList", DetailList);
-			model.addAttribute("contentsJsp", "admin/order/OrderDetail1");
+			model.addAttribute("contentsJsp", "admin/order/OrderDetail");
 			session.setAttribute("ssKey", ssKey);
 			page = "Main";
 		}else {
