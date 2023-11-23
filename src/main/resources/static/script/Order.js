@@ -52,13 +52,18 @@ $().ready(function(){
 	   			tr.find(td).find("input[name=check]").prop("checked", false);	
 			  } 
 			});
-			
+	
+	
+	/*order*/
 	$(".orl2").each(function(){
 		var rows = $(".orl2:contains('"+$(this).text()+"')");
-		
+		alert($(this).text());
+		alert(JSON.stringify(rows));
+		alert(rows.length);
 		if(rows.length > 1){
-			rows.eq(0).attr("rowspan", rows.length);
-			rows.not(":eq(0)").remove();
+			$(".orl2").eq(0).attr("rowspan", rows.length);
+			$(".orl2").not(":eq(0)").remove();
+			
 		}
 	});
 	

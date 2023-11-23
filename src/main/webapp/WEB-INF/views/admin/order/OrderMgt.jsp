@@ -15,7 +15,7 @@
 	</div>
 	<div class="topList">
       <ul class="list">
-        <li>총 주문 내역 : ${oCnt} 건</li>
+        <li id="oCnt" value="${oCnt}">총 주문 내역 : ${oCnt} 건</li>
       </ul>
     </div>
 	
@@ -24,8 +24,6 @@
 			<tr>
 				<th>선택</th>
 				<th>주문번호</th>
-				<th>상품번호</th>
-				<th>상품명</th>
 				<th>회원명(회원 아이디)</th>
 				<!-- <th>주문수량</th>
 				<th>단가</th> -->
@@ -38,24 +36,18 @@
 				<c:when test="${fn:length(adminOrderList)>0}">
 					<c:forEach var = "order" items = "${adminOrderList}" varStatus = "i">
 						<tr>
-							<td class="orl1"><input type="checkbox" name="check" value = "${i.index}" readonly="readonly"></td>
-							<td class="orl2"><a onclick="javascript:orderDetail(this)">${order.o_no}</a>
+							<td class="orl1 dataCheck"><input type="checkbox" name="check" value = "${i.index}" readonly="readonly"></td>
+							<td class="orl2 dataCheck"><a onclick="javascript:orderDetail(this)">${order.o_no}</a>
 								<input type="hidden" name="d_no" value="${order.d_no}">
 								<input type="hidden" name="o_no" value="${order.o_no}">
 								<input type="hidden" name="m_id" value="${order.m_id}">
 							</td>
-							<td class="orl3">${order.d_no}</td>
-							<td class="orl4"><a onclick="javascript:orderDetail(this)">${order.d_name}</a>
-								<input type="hidden" name="d_no" value="${order.d_no}">
-								<input type="hidden" name="o_no" value="${order.o_no}">
-								<input type="hidden" name="m_id" value="${order.m_id}">
-							</td>
-							<td class="orl5">${order.m_name}(${order.m_id})</td>
-							<%-- <td class="price orl6">${order.o_quantity}</td> --%>
-							<%-- <td class="price orl7">${order.o_price}</td> --%>
-							<td class="price orl8">${order.o_amount}</td>
-							<td class="orl9">${order.o_regdate}</td>
-							<td class="state">
+							<td class="orl5 dataCheck">${order.m_name}(${order.m_id})</td>
+							<td class="price orl8 dataCheck">
+								<c:set var="total" value="${total + odto.o_amount}" />
+							${order.o_amount}원</td>
+							<td class="orl9 dataCheck">${order.o_regdate}</td>
+							<td class="state dataCheck">
 								<select name="o_state" id="state${i.count}">
 									<option value="1">결제중</option>
 									<option value="2">배송준비</option>
@@ -71,6 +63,7 @@
 								</script>
 							</td>
 						</tr>
+						<input type="hidden" id="count" value="i.count">
 					</c:forEach>
 				</c:when>
 			

@@ -10,33 +10,35 @@
 
 <div id="contact">
   <div>
-    <div class="mainList">
-		<p class="reviewName">상점관리</p>
+    <div id="contactList">
+		<p class="reviewName">문의목록</p>
     </div>
     <div class="topList">
       <ul class="list">
         <li><a href="/shopMgt">후기 목록</a></li>
-        <li><a href="/adminContact">문의 목록</a></li>
+        <li class="reList"><a href="/adminContact">문의 목록</a></li>
         <li><a href="/reviewWrite">배너 변경</a></li>
       </ul>
     </div>
   </div>
   <div id="contactContent">
-  	<a href="/contactWrite">문의글 목록</a>
+  	<a href="/contactWrite" class="now">문의글 목록</a>
   		<table class="conTable">
 	      <tr>
-	         <th class="con2">번호</th>
-	         <th class="con3">제목</th>
-	         <th class="con4">작성자</th>
-	         <th class="con6">작성일</th>
+	         <th class="con1">번호</th>
+	         <th class="con2">제목</th>
+	         <th class="con3">작성자</th>
+	         <th class="con4">작성일</th>
 	      </tr>
 
  	      <c:choose>
-				<c:when test="${fn:length(nList)>0}">
+				<c:when test="${fn:length(contactList)>0}">
 					<c:forEach var="contact" items="${contactList}" varStatus="status">
 					    <tr style="text-align:center;">
-					        <td><c:out value="${contact.t_no}"/></td> 
-					        <td>    
+					        <td class="con5"><c:out value="${contact.t_no}"/>
+					        	<input type="hidden" name="t_level" value="${contact.t_level}">
+					        </td> 
+					        <td class="con6">    
 					        <c:if test="${contact.t_secret eq 'N'}" >
 					            <img src="${pageContext.request.contextPath}/image/secret.png" class="secretImg" width="20" height="20" alt="비밀글" />
 					            <c:choose>
@@ -47,11 +49,11 @@
 					            </c:choose>
 					        </c:if>
 					        <c:if test="${contact.t_secret eq 'Y'}" >
-					            <a href="/contactContent?t_no=${contact.t_no}">${contact.t_subject}</a>
+					            <a href="/adminContactContent?t_no=${contact.t_no}">${contact.t_subject}</a>
 					        </c:if>
 					        </td>
-					        <td><c:out value="${contact.m_id}"/></td>            
-					        <td><c:out value="${contact.t_regdate}"/></td>
+					        <td class="con7"><c:out value="${contact.m_id}"/></td>            
+					        <td class="con8"><c:out value="${contact.t_regdate}"/></td>
 					    </tr>
 					</c:forEach>
 				</c:when>
@@ -61,42 +63,29 @@
 					</tr>
 				</c:when>
 			</c:choose>
- 	      
- 	      
- 	      
- 	      
- 	      
- 	      
- 	      
- 	      
- 	      
- 	      
- 	      
- 	      
- 	      
- 	      
 	  </table>
+	  
 	  <table class="pageBtn">
 	   <tr>
 	    <td colspan="6">
-	      <c:if test="${pageDto.startPg>pBlock}">
-	        <a href="contactList?curPage=${pageDto.startPg-pBlock}&curBlock=${pageDto.curBlock-1}">[이전]</a>
+	      <c:if test="${pdto.startPg>pBlock}">
+	        <a href="adminContact?curPage=${pdto.startPg-pBlock}&curBlock=${pdto.curBlock-1}">[이전]</a>
 	      </c:if>
-	      <c:forEach begin="${pageDto.startPg}" end="${pageDto.endPg}" var="p" step="1">
-	        <a href="contactList?curPage=${p}&curBlock=${pageDto.curBlock}">
+	      <c:forEach begin="${pdto.startPg}" end="${pdto.endPg}" var="p" step="1">
+	        <a href="adminContact?curPage=${p}&curBlock=${pdto.curBlock}">
 	          <span><c:out value="${p}" /></span>
 	        </a>&nbsp;&nbsp;
 	      </c:forEach>
-	        <c:if test="${pageDto.endPg<pageDto.pgCnt}">
-	          <a href="contactList?curPage=${pageDto.startPg+pBlock}&curBlock=${pageDto.curBlock+1}">[다음]</a>
+	        <c:if test="${pdto.endPg<pdto.pgCnt}">
+	          <a href="adminContact?curPage=${pdto.startPg+pBlock}&curBlock=${pdto.curBlock+1}">[다음]</a>
 	        </c:if>
 	     </td>
 	    </tr>
 	  </table>
 	  <form action="" name="content" method="post">
 		<input type="hidden" name="bno" value="">
-		<input type="hidden" name="curPage" value="${pageDto.curPage}">
-		<input type="hidden" name="curBlock" value="${pageDto.curBlock}">
+		<input type="hidden" name="curPage" value="${pdto.curPage}">
+		<input type="hidden" name="curBlock" value="${pdto.curBlock}">
 	 </form>
   	</div>
 </div>

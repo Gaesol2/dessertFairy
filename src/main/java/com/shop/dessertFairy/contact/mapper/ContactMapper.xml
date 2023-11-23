@@ -16,6 +16,7 @@
 			   ,TO_CHAR(T_REGDATE,'YYYY-MM-DD') AS T_REGDATE
 			   ,T_PASSWD
 			   ,T_SECRET
+			   ,T_LEVEL
 			   ,M_ID
 		FROM CONTACT
 	    ORDER BY T_NO DESC) A)
@@ -99,10 +100,9 @@
 	</delete>
 	
 	
-	
 	<!-- admin -->
 	
-	<select id="getAdminList" resultType="tdto">
+	<!-- <select id="getAdminList" resultType="tdto">
 		SELECT * FROM 
        (SELECT ROWNUM AS T_RR, A.* 
         FROM 
@@ -116,7 +116,7 @@
 		FROM CONTACT
 	    ORDER BY T_NO DESC) A)
         WHERE T_RR BETWEEN #{start,jdbcType=NUMERIC} and #{end,jdbcType=NUMERIC}
-	 </select>
+	 </select> -->
 	 
    <select id="getAdminContent" parameterType="tdto" resultType="tdto">
 		SELECT T_NO
@@ -125,6 +125,7 @@
 			   ,TO_CHAR(T_REGDATE,'YYYY-MM-DD') AS T_REGDATE
 			   ,T_PASSWD
 			   ,T_SECRET
+			   ,T_LEVEL
 			   ,M_ID
 		FROM CONTACT
 		WHERE T_NO = #{t_no}

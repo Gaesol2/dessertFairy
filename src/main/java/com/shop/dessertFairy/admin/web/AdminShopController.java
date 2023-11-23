@@ -260,34 +260,24 @@ public class AdminShopController {
 			              HttpServletResponse response,
 			              Model model,
 			              ContactDTO tdto,
-			              PageDTO pageDto) {
+			              PageDTO pdto) {
 		
 		//변수 선언
 	    String page = null;
-	    MemberDTO ssKey = null;
-	    String contentsJsp = "/admin/shop/ContactList";
+	    HttpSession session = request.getSession();
+	    MemberDTO ssKey = (MemberDTO) session.getAttribute("ssKey");
 	    
-	    //HttpSession 세션 객체 생성 및 세션 정보 받아오기
-		HttpSession session = request.getSession();
-		
-		ssKey = (MemberDTO) session.getAttribute("ssKey");
-		contentsJsp = "/admin/shop/ContactList";
-		page = "Main";
-		
-		
-		//리스트 목록과 페이지 수 계산한것을 불러온 것
-		Map<String, Object> reSet = contactService.getAdminList(tdto, pageDto);
-		//세션 저장
+		if(ssKey!=null && ssKey.getM_role().equals("admin")) {
+			Map<String, Object> reSet = contactService.getContactList(tdto, pdto);
+			model.addAttribute("cnt", reSet.get("cnt"));
+			model.addAttribute("contactList", reSet.get("contactList"));
+			model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
+			model.addAttribute("contentsJsp", "/admin/shop/ContactList");
+			model.addAttribute("pdto",pdto);
+			page = "Main";
+		}else page = "redirect:/";
 		
 		session.setAttribute("ssKey", ssKey);
-		
-		//데이터 저장
-		model.addAttribute("cnt", reSet.get("cnt"));
-		model.addAttribute("contactList", reSet.get("contactList"));
-		model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
-		model.addAttribute("contentsJsp",contentsJsp);
-		model.addAttribute("pageDto",pageDto);
-		
 		
 		return page;
 	}
@@ -299,32 +289,96 @@ public class AdminShopController {
 		   ContactDTO tdto,
 		   PageDTO pageDto) {
 	   
+	   String page = null;
+
 	   //세션 받아오기
 	   HttpSession session = request.getSession();
-	   
-	   //변수 선언해주기
-	   String contentsJsp = "/admin/shop/ContactContent";
-	   String page = null;
-	   
-	   //ssKey 세션에 있는 정보를 MemberDTO 타입의 mdto에 저장
 	   MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
-	   
-	  
-	   ContactDTO contact = contactService.getAdminContent(tdto);
-	   model.addAttribute("contact", contact);
-	   
-	   
-	   //페이지 불러오기
-	   page = "admin/shop/ContactContent";
-	   
+	   if(mdto != null && mdto.getM_role().equals("admin")) {
+		   ContactDTO contact = contactService.getAdminContent(tdto);
+		   model.addAttribute("contact", contact);
+		   model.addAttribute("contentsJsp", "admin/shop/ContactContent");
+		   page = "Main";
+		   
+	   }
 	   //세션에 저장
 	   session.setAttribute("ssKey", mdto);
-	   model.addAttribute("contentsJsp", page);
 	   
 	   
-	   return "Main";
+	   return page;
    }
    
+   @RequestMapping("/adminContactReply") //리뷰 글쓰기 경로
+   public String ContactWrite ( HttpServletRequest request,
+		   						HttpServletResponse response,
+		   						Model model,
+		   						ContactDTO tdto) {
+	   String url = null;
+	   String msg = null;
+	   String page = null;
+
+	   //HttpSession 세션 객체 생성 및 세션 정보 받아오기
+	   HttpSession session = request.getSession();
+
+	   //ssKey 세션에 있는 정보를 MemberDTO 타입의 sdto에 저장
+	   MemberDTO sdto = (MemberDTO) session.getAttribute("ssKey");
+
+	   //세션이 없으면 로그인 먼저 하라고 로그인 페이지로 보내기
+	   if(sdto!=null && sdto.getM_role().equals("admin")) {
+		   model.addAttribute("contentsJsp","/admin/shop/ContactReplyWrite");
+		   page = "Main";
+		   model.addAttribute("t_no",tdto.getT_no());
+	   } else {
+		   msg = "권한이 없습니다.";
+		   url = "login";
+		   page = "MsgPage";
+	   }
+	   
+	   //데이터 저장
+	   model.addAttribute("msg",msg);
+	   model.addAttribute("url",url);
+      
+	   //세션 저장해주기
+	   session.setAttribute("ssKey", sdto);
+	   
+	   return page;
+   }
    
+   @RequestMapping("/contactReplyProc")
+   public String ContactWriteProc ( HttpServletRequest request,
+		   							HttpServletResponse response,
+		   							Model model,
+		   							ContactDTO tdto) {
+
+	   //변수 선언
+	   String msg = null;
+	   String url = "/contactList";
+	   
+	   //세션 받아오기
+	   HttpSession session = request.getSession();
+	   MemberDTO sdto = (MemberDTO) session.getAttribute("ssKey");
+
+	   //rdto.setM_id(세션) 세션에서 member_id를 빼서 rdto에 넣어주기
+	   tdto.setM_id(sdto.getM_id());
+
+	   //결과 처리
+	   int result = contactService.contactWrite(tdto);
+
+	   //결과에 따른 메세지 출력
+	   if(result>0) {
+		   msg = "문의글이 등록되었습니다.";
+	   } else {
+		   msg = "문의글 등록에 실패했습니다.";
+	   }
+      
+	   //경로 및 메세지 저장
+	   model.addAttribute("url",url);
+	   model.addAttribute("msg",msg);
+      
+	   //세션 저장
+	   session.setAttribute("ssKey", sdto);
+	   
+	   return "MsgPage";
+   }
    
 }
