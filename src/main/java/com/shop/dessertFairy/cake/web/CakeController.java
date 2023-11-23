@@ -43,8 +43,6 @@ public class CakeController {
 	@RequestMapping("cakeOrderProc")
 	public String CakeOrderProc(HttpServletRequest request, HttpServletResponse response,
 			Model model, CakeDTO cdto, @RequestParam("image") MultipartFile file) {
-		//멀티파트 추가하기
-		
 		HttpSession session = request.getSession();
 		MemberDTO sdto = (MemberDTO) session.getAttribute("ssKey");
 		

@@ -151,4 +151,29 @@ public class OrderController {
 	   
 	   return page;
    }
+   
+   @RequestMapping("orderCancel")
+   public String OrderCancel (HttpServletRequest request, HttpServletResponse response,
+		   Model model, OrderDTO odto) {
+	   
+	    HttpSession session = request.getSession();
+		MemberDTO sdto = (MemberDTO) session.getAttribute("ssKey");
+		
+		String msg = null;
+		String page = null;
+		String url = null;
+		String contentsJsp = null;
+		
+		if(sdto==null) {
+			msg = "로그인이 필요합니다.";
+			page = "MsgPage";
+			url = "login";
+		} else {
+			page = "Main";
+			contentsJsp = "redirect:orderList";
+			orderWrapper.orderCancel(odto);
+		}
+	   
+	   return page;
+   }
 }

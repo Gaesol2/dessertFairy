@@ -30,5 +30,15 @@ public class OrderWrapper {
 		hCartList.clear();
 		return hCartList;
 	}
+
+	public void orderCancel(OrderDTO odto) {
+		
+		// d_stock, d_sale 복원 
+		dessertService.cancelStocks(odto);
+		
+		// 주문 삭제
+		orderService.cancelOrder(odto);
+		
+	}
 	
 }
