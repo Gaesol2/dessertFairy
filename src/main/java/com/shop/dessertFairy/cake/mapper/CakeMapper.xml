@@ -4,8 +4,11 @@
 <mapper namespace = "com.shop.dessertFairy.cake.dao.CakeDAO">
 
 	<insert id="cakeOrderProc" parameterType="cdto">
-		INSERT cake
-		SET (
+	<selectKey keyProperty="c_no" order="BEFORE" resultType="int">
+		SELECT NVL(MAX(C_NO),0)+1 FROM CAKE
+	</selectKey>
+		INSERT INTO cake
+		(
 			C_NO
 			,C_SHEET
 			,C_INCREAM

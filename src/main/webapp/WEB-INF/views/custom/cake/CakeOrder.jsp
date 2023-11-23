@@ -32,7 +32,7 @@
             </tbody>
         </table>
 	</div><!-- 캘린더 끝 -->
-<form action="cakeOrderProc" method="post" name="cakeOrder">
+<form action="cakeOrderProc" method="post" name="cakeOrder" enctype="multipart/form-data">
 	<div id="cakedetail"><!-- 옵션 시작 -->
 		<dl>
 			<dt class="cakename">주문 제작 케이크</dt>
@@ -76,7 +76,7 @@
 			</select>
 		</span>
 		<p class="letter">레터링 입력 : 
-			<input type="text" class="lettering" placeholder="최대 15글자" maxlength='15'>
+			<input type="text" class="lettering" name="write" placeholder="최대 15글자" maxlength='15'>
 		</p>
 		<p class="option">픽업 날짜 : 
 			<input type="text" name="c_month" class="month" readonly="readonly"> 월 

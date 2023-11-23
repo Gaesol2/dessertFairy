@@ -1,9 +1,12 @@
 package com.shop.dessertFairy.cake.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.shop.dessertFairy.cake.dto.CakeDTO;
 import com.shop.dessertFairy.cake.service.CakeService;
@@ -18,6 +21,9 @@ public class CakeController {
 	
 	@Autowired
 	CakeService cakeService;
+	
+    @Value("${resources.location}")
+    String resourcesLocation;
 	
 	@RequestMapping("/cake")
 	public String cake(HttpServletRequest request,
@@ -36,7 +42,7 @@ public class CakeController {
 	
 	@RequestMapping("cakeOrderProc")
 	public String CakeOrderProc(HttpServletRequest request, HttpServletResponse response,
-			Model model, CakeDTO cdto) {
+			Model model, CakeDTO cdto, @RequestParam("image") MultipartFile file) {
 		//멀티파트 추가하기
 		
 		HttpSession session = request.getSession();
@@ -53,10 +59,14 @@ public class CakeController {
 			url = "login";
 		} else {
 			page = "Main";
-			contentsJsp = "CakeComplete";
+			contentsJsp = "custom/cake/CakeComplete";
 		}
 		
-		int result = cakeService.cakeOrderProc(cdto);
+		cdto.setC_path(resourcesLocation);
+		
+		cdto.setM_id(sdto.getM_id());
+		
+		int result = cakeService.cakeOrderProc(cdto, file);
 		
 		
 		System.out.println("케이크=========>"+cdto);

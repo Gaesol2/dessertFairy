@@ -236,7 +236,12 @@ $().ready(function(){
             nowMonth = new Date(nowMonth.getFullYear(), nowMonth.getMonth() - 1, nowMonth.getDate());   // 현재 달을 1 감소
             let lastDate = new Date(nowMonth.getFullYear(), nowMonth.getMonth() + 1, 0).getDate();  // 이번달 마지막날
             buildCalendar();    // 달력 다시 생성
-            $(".day").val(lastDate);
+            if(nowMonth<nowMonth.getMonth()){
+				
+			} else {
+            	$(".day").val(lastDate);
+				
+			}
         }
         // 다음달 버튼 클릭
         function nextCalendar() {

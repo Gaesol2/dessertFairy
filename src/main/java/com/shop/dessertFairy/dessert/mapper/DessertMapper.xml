@@ -59,6 +59,7 @@
 	FROM (
 		SELECT d_no
 		FROM dessert
+		WHERE d_stock <![CDATA[>=]]> 1
 		ORDER BY d_sale DESC
 	)
 	WHERE ROWNUM <![CDATA[<=]]> 3
