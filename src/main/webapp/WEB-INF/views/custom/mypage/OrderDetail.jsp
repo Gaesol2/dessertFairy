@@ -7,7 +7,7 @@
 <script src="/script/Order.js"></script>
 <div id ="order">
 	<div id="orderName">
-		<p class="memOrderDetail" name="m_name">${m_name}님의 상세 주문 내역</p>
+		<p class="memOrderDetail" name="m_name">${DetailList[0].m_name}님 상세 주문 내역</p>
 	</div>
 	<div id="order_detail_head">
 		<div id="orderDetail_img">

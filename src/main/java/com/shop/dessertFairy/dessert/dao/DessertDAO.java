@@ -45,5 +45,7 @@ public interface DessertDAO {
 
 	List<Integer> maxSale();
 
+	void cancelStocks(OrderDTO odto);
+
 	
 }

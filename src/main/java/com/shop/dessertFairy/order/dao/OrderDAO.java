@@ -28,8 +28,12 @@ public interface OrderDAO {
 
 	OrderDTO memOrderDetail(OrderDTO odto);				//admin 고객관리-주문상세
 
-
 	int MUpdateOrder(OrderDTO odto);					//admin 고객관리-주문수정
 
+	List<OrderDTO> getTotalPrice(OrderDTO odto);
+
+	void updateTotalPrice(List<OrderDTO> getTotalPrice);
+
+	void cancelOrder(OrderDTO odto);
 
 }

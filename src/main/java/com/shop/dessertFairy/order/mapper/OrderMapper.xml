@@ -51,14 +51,15 @@
 				 O.O_AMOUNT,
 				 O.M_ID,
 				 O.D_NO,
-				 D.D_NAME
+				 D.D_NAME,
+				 O.O_TOTALPRICE
 		 FROM ORDERT O
 		 INNER JOIN DESSERT D
 		 	ON O.D_NO = D.D_NO
 		 WHERE M_ID = #{m_id}
 		 ORDER BY O_NO ASC) A)
-		 WHERE O_RR BETWEEN #{start} AND #{end}
 	</select>
+
 
 	<select id="getOrderCnt" parameterType="odto" resultType="int">				<!-- admin 총 주문 수 -->
 		SELECT COUNT(O_NO) FROM ORDERT
@@ -79,7 +80,8 @@
 			       O.O_PRICE, 
 			       M_ROLE,
 			       D.D_STOCK, 
-			       O.O_STATE
+			       O.O_STATE,
+			       O.O_TOTALPRICE
 			FROM ORDERT O
 			INNER JOIN DESSERT D
 			  ON O.D_NO = D.D_NO
@@ -89,10 +91,20 @@
      		 WHERE O.M_ID= #{m_id} and #{m_role}='mem'<!--and이후에 삭제 -->
 		  </if>
 		ORDER BY O_NO DESC) A)
-	   <![CDATA[
-	    WHERE o_rr>=#{start} AND o_rr <=#{end} 
-	   ]]> 
 	</select>
+
+	<select id="getTotalPrice" parameterType="odto" resultType="odto">
+		SELECT o_no, SUM(o_amount) AS o_totalprice FROM ordert GROUP BY o_no
+	</select>
+	
+	<update id="updateTotalPrice" parameterType="odto">
+		<foreach collection="list" item="odto" 
+	     index="index" separator=";" open="DECLARE BEGIN" close="; END;">
+			UPDATE ordert
+			SET o_totalprice = #{odto.o_totalprice}
+			WHERE o_no = #{odto.o_no}
+		</foreach>
+	</update>
 	
 	<update id="updateOrderState" parameterType="list">						<!-- admin 주문목록에서 상태 수정 -->
 	  <foreach collection="list" item="item" 
@@ -115,7 +127,7 @@
 	         O.O_REGDATE, O.O_PRICE, 
 	          D.D_STOCK, 
 	         O.O_STATE,
-	         O.O_AMOUNT
+	         O.O_TOTALPRICE
          FROM ORDERT O
 		INNER JOIN DESSERT D
 		  ON O.D_NO = D.D_NO
@@ -168,5 +180,10 @@
    		AND D_NO = #{d_no}
    		AND M_ID = #{m_id}
    </update>
+   
+   <delete id="cancelOrder" parameterType="odto">
+   		DELETE FROM oredert
+   		WHERE o_no = #{o_no}
+   </delete>
 
 </mapper>

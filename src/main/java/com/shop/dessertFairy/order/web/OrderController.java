@@ -38,7 +38,6 @@ public class OrderController {
 					              HttpServletResponse response,
 					              Model model,
 					              MemberDTO mdto,
-					              PageDTO pdto,
 					              OrderDTO odto) {
 		 
 	   String page = null;
@@ -51,11 +50,8 @@ public class OrderController {
 		   
 		   if(ssKey.getM_role().equals("mem")) {
 			   odto.setM_id(ssKey.getM_id());
-			   resultSet = orderService.getOrderList(odto, pdto);
-			   model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
-//			   model.addAttribute("mdto", mdto);
+			   resultSet = orderService.getOrderList(odto);
 			   model.addAttribute("m_name", ssKey.getM_name());
-			   model.addAttribute("pdto", resultSet.get("pdto"));
 			   model.addAttribute("cnt", resultSet.get("cnt"));
 			   model.addAttribute("orderList", resultSet.get("orderList"));
 			   session.setAttribute("ssKey", ssKey);
@@ -124,7 +120,7 @@ public class OrderController {
 		return "Main";
 	}
    
-   @RequestMapping("/memOrderDetail")
+   @RequestMapping("/memOrderDetail")  // 회원 마이페이지 order 목록
    public String MemOrderDetail(HttpServletRequest request,
 		   						HttpServletResponse response,
 		   						OrderDTO odto,
@@ -148,6 +144,31 @@ public class OrderController {
 	   
 	   model.addAttribute("m_name", ssKey.getM_name());
 	   session.setAttribute("ssKey", ssKey);
+	   
+	   return page;
+   }
+   
+   @RequestMapping("orderCancel")
+   public String OrderCancel (HttpServletRequest request, HttpServletResponse response,
+		   Model model, OrderDTO odto) {
+	   
+	    HttpSession session = request.getSession();
+		MemberDTO sdto = (MemberDTO) session.getAttribute("ssKey");
+		
+		String msg = null;
+		String page = null;
+		String url = null;
+		String contentsJsp = null;
+		
+		if(sdto==null) {
+			msg = "로그인이 필요합니다.";
+			page = "MsgPage";
+			url = "login";
+		} else {
+			page = "Main";
+			contentsJsp = "redirect:orderList";
+			orderWrapper.orderCancel(odto);
+		}
 	   
 	   return page;
    }

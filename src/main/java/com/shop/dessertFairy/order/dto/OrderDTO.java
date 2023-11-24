@@ -14,6 +14,7 @@ public class OrderDTO {
 	private int o_amount    ;
 	private String m_id      ;
 	private int d_no      ;
+	private int o_totalprice;
 	
 	private int d_stock;
 	private String d_name;
