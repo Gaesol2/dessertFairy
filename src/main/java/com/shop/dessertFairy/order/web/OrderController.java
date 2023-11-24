@@ -120,7 +120,7 @@ public class OrderController {
 		return "Main";
 	}
    
-   @RequestMapping("/memOrderDetail")
+   @RequestMapping("/memOrderDetail")  // 회원 마이페이지 order 목록
    public String MemOrderDetail(HttpServletRequest request,
 		   						HttpServletResponse response,
 		   						OrderDTO odto,

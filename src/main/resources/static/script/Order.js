@@ -64,7 +64,7 @@ $().ready(function(){
          let next_text = prev_text + "외 " + (rows.length-1);
          
          if(rows.length > 1){
-            rows.next().text(next_text);
+            rows.next().find("a").text(next_text);
             rows.not(":eq(0)").parent().remove();
          };
       });
@@ -80,7 +80,7 @@ $().ready(function(){
          let next_text = prev_text + "외 " + (rows.length-1);
          
          if(rows.length > 1){
-            rows.next().text(next_text);
+            rows.next().find("a").text(next_text);
             rows.not(":eq(0)").parent().remove();
          };
       });
@@ -96,7 +96,7 @@ $().ready(function(){
          let next_text = prev_text + "외 " + (rows.length-1);
          
          if(rows.length > 1){
-            rows.next().text(next_text);
+            rows.next().find("a").text(next_text);
             rows.not(":eq(0)").parent().remove();
          };
       });

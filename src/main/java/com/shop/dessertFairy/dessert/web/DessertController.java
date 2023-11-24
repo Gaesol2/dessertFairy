@@ -86,6 +86,5 @@ public class DessertController {
 	      model.addAttribute("contentsJsp", "custom/search/SearchPage");
 	      return page;
 	   }
-
 	
 }

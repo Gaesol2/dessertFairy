@@ -88,6 +88,7 @@
  			
 			<div id="odBtn">
 				<input type="submit" value="상태수정" class="DetailstateUpBtn adminDetailBtn">
+				
 			</div>
 		</div>
 	</form>
