@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="/css/Contact.css">
 <script src="/script/Contact.js"></script>
@@ -18,15 +18,22 @@
 	      </ul>
     	</div>
   	</div>
-	<form action="contactReplyProc" name="conForm" id="myform" method="post">
+	<form action="contactReplyProc" name="conReplyForm" id="conReplyForm" method="post">
 		<div id="conWrite">
 			<p class="spanName">제목</p>
 			<span>
-				<input type="text" name="t_subject" title="제목" class="chkc in" size="30">
+				<c:choose>
+					<c:when test = "${tdto.t_no > 0}">
+						<input type="text" name="t_subject" title="제목" class="chkc in" size="30" value="[답글]">
+					</c:when>
+					<c:when test = "${tdto.t_no == 0}">
+						<input type="text" name="t_subject" title="제목" value="">
+					</c:when>
+				</c:choose>
 			</span>
 			<p class="spanWrite">작성자</p>
 			<span>
-				<input type="text" name="m_id" class="chkc in" title="작성자" size="30" value="${m_id}" disabled="disabled">
+				<input type="text" name="m_id" class="chkc in" title="작성자" size="30" value="${ssKey.m_id}" disabled="disabled">
 			</span>
 		</div>
 	      
@@ -56,5 +63,8 @@
 		<div id="conBtn">
 			<input type="submit" class="conSubmit regis" value="등록">
 		</div>
+		<input type="hidden" name="t_no" value="${tdto.t_no}">
+		<input type="hidden" name="t_level" value="${tdto.t_level}">
+		<input type="hidden" name="t_level" value="${tdto.t_group}">
 	</form>
 </div>

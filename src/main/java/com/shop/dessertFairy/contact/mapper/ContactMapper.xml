@@ -11,24 +11,27 @@
        (SELECT ROWNUM AS T_RR, A.* 
         FROM 
 		(SELECT T_NO
-			   ,T_SUBJECT
-			   ,T_CONTENT
-			   ,TO_CHAR(T_REGDATE,'YYYY-MM-DD') AS T_REGDATE
-			   ,T_PASSWD
-			   ,T_SECRET
-			   ,T_LEVEL
-			   ,M_ID
+				,T_GROUP
+				,T_LEVEL
+				,T_SUBJECT
+				,T_CONTENT
+				,TO_CHAR(T_REGDATE,'YYYY-MM-DD') AS T_REGDATE
+				,T_PASSWD
+				,T_SECRET
+				,M_ID
 		FROM CONTACT
-	    ORDER BY T_NO DESC) A)
+	    ORDER BY T_GROUP DESC, T_NO, T_LEVEL) A)
         WHERE T_RR BETWEEN #{start,jdbcType=NUMERIC} and #{end,jdbcType=NUMERIC}
 	 </select>
 	 
 	 <insert id="contactWrite" parameterType="tdto">
-   <selectKey keyProperty="t_no" order="BEFORE" resultType="int">
-		SELECT NVL(MAX(T_NO),0)+1 FROM CONTACT
+   <selectKey keyProperty="nt_no" order="BEFORE" resultType="int">
+		SELECT NVL(MAX(T_NO),0)+1 AS NT_NO FROM CONTACT
 	</selectKey>
       INSERT INTO CONTACT(
           T_NO
+         ,T_GROUP
+         ,T_LEVEL
          ,T_SUBJECT
          ,T_CONTENT
          ,T_REGDATE
@@ -36,7 +39,17 @@
          ,T_SECRET
          ,M_ID)
       VALUES(
-          #{t_no}
+      	 #{nt_no},
+          <choose>
+          	<when test="t_no>0">
+          		#{t_no},
+          		#{t_level}+1
+          	</when>
+          	<when test="t_no==0">
+          		#{nt_no},
+          		0
+          	</when>
+          </choose>
          ,#{t_subject}
          ,#{t_content}
          ,SYSDATE
@@ -131,5 +144,38 @@
 		WHERE T_NO = #{t_no}
 	</select>
 	
-	
+	<insert id="replyWrite" parameterType="string">
+	 <selectKey keyProperty="nt_no" order="BEFORE" resultType="int">
+		SELECT NVL(MAX(T_NO),0)+1 AS NT_NO FROM CONTACT
+	</selectKey>
+      INSERT INTO CONTACT(
+          T_NO
+         ,T_GROUP
+         ,T_LEVEL
+         ,T_SUBJECT
+         ,T_CONTENT
+         ,T_REGDATE
+         ,T_PASSWD
+         ,T_SECRET
+         ,M_ID)
+      VALUES(
+      	 #{nt_no},
+          <choose>
+          	<when test="t_no>0">
+          		#{t_no},
+          		#{t_level}+1
+          	</when>
+          	<when test="t_no==0">
+          		#{nt_no},
+          		0
+          	</when>
+          </choose>
+         ,#{t_subject}
+         ,#{t_content}
+         ,SYSDATE
+         ,#{t_passwd}
+         ,#{t_secret}
+         ,#{m_id}
+      )
+   </insert>
 </mapper>

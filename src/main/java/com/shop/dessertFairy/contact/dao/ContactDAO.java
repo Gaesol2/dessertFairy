@@ -36,6 +36,8 @@ public interface ContactDAO {
 
 	ContactDTO getAdminContent(ContactDTO tdto);
 
+	int replyWrite(String m_id);
+
 
 
 

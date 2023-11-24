@@ -36,7 +36,7 @@ public class ContactServiceImpl implements ContactService {
 		   
 		   contactList = contactDao.getContactList(tdto);		
 		   
-		   
+		   System.out.println("결과 : "+contactList);
 		   reSet.put("pdto", pdto);
 		   reSet.put("cnt", cnt);
 		   reSet.put("contactList", contactList);
@@ -144,6 +144,12 @@ public class ContactServiceImpl implements ContactService {
 	@Override
 	public ContactDTO getAdminContent(ContactDTO tdto) {
 		return contactDao.getAdminContent(tdto);
+	}
+
+
+	@Override
+	public int contactWrite(String m_id) {		//admin 글쓰기
+		return contactDao.replyWrite(m_id);
 	}
 
 

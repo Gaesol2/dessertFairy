@@ -297,6 +297,7 @@ public class AdminShopController {
 	   if(mdto != null && mdto.getM_role().equals("admin")) {
 		   ContactDTO contact = contactService.getAdminContent(tdto);
 		   model.addAttribute("contact", contact);
+		   model.addAttribute("tdto", tdto);
 		   model.addAttribute("contentsJsp", "admin/shop/ContactContent");
 		   page = "Main";
 		   
@@ -316,7 +317,7 @@ public class AdminShopController {
 	   String url = null;
 	   String msg = null;
 	   String page = null;
-
+	   System.out.println("넘버는 : "+tdto);
 	   //HttpSession 세션 객체 생성 및 세션 정보 받아오기
 	   HttpSession session = request.getSession();
 
@@ -328,6 +329,7 @@ public class AdminShopController {
 		   model.addAttribute("contentsJsp","/admin/shop/ContactReplyWrite");
 		   page = "Main";
 		   model.addAttribute("t_no",tdto.getT_no());
+		   model.addAttribute("tdto",tdto);
 	   } else {
 		   msg = "권한이 없습니다.";
 		   url = "login";
@@ -352,15 +354,11 @@ public class AdminShopController {
 
 	   //변수 선언
 	   String msg = null;
-	   String url = "/contactList";
-	   
+	   String url = "/adminContact";
 	   //세션 받아오기
 	   HttpSession session = request.getSession();
 	   MemberDTO sdto = (MemberDTO) session.getAttribute("ssKey");
-
-	   //rdto.setM_id(세션) 세션에서 member_id를 빼서 rdto에 넣어주기
 	   tdto.setM_id(sdto.getM_id());
-
 	   //결과 처리
 	   int result = contactService.contactWrite(tdto);
 

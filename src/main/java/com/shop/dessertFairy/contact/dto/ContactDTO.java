@@ -18,6 +18,8 @@ public class ContactDTO {
 	private String t_passwd;
 	private String t_secret;
 	private String m_id;
-	private int T_level;
+	private int t_level;
+	private int nt_no;
+	private int t_group;
 
 }

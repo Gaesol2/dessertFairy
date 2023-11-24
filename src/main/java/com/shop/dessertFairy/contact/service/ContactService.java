@@ -32,6 +32,8 @@ public interface ContactService {
 
 	ContactDTO getAdminContent(ContactDTO tdto);
 
+	int contactWrite(String m_id);
+
 
 
 

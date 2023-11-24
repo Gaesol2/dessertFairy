@@ -38,19 +38,23 @@
 					        <td class="con5"><c:out value="${contact.t_no}"/>
 					        	<input type="hidden" name="t_level" value="${contact.t_level}">
 					        </td> 
-					        <td class="con6">    
-					        <c:if test="${contact.t_secret eq 'N'}" >
-					            <img src="${pageContext.request.contextPath}/image/secret.png" class="secretImg" width="20" height="20" alt="비밀글" />
-					            <c:choose>
-					                <c:when test="${ssKey.m_id == contact.m_id || ssKey.m_role=='admin'}">
-					                    <a href="/contactContent?t_no=${contact.t_no}">${contact.t_subject}</a>
-					                </c:when>
-					                <c:otherwise>비밀글은 작성자와 관리자만 볼 수 있습니다.</c:otherwise>
-					            </c:choose>
-					        </c:if>
-					        <c:if test="${contact.t_secret eq 'Y'}" >
-					            <a href="/adminContactContent?t_no=${contact.t_no}">${contact.t_subject}</a>
-					        </c:if>
+					        <td class="con6">
+					        	<c:if test="${contact.t_level}>0">
+					        		<img src="image/level.gif" width="${contact.t_level*10}px;">
+					        		<img src="image/re.gif">
+					        	</c:if>
+						        <c:if test="${contact.t_secret eq 'N'}" >
+						            <img src="${pageContext.request.contextPath}/image/secret.png" class="secretImg" width="20" height="20" alt="비밀글" />
+						            <c:choose>
+						                <c:when test="${ssKey.m_id == contact.m_id || ssKey.m_role=='admin'}">
+						                    <a href="/adminContactContent?t_no=${contact.t_no}">${contact.t_subject}</a>
+						                </c:when>
+						                <c:otherwise>비밀글은 작성자와 관리자만 볼 수 있습니다.</c:otherwise>
+						            </c:choose>
+						        </c:if>
+						        <c:if test="${contact.t_secret eq 'Y'}" >
+						            <a href="/adminContactContent?t_no=${contact.t_no}">${contact.t_subject}</a>
+						        </c:if>
 					        </td>
 					        <td class="con7"><c:out value="${contact.m_id}"/></td>            
 					        <td class="con8"><c:out value="${contact.t_regdate}"/></td>

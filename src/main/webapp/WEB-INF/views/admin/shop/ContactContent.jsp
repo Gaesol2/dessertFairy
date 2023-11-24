@@ -25,6 +25,7 @@
 	    </div>
 	</div>
 	 <div id="ContentContact">
+	 <form action="adminContactReply" method="post" name="replyForm">
 		  <div id="contactMain">
 		         <span class="contentSubject">${contact.t_subject}
 		         	<input type="hidden" name="t_subject" readonly="readonly" value="${contact.t_subject}" class="chkb" size="40">
@@ -44,11 +45,15 @@
 			  	</span>
 		  </div>
 	</div>
-	<input type="hidden" name="t_level" value="${contact.t_level}">
-	
+		<input type="hidden" name="t_no" value="${contact.t_no}">
+		<input type="hidden" name="t_level" value="${contact.t_level}">
+		<input type="hidden" name="t_group" value="${contact.t_group}">
 	<button type="button" onclick="location.href='/adminContact'">목록으로</button>
+	<button type="submtit">답변하기</button>
+	 </form>
+ <%--	
 	<button type="button" onclick="location.href='/adminContactReply?t_no=${contact.t_no}'">답변하기</button>
- <%-- 	<div id="replybox"> 
+ 	<div id="replybox"> 
 	<p class="adminReply">사장님 답글</p> 
 		<span class="replycontent"> 
 	         <input type="text" class="replys" name="r_reply" 
