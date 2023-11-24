@@ -51,13 +51,13 @@
 				 O.O_AMOUNT,
 				 O.M_ID,
 				 O.D_NO,
-				 D.D_NAME
+				 D.D_NAME,
+				 O.O_TOTALPRICE
 		 FROM ORDERT O
 		 INNER JOIN DESSERT D
 		 	ON O.D_NO = D.D_NO
 		 WHERE M_ID = #{m_id}
 		 ORDER BY O_NO ASC) A)
-		 WHERE O_RR BETWEEN #{start} AND #{end}
 	</select>
 
 

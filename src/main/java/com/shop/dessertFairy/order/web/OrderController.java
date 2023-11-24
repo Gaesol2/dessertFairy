@@ -38,7 +38,6 @@ public class OrderController {
 					              HttpServletResponse response,
 					              Model model,
 					              MemberDTO mdto,
-					              PageDTO pdto,
 					              OrderDTO odto) {
 		 
 	   String page = null;
@@ -51,11 +50,8 @@ public class OrderController {
 		   
 		   if(ssKey.getM_role().equals("mem")) {
 			   odto.setM_id(ssKey.getM_id());
-			   resultSet = orderService.getOrderList(odto, pdto);
-			   model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
-//			   model.addAttribute("mdto", mdto);
+			   resultSet = orderService.getOrderList(odto);
 			   model.addAttribute("m_name", ssKey.getM_name());
-			   model.addAttribute("pdto", resultSet.get("pdto"));
 			   model.addAttribute("cnt", resultSet.get("cnt"));
 			   model.addAttribute("orderList", resultSet.get("orderList"));
 			   session.setAttribute("ssKey", ssKey);

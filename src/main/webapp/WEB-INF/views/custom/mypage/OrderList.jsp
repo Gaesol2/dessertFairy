@@ -32,10 +32,7 @@
 		<table class="orderTable">
 			<tr>
 				<th>주문번호</th>
-				<th>상품번호</th>
 				<th>상품명</th>
-				<th>가격</th>
-				<th>수량</th>
 				<th>총금액</th>
 				<th>주문일</th>
 				<th>배송상태</th>
@@ -45,15 +42,12 @@
 					<c:forEach var="order" items="${orderList}">
 						<tr>
 							<td class="ool1">${order.o_no}</td>
-							<td class="ool2">${order.d_no}</td>
 							<td class="ool3"><a onclick="javascript:orderDetail(this)">${order.d_name}</a>
 								<input type="hidden" name="d_no" value="${order.d_no}">
 								<input type="hidden" name="o_no" value="${order.o_no}">
 								<input type="hidden" name="m_id" value="${order.m_id}">
 							</td>
-							<td class="price ool4">${order.o_price}</td>
-							<td class="price ool5">${order.o_quantity}</td>
-							<td class="price ool6">${order.o_amount}</td>
+							<td class="price ool6">${order.o_totalprice}</td>
 							<td class="ool7">${order.o_regdate}</td>
 							<td class="ool8">
 								<c:choose>
@@ -81,24 +75,6 @@
 			</c:choose>
 		</table>
     </div>
-		
-		<table class="pageBtn">
-			<tr>
-				<td colspan="5">
-					<c:if test="${pdto.startPg>pBlock}">
-						<a href="productMgt?curPage=${pdto.startPg-pBlock}&curBlock=${pdto.curBlock-1}">[이전]</a>
-					</c:if>
-					<c:forEach begin="${pdto.startPg}" end="${pdto.endPg}" var="p" step="1">
-						<a href="orderList?curPage=${p}&curBlock=${pdto.curBlock}">
-							<span><c:out value="${p}" /></span>
-						</a>&nbsp;&nbsp;
-					</c:forEach>
-					<c:if test="${pdto.endPg<pdto.pgCnt}">
-						<a href="productMgt?curPage=${pdto.startPg+pBlock}&curBlock=${pdto.curBlock+1}">[다음]</a>
-					</c:if>
-				</td>
-			</tr>
-		</table>
 		
 		<form action="" name="content" method="post">
 			<input type="hidden" name="bno" value="">

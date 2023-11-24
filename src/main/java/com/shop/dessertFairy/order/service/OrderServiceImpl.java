@@ -42,18 +42,17 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public Map<String, Object> getOrderList(OrderDTO odto, PageDTO pdto) {			// 주문 목록
+	public Map<String, Object> getOrderList(OrderDTO odto) {			// 주문 목록
 
 		Map<String, Object> resultSet = new HashMap<String, Object>();
 		
 		int cnt = orderDao.getMemOrderCnt(odto);
-		   pdto = Page.page(cnt, pdto);
-		   odto.setStart(pdto.getStart());
-		   odto.setEnd(pdto.getEnd());
+		   
+		   List<OrderDTO> getTotalPrice = orderDao.getTotalPrice(odto);
+			orderDao.updateTotalPrice(getTotalPrice);
 		   
 		   List<OrderDTO> orderList = orderDao.getOrderList(odto);
 		   
-		   resultSet.put("pdto", pdto);
 		   resultSet.put("cnt", cnt);
 		   resultSet.put("orderList", orderList);
 		   
@@ -61,7 +60,7 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public Map<String, Object> getAdminOrderList(OrderDTO odto, PageDTO pdto) {				// admin 주문목록
+	public Map<String, Object> getAdminOrderList(OrderDTO odto) {				// admin 주문목록
 		Map<String, Object> resultSet = new HashMap<String, Object>();
 		int cnt = orderDao.getOrderCnt(null);						// admin 전체 주문 건수
 	   

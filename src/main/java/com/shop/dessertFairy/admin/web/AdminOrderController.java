@@ -35,7 +35,6 @@ public class AdminOrderController {
 							HttpServletResponse response,
 							Model model,
 							MemberDTO mdto,
-				            PageDTO pdto,
 							OrderDTO odto) {
 		String page = null;
 		String url = null;
@@ -47,9 +46,7 @@ public class AdminOrderController {
 		if(session.getAttribute("ssKey") != null) {
 			
 			if(ssKey.getM_role().equals("admin")) {
-				 resultSet = orderService.getAdminOrderList(odto, pdto);
-				   model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
-				   model.addAttribute("pdto", resultSet.get("pdto"));
+				 resultSet = orderService.getAdminOrderList(odto);
 				   model.addAttribute("oCnt", resultSet.get("oCnt"));
 				   model.addAttribute("adminOrderList", resultSet.get("adminOrderList"));
 				   model.addAttribute("totalPrice",resultSet.get("totalPrice"));

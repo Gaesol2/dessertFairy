@@ -53,10 +53,42 @@ $().ready(function(){
            } 
          });
       
-      //동적 셀 병합   
-      $(".orl2").each(function(index){
+      //동적 셀 병합 (admin 용)
+      $(".orl2").each(function(){
          var tempString = $(this).text();
          var rows = $(".orl2").filter(function(){
+            return $(this).text() == tempString;
+         });
+
+         let prev_text = rows.eq(0).next().text();
+         let next_text = prev_text + "외 " + (rows.length-1);
+         
+         if(rows.length > 1){
+            rows.next().text(next_text);
+            rows.not(":eq(0)").parent().remove();
+         };
+      });
+      
+      //동적 셀 병합 (custom 용)
+      $(".ool1").each(function(){
+         var tempString = $(this).text();
+         var rows = $(".ool1").filter(function(){
+            return $(this).text() == tempString;
+         });
+
+         let prev_text = rows.eq(0).next().text();
+         let next_text = prev_text + "외 " + (rows.length-1);
+         
+         if(rows.length > 1){
+            rows.next().text(next_text);
+            rows.not(":eq(0)").parent().remove();
+         };
+      });
+      
+      //동적 셀 병합 (고객관리 용)
+      $(".mml1").each(function(){
+         var tempString = $(this).text();
+         var rows = $(".mml1").filter(function(){
             return $(this).text() == tempString;
          });
 
@@ -81,29 +113,6 @@ $().ready(function(){
       }
    }
          
-   /*$(function(){
-    $('#orderTable').each(function() {
-        var table = this;
-        $.each([2,3,4]  합칠 칸 번호 , function(c, v) {
-            var tds = $('>tbody>tr>td:nth-child(' + v + ')', table).toArray();
-            var i = 0, j = 0;
-            for(j = 1; j < tds.length; j ++) {
-                if(tds[i].innerHTML != tds[j].innerHTML) {
-                    $(tds[i]).attr('rowspan', j - i);
-                    i = j;
-                    continue;
-                }
-                $(tds[j]).hide();
-            }
-            j --;
-            if(tds[i].innerHTML == tds[j].innerHTML) {
-                $(tds[i]).attr('rowspan', j - i + 1);
-            }
-        });
-    });
-});*/
-       
-       
    $('#orderTable').on(function(){         
      ono = $('input[name=o_no]').val();
     $.ajax({

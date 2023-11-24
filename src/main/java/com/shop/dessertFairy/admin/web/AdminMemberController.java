@@ -150,8 +150,7 @@ public class AdminMemberController {
 	public String MemOrderList(	HttpServletRequest request,
 								HttpServletResponse response,
 								Model model,
-								OrderDTO odto,
-								PageDTO pdto) {
+								OrderDTO odto) {
 		String page = null;
 		String url = null;
 		String msg = null;
@@ -160,10 +159,8 @@ public class AdminMemberController {
 		MemberDTO ssKey = (MemberDTO) session.getAttribute("ssKey");
 		odto.setM_id(request.getParameter("m_id"));
 			if(ssKey != null && ssKey.getM_role().equals("admin")) {
-				resultSet = orderService.getOrderList(odto, pdto);
+				resultSet = orderService.getOrderList(odto);
 				model.addAttribute("m_id", odto.getM_id());
-				model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
-			    model.addAttribute("pdto", resultSet.get("pdto"));
 			    model.addAttribute("oCnt", resultSet.get("oCnt"));
 			    model.addAttribute("orderList", resultSet.get("orderList"));
 			    session.setAttribute("ssKey", ssKey);
