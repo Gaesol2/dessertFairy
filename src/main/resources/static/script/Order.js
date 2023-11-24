@@ -52,15 +52,24 @@ $().ready(function(){
 	   			tr.find(td).find("input[name=check]").prop("checked", false);	
 			  } 
 			});
-			
-	$(".orl2").each(function(){
-		var rows = $(".orl2:contains('"+$(this).text()+"')");
 		
-		if(rows.length > 1){
-			rows.eq(0).attr("rowspan", rows.length);
-			rows.not(":eq(0)").remove();
-		}
-	});
+		//동적 셀 병합	
+		$(".orl2").each(function(index){
+			var tempString = $(this).text();
+			var rows = $(".orl2").filter(function(){
+				return $(this).text() == tempString;
+			});
+
+			let prev_text = rows.eq(0).next().text();
+			let next_text = prev_text + "외 " + (rows.length-1);
+			
+			if(rows.length > 1){
+				rows.next().text(next_text);
+				rows.not(":eq(0)").parent().remove();
+			};
+		});
+				
+			
 	
 	/*OrderDetail.jsp의 selectBOX 기본값 넣어주기*/
 	var stateSelect = document.getElementById('o_state');

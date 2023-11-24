@@ -27,5 +27,7 @@ public interface OrderService {
 
 	public int MUpdateOrder(OrderDTO odto);							//admin 고객관리-고객주문 수정
 
+	public void cancelOrder(OrderDTO odto);
+
 	
 }

@@ -33,15 +33,11 @@ public class OrderServiceImpl implements OrderService {
 		//결과를 저장하기 위해 Set keys에 저장된 key(o_no)의 개수만큼 크기의 list를 만든다.
 		List<OrderDTO> list = new ArrayList<>(keys.size());
 		
-		System.out.println("카트============="+hCartList);
-
 		//iterKeys에 다음 요소가 있으면 list에 요소를 저장한다.
 		while(iterKeys.hasNext()) {
 			//순환 중인 key에 해당하는 hCartList의 value를 list에 저장한다.
 			list.add(hCartList.get(iterKeys.next()));
 		}
-		System.out.println("list============="+list);
-		
 		return orderDao.insertOrder(list);
 	}
 
@@ -68,13 +64,12 @@ public class OrderServiceImpl implements OrderService {
 	public Map<String, Object> getAdminOrderList(OrderDTO odto, PageDTO pdto) {				// admin 주문목록
 		Map<String, Object> resultSet = new HashMap<String, Object>();
 		int cnt = orderDao.getOrderCnt(null);						// admin 전체 주문 건수
-		pdto = Page.page(cnt, pdto);
-		odto.setStart(pdto.getStart());
-		odto.setEnd(pdto.getEnd());
-		
 	   
+		List<OrderDTO> getTotalPrice = orderDao.getTotalPrice(odto);
+		orderDao.updateTotalPrice(getTotalPrice);
+		
+		
 	   List<OrderDTO> adminOrderList = orderDao.getAdminOrderList(odto);
-	   resultSet.put("pdto", pdto);
 	   resultSet.put("oCnt", cnt);
 	   resultSet.put("adminOrderList", adminOrderList);
 	   
@@ -134,6 +129,12 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public int MUpdateOrder(OrderDTO odto) {			// admin 고객관리-주문수정
 		return orderDao.MUpdateOrder(odto);
+	}
+
+	@Override
+	public void cancelOrder(OrderDTO odto) {
+		orderDao.cancelOrder(odto);
+		
 	}
 
 

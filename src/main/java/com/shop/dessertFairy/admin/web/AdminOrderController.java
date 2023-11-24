@@ -52,6 +52,7 @@ public class AdminOrderController {
 				   model.addAttribute("pdto", resultSet.get("pdto"));
 				   model.addAttribute("oCnt", resultSet.get("oCnt"));
 				   model.addAttribute("adminOrderList", resultSet.get("adminOrderList"));
+				   model.addAttribute("totalPrice",resultSet.get("totalPrice"));
 				   model.addAttribute("contentsJsp", "admin/order/OrderMgt");
 				   session.setAttribute("ssKey", ssKey);
 				   page = "Main";
