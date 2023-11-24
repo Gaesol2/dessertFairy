@@ -50,7 +50,7 @@
 						</tbody>
 					</table>
 				</div>
-				<c:set var="total" value="${total + odto.o_price}" />
+				<c:set var="total" value="${total + odto.o_amount}" />
 			</c:forEach>
  
 			<div class="ol">

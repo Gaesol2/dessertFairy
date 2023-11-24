@@ -28,7 +28,7 @@ public interface ContactService {
 	
 	//admin
 	
-	Map<String, Object> getAdminList(ContactDTO tdto, PageDTO pageDto);
+//	Map<String, Object> getAdminList(ContactDTO tdto, PageDTO pageDto);
 
 	ContactDTO getAdminContent(ContactDTO tdto);
 

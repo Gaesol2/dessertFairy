@@ -33,7 +33,6 @@ public interface ContactDAO {
 	
 	//admin
 	
-	List<ContactDTO> getAdminList(ContactDTO tdto);
 
 	ContactDTO getAdminContent(ContactDTO tdto);
 

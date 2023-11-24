@@ -14,7 +14,7 @@
 <div id="contact">
 	<div>
 	    <div class="mainList">
-			<p class="reviewName">상점관리</p>
+			<p class="reviewName">문의 글 보기</p>
 	    </div>
 	    <div class="topList">
 	      <ul class="list">
@@ -29,7 +29,6 @@
 		         <span class="contentSubject">${contact.t_subject}
 		         	<input type="hidden" name="t_subject" readonly="readonly" value="${contact.t_subject}" class="chkb" size="40">
 		         </span>
-		         
 		         <span class="contentWrite">${contact.m_id}
 		         	<input type="hidden" name="m_id" readonly="readonly" value="${contact.m_id}" class="chkb" size="15">
 		         </span>
@@ -45,13 +44,17 @@
 			  	</span>
 		  </div>
 	</div>
-<!-- 	<div id="replybox"> -->
-<!-- 				<p class="adminReply">사장님 답글</p> -->
-<!-- 				<span class="replycontent"> -->
-<!-- 			         <input type="text" class="replys" name="r_reply" -->
-<%-- 			             value="${contact.r_reply}" placeholder="아직 답글이 없습니다." readonly="readonly"> --%>
-<!-- 			    </span> -->
-<!-- 	</div> -->
+	<input type="hidden" name="t_level" value="${contact.t_level}">
+	
+	<button type="button" onclick="location.href='/adminContact'">목록으로</button>
+	<button type="button" onclick="location.href='/adminContactReply?t_no=${contact.t_no}'">답변하기</button>
+ <%-- 	<div id="replybox"> 
+	<p class="adminReply">사장님 답글</p> 
+		<span class="replycontent"> 
+	         <input type="text" class="replys" name="r_reply" 
+		             value="${contact.r_reply}" placeholder="아직 답글이 없습니다." readonly="readonly">
+	    </span> 
+	</div> --%>
 </div>
 </body>
 </html>
