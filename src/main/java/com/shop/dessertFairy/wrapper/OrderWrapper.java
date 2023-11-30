@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.shop.dessertFairy.dessert.service.DessertService;
 import com.shop.dessertFairy.order.dto.OrderDTO;
 import com.shop.dessertFairy.order.service.OrderService;
+import com.shop.dessertFairy.pay.dto.PayDTO;
+import com.shop.dessertFairy.pay.service.PayService;
 
 @Service("orderWrapper")
 public class OrderWrapper {
@@ -18,6 +20,9 @@ public class OrderWrapper {
 	@Autowired
 	OrderService orderService;
 	
+	@Autowired
+	PayService payService;
+	
 	public Hashtable<Integer, OrderDTO> orderProc(OrderDTO odto, Hashtable<Integer, OrderDTO> hCartList) {
 		
 		// 재고 수 감소
@@ -26,6 +31,7 @@ public class OrderWrapper {
 		//주문 insert
 		int r = orderService.insertOrder(hCartList);
 		
+		//payService.pay(payDto);
 		
 		hCartList.clear();
 		return hCartList;

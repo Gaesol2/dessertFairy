@@ -89,7 +89,7 @@
 				</c:when>
 			</c:choose>
 			<div>
-				<input type="submit" value="결제하기" class="CartorderBtn">
+				<input type="submit" value="주문하기" class="CartorderBtn" id="cartBtn">
 			</div>
 		</form>
 	</div><!--   cartContent end -->
