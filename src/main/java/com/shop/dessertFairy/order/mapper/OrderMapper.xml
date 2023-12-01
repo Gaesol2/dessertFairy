@@ -134,19 +134,6 @@
 		INNER JOIN MEMBER M
 		  ON O.M_ID = M.M_ID
 	       WHERE O_NO = #{o_no}
-   		<!-- SELECT  O.O_NO, O.D_NO,
-	         (SELECT D_NAME FROM DESSERT WHERE D_NO=#{d_no}) D_NAME,
-	          O.O_QUANTITY, 
-	          O.M_ID, 
-	         (SELECT M_NAME FROM MEMBER WHERE M_ID = #{m_id}) M_NAME,
-	         O_REGDATE, O.O_PRICE, 
-	         (SELECT D_STOCK FROM DESSERT WHERE D_NO= #{d_no}) D_STOCK, 
-	         O.O_STATE,
-	         O.O_AMOUNT
-		FROM ORDERT O 
-	       WHERE M_ID = #{m_id}
-	       AND O_NO =#{o_no} 
-	       AND D_NO =#{d_no} -->
    </select>
    
    <update id="updateOrder" parameterType="odto">		<!-- admin 주문 수정 페이지 -->
@@ -185,5 +172,30 @@
    		DELETE FROM oredert
    		WHERE o_no = #{o_no}
    </delete>
+
+	<select id="getRecentOno" resultType="int">
+		SELECT o_no
+		FROM (
+         	SELECT o_no
+            FROM ordert
+            ORDER BY o_regdate DESC
+       	)
+ 		WHERE ROWNUM = 1
+	</select>
+	
+	<select id="getOrderDetail" parameterType="odto" resultType="odto">
+	SELECT 
+	o_no
+	,o_price
+	,o_quantity
+	,o_regdate
+	,o_state
+	,o_amount
+	,m_id 
+	,d_no
+	,o_totalprice
+	FROM ordert
+	WHERE o_no = #{o_no}
+	</select>
 
 </mapper>

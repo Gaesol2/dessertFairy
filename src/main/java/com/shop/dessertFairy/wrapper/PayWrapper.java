@@ -14,6 +14,5 @@ public class PayWrapper {
 	
 	@Autowired
 	PayService payService;
-	
-	public String 
+
 }

@@ -136,5 +136,10 @@ public class OrderServiceImpl implements OrderService {
 		
 	}
 
+	@Override
+	public int getRecentOno() {
+		return orderDao.getRecentOno();
+	}
+
 
 }

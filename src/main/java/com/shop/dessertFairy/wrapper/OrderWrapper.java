@@ -31,8 +31,6 @@ public class OrderWrapper {
 		//주문 insert
 		int r = orderService.insertOrder(hCartList);
 		
-		//payService.pay(payDto);
-		
 		hCartList.clear();
 		return hCartList;
 	}

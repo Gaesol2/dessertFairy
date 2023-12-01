@@ -2,40 +2,46 @@
  * 
  */
 $().ready(function(){
-  //결제 버튼
-  $("#payBtn").on("click",function(){
-	$.ajax({
-		async: true,
-		type: 'post',
-		data: {
-			
-		},
-		url: "payOrder",
-		dataType: "json",
-		success: function(data){
-			console.log(data);
-		if(data.responseCode == "0000"){
-			//정상 주문일 경우 
-			$("input[name=ordr_idxx]").val(data.ordr_idxx);
-			$("input[name=good_name]").val(data.good_name);
-			$("input[name=good_mny]").val(data.good_mny);
-			$("input[name=buyr_name]").val(data.buyr_name);
-			$("input[name=site_cd]").val(data.site_cd);
-			jsf__pay();
-			
-		} else {
-			//실패일 경우
-			alert("결제 실패");
-			
-		}
-			
-			
-		}
-		});
-	})
-
+  //결제 버튼	
+  
 	
 })//ready 끝
+	function orderAjax(obj){
+		var id = obj.id;
+		var orderUrl = "";
+		alert(typeof(id));
+		if("payBtn"==id){
+			orderUrl = "payOrder?pay=auth";
+			  $("form[name=kcp_order_info]").attr("action","/authPay?pay=auth");
+		} else {
+			orderUrl = "payOrder?pay=kakao";
+			  $("form[name=kcp_order_info]").attr("action","/authPay?pay=kakao");
+		}
+		
+		$.ajax({
+			async: true,
+			type: 'post',
+			data: {
+			},
+			url: orderUrl,
+			dataType: "json",
+			success: function(data){
+				if(data.responseCode == "0000"){
+					//정상 주문일 경우 
+					$("input[name=ordr_idxx]").val(data.ordr_idxx);
+					$("input[name=good_name]").val(data.good_name);
+					$("input[name=good_mny]").val(data.good_mny);
+					$("input[name=buyr_name]").val(data.buyr_name);
+					$("input[name=site_cd]").val(data.site_cd);
+					jsf__pay();
+					
+				} else {
+					//실패일 경우
+					alert("결제 실패");
+				}
+			}
+		});
+	}
 
 
 /****************************************************************/

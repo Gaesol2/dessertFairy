@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,9 +11,12 @@
 </head>
 <body>
 주문 상세 내역 나오게
+<div id="detail_order">
+	<p>${odto}</p>
+</div>
 
-
-<input type="button" value="결제하기" id="payBtn">
+<input type="button" value="결제하기" id="payBtn" onclick="javascript:orderAjax(this)">
+<input type="button" value="카카오페이" id="kakoPayBtn" onclick="javascript:orderAjax(this)">
 <p>${orderResult}</p>
 
 <div class="container">

@@ -29,5 +29,7 @@ public interface OrderService {
 
 	public void cancelOrder(OrderDTO odto);
 
+	public int getRecentOno();
+
 	
 }

@@ -36,4 +36,6 @@ public interface OrderDAO {
 
 	void cancelOrder(OrderDTO odto);
 
+	int getRecentOno();
+
 }

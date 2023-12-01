@@ -27,7 +27,7 @@ $().ready(function(){
          var td = tr.children();
          var dno = tr.find(td).find("input[name=d_no]").val();
          var ono = tr.find(td).find("input[name=o_no]").val();
-         var mid = tr.find(td).find('input[name=m_id]').val();
+         var m0id = tr.find(td).find('input[name=m_id]').val();
          var state = tr.find(td).find("select[name=o_state]").val(); //
             // 가져온 값을 배열에 담는다.
             tdArr.push("o_no:"+ono);

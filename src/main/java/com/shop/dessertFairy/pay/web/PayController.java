@@ -9,11 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.shop.dessertFairy.member.dto.MemberDTO;
-import com.shop.dessertFairy.order.dto.OrderDTO;
 import com.shop.dessertFairy.pay.dto.PayDTO;
 import com.shop.dessertFairy.pay.service.PayService;
 
@@ -23,7 +20,7 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class PayController {
-	
+
 	@Autowired
 	PayService payService;
 	
@@ -55,7 +52,7 @@ public class PayController {
 	  		String tran_cd = payDto.getTran_cd();
 	  		String buyr_mail = payDto.getBuyr_mail();
 	  		String userId = payDto.getUserId();
-	  		
+
 	  		String payUrl = "https://api.testpayup.co.kr/ap/api/payment/"+ ordr_idxx +"/pay";
 	  		Map<String, String> map = new HashMap<>();
 	  		
@@ -68,6 +65,7 @@ public class PayController {
 	  		map.put("userId",userId);
 	  		
 	  		Map<String,Object> orderResult = payService.JsonApi(payUrl, map);
+	  		
 	  		model.addAttribute("orderResult", orderResult);
 	        
 	        page = "Main";
@@ -81,4 +79,5 @@ public class PayController {
 		
       return page;
 	}
+	
 }
