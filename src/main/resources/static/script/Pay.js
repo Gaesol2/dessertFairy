@@ -9,7 +9,6 @@ $().ready(function(){
 	function orderAjax(obj){
 		var id = obj.id;
 		var pay = "";
-		alert(typeof(id));
 		if("payBtn"==id){
 			pay = "auth";
 			  $("form[name=kcp_order_info]").attr("action","/authPay?pay=auth");
@@ -36,6 +35,13 @@ $().ready(function(){
 			url: "payOrder",
 			dataType: "json",
 			success: function(data){
+				console.log(data);
+				if('auth' == data.pay){
+					$("input[name=kakaopay_direct]").val("N");
+				} else if ('kakao' == data.pay){
+					$("input[name=kakaopay_direct]").val("Y");
+				}
+				
 				if(data.responseCode == "0000"){
 					//정상 주문일 경우 
 					$("input[name=ordr_idxx]").val(data.ordr_idxx);
@@ -43,6 +49,7 @@ $().ready(function(){
 					$("input[name=good_mny]").val(data.good_mny);
 					$("input[name=buyr_name]").val(data.buyr_name);
 					$("input[name=site_cd]").val(data.site_cd);
+					
 					jsf__pay();
 					
 				} else {

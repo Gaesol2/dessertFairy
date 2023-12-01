@@ -92,20 +92,27 @@ public class OrderController {
          page = "MsgPage";
          
       } else {
+    	  msg = "결제가 취소되었습니다.";
+    	  url = "cartList";
+    	  page = "MsgPage";
          
-         //dessert 재고 수 줄이고, order 테이블에 등록
-         orderWrapper.orderProc(odto, hCartList);
-         
-         //최신 ono 받아오기
-         int ono = orderService.getRecentOno();
-         
-         odto.setO_no(ono);
-         odto = orderWrapper.getOrderDetail(odto);
-         
-         model.addAttribute("odto",odto);
-
-         page = "Main";
-         contentsJsp = "custom/pay/PayForm";
+    	  if(odto==null) {
+    		  
+    	  } else {
+	         //dessert 재고 수 줄이고, order 테이블에 등록
+	         orderWrapper.orderProc(odto, hCartList);
+	         
+	         //최신 ono 받아오기
+	         int ono = orderService.getRecentOno();
+	         
+	         odto.setO_no(ono);
+	         odto = orderWrapper.getOrderDetail(odto);
+	         
+	         model.addAttribute("odto",odto);
+	
+	         page = "Main";
+	         contentsJsp = "custom/pay/PayForm";
+    	  }
       }
       
       model.addAttribute("msg", msg);

@@ -35,7 +35,17 @@
 		<!-- 고정값 -->
 		<input type="hidden" name="req_tx" value="pay">
 		<input type="hidden" name="pay_method" value="100000000000">
+		
+		<!-- 인증 -->
 		<input type="hidden" name="site_name" value="payup">
+
+		<!-- 카카오 -->
+		<input type="hidden" name="currency" value="410">
+		<input type="hidden" name="kakaopay_direct" value="Y">
+		<input type="hidden" name="module_type" value="01"/>
+		
+		<!-- 주문정보 검증 관련 정보 : 표준웹 에서 설정하는 정보입니다  -->
+		<input type="hidden" name="ordr_chk" value=""/>
 		
 		<!--
 			 ※ 필 수
@@ -49,6 +59,8 @@
 		<input type="hidden" name="ret_pay_method" value="" />
 		<input type="hidden" name="tran_cd" value="" />
 		<input type="hidden" name="use_pay_method" value="" />
+
+		<!-- 인증 -->		
 		<input type="hidden" name="buyr_mail" value="">
 		<input type="hidden" name="ordr_chk" value="" />
 		<!-- 2012년 8월 18일 전자상거래법 개정 관련 설정 부분 -->
@@ -58,6 +70,9 @@
 		<input type="hidden" name="module_type" value="01" />
 		<!-- 필수 항목 : 결제 금액/화폐단위 -->
 		<input type="hidden" name="currency" value="WON" />
+
+		<!-- 카카오 -->
+		<input type="hidden" name="card_pay_method" value=""/>
 	</form>
 </div>
 </body>
