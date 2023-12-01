@@ -9,14 +9,7 @@
 
 <div id="contact">
 	<div>
-		<d	iv class="mainList">
-		<p class="reviewName">문의 글 보기</p>
-	</div>
-	<div class="topList">
-		<ul class="list">
-			<li><a href="/shopMgt">후기 목록</a></li>
-			<li><a href="/adminContact">문의 목록</a></li>
-		</ul>
+		<p class="introduction">문의 글 보기</p>
 	</div>
 	<div id="ContentContact">
 		<form action="adminContactReply" method="post" name="replyForm">
@@ -40,8 +33,10 @@
 			</div>
 			
 			<div id="contentBtn">
-				<button type="button" class="regis" onclick="location.href='/adminContact'">목록으로</button>
-				<button type="submit" class="regis">답변하기</button>
+				<span class="contentBtnBox">
+					<button type="button" class="regis" onclick="location.href='/adminContact'">목록으로</button>
+					<button type="submit" class="regis">답변하기</button>
+				</span>
 			</div>
 			<input type="hidden" name="t_no" value="${contact.t_no}">
 			<input type="hidden" name="t_level" value="${contact.t_level}">

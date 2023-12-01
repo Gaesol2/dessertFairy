@@ -37,7 +37,7 @@
 				<th class="con4">작성일</th>
 			</tr>
 			<c:choose>
-				<c:when test="${fn:length(myContact)>=0}">
+				<c:when test="${fn:length(myContact)>0}">
 					<c:forEach var="contact" items="${myContact}" varStatus="status">
 						<tr>
 							<td class="con5"><c:out value="${contact.t_no}"/></td> 
@@ -71,23 +71,23 @@
 			<tr>
 				<td colspan="6">
 					<c:if test="${pdto.startPg>pBlock}">
-						<a href="contactList?curPage=${pdto.startPg-pBlock}&curBlock=${pdto.curBlock-1}">[이전]</a>
+						<a href="myContact?curPage=${pdto.startPg-pBlock}&curBlock=${pdto.curBlock-1}">[이전]</a>
 					</c:if>
 					<c:forEach begin="${pdto.startPg}" end="${pdto.endPg}" var="p" step="1">
-						<a href="contactList?curPage=${p}&curBlock=${pdto.curBlock}">
+						<a href="myContact?curPage=${p}&curBlock=${pdto.curBlock}">
 							<span><c:out value="${p}" /></span>
 						</a>&nbsp;&nbsp;
 					</c:forEach>
 					<c:if test="${pdto.endPg<pdto.pgCnt}">
-						<a href="contactList?curPage=${pdto.startPg+pBlock}&curBlock=${pdto.curBlock+1}">[다음]</a>
+						<a href="myContact?curPage=${pdto.startPg+pBlock}&curBlock=${pdto.curBlock+1}">[다음]</a>
 					</c:if>
 				</td>
 			</tr>
 		</table>
 		<form action="" name="content" method="post">
 			<input type="hidden" name="bno" value="">
-			<input type="hidden" name="curPage" value="${pageDto.curPage}">
-			<input type="hidden" name="curBlock" value="${pageDto.curBlock}">
+			<input type="hidden" name="curPage" value="${pdto.curPage}">
+			<input type="hidden" name="curBlock" value="${pdto.curBlock}">
 		</form>
   	</div>
 </div>
