@@ -77,9 +77,7 @@ public class RestPayController {
 		map.put("cashbillYn", cashbillYn);
 		
 		Map<String,Object> orderResult = payService.JsonApi(url, map);
-		
-		model.addAttribute("orderResult", orderResult);
-		model.addAttribute("pay", pay);
+		orderResult.put("pay", pay);
 		
 		return orderResult;
 	}
