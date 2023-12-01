@@ -52,7 +52,6 @@ public class OrderController {
 			   odto.setM_id(ssKey.getM_id());
 			   resultSet = orderService.getOrderList(odto);
 			   model.addAttribute("m_name", ssKey.getM_name());
-			   model.addAttribute("cnt", resultSet.get("cnt"));
 			   model.addAttribute("orderList", resultSet.get("orderList"));
 			   session.setAttribute("ssKey", ssKey);
 			   model.addAttribute("contentsJsp", "custom/mypage/OrderList");	

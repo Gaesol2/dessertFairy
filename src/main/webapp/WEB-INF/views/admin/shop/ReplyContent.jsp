@@ -10,6 +10,7 @@
 
 <div id="review">
 	<form action="replyWriteProc" name="replyForm" id="replyForm" method="post">
+	<input type="hidden" name="r_no" value="${review.r_no}">
 		<div>
 			<div class="mainList">
 				<p class="reviewName">상점관리</p>

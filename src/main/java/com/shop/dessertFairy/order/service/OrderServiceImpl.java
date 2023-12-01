@@ -46,14 +46,12 @@ public class OrderServiceImpl implements OrderService {
 
 		Map<String, Object> resultSet = new HashMap<String, Object>();
 		
-		int cnt = orderDao.getMemOrderCnt(odto);
 		   
 		   List<OrderDTO> getTotalPrice = orderDao.getTotalPrice(odto);
 			orderDao.updateTotalPrice(getTotalPrice);
 		   
 		   List<OrderDTO> orderList = orderDao.getOrderList(odto);
 		   
-		   resultSet.put("cnt", cnt);
 		   resultSet.put("orderList", orderList);
 		   
 		return resultSet;
@@ -62,14 +60,12 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public Map<String, Object> getAdminOrderList(OrderDTO odto) {				// admin 주문목록
 		Map<String, Object> resultSet = new HashMap<String, Object>();
-		int cnt = orderDao.getOrderCnt(null);						// admin 전체 주문 건수
 	   
 		List<OrderDTO> getTotalPrice = orderDao.getTotalPrice(odto);
 		orderDao.updateTotalPrice(getTotalPrice);
 		
 		
 	   List<OrderDTO> adminOrderList = orderDao.getAdminOrderList(odto);
-	   resultSet.put("oCnt", cnt);
 	   resultSet.put("adminOrderList", adminOrderList);
 	   
 	   return resultSet;

@@ -15,7 +15,7 @@
 		</div>
 		<div class="topList">
 			<ul class="list">
-				<li><a href="/shopMgt">후기 목록</a></li>
+				<li class="reList"><a href="/shopMgt">후기 목록</a></li>
 				<li><a href="/adminContact">문의 목록</a></li>
 			</ul>
 		</div>

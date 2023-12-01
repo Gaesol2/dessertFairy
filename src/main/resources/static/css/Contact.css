@@ -42,10 +42,6 @@
 	text-align: center;
 }
 
-.now{
-	font-weight: bold;
-}
-
 .notList{
 	text-align: center;
 }
@@ -253,7 +249,6 @@
 #ContentContact{
 	float: left;
 	margin-top: 170px;
-	border-bottom: solid 1px black;
 }
 
 #contactMain{
@@ -330,53 +325,17 @@
 	word-wrap:break-word;
 	word-break:break-all;
 }
-  
-.contentStar input{
-	width : 90px;
-	text-align : center;
-	border: none;
-	background-color: #fefae9;
-	font-size : 18px;
-	color: rgba(250, 208, 0, 0.99);
-}   
 
-#replybox{
-	float : left;
-	width: 1024px;
-	border-bottom: solid 1px black;
-}  
-
-.adminReply{
-	margin-top : 30px;
-	text-align: center;
-	font-weight: bold;
-}
-
-.replycontent{
-	margin-top: 50px;
-	margin-left: 270px;
-}
-
-.replys{
-	width: 500px;
-	height: 200px;
-	font-size: 15px;
-	background-color: #fefae9;
-	border: none;
-	box-sizing: border-box;
-	outline: none;
-	padding: 10px;
-}
-
-#myreviewBtn{
+#contentBtn{
 	float: left;
 	width: 1024px;
 	height: 100px;
 	margin-top : 65px;
-	margin-left: 370px;
+	margin-left: 500px;
+	border-top: solid 1px black;
 }
 
-#myreviewBtn .modify{
+#contentBtn .regis{
 	font-size: 18px;
 	color : #064695;
 	padding : 10px 30px 10px 30px;
@@ -385,11 +344,12 @@
 	text-align: center;
 }
 
-#myreviewBtn .modify:hover{
+#contentBtn .regis:hover{
     text-shadow: 0 0 0 #fefae9;
     background-color : #064695;
     color : #fefae9;
 }
+
 
 
 

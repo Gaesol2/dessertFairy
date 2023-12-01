@@ -190,34 +190,49 @@
 
 /* 상품 등록 */
 
-#productUpForm{
-	width: 1024px;
-	float: left;
-	margin-top: 100px;
+.upForm{
+	margin-top: 150px;
+	margin-left: 300px;
 }
 
-#productUpImage{
-	float: left;
-	width: 350px;
+.upPro{
+	margin: 20px;
 }
 
-.UpImg{
-	width: 350px;
-	height: 400px;
-	margin-top: 50px;
+.upProName{
+	display: inline-block;
+	text-align: right;
+	width: 100px;
 }
 
-#productUp{
-	float: left;
-	width: 620px;
+.upProSpan{
+	margin-left: 50px;
+}
+
+.fileBtn{
+	display : inline-block;
+	text-align : center;
+	width : 90px;
+	height : 20px;
+	padding : 5px;
+	font-size : 13px;
+	background-color: #F5D042;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+#file{
+	display: none;
 }
 
 #proUpBtn{
-	margin-top: 100px;
-	margin-left: 100px;
+	width: 1024px;
+	height: 100px;
+	margin-top : 65px;
+	margin-left: 180px;
 }
 
-#proUpBtn .productUpBtn{
+#proUpBtn .productInsert{
 	font-size: 16px;
 	color : #064695;
 	padding : 6px 15px 6px 15px;
@@ -226,20 +241,9 @@
 	text-align: center;
 }
 
-#proUpBtn .productUpBtn:hover{
+#proUpBtn .productInsert:hover{
     text-shadow: 0 0 0 #fefae9;
     background-color : #064695;
     color : #fefae9;
 }
-
-
-
-
-
-
-
-
-
-
-
 

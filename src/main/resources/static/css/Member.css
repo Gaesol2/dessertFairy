@@ -239,11 +239,16 @@
 
 /* admin member detail */
 
+#memSubject{
+	float: left;
+}
+
 .memName{
-	text-align: center;
-	font-size: 21px;
+	text-align: left;
+	font-size: 30px;
 	font-weight: bold;
 }
+
 
 .memberDetail{
 	width: 1024px;
@@ -325,8 +330,9 @@
 /* member order List */
 
 #orderList{
+	float: left;
 	width: 1024px;
-	margin-top: 50px;
+	margin-top: 150px;
 }
 
 .orderTable{

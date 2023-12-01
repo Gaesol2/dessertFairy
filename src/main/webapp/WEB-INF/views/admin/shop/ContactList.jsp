@@ -11,18 +11,16 @@
 <div id="contact">
   <div>
     <div id="contactList">
-		<p class="reviewName">문의목록</p>
+		<p class="introduction">문의목록</p>
     </div>
     <div class="topList">
       <ul class="list">
         <li><a href="/shopMgt">후기 목록</a></li>
         <li class="reList"><a href="/adminContact">문의 목록</a></li>
-        <li><a href="/reviewWrite">배너 변경</a></li>
       </ul>
     </div>
   </div>
   <div id="contactContent">
-  	<a href="/contactWrite" class="now">문의글 목록</a>
   		<table class="conTable">
 	      <tr>
 	         <th class="con1">번호</th>

@@ -26,9 +26,6 @@
 	
     
     <div id="orderList">
-    	<ul class="list">
-       		 <li>총 상품수: ${oCnt} 가지</li>
-      	</ul>
 		<table class="orderTable">
 			<tr>
 				<th>주문번호</th>
