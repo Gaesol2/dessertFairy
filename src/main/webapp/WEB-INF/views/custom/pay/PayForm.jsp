@@ -35,7 +35,21 @@
 		<!-- 고정값 -->
 		<input type="hidden" name="req_tx" value="pay">
 		<input type="hidden" name="pay_method" value="100000000000">
-		<input type="hidden" name="site_name" value="payup">
+		<c:choose>
+			<c:when test="${pay }='auth'">
+				<p>인증</p>
+				<input type="hidden" name="site_name" value="payup">
+			</c:when>
+			<c:when test="${pay }='kakao'">
+				<p>카카오</p>
+				<input type="hidden" name="currency" value="410">
+				<input type="hidden" name="kakaopay_direct" value="Y">
+				<input type="hidden" name="module_type" value="01"/>
+			</c:when>
+		</c:choose>
+		
+		<!-- 주문정보 검증 관련 정보 : 표준웹 에서 설정하는 정보입니다  -->
+		<input type="hidden" name="ordr_chk" value=""/>
 		
 		<!--
 			 ※ 필 수
@@ -49,15 +63,24 @@
 		<input type="hidden" name="ret_pay_method" value="" />
 		<input type="hidden" name="tran_cd" value="" />
 		<input type="hidden" name="use_pay_method" value="" />
-		<input type="hidden" name="buyr_mail" value="">
-		<input type="hidden" name="ordr_chk" value="" />
-		<!-- 2012년 8월 18일 전자상거래법 개정 관련 설정 부분 -->
-		<!-- 제공 기간 설정 0:일회성 1:기간설정(ex 1:2012010120120131) -->
-		<input type="hidden" name="good_expr" value="0">
-		<!-- 표준웹 설정 정보입니다(변경 불가) -->
-		<input type="hidden" name="module_type" value="01" />
-		<!-- 필수 항목 : 결제 금액/화폐단위 -->
-		<input type="hidden" name="currency" value="WON" />
+		
+		<c:choose>
+			<c:when test="${pay}=='auth'">
+				<input type="hidden" name="buyr_mail" value="">
+				<input type="hidden" name="ordr_chk" value="" />
+				<!-- 2012년 8월 18일 전자상거래법 개정 관련 설정 부분 -->
+				<!-- 제공 기간 설정 0:일회성 1:기간설정(ex 1:2012010120120131) -->
+				<input type="hidden" name="good_expr" value="0">
+				<!-- 표준웹 설정 정보입니다(변경 불가) -->
+				<input type="hidden" name="module_type" value="01" />
+				<!-- 필수 항목 : 결제 금액/화폐단위 -->
+				<input type="hidden" name="currency" value="WON" />
+			</c:when>
+			<c:when test="${pay }=='kakao'">
+				<input type="hidden" name="card_pay_method" value=""/>
+			</c:when>
+		</c:choose>
+		
 	</form>
 </div>
 </body>

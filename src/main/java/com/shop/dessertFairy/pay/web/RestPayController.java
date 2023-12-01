@@ -45,10 +45,9 @@ public class RestPayController {
 		String timestamp= "20231201000000";
 		String cashbillYn = "N";
 		String url = "";
+		String pay = request.getParameter("pay");
 		
-		System.out.println("ono========="+orderNumber);
-		System.out.println("top========="+amount);
-		System.out.println("usn========="+userName);
+		System.out.println("pay========="+pay);
 		
 		try {
 			signature = payService.getSHA256Hash(merchantId + "|" + orderNumber + "|" + amount + "|" + "ac805b30517f4fd08e3e80490e559f8e" + "|" + timestamp);
@@ -56,10 +55,12 @@ public class RestPayController {
 			e.printStackTrace();
 		}
 
-		if("auth".equals(request.getParameter("pay"))) {
+		if("auth".equals(pay)) {
 			url = "https://api.testpayup.co.kr/ap/api/payment/" + merchantId + "/order";
+			System.out.println("일반결제");
 		} else {
 			url = "https://api.testpayup.co.kr/ep/api/kakao/"+merchantId+"/order";
+			System.out.println("카카오 결제");
 		}
 		
 		//api 통신 서비스 만들기
@@ -78,6 +79,7 @@ public class RestPayController {
 		Map<String,Object> orderResult = payService.JsonApi(url, map);
 		
 		model.addAttribute("orderResult", orderResult);
+		model.addAttribute("pay", pay);
 		
 		return orderResult;
 	}
