@@ -140,22 +140,6 @@ $().ready(function(){
       });
   });
   
-  //결제 버튼
-  $("#payBtn").on("click",function(){
-		$.ajax({
-				async: true,
-				type: 'post',
-				data: {
-					
-				},
-				url: "payOrder",
-				dataType: "json",
-				success: function(data){
-					console.log(data);
-				}
-			});
-	})
-	
 })//ready 끝
 
    function orderDetail(obj){

@@ -5,13 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="/script/Order.js"></script>
+<script src="/script/Pay.js"></script>
 <script type="text/javascript" src="https://testpay.kcp.co.kr/plugin/payplus_web.jsp"></script>
 </head>
 <body>
 주문 상세 내역 나오게
 
+
 <input type="button" value="결제하기" id="payBtn">
+<p>${orderResult}</p>
 
 <div class="container">
 	<form name="kcp_order_info" id="kcp_order_info" action="/authPay" method="post" accept-charset="euc-kr">

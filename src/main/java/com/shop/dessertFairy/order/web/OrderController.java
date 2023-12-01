@@ -96,7 +96,7 @@ public class OrderController {
          orderWrapper.orderProc(odto, hCartList);
          
          page = "Main";
-         contentsJsp = "custom/order/PayForm";
+         contentsJsp = "custom/pay/PayForm";
       }
       
       
