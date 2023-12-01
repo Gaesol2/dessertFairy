@@ -47,7 +47,6 @@ public class AdminOrderController {
 			
 			if(ssKey.getM_role().equals("admin")) {
 				 resultSet = orderService.getAdminOrderList(odto);
-				   model.addAttribute("oCnt", resultSet.get("oCnt"));
 				   model.addAttribute("adminOrderList", resultSet.get("adminOrderList"));
 				   model.addAttribute("totalPrice",resultSet.get("totalPrice"));
 				   model.addAttribute("contentsJsp", "admin/order/OrderMgt");

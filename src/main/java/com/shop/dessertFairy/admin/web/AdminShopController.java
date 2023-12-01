@@ -121,7 +121,6 @@ public class AdminShopController {
 	   
 	   //세션에 저장
 	   session.setAttribute("ssKey", mdto);
-	   model.addAttribute("rdto", rdto);
 	   model.addAttribute("contentsJsp", page);
 	   
 	   return "Main";

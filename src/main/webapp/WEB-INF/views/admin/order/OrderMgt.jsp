@@ -10,14 +10,9 @@
 <script src="/script/Order.js"></script>
 
 <div id = "order">
-   <div class="mainlist">
-       <p class="introduction">주문관리</p>
-   </div>
-   <div class="topList">
-      <ul class="list">
-        <li>총 주문 내역 : ${oCnt} 건</li>
-      </ul>
-    </div>
+    <div id="orderSubject">
+		<h2 class="orderName">주문관리</h2>
+	</div>
    
    <div id="adminOrderList">
       <table class="listTable" id="orderTable">

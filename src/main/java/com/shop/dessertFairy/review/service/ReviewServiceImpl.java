@@ -179,6 +179,8 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Override
 	public ReviewDTO getReplyContent(ReviewDTO rdto) {
+		reviewDao.updateReadCnt(rdto);
+		
 	    return reviewDao.getReplyContent(rdto);
 	}
 

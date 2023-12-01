@@ -8,11 +8,11 @@
 <script src="/script/Order.js"></script>
 
 <div id="member">
-	<h2 class="memName">${m_id}님의 주문목록</h2>
-
-	<div id="memTot">
-		총 상품수: ${oCnt} 가지
+	<div id="memSubject">
+		<h2 class="memName">${m_id}님의 주문목록</h2>
 	</div>
+	
+	
 	<div id="orderList">
 		<div id="memlist">
 			<a href= "/memberMgt" class="mmlist">회원 목록</a>

@@ -33,12 +33,6 @@
 		</foreach>
 	</insert>
 	
-	<select id="getMemOrderCnt" parameterType="odto" resultType="int">		<!-- 회원 총 주문수  -->
-		SELECT COUNT(O_NO) FROM ORDERT
-		WHERE M_ID = #{m_id}
-	</select>
-	
-	
 	<select id="getOrderList" parameterType="odto" resultType="odto">			<!-- 주문 목록 페이지 -->
 		SELECT *FROM
 		(SELECT ROWNUM AS O_RR, A.* 
@@ -58,11 +52,6 @@
 		 	ON O.D_NO = D.D_NO
 		 WHERE M_ID = #{m_id}
 		 ORDER BY O_NO ASC) A)
-	</select>
-
-
-	<select id="getOrderCnt" parameterType="odto" resultType="int">				<!-- admin 총 주문 수 -->
-		SELECT COUNT(O_NO) FROM ORDERT
 	</select>
 
 	<select id="getAdminOrderList" parameterType="odto" resultType="odto">				<!-- admin 주문 목록 페이지 -->
@@ -169,7 +158,7 @@
    </update>
    
    <delete id="cancelOrder" parameterType="odto">
-   		DELETE FROM oredert
+   		DELETE FROM OREDERT
    		WHERE o_no = #{o_no}
    </delete>
 

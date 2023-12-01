@@ -188,6 +188,7 @@
 		WHERE R_NO = #{r_no}
 	</select>
 	
+	
 	<insert id="getReplyWrite" parameterType="rdto">
 		UPDATE REVIEW
 		SET R_REPLY = #{r_reply}

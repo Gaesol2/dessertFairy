@@ -14,10 +14,6 @@ public interface OrderDAO {
 
 	List<OrderDTO> getOrderList(OrderDTO odto);			// 주문 목록
 
-	int getMemOrderCnt(OrderDTO odto);					//회원 총 주문 건수
-
-	int getOrderCnt(OrderDTO odto);						// admin 주문 총 건수
-
 	List<OrderDTO> getAdminOrderList(OrderDTO odto);	// admin 주문 목록
 
 	void updateOrderState(List<OrderDTO> list);			// admin 주문 목록페이지에서 상태 수정

@@ -121,6 +121,20 @@
 	text-align: center;
 }
 
+#orderSubject{
+	float: left;
+}
+
+.orderName{
+	text-align: left;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.orderTot{
+	text-align: right;
+}
+
 
 
 
@@ -321,21 +335,34 @@
 }
 
 #adminOrderMain{
-	width : 600px;
-	margin-left: 280px;
+	width : 800px;
+	margin-left: 220px;
 	margin-top: 50px;
 }
 
-.ol{
-	padding: 15px;
-	width: 600px;
+.oll{
+	width: 500px;
+	padding: 10px;
 }
 
 .ol1{
-	width : 100px;
+	width : 70px;
 	display: inline-block;
 	text-align: right;
-	margin: 0 50px;
+	
+}
+
+.line {
+	width: 450px;
+	border-top: solid #042958 1px;
+	margin: 5px 0;
+	margin-left: 55px;
+}
+
+.orderImg{
+	width: 400px;
+	height: 400px;
+	margin-left: 70px;
 }
 
 	
@@ -359,7 +386,7 @@
 
 #odBtn{
 	margin-top: 50px;
-	margin-left: 150px;
+	margin-left: 200px;
 }
 
 #odBtn .adminDetailBtn{

@@ -17,52 +17,53 @@
 		<div id="adminOrderMain">
 			
 			<c:forEach var="odto" items="${DetailList}">
-				<div class="ol">
+				<div class="oll">
 					<span class="ol2">
-						<img src="/upload/${odto.d_image}">
+						<img src="/upload/${odto.d_image}" class="orderImg">
 					</span>
 				</div>
-				<div class="ol">
+				<div class="oll">
 					<p class="ol1">주문번호</p>
 					<span class="ol2">
 						<input type="text" class="in" name="o_no" readonly="readonly" value="${DetailList[0].o_no}"size="5">
 					</span>
 				</div>
-				<div class="ol">
+				<div class="oll">
 					<p class="ol1">상품명</p>
 					<span class="ol2">
-						<input type="text" class="in" name="d_name" readonly="readonly" value="${odto.d_name}"size="30">
+						<input type="text" class="in" name="d_name" readonly="readonly" value="${odto.d_name}"size="40">
 					</span>
 				</div>
-				<div class="ol">
+				<div class="oll">
 					<p class="ol1">단가</p>
 					<span class="ol2">
 						<input type="text" class="in" name="o_price" readonly="readonly" value="${odto.o_price}"size="10">원
 					</span>
 				</div>
-				<div class="ol">
+				<div class="oll">
 					<p class="ol1">구매수량</p>
 					<span class="ol2">
 						<input type="text" class="in" name="o_quantity" readonly="readonly" value="${odto.o_quantity}"size="5">
 					</span>
 				</div>	
+				<div class="line"></div>
 				<input type="hidden" name="state" value="${odto.o_state}">
 				<c:set var="total" value="${total + odto.o_amount}" />
 			</c:forEach>
  
-			<div class="ol">
+			<div class="oll">
 				<p class="ol1">결제금액</p>
 				<span class="ol2">
 					<input type="text" class="in" name="o_amount" readonly="readonly" value="${total}"size="10">원
 				</span>
 			</div>
-			<div class="ol">
+			<div class="oll">
 				<p class="ol1">고객정보</p>
 				<span class="ol2">
-					<input type="text" class="in" name="m_name" readonly="readonly" value="${DetailList[0].m_name}(${DetailList[0].m_id})"size="30">
+					<input type="text" class="in" name="m_name" readonly="readonly" value="${DetailList[0].m_name}(${DetailList[0].m_id})"size="40">
 				</span>
 			</div>
-			<div class="ol">
+			<div class="oll">
 				<p class="ol1">배송상태</p>
 				<input type="hidden" value="${DetailList[0].o_state}" name="stateInput" id="stateInput">
 				<select name="o_state" id="o_state">
