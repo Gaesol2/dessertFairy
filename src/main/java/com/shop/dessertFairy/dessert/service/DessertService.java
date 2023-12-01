@@ -30,7 +30,7 @@ public interface DessertService {
 
    int updateStocks(Hashtable<Integer, OrderDTO> hCartList);
 
-   Map<String, Object> getSearchList(DessertDTO ddto, PageDTO pdto);
+   Map<String, Object> getSearchList(DessertDTO ddto);
 
    void cancelStocks(OrderDTO odto);
 

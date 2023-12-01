@@ -5,7 +5,7 @@
 
 <select id="getDessertList" parameterType="map" resultType="ddto">
    SELECT 
-      d_no
+       d_no
       ,d_category
       ,d_name
       ,d_detail
@@ -184,10 +184,7 @@
 	</select>
 	  
 	<select id="getSearchList" parameterType="ddto">
-		SELECT * FROM 
-       (SELECT ROWNUM AS D_RR, A.* 
-        FROM 
-		 (SELECT D_NO
+		 SELECT D_NO
 			    ,D_CATEGORY
 			    ,D_NAME
 			    ,D_DETAIL
@@ -201,8 +198,6 @@
 	 FROM DESSERT
 	 WHERE
       D_NAME LIKE '%'||#{keyword}||'%'
-	 ORDER BY D_NO ASC) A)
-	 WHERE D_RR BETWEEN #{start} AND #{end}
 	</select>
 	
 	<update id="cancelStocks" parameterType="list">

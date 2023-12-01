@@ -243,17 +243,17 @@
 
 
 .orl1{
-	width: 40px;
+	width: 60px;
 	text-align: center;
 }
 
 .orl2{
-	width: 70px;
+	width: 100px;
 	text-align: center;
 }
 
 .orl3{
-	width: 70px;
+	width: 250px;
 	text-align: center;
 }
 
@@ -277,17 +277,8 @@
 	text-align: center;
 }
 
-.orl8{
-	width: 100px;
-	text-align: center;
-}
-
-.orl9{
-	width: 120px;
-	text-align: center;
-}
-
 #odmBtn{
+	margin-top: 20px;
 	margin-left: 920px;
 }
 
