@@ -121,8 +121,7 @@ public class DessertServiceImpl implements DessertService {
       String sourceFileName = file.getOriginalFilename();
       File destinationFile;
       if(sourceFileName==null || sourceFileName.length()==0) {
-         if(ddto.getD_image()==null || ddto.getD_image().equals("ready.jpg"))
-            ddto.setD_image("ready.jpg");
+         ddto.setD_image(ddto.getD_image());
       }else {
         ddto.setD_image(sourceFileName);
         destinationFile = new File(ddto.getD_path()+sourceFileName);
