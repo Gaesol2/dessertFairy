@@ -134,7 +134,6 @@ public class ReviewServiceImpl implements ReviewService {
 		    destinationFile = new File(rdto.getR_path()+sourceFileName);
 		    destinationFile.getParentFile().mkdirs(); //파일명으로 생성
 		    try {
-		    	  System.out.println(destinationFile);
 		         file.transferTo(destinationFile);
 		      } catch (Exception e) {
 		         e.printStackTrace();

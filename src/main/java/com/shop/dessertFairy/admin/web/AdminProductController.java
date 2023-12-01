@@ -129,13 +129,17 @@ public class AdminProductController {
 		MemberDTO ssKey =null;
 		String url = null;
 		String msg = null;
-		int r=0;													// 상품등록 결과 값을 담아줄 변수 선언
-		HttpSession session = request.getSession();					// 세션 받아옴
+		int r=0;	
+		// 상품등록 결과 값을 담아줄 변수 선언
+		HttpSession session = request.getSession();	
+		// 세션 받아옴
 		if(session.getAttribute("ssKey")!=null ) {					// 회원 비회원 구분
 		 ssKey = (MemberDTO) session.getAttribute("ssKey");			// 회원일 경우 세션 저장
 		 if(ssKey.getM_role().equals("admin")) {					// 관리자일 경우
 			//실제로 작업(flag따라서 insert와 update)
+			 
 		  String flag = request.getParameter("flag");				// jsp페이지의 <form action="/productMgtProc?flag=" 받아옴
+		 
 		  if(flag.equals("insert")) {								//  <form action="/productMgtProc?flag=insert" 일 경우 상품등록
 			  //업로드 경로 저장
 			  ddto.setD_path(resourcesLocation);					// 이미지 경로

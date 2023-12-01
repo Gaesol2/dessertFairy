@@ -247,3 +247,96 @@
     color : #fefae9;
 }
 
+
+
+
+
+/* 상품 수정 */
+
+.proUpForm{
+	float: left;
+	margin-top: 150px;
+}
+
+#productUpImage{
+	float: left;
+	width: 350px;
+	text-align: right;
+	margin-top: 60px;
+}
+
+.UpImg{
+	width: 350px;
+	height: 400px;
+}
+
+#detailUpMain{
+	float: left;
+	width: 670px;
+}
+
+.datailName{
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.po{
+	padding: 10px;
+}
+
+.pol{
+	display: inline-block;
+	width: 100px;
+	text-align: right;
+	margin: 0 50px;
+}
+
+.in{
+	height: 35px;
+	border-radius: 5px;
+	border: solid 1px #eeeeee;
+	box-sizing: border-box;
+	outline: none;
+	padding: 0 10px;
+}
+
+#proUpBtn{
+	width: 1024px;
+	height: 100px;
+	margin-top : 65px;
+	margin-left: 120px;
+}
+
+#proUpBtn .productUpBtn{
+	font-size: 16px;
+	color : #064695;
+	padding : 6px 15px 6px 15px;
+	background-color : #fefae9;
+	border : solid 1px #064695;
+	text-align: center;
+}
+
+#proUpBtn .productUpBtn:hover{
+    text-shadow: 0 0 0 #fefae9;
+    background-color : #064695;
+    color : #fefae9;
+}
+
+.fileUpBtn{
+	display : inline-block;
+	text-align : center;
+	width : 90px;
+	height : 20px;
+	padding : 5px;
+	font-size : 13px;
+	background-color: #F5D042;
+	border-radius: 4px;
+	cursor: pointer;
+	margin-right: 120px;
+	margin-top: 10px;
+}
+
+
+

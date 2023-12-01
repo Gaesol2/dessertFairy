@@ -7,7 +7,9 @@
 <link rel="stylesheet" type="text/css" href="/css/PopUp.css">
 
 <div class="popBox">
-	<img src="../image/person.svg" class="pop-image">
+	<a href="/notice" class="popImg">
+		<img src="../image/person.svg" class="pop-image">
+	</a>
 	<p class="popNotice">
 		<button onclick="closePop()" id="popClose">오늘 하루 표시하지 않습니다.</button>
 		<label for="popClose" class="popClose">오늘 하루 표시하지 않습니다.</label>

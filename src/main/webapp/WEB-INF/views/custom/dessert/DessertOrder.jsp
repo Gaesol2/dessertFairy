@@ -52,11 +52,9 @@
 		<table>
 			<tr>
 				<c:forEach var="dessert" items="${dessert}" varStatus="status">
+					<c:if test="${dessert.d_stock>0}">
 					<a class="abox" href="/dessertContent?d_no=${dessert.d_no}">
 						<div class="box">
-							<c:if test="${dessert.d_stock==0}">
-								<div class="black"><strong>SOLD OUT</strong></div>
-							</c:if>
 							<c:forEach var="sale" items="${maxSale}">
 								<c:if test="${dessert.d_no == sale }">
 									<img src="image/Hot.png" class="hot">
@@ -67,6 +65,19 @@
 							<p class="p_price price">${dessert.d_price }</p>
 						</div>
 					</a>
+					</c:if>
+				</c:forEach>
+				<c:forEach var="dessert" items="${dessert}" varStatus="status">
+					<c:if test="${dessert.d_stock==0}">
+					<a class="abox" href="/dessertContent?d_no=${dessert.d_no}">
+						<div class="box">
+						<div class="black"><strong>SOLD OUT</strong></div>
+							<img src="/upload/${dessert.d_image}" class="abox_img">
+							<p class="p_name">${dessert.d_name}</p>
+							<p class="p_price price">${dessert.d_price }</p>
+						</div>
+					</a>
+					</c:if>
 				</c:forEach>
 			</tr>
 		</table>
