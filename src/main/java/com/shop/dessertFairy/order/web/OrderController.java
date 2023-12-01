@@ -70,7 +70,62 @@ public class OrderController {
 		  return page;
 	  }
    
+   //바로 결제
+   @RequestMapping("directOrderProc")
+   public String directOrderProc(HttpServletRequest request, HttpServletResponse response,
+         Model model, OrderDTO odto) {
+      //세션 받아와서 저장
+      HttpSession session = request.getSession();
+      MemberDTO sdto = (MemberDTO) session.getAttribute("ssKey");
+      
+      String msg = null;
+      String url = null;
+      String page = null;
+      String contentsJsp = null;
+      
+      if(sdto==null) {
+         msg = "로그인이 필요합니다.";
+         url = "login";
+         page = "MsgPage";
+         
+      } else {
+    	  if(odto==null) {
+    		  msg = "결제가 취소되었습니다.";
+    		  url = "cartList";
+    		  page = "MsgPage";
+    		  
+    	  } else {
+    		  if(hCartList == null) hCartList = new Hashtable<Integer, OrderDTO>();
+    		  Hashtable<Integer, OrderDTO> hCartList = new Hashtable<>();
+    		  //장바구니에 상품 담기
+    		  hCartList = cartService.addCartList(odto);
+    		  cartService.setCartList(hCartList);
+    		  
+	         //dessert 재고 수 줄이고, order 테이블에 등록
+	         orderWrapper.orderProc(odto, hCartList);
+	         
+	         //최신 ono 받아오기
+	         int ono = orderService.getRecentOno();
+	         
+	         odto.setO_no(ono);
+	         odto = orderWrapper.getOrderDetail(odto);
+	         
+	         model.addAttribute("odto",odto);
+	
+	         page = "Main";
+	         contentsJsp = "custom/pay/PayForm";
+    	  }
+      }
+      
+      model.addAttribute("msg", msg);
+      model.addAttribute("url", url);
+      model.addAttribute("contentsJsp",contentsJsp);
+      session.setAttribute("ssKey", sdto);
+      
+      return page;
+   }
    
+   //장바구니 결제
    @RequestMapping("orderProc")
    public String OrderProc(HttpServletRequest request, HttpServletResponse response,
          Model model, OrderDTO odto) {
@@ -92,11 +147,11 @@ public class OrderController {
          page = "MsgPage";
          
       } else {
-    	  msg = "결제가 취소되었습니다.";
-    	  url = "cartList";
-    	  page = "MsgPage";
-         
     	  if(odto==null) {
+    		  msg = "결제가 취소되었습니다.";
+    		  url = "cartList";
+    		  page = "MsgPage";
+    		  
     		  
     	  } else {
 	         //dessert 재고 수 줄이고, order 테이블에 등록

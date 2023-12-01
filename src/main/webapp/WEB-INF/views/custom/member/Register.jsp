@@ -14,7 +14,8 @@
 			<div class="regisBox">
 				<p class="col1">*아이디</p>
 				<span>
-					<input type="text" class="chk idchk" name="m_id" title="아이디" size="30">
+					<input type="text" class="chk idchk" name="m_id" title="아이디" size="30"
+						placeholder="아이디는 영어만 가능합니다." oninput="handleOnInput(this)" >
 					<br>
 					<font id="idcheck" size="2" color="red" class="possible"></font>
 				</span>

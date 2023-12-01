@@ -50,7 +50,7 @@ $().ready(function(){
 
    //dessertOrder에서 바로 결제하기
    $(".btn_order").on("click",function(){
-	   $("form[name=dessertForm]").attr("action","orderProc");
+	   $("form[name=dessertForm]").attr("action","directOrderProc");
 	   $("form[name=dessertForm]").submit();	   
    })
    

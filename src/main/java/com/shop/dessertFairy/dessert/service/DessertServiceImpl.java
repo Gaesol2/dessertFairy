@@ -168,7 +168,7 @@ public class DessertServiceImpl implements DessertService {
       
       return dessertDao.updateStocks(list);
    }
-
+   
 	@Override
 	public Map<String, Object> getSearchList(DessertDTO ddto) {
 		
