@@ -1,6 +1,7 @@
 package com.shop.dessertFairy.order.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -33,5 +34,9 @@ public interface OrderDAO {
 	void cancelOrder(OrderDTO odto);
 
 	int getRecentOno();
+
+	OrderDTO getOrderDetail(OrderDTO odto);
+
+	int getOrderDetailCnt(OrderDTO odto);
 
 }

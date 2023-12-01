@@ -45,4 +45,23 @@ public class OrderWrapper {
 		
 	}
 	
+	public OrderDTO getOrderDetail(OrderDTO odto) {
+		
+		//주문 내용
+		OrderDTO orderDetail = orderService.getOrderDetail(odto);
+		
+		//주문에 들은 전체 상품 개수
+		int orderCnt = orderService.getOrderDetailCnt(odto)-1;
+		
+		String dname = dessertService.getDname(orderDetail.getD_no());
+		
+		if(orderCnt>=1) {
+			orderDetail.setD_name(dname + " 외 " + orderCnt);
+		} else {
+			orderDetail.setD_name(dname);
+		}
+		
+		return orderDetail;
+	}
+	
 }

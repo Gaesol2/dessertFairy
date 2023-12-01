@@ -1,5 +1,6 @@
 package com.shop.dessertFairy.order.web;
 
+import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
@@ -95,15 +96,13 @@ public class OrderController {
          //dessert 재고 수 줄이고, order 테이블에 등록
          orderWrapper.orderProc(odto, hCartList);
          
-         List<OrderDTO> resultSet = null;
-         
          //최신 ono 받아오기
          int ono = orderService.getRecentOno();
          
          odto.setO_no(ono);
-         resultSet = orderService.OrderDetail(odto);
+         odto = orderWrapper.getOrderDetail(odto);
          
-         model.addAttribute("odto",resultSet);
+         model.addAttribute("odto",odto);
 
          page = "Main";
          contentsJsp = "custom/pay/PayForm";

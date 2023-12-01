@@ -173,18 +173,37 @@
 	</select>
 	
 	<select id="getOrderDetail" parameterType="odto" resultType="odto">
-	SELECT 
-	o_no
-	,o_price
-	,o_quantity
-	,o_regdate
-	,o_state
-	,o_amount
-	,m_id 
-	,d_no
-	,o_totalprice
-	FROM ordert
-	WHERE o_no = #{o_no}
+		SELECT 
+		o_no
+		,o_price
+		,o_quantity
+		,o_regdate
+		,o_state
+		,o_amount
+		,m_id 
+		,d_no
+		,o_totalprice
+		FROM (
+			SELECT 
+			o_no
+			,o_price
+			,o_quantity
+			,o_regdate
+			,o_state
+			,o_amount
+			,m_id 
+			,d_no
+			,o_totalprice
+			FROM ordert
+			WHERE o_no = #{o_no}
+		)
+		WHERE ROWNUM = 1
+	</select>
+	
+	<select id="getOrderDetailCnt" parameterType="odto" resultType="int">
+		SELECT COUNT(d_no)
+		FROM ordert
+		WHERE o_no = #{o_no}
 	</select>
 
 </mapper>

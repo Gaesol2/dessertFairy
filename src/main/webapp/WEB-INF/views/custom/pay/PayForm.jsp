@@ -13,6 +13,11 @@
 주문 상세 내역 나오게
 <div id="detail_order">
 	<p>${odto}</p>
+	<input type="text" name="o_no" value="${odto.o_no }">
+	<input type="text" name="o_totalprice" value="${odto.o_totalprice }">
+	<input type="text" name="d_name" value="${odto.d_name }">
+	<input type="text" name="m_id" value="${odto.m_id }">
+	<input type="text" name="o_regdate" value="${odto.o_regdate }">
 </div>
 
 <input type="button" value="결제하기" id="payBtn" onclick="javascript:orderAjax(this)">

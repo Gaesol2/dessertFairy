@@ -31,5 +31,9 @@ public interface OrderService {
 
 	public int getRecentOno();
 
+	public OrderDTO getOrderDetail(OrderDTO odto);
+
+	public int getOrderDetailCnt(OrderDTO odto);
+
 	
 }

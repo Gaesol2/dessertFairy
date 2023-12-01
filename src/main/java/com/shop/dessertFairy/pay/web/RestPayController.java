@@ -30,12 +30,15 @@ public class RestPayController {
 	public Map<String,Object> payOrder(HttpServletRequest request, HttpServletResponse response,
 			Model model, OrderDTO odto){
 		
+		System.out.println(model.toString());
+		System.out.println(odto.getO_amount());
+		
 		//주문요청 API 호출
 		String merchantId = "himedia";
 		String orderNumber = String.valueOf(odto.getO_no());
 		String amount = String.valueOf(odto.getO_totalprice());
 		String itemName = odto.getD_name();
-		String userName = odto.getM_name();
+		String userName = odto.getM_id();
 		String userAgent = "WP";
 		String returnUrl = "returnUrl";
 		String signature = "";

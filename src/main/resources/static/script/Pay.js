@@ -8,22 +8,32 @@ $().ready(function(){
 })//ready 끝
 	function orderAjax(obj){
 		var id = obj.id;
-		var orderUrl = "";
+		var pay = "";
 		alert(typeof(id));
 		if("payBtn"==id){
-			orderUrl = "payOrder?pay=auth";
+			pay = "auth";
 			  $("form[name=kcp_order_info]").attr("action","/authPay?pay=auth");
 		} else {
-			orderUrl = "payOrder?pay=kakao";
+			pay = "kakao";
 			  $("form[name=kcp_order_info]").attr("action","/authPay?pay=kakao");
 		}
+		
+		var ono = $("input[name=o_no]").val();
+		var amount = $("input[name=o_totalprice]").val();
+		var itemname = $("input[name=d_name]").val();
+		var username = $("input[name=m_id]").val();
 		
 		$.ajax({
 			async: true,
 			type: 'post',
 			data: {
-			},
-			url: orderUrl,
+				"pay":pay,
+				"o_no":ono,
+				"o_totalprice":amount,
+				"d_name":itemname,
+				"m_id":username
+				},
+			url: "payOrder",
 			dataType: "json",
 			success: function(data){
 				if(data.responseCode == "0000"){

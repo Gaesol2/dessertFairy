@@ -34,4 +34,6 @@ public interface DessertService {
 
    void cancelStocks(OrderDTO odto);
 
+   String getDname(int d_no);
+
 }

@@ -46,6 +46,8 @@ public interface DessertDAO {
 	List<Integer> maxSale();
 
 	void cancelStocks(OrderDTO odto);
+	
+	String getDname(int d_no);
 
 	
 }

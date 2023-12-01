@@ -198,4 +198,9 @@ public class DessertServiceImpl implements DessertService {
 		
 	}
 
+	@Override
+	public String getDname(int d_no) {
+		return dessertDao.getDname(d_no);
+	}
+
 }

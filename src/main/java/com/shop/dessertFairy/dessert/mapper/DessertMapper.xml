@@ -209,6 +209,10 @@
 		</foreach>
 	</update>
 	
-	
+	<select id="getDname" parameterType="int" resultType="String">
+		SELECT d_name
+		FROM dessert
+		WHERE d_no = #{d_no}
+	</select>
 	
 </mapper>

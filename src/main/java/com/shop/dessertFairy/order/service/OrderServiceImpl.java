@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import com.shop.dessertFairy.common.Page;
 import com.shop.dessertFairy.common.RowInterPage;
 import com.shop.dessertFairy.common.dto.PageDTO;
+import com.shop.dessertFairy.dessert.dao.DessertDAO;
 import com.shop.dessertFairy.order.dao.OrderDAO;
 import com.shop.dessertFairy.order.dto.OrderDTO;
 
@@ -22,6 +23,9 @@ public class OrderServiceImpl implements OrderService {
 
 	@Autowired
 	OrderDAO orderDao;
+	
+	@Autowired
+	DessertDAO dessertDao;
 	
 	@Override
 	public int insertOrder(Hashtable<Integer, OrderDTO> hCartList) {
@@ -38,7 +42,16 @@ public class OrderServiceImpl implements OrderService {
 			//순환 중인 key에 해당하는 hCartList의 value를 list에 저장한다.
 			list.add(hCartList.get(iterKeys.next()));
 		}
-		return orderDao.insertOrder(list);
+		
+		int r = orderDao.insertOrder(list);
+		
+		int ono = orderDao.getRecentOno();
+		OrderDTO odto = new OrderDTO();
+		odto.setO_no(ono);
+		List<OrderDTO> getTotalPrice = orderDao.getTotalPrice(odto);
+		orderDao.updateTotalPrice(getTotalPrice);
+		
+		return r;
 	}
 
 	@Override
@@ -137,5 +150,14 @@ public class OrderServiceImpl implements OrderService {
 		return orderDao.getRecentOno();
 	}
 
+	@Override
+	public OrderDTO getOrderDetail(OrderDTO odto) {
+		return orderDao.getOrderDetail(odto);
+	}
+
+	@Override
+	public int getOrderDetailCnt(OrderDTO odto) {
+		return orderDao.getOrderDetailCnt(odto);
+	}
 
 }
