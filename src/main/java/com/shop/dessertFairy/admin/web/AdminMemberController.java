@@ -189,9 +189,9 @@ public class AdminMemberController {
 			MemberDTO ssKey = (MemberDTO) session.getAttribute("ssKey");
 			
 			if(ssKey != null && ssKey.getM_role().equals("admin")) {
-				List<OrderDTO> reset = new ArrayList<>();
-				reset = orderService.OrderDetail(odto);
-				model.addAttribute("odto", reset);
+				List<OrderDTO> DetailList = new ArrayList<>();
+				DetailList = orderService.OrderDetail(odto);
+				model.addAttribute("DetailList", DetailList);
 				model.addAttribute("contentsJsp", "admin/member/MemberOrderDetail");
 				page = "Main";
 			}else {
@@ -219,8 +219,8 @@ public class AdminMemberController {
 			
 			if(ssKey != null && ssKey.getM_role().equals("admin")) {
 				result = orderService.MUpdateOrder(odto);
-				if(result > 0) msg = "상품등록 성공";
-				else msg = "상품등록 실패";
+				if(result > 0) msg = "수정 성공";
+				else msg = "수정 실패";
 				model.addAttribute("odto", odto);
 				url = "memberMgt";
 			}else {

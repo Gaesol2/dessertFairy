@@ -14,6 +14,9 @@
 	<div class="ordList"><a href = "/orderMgt">주문목록으로</a></div>
 	
 	<form action="updateOrder" name="orderDetailForm" method="post">
+			</div>
+ 			
+			<div id="odBtn">
 		<div id="adminOrderMain">
 			
 			<c:forEach var="odto" items="${DetailList}">
@@ -44,6 +47,12 @@
 					<p class="ol1">구매수량</p>
 					<span class="ol2">
 						<input type="text" class="in" name="o_quantity" readonly="readonly" value="${odto.o_quantity}"size="5">
+					</span>
+				</div>	
+				<div class="oll">
+					<p class="ol1">합 계</p>
+					<span class="ol2">
+						<input type="text" class="in" name="o_quantity" readonly="readonly" value="${odto.o_amount}"size="5">
 					</span>
 				</div>	
 				<div class="line"></div>
@@ -82,9 +91,6 @@
 						 $("#state").val('${DetailList[i].o_state}')
 					})
 				</script>
-			</div>
- 			
-			<div id="odBtn">
 				<input type="submit" value="상태수정" class="DetailstateUpBtn adminDetailBtn">
 				
 			</div>

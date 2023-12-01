@@ -130,7 +130,6 @@ public class AdminOrderController {
 		
 		if(ssKey != null && ssKey.getM_role().equals("admin")) {
 			orderService.updateOrder(odto);
-			session.setAttribute("ssKey", ssKey);
 			page = "redirect:/orderMgt";
 		}else {
 			msg = "관리자 로그인이 필요합니다.";
@@ -138,6 +137,7 @@ public class AdminOrderController {
 			model.addAttribute("url", "/login");
 			page = "MsgPage";
 		}
+		session.setAttribute("ssKey", ssKey);
 		
 		return page;
 	}
