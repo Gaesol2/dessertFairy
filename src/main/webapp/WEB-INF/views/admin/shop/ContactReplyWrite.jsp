@@ -10,13 +10,6 @@
 	    <div id="contactList">
 			<p class="introduction">답글쓰기</p>
 	    </div>
-    	<div class="topList">
-	      <ul class="list">
-	        <li><a href="/shopMgt">후기 목록</a></li>
-	        <li class="reList"><a href="/adminContact">문의 목록</a></li>
-	        <li><a href="/reviewWrite">배너 변경</a></li>
-	      </ul>
-    	</div>
   	</div>
 	<form action="contactReplyProc" name="conReplyForm" id="conReplyForm" method="post">
 		<div id="conWrite">

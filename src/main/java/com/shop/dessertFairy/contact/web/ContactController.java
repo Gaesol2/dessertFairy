@@ -217,9 +217,8 @@ public class ContactController {
 		   
 		   
 		   List<ContactDTO>list=(List<ContactDTO>) reSet.get("myContact");
-			
 		   //세션 저장
-		   session.setAttribute("tdto", ssKey);
+		   session.setAttribute("ssKey", ssKey);
 		   //데이터 저장
 		   model.addAttribute("cnt", reSet.get("cnt"));
 		   model.addAttribute("myContact", list);
