@@ -21,6 +21,14 @@
 						<c:forEach var="search" items="${sList}" varStatus="status">
 							<a class="abox" href="/dessertContent?d_no=${search.d_no}">
 								<div class="box">
+									<c:if test="${search.d_stock==0}">
+										<div class="black"><strong>SOLD OUT</strong></div>
+									</c:if>
+									<c:forEach var="sale" items="${maxSale}">
+										<c:if test="${search.d_no == sale }">
+											<img src="image/Hot.png" class="hot">
+										</c:if>
+									</c:forEach>
 									<img src="/upload/${search.d_image}" class="abox_img">
 									<p class="p_name">${search.d_name}</p>
 									<p class="p_price price">${search.d_price }</p>

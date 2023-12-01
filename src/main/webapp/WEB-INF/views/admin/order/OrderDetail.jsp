@@ -15,41 +15,38 @@
 	
 	<form action="updateOrder" name="orderDetailForm" method="post">
 		<div id="adminOrderMain">
-			<div class="ol">
-				<p class="ol1">주문번호</p>
-				<span class="ol2">
-					<input type="text" class="in" name="o_no" readonly="readonly" value="${DetailList[0].o_no}"size="5">
-				</span>
-			</div>
 			
 			<c:forEach var="odto" items="${DetailList}">
 				<div class="ol">
-					<table id="orderTable">
-						<thead>
-							<tr><th><td><img src="/upload/${odto.d_image}"></td><th><tr>
-						</thead>
-						<tbody>
-							<tr>
-								<th>상품명</th>
-								<th>단가</th>
-								<th>구매수량</th>
-							</tr>
-							
-							<tr>
-								<td>
-									<input type="text" class="in" name="d_name" readonly="readonly" value="${odto.d_name}"size="30">
-								</td>
-								<td>
-									<input type="text" class="in" name="o_price" readonly="readonly" value="${odto.o_price}"size="10">원
-								</td>
-								<td>
-									<input type="text" class="in" name="o_quantity" readonly="readonly" value="${odto.o_quantity}"size="5">
-								</td>
-								<input type="hidden" name="state" value="${odto.o_state}">
-							</tr>
-						</tbody>
-					</table>
+					<span class="ol2">
+						<img src="/upload/${odto.d_image}">
+					</span>
 				</div>
+				<div class="ol">
+					<p class="ol1">주문번호</p>
+					<span class="ol2">
+						<input type="text" class="in" name="o_no" readonly="readonly" value="${DetailList[0].o_no}"size="5">
+					</span>
+				</div>
+				<div class="ol">
+					<p class="ol1">상품명</p>
+					<span class="ol2">
+						<input type="text" class="in" name="d_name" readonly="readonly" value="${odto.d_name}"size="30">
+					</span>
+				</div>
+				<div class="ol">
+					<p class="ol1">단가</p>
+					<span class="ol2">
+						<input type="text" class="in" name="o_price" readonly="readonly" value="${odto.o_price}"size="10">원
+					</span>
+				</div>
+				<div class="ol">
+					<p class="ol1">구매수량</p>
+					<span class="ol2">
+						<input type="text" class="in" name="o_quantity" readonly="readonly" value="${odto.o_quantity}"size="5">
+					</span>
+				</div>	
+				<input type="hidden" name="state" value="${odto.o_state}">
 				<c:set var="total" value="${total + odto.o_amount}" />
 			</c:forEach>
  

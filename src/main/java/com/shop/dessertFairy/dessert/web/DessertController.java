@@ -62,7 +62,7 @@ public class DessertController {
 	@RequestMapping("/search")
 	public String Search(HttpServletRequest request,
 			HttpServletResponse response,
-			Model model, DessertDTO ddto, PageDTO pdto) {
+			Model model, DessertDTO ddto) {
 		
 		  // 검색 단어 저장 및 flag(high/low) 저장
 	      if (ddto.getKeyword() == null) {
@@ -73,13 +73,14 @@ public class DessertController {
 	      System.out.println("===>"+ddto.getKeyword());
 	      
 	      //검색어와 페이지 저장
-	      Map<String, Object> reSet = dessertService.getSearchList(ddto, pdto);
+	      Map<String, Object> reSet = dessertService.getSearchList(ddto);
 	      
 	      
 	      model.addAttribute("keyword", ddto.getKeyword());
 	      model.addAttribute("pcnt", reSet.get("pcnt"));
 	      model.addAttribute("sList", reSet.get("sList"));
 	      model.addAttribute("getSearchList", reSet.get("sList"));
+	      model.addAttribute("maxSale",reSet.get("maxSale"));
 	      model.addAttribute("pdto", reSet.get("pdto"));
 	      model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
 	      page = "Main";

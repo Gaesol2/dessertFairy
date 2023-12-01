@@ -26,8 +26,6 @@
             <th>주문번호</th>
             <th>상품명</th>
             <th>회원명(회원 아이디)</th>
-            <!-- <th>주문수량</th>
-            <th>단가</th> -->
             <th>결제금액</th>
             <th>결제일</th>
             <th>주문상태</th>
@@ -43,17 +41,17 @@
                         <input type="hidden" name="o_no" value="${order.o_no}">
                         <input type="hidden" name="m_id" value="${order.m_id}">
                      </td>
-                     <td class="orl4"><a onclick="javascript:orderDetail(this)">${order.d_name}</a>
+                     <td class="orl3"><a onclick="javascript:orderDetail(this)">${order.d_name}</a>
                         <input type="hidden" name="d_no" value="${order.d_no}">
                         <input type="hidden" name="o_no" value="${order.o_no}">
                         <input type="hidden" name="m_id" value="${order.m_id}">
                      </td>
-                     <td class="orl5">${order.m_name}(${order.m_id})</td>
+                     <td class="orl4">${order.m_name}(${order.m_id})</td>
                      <%-- <td class="price orl6">${order.o_quantity}</td> --%>
                      <%-- <td class="price orl7">${order.o_price}</td> --%>
-                     <td class="price orl8">${order.o_totalprice}</td>
-                     <td class="orl9">${order.o_regdate}</td>
-                     <td class="state">
+                     <td class="price orl5">${order.o_totalprice}</td>
+                     <td class="orl6">${order.o_regdate}</td>
+                     <td class="state orl7">
                         <select name="o_state" id="state${i.count}">
                            <option value="1">결제중</option>
                            <option value="2">배송준비</option>
