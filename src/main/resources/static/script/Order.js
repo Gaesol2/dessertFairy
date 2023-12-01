@@ -141,7 +141,7 @@ $().ready(function(){
   });
   
   //결제 버튼
-  $("#PayBtn").on("click",function(){
+  $("#payBtn").on("click",function(){
 		$.ajax({
 				async: true,
 				type: 'post',

@@ -86,11 +86,11 @@
 							<td class="total_amount price"></td>
 						</tr>
 					</table>
+					<div>
+						<input type="submit" value="주문하기" class="CartorderBtn" id="cartBtn">
+					</div>
 				</c:when>
 			</c:choose>
-			<div>
-				<input type="submit" value="주문하기" class="CartorderBtn" id="cartBtn">
-			</div>
 		</form>
 	</div><!--   cartContent end -->
 </div> <!-- mypage end -->

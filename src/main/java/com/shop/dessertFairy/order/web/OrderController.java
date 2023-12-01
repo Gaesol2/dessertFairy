@@ -96,8 +96,8 @@ public class OrderController {
          orderWrapper.orderProc(odto, hCartList);
          
          page = "Main";
+         contentsJsp = "custom/order/PayForm";
       }
-      contentsJsp = "custom/order/PayForm";
       
       
       
@@ -107,7 +107,7 @@ public class OrderController {
       session.setAttribute("ssKey", sdto);
       session.setAttribute("hCartList", hCartList);
       
-      return "page";
+      return page;
    }
    
    @RequestMapping("/productOrder")

@@ -11,7 +11,7 @@
 <body>
 주문 상세 내역 나오게
 
-<input type="button" value="결제하기" id="PayBtn">
+<input type="button" value="결제하기" id="payBtn">
 
 <div class="container">
 	<form name="kcp_order_info" id="kcp_order_info" action="/authPay" method="post" accept-charset="euc-kr">
