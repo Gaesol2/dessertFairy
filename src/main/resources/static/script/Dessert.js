@@ -47,6 +47,12 @@ $().ready(function(){
 	   $("form[name=dessertForm]").attr("action","cartProc?flag=insert");
 	   $("form[name=dessertForm]").submit();	   
    })
+
+   //dessertOrder에서 바로 결제하기
+   $(".btn_order").on("click",function(){
+	   $("form[name=dessertForm]").attr("action","orderProc");
+	   $("form[name=dessertForm]").submit();	   
+   })
    
 }) //ready end
 

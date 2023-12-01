@@ -92,13 +92,13 @@ public class OrderController {
          
       } else {
          
-    	  System.out.println("o_amount========"+hCartList);
          //dessert 재고 수 줄이고, order 테이블에 등록
          orderWrapper.orderProc(odto, hCartList);
          
-         contentsJsp = "OrderDone";
          page = "Main";
       }
+      contentsJsp = "custom/order/PayForm";
+      
       
       
       model.addAttribute("msg", msg);
