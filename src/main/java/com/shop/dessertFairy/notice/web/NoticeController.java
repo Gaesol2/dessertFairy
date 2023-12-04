@@ -52,6 +52,7 @@ public class NoticeController {
 	      
 	      return page;
 	   }
+	
 	@RequestMapping("/noticeGanerate")
 	public String notiGenerate(HttpServletRequest request, HttpServletResponse response, NoticeDTO ndto, Model model, PageDTO pageDto) {
 		HttpSession session = request.getSession();

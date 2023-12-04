@@ -32,15 +32,9 @@
 						</td>
 					</tr>
 					<tr class="nl">
-						<td class="nl1">공지시작</td>
-						<td class="nl2">
-							<input type="date"  name="n_regdate" class="chk in" title="시작일"  id="startDate" required>  
-						</td>
-					</tr>
-					<tr class="nl">
 						<td class="nl1">공지종료</td>
 						<td class="nl2">
-							<input type="date"  name="n_vdate" class="chk in" title="종료일"  id="startDate" required>  
+							<input type="date"  name="n_vdate" class="chk in" title="종료일">  
 						</td>
 					</tr>
 				</tbody>
