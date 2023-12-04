@@ -71,8 +71,11 @@ public class PayController {
 	        page = "Main";
 	        contentsJsp = "custom/order/OrderDone";
 	      }
-	      
-      model.addAttribute("msg", msg);
+	  
+	  payDto.setP_transactionid();
+	  payService.insertPay(payDto);
+      
+	  model.addAttribute("msg", msg);
       model.addAttribute("url", url);
       model.addAttribute("contentsJsp",contentsJsp);
       session.setAttribute("ssKey", sdto);
