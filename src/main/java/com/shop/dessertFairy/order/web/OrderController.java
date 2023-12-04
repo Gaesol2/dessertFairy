@@ -1,5 +1,6 @@
 package com.shop.dessertFairy.order.web;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
@@ -198,8 +199,10 @@ public class OrderController {
 	   HttpSession session = request.getSession();
 	   MemberDTO ssKey = (MemberDTO)session.getAttribute("ssKey");
 	   if(ssKey != null) {
-		   odto = orderService.memOrderDetail(odto);
-		   model.addAttribute("odto", odto);
+		   List<OrderDTO> DetailList = new ArrayList<>();
+		   DetailList = orderService.OrderDetail(odto);
+			
+		   model.addAttribute("DetailList", DetailList);
 		   model.addAttribute("contentsJsp", "custom/mypage/OrderDetail");
 		   
 		   page = "Main";
