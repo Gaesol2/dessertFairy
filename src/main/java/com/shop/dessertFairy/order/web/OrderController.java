@@ -90,31 +90,29 @@ public class OrderController {
          page = "MsgPage";
          
       } else {
-    	  if(odto==null) {
-    		  msg = "결제가 취소되었습니다.";
-    		  url = "cartList";
-    		  page = "MsgPage";
-    		  
-    	  } else {
-    		  Hashtable<Integer, OrderDTO> hDirectPay = new Hashtable<>();
-    		  //장바구니에 상품 담기
-    		  hDirectPay = cartService.addDirectPay(odto);
-    		  cartService.setCartList(hCartList);
-    		  
-	         //dessert 재고 수 줄이고, order 테이블에 등록
-	         orderWrapper.orderProc(odto, hCartList);
-	         
-	         //최신 ono 받아오기
-	         int ono = orderService.getRecentOno();
-	         
-	         odto.setO_no(ono);
-	         odto = orderWrapper.getOrderDetail(odto);
-	         
-	         model.addAttribute("odto",odto);
-	
-	         page = "Main";
-	         contentsJsp = "custom/pay/PayForm";
-    	  }
+    	  Hashtable<Integer, OrderDTO> hDirectPay = new Hashtable<>();
+    	  session.setAttribute("hDirectPay", hDirectPay);
+		  cartService.setDirectPay(hDirectPay);
+		  //장바구니에 상품 담기
+		  cartService.setDirectPay(hDirectPay);
+		  hDirectPay = cartService.addDirectPay(odto);
+		  
+		  odto.setM_id(sdto.getM_id());
+		  
+         //dessert 재고 수 줄이고, order 테이블에 등록
+         orderWrapper.directOrderProc(odto, hDirectPay);
+         
+         //최신 ono 받아오기
+         int ono = orderService.getRecentOno();
+         
+         odto.setO_no(ono);
+         odto = orderWrapper.getOrderDetail(odto);
+         
+         model.addAttribute("odto",odto);
+
+         page = "Main";
+         contentsJsp = "custom/pay/PayForm";
+
       }
       
       model.addAttribute("msg", msg);

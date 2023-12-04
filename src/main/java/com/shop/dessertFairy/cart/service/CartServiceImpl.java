@@ -87,6 +87,15 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
+	public void setDirectPay(Hashtable<Integer, OrderDTO> hDirectPay) {
+		this.hDirectPay = hDirectPay;
+	}
+
+	public Hashtable<Integer, OrderDTO> getDirectPay() {
+		return hDirectPay;
+	}
+	
+	@Override
 	public Hashtable<Integer, OrderDTO> addDirectPay(OrderDTO odto) {
 		//인자로 받은 odto(장바구니에 담을 상품)에서 d_no(상품번호)를 빼서 따로 저장
 		int d_no = odto.getD_no();
@@ -94,5 +103,6 @@ public class CartServiceImpl implements CartService {
 
 		return hDirectPay;
 	}
+
 
 }

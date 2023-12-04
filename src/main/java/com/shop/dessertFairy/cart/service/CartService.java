@@ -17,5 +17,9 @@ public interface CartService {
 	Hashtable<Integer, OrderDTO> deleteCartList(OrderDTO odto);
 
 	Hashtable<Integer, OrderDTO> addDirectPay(OrderDTO odto);
+
+	void setDirectPay(Hashtable<Integer, OrderDTO> hDirectPay);
+	
+	public Hashtable<Integer, OrderDTO> getDirectPay();
 		
 }
