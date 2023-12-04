@@ -95,7 +95,6 @@ public class OrderController {
     		  page = "MsgPage";
     		  
     	  } else {
-    		  if(hCartList == null) hCartList = new Hashtable<Integer, OrderDTO>();
     		  Hashtable<Integer, OrderDTO> hCartList = new Hashtable<>();
     		  //장바구니에 상품 담기
     		  hCartList = cartService.addCartList(odto);
