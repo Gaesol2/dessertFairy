@@ -10,27 +10,30 @@
 <div id="detail_order">
 	<c:choose>
 		<c:when test="${odto!=null}">
-			주문번호 <input type="text" name="o_no" value="${odto.o_no }"><br>
-			총 가격 <input type="text" name="o_totalprice" value="${odto.o_totalprice }"><br>
-			상품 이름 <input type="text" name="d_name" value="${odto.d_name }"><br>
-			주문자 아이디 <input type="text" name="m_id" value="${odto.m_id }"><br>
-			주문 시각 <input type="text" name="o_regdate" value="${odto.o_regdate }">
+			주문번호 <input type="text" name="o_no" value="${odto.o_no }" readonly="readonly">
+			총 가격 <input type="text" name="o_totalprice" value="${odto.o_totalprice }" readonly="readonly">
+			상품 이름 <input type="text" name="d_name" value="${odto.d_name }" readonly="readonly">
+			주문자 아이디 <input type="text" name="m_id" value="${odto.m_id }" readonly="readonly">
+			주문 시각 <input type="text" name="o_regdate" value="${odto.o_regdate }" readonly="readonly">
 			
 			<input type="button" value="결제하기" id="payBtn" onclick="javascript:orderAjax(this)">
 			<input type="button" value="카카오페이" id="kakoPayBtn" onclick="javascript:orderAjax(this)">
 		</c:when>
 		<c:when test="${cdto!=null}">
-			주문번호 <input type="text" name="c_no" value="${cdto.c_no }"><br>
-			빵 시트 <input type="text" name="c_sheet" value="${cdto.c_sheet }"><br>
-			안 크림 <input type="text" name="c_incream" value="${cdto.c_incream }"><br>
-			밖 크림 <input type="text" name="c_outcream" value="${cdto.c_outcream }"><br>
-			케이크 사이즈 <input type="text" name="c_size" value="${cdto.c_size }"><br>
-			가격 <input type="text" name="c_price" value="${cdto.c_price }"><br>
-			주문자 아이디 <input type="text" name="m_id" value="${cdto.m_id }"><br>
-			주문 시각 <input type="text" name="c_regdate" value="${cdto.c_regdate }"><br>
-			수령 날짜 월: <input type="text" name="c_month" value="${cdto.c_month }"><br>
-			 일: <input type="text" name="c_day" value="${cdto.c_day }">
-			
+			주문번호 <input type="text" name="c_no" value="${cdto.c_no }" readonly="readonly">
+			빵 시트 <input type="text" name="c_sheet" value="${cdto.c_sheet }" readonly="readonly">
+			안 크림 <input type="text" name="c_incream" value="${cdto.c_incream }" readonly="readonly">
+			밖 크림 <input type="text" name="c_outcream" value="${cdto.c_outcream }" readonly="readonly">
+			케이크 사이즈 <input type="text" name="c_size" value="${cdto.c_size }" readonly="readonly">
+			가격 <input type="text" name="c_price" value="${cdto.c_price }" readonly="readonly">
+			주문자 아이디 <input type="text" name="m_id" value="${cdto.m_id }" readonly="readonly">
+			주문 시각 <input type="text" name="c_regdate" value="${cdto.c_regdate }" readonly="readonly">
+			수령 날짜 월: <input type="text" name="c_month" value="${cdto.c_month }" readonly="readonly">
+			 일: <input type="text" name="c_day" value="${cdto.c_day }" readonly="readonly">
+			수령 시각 <input type="text" name="c_pickupdate" value="${cdto.c_pickupdate }" readonly="readonly">
+			레터링 <input type="text" name="c_write" value="c_write" readonly="readonly">
+			요구사항 <textarea rows="10" cols="30" readonly="readonly">${cdto.c_request }</textarea>
+			 
 			<input type="button" value="결제하기" id="payBtn" onclick="javascript:cakeAjax(this)">
 			<input type="button" value="카카오페이" id="kakoPayBtn" onclick="javascript:cakeAjax(this)">
 		</c:when>
