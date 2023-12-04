@@ -23,7 +23,8 @@
 			,C_MONTH
 			,M_ID
 			,C_PATH
-			,C_DAY)
+			,C_DAY
+			,c_pickupdate)
 		VALUES(
 			#{c_no      }
 			,#{c_sheet   }
@@ -39,7 +40,8 @@
 			,#{c_month   }
 			,#{m_id      }
 			,#{c_path    }
-			,#{c_day     })	
+			,#{c_day     }
+			,#{c_pickupdate})	
 	</insert>
 	
 	<select id="getRecentCno" resultType="int">
@@ -69,6 +71,7 @@
 			,M_ID
 			,C_PATH
 			,C_DAY
+			,c_pickupdate
 		FROM cake
 		WHERE c_no = #{c_no}
 	</select>

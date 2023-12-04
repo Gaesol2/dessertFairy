@@ -22,5 +22,6 @@ public class CakeDTO {
 	private int c_day;
 	private String c_path;
 	private String d_name;
+	private String c_pickupdate;
 
 }
