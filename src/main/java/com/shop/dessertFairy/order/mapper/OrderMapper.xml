@@ -51,7 +51,7 @@
 		 INNER JOIN DESSERT D
 		 	ON O.D_NO = D.D_NO
 		 WHERE M_ID = #{m_id}
-		 ORDER BY O_NO ASC) A)
+		 ORDER BY O_NO DESC) A)
 	</select>
 
 	<select id="getAdminOrderList" parameterType="odto" resultType="odto">				<!-- admin 주문 목록 페이지 -->
