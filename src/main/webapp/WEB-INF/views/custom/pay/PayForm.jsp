@@ -12,17 +12,34 @@
 <body>
 주문 상세 내역 나오게
 <div id="detail_order">
-	<p>${odto}</p>
-	<input type="text" name="o_no" value="${odto.o_no }">
-	<input type="text" name="o_totalprice" value="${odto.o_totalprice }">
-	<input type="text" name="d_name" value="${odto.d_name }">
-	<input type="text" name="m_id" value="${odto.m_id }">
-	<input type="text" name="o_regdate" value="${odto.o_regdate }">
+	<c:choose>
+		<c:when test="${odto!=null}">
+			주문번호 <input type="text" name="o_no" value="${odto.o_no }"><br>
+			총 가격 <input type="text" name="o_totalprice" value="${odto.o_totalprice }"><br>
+			상품 이름 <input type="text" name="d_name" value="${odto.d_name }"><br>
+			주문자 아이디 <input type="text" name="m_id" value="${odto.m_id }"><br>
+			주문 시각 <input type="text" name="o_regdate" value="${odto.o_regdate }">
+			
+			<input type="button" value="결제하기" id="payBtn" onclick="javascript:orderAjax(this)">
+			<input type="button" value="카카오페이" id="kakoPayBtn" onclick="javascript:orderAjax(this)">
+		</c:when>
+		<c:when test="${cdto!=null}">
+			주문번호 <input type="text" name="c_no" value="${cdto.c_no }"><br>
+			빵 시트 <input type="text" name="c_sheet" value="${cdto.c_sheet }"><br>
+			안 크림 <input type="text" name="c_incream" value="${cdto.c_incream }"><br>
+			밖 크림 <input type="text" name="c_outcream" value="${cdto.c_outcream }"><br>
+			케이크 사이즈 <input type="text" name="c_size" value="${cdto.c_size }"><br>
+			가격 <input type="text" name="c_price" value="${cdto.c_price }"><br>
+			주문자 아이디 <input type="text" name="m_id" value="${cdto.m_id }"><br>
+			주문 시각 <input type="text" name="c_regdate" value="${cdto.c_regdate }"><br>
+			수령 날짜 월: <input type="text" name="c_month" value="${cdto.c_month }"><br>
+			 일: <input type="text" name="c_day" value="${cdto.c_day }">
+			
+			<input type="button" value="결제하기" id="payBtn" onclick="javascript:cakeAjax(this)">
+			<input type="button" value="카카오페이" id="kakoPayBtn" onclick="javascript:cakeAjax(this)">
+		</c:when>
+	</c:choose>
 </div>
-
-<input type="button" value="결제하기" id="payBtn" onclick="javascript:orderAjax(this)">
-<input type="button" value="카카오페이" id="kakoPayBtn" onclick="javascript:orderAjax(this)">
-<p>${orderResult}</p>
 
 <div class="container">
 	<form name="kcp_order_info" id="kcp_order_info" action="/authPay" method="post" accept-charset="euc-kr">
