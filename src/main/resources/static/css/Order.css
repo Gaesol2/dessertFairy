@@ -136,92 +136,6 @@
 }
 
 
-
-
-
-/* order detail */
-
-#order_detail_head{
-	width: 1024px;
-}
-
-#orderName{
-	height:70px;
-	border-bottom: solid 1px black;
-}
-
-.memOrderDetail{
-	text-align: center;
-	font-size: 18px;
-	font-weight: bold;
-}
-
-
-#order_detail_head{
-	margin: 0 auto;
-	width: 1024px;
-	margin-top: 100px;
-	padding-bottom : 50px;
-}
-
-#orderDetail_img{
-	float: left;
-	width: 400px;
-	margin-top: 50px;
-}
-
-#orderMain{
-	float: right;
-	width : 600px;
-}
-
-.ol{
-	padding: 15px;
-	width: 600px;
-}
-
-.ol1{
-	width : 100px;
-	display: inline-block;
-	text-align: right;
-	margin: 0 50px;
-}
-
-	
-.ol2 .in{
-	border-radius: 7px;
-	border: solid 1px #eeeeee;
-	height: 40px;
-	box-sizing: border-box;
-	outline: none;
-	padding: 0 10px;
-}
-
-.odl{
-	padding: 5px 30px;
-	border: solid 1px #eeeeee;
-	border-radius: 7px;
-	background-color: white;
-}
-
-.orderBtn{
-	padding : 10px 30px 10px 30px;
-	margin-top : 65px;
-	margin-left: 150px;
-	background-color : #fefae9;
-	border : solid 1px #064695;
-}
-
-.orderBtn:hover{
-    text-shadow: 0 0 0 #fefae9;
-    background-color : #064695;
-    color : #fefae9;
-}
-
-
-
-
-
 /* admin list */
 
 #orders_head{
@@ -296,7 +210,7 @@
 	margin-left: 920px;
 }
 
-#odmBtn .adminOrderBtn{
+#odmBtn .orderUpBtn{
 	color : #064695;
 	padding : 5px 20px 5px 20px;
 	background-color : #fefae9;
@@ -304,7 +218,7 @@
 	text-align: center;
 }
 
-#odmBtn .adminOrderBtn:hover{
+#odmBtn .orderUpBtn:hover{
     text-shadow: 0 0 0 #fefae9;
     background-color : #064695;
     color : #fefae9;
@@ -314,9 +228,9 @@
 
 
 
-/* admin detail */
+/* detail */
 
-#adminOrderDetail{
+#OrderDetail{
 	height: 80px;
 	text-align: center;
 	font-size: 18px;
@@ -334,7 +248,7 @@
 	font-weight: bold;
 }
 
-#adminOrderMain{
+#orderDetailMain{
 	width : 800px;
 	margin-left: 220px;
 	margin-top: 50px;
@@ -349,6 +263,8 @@
 	width : 70px;
 	display: inline-block;
 	text-align: right;
+	margin-left: 85px;
+	margin-right: 10px;
 	
 }
 
@@ -365,7 +281,6 @@
 	margin-left: 70px;
 }
 
-	
 .ol2 .in{
 	border-radius: 7px;
 	border: solid 1px #eeeeee;
@@ -375,38 +290,22 @@
 	padding: 0 10px;
 }
 
-#state{
+#o_state{
 	border-radius: 7px;
 	border: solid 1px #eeeeee;
-	height: 40px;
+	height: 35px;
 	box-sizing: border-box;
 	outline: none;
 	padding: 0 10px;
 }
 
-#odBtn{
-	margin-top: 50px;
-	margin-left: 200px;
+.stateUpBtn{
+	width: 80px;
+	height: 32px;
+	border-radius: 7px;
+	border : solid 1px #ECE4D3;
+	background-color: #F5ECDC; 
 }
-
-#odBtn .adminDetailBtn{
-	font-size: 16px;
-	color : #064695;
-	padding : 10px 50px 10px 50px;
-	background-color : #fefae9;
-	border : solid 1px #064695;
-	text-align: center;
-}
-
-#odBtn .adminDetailBtn:hover{
-    text-shadow: 0 0 0 #fefae9;
-    background-color : #064695;
-    color : #fefae9;
-}
-
-
-
-
 
 
 
