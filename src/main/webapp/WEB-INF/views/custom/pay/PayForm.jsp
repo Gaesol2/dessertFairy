@@ -10,32 +10,117 @@
 <div id="detail_order">
 	<c:choose>
 		<c:when test="${odto!=null}">
-			주문번호 <input type="text" name="o_no" value="${odto.o_no }" readonly="readonly">
-			총 가격 <input type="text" name="o_totalprice" value="${odto.o_totalprice }" readonly="readonly">
-			상품 이름 <input type="text" name="d_name" value="${odto.d_name }" readonly="readonly">
-			주문자 아이디 <input type="text" name="m_id" value="${odto.m_id }" readonly="readonly">
-			주문 시각 <input type="text" name="o_regdate" value="${odto.o_regdate }" readonly="readonly">
-			
-			<input type="button" value="결제하기" id="payBtn" onclick="javascript:orderAjax(this)">
-			<input type="button" value="카카오페이" id="kakoPayBtn" onclick="javascript:orderAjax(this)">
+			<div>
+				<p>총 가격</p>
+				<span>
+					<input type="text" name="o_totalprice" value="${odto.o_totalprice }" readonly="readonly">
+				</span>
+			</div>
+			<div>
+				<p>상품 이름</p>
+				<span>
+					<input type="text" name="d_name" value="${odto.d_name }" readonly="readonly">
+				</span>
+			</div>
+			<div>
+				<p>주문자 아이디</p>
+				<span>
+					<input type="text" name="m_id" value="${odto.m_id }" readonly="readonly">
+				</span>
+			</div>
+			<div>
+				<p>주문 시각</p>
+				<span>
+					<input type="text" name="o_regdate" value="${odto.o_regdate }" readonly="readonly">
+				</span>
+			</div>
+			<div>
+				<input type="button" value="결제하기" id="payBtn" onclick="javascript:orderAjax(this)">
+				<input type="button" value="카카오페이" id="kakoPayBtn" onclick="javascript:orderAjax(this)">
+			</div> 
 		</c:when>
 		<c:when test="${cdto!=null}">
-			주문번호 <input type="text" name="c_no" value="${cdto.c_no }" readonly="readonly">
-			빵 시트 <input type="text" name="c_sheet" value="${cdto.c_sheet }" readonly="readonly">
-			안 크림 <input type="text" name="c_incream" value="${cdto.c_incream }" readonly="readonly">
-			밖 크림 <input type="text" name="c_outcream" value="${cdto.c_outcream }" readonly="readonly">
-			케이크 사이즈 <input type="text" name="c_size" value="${cdto.c_size }" readonly="readonly">
-			가격 <input type="text" name="c_price" value="${cdto.c_price }" readonly="readonly">
-			주문자 아이디 <input type="text" name="m_id" value="${cdto.m_id }" readonly="readonly">
-			주문 시각 <input type="text" name="c_regdate" value="${cdto.c_regdate }" readonly="readonly">
-			수령 날짜 월: <input type="text" name="c_month" value="${cdto.c_month }" readonly="readonly">
-			 일: <input type="text" name="c_day" value="${cdto.c_day }" readonly="readonly">
-			수령 시각 <input type="text" name="c_pickupdate" value="${cdto.c_pickupdate }" readonly="readonly">
-			레터링 <input type="text" name="c_write" value="c_write" readonly="readonly">
-			요구사항 <textarea rows="10" cols="30" readonly="readonly">${cdto.c_request }</textarea>
-			 
-			<input type="button" value="결제하기" id="payBtn" onclick="javascript:cakeAjax(this)">
-			<input type="button" value="카카오페이" id="kakoPayBtn" onclick="javascript:cakeAjax(this)">
+			<div id="c_orderBox1">
+				<div>
+					<p class="c_orderP">주문자 아이디</p>
+					<span>
+						<input type="text" name="m_id" class="in" value="${cdto.m_id }" readonly="readonly" size="20">
+					</span>
+				</div>
+				<div>
+					<p class="c_orderP">빵 시트</p>
+					<span>
+						<input type="text" name="c_sheet" class="in" value="${cdto.c_sheet }" readonly="readonly" size="10">
+					</span>
+				</div>
+				<div>
+					<p class="c_orderP">안 크림</p>
+					<span>
+						<input type="text" name="c_incream" class="in" value="${cdto.c_incream }" readonly="readonly" size="10">
+					</span>
+				</div>
+				<div>
+					<p class="c_orderP">밖 크림</p>
+					<span>
+						<input type="text" name="c_outcream" class="in" value="${cdto.c_outcream }" readonly="readonly" size="10">
+					</span>
+				</div>
+				<div>
+					<p class="c_orderP">케이크 사이즈</p>
+					<span>
+						<input type="text" name="c_size" class="in" value="${cdto.c_size }" readonly="readonly" size="10">
+					</span>
+				</div>
+				<div>
+					<p class="c_orderP">가격</p>
+					<span>
+						<input type="text" name="c_price" class="in" value="${cdto.c_price }" readonly="readonly" size="10">
+					</span>
+				</div>
+			</div>
+			<div id="c_orderBox2">
+				<div>
+					<p class="c_orderP">주문 시각</p>
+					<span>
+						<input type="text" name="c_regdate" class="in" value="${cdto.c_regdate }" readonly="readonly" size="10">
+					</span>
+				</div>
+				<div>
+					<p class="c_orderP">수령 날짜</p>
+					<span>
+						<input type="text" name="c_month" class="in" value="${cdto.c_month }" readonly="readonly" size="3">월
+						<input type="text" name="c_pickupdate" class="in" value="${cdto.c_day }" readonly="readonly" size="3">일
+					</span>
+				</div>
+				<div>
+					<p class="c_orderP">수령 시각</p>
+					<span>
+						<input type="text" name="c_pickupdate" class="in" value="${cdto.c_pickupdate }" readonly="readonly" size="10">
+					</span>
+				</div>
+				<div>
+					<p class="c_orderP">레터링</p>
+					<span>
+						<input type="text" name="c_write" class="in" value="${cdto.c_write}" readonly="readonly" size="40">
+					</span>
+				</div>
+				<div>
+					<p class="c_orderP">요구사항</p>
+					<span>
+						<textarea readonly="readonly">${cdto.c_request }</textarea>
+					</span>
+				</div>
+			</div>
+			<div id="payBox">
+				<div id="order_payBtn">
+					<img src="../image/pay.png" class="payImg">
+					<input type="button" class="payName1" value="결제하기" id="payBtn" onclick="javascript:cakeAjax(this)">
+				</div>
+				<div id="order_kakaoBtn">
+					<img src="../image/kakao.png" class="payImg">
+					<input type="button" class="payName2" value="카카오페이" id="kakoPayBtn" onclick="javascript:cakeAjax(this)">
+				</div>
+			</div>
 		</c:when>
 	</c:choose>
 </div>
