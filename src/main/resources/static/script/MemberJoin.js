@@ -126,6 +126,7 @@ $().ready(function(){
 function isAlphanumeric(input) {
   // 정규표현식을 사용하여 영어와 숫자로만 이루어져 있는지 확인합니다.
   const regex = /^[a-zA-Z0-9]+$/;
+  }
 
 //chk에 대해서 점검
 	function validate(){
