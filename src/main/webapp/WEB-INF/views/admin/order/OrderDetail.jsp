@@ -14,7 +14,6 @@
 	<div class="ordList"><a href = "/orderMgt">주문목록으로</a></div>
 	
 	<form action="updateOrder" name="orderDetailForm" method="post">
-			</div>
  			
 			<div id="odBtn">
 		<div id="adminOrderMain">
@@ -94,6 +93,7 @@
 				<input type="submit" value="상태수정" class="DetailstateUpBtn adminDetailBtn">
 				
 			</div>
+		</div>
 		</div>
 	</form>
 </div>

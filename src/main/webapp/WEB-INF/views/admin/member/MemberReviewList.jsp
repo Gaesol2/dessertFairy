@@ -10,7 +10,7 @@
 	<div class="memMainList">
 	
 		<p class="memReviewName">${rdto.m_id}님의 후기목록</p>
-		<input type="text" name="m_id" value="${member.m_id}">
+		<input type="hidden" name="m_id" value="${member.m_id}">
 	</div>
 	<div id="myList">
 		<table class="listTable">
