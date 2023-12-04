@@ -13,6 +13,12 @@
     <div id="orderSubject">
 		<h2 class="orderName">주문관리</h2>
 	</div>
+	<div class="topList">
+      <ul class="list">
+        <li class="reList"><a href="orderMgt">디저트 목록</a></li>
+        <li><a href="">케이크 목록</a></li>
+      </ul>
+    </div>
    
    <div id="adminOrderList">
       <table class="listTable" id="orderTable">
