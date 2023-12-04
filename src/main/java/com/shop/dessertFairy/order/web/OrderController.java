@@ -95,9 +95,9 @@ public class OrderController {
     		  page = "MsgPage";
     		  
     	  } else {
-    		  Hashtable<Integer, OrderDTO> hCartList = new Hashtable<>();
+    		  Hashtable<Integer, OrderDTO> hDirectPay = new Hashtable<>();
     		  //장바구니에 상품 담기
-    		  hCartList = cartService.addCartList(odto);
+    		  hDirectPay = cartService.addDirectPay(odto);
     		  cartService.setCartList(hCartList);
     		  
 	         //dessert 재고 수 줄이고, order 테이블에 등록
