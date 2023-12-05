@@ -375,9 +375,16 @@ textarea {
 }
 
 #chooseBox{
+<<<<<<< HEAD
    margin-top: 100px; 
    float: left;
 }
+=======
+	margin-top: 100px; 
+	float: left;
+}
+
+>>>>>>> branch 'main' of https://github.com/Gaesol2/dessertFairy.git
 
 
 
