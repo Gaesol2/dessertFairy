@@ -16,4 +16,12 @@ public class PayDTO {
 	String buyr_mail; 
 	String userId;
 	
+	String p_transactionid;
+	String p_ordernumber;
+	String p_authdatetime;
+	String p_amount;
+	String p_authnumber;
+	String p_cardname;
+	String p_cardno;
+	String p_quota;
 }
