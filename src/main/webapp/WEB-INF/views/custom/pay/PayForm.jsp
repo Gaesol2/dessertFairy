@@ -20,6 +20,7 @@
 				<p>상품 이름</p>
 				<span>
 					<input type="text" name="d_name" value="${odto.d_name }" readonly="readonly">
+					<input type="hidden" name="o_no" value="${odto.o_no }" readonly="readonly">
 				</span>
 			</div>
 			<div>
@@ -45,6 +46,7 @@
 					<p class="c_orderP">주문자 아이디</p>
 					<span>
 						<input type="text" name="m_id" class="in" value="${cdto.m_id }" readonly="readonly" size="20">
+						<input type="hidden" name="c_no" value="${cdto.c_no }" readonly="readonly">
 					</span>
 				</div>
 				<div>

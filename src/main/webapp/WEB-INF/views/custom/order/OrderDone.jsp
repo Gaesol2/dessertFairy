@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	결제 완료
-	<p>${orderResult }</p>
+	결제가 완료되었습니다.
 </body>
 </html>
