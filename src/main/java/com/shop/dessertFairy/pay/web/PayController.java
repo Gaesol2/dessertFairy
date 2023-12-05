@@ -70,10 +70,14 @@ public class PayController {
 	        
 	        page = "Main";
 	        contentsJsp = "custom/order/OrderDone";
+
+	        
+	        payDto.setP_transactionid(orderResult.get("p_transactionid"));
+	        
+	        payService.insertPay(payDto);
 	      }
 	  
-	  payDto.setP_transactionid();
-	  payService.insertPay(payDto);
+	  
       
 	  model.addAttribute("msg", msg);
       model.addAttribute("url", url);

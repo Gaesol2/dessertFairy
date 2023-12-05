@@ -8,10 +8,13 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.shop.dessertFairy.pay.dao.PayDAO;
+import com.shop.dessertFairy.pay.dto.PayDTO;
 
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -21,6 +24,9 @@ import okhttp3.Response;
 
 @Service
 public class PayServiceImpl implements PayService {
+	
+	@Autowired
+	PayDAO payDao;
 	
 	public Map<String,Object> JsonApi(String url, Map<String,String> map) {
 		
@@ -83,4 +89,9 @@ public class PayServiceImpl implements PayService {
 
 	        return hexStringBuilder.toString();
 	    }
+
+	@Override
+	public void insertPay(PayDTO payDto) {
+		payDao.insertPay(payDto);
+	}
 }
