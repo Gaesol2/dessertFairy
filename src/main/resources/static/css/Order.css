@@ -2,220 +2,220 @@
 
 
 #order{
-	margin : 0 auto;
-	width : 1024px;
+   margin : 0 auto;
+   width : 1024px;
 }
 
 #mainList{
-	float: left;
+   float: left;
 }
 
 .introduction{
-	font-size: 32px;
-	text-align: left;
-	font-weight: bold;
+   font-size: 32px;
+   text-align: left;
+   font-weight: bold;
 }
 
 .topList{
-	float: right;
-	text-align: right;
+   float: right;
+   text-align: right;
 }
 
 .list li{
-	display: inline-block;
-	font-size: 15px;
-	margin-left: 35px;
+   display: inline-block;
+   font-size: 15px;
+   margin-left: 35px;
 }
 
 .reList{
-	font-weight: bold;
+   font-weight: bold;
 }
 
 .pageBtn{
-	width: 1024px;
-	margin-top : 20px;
-	text-align: center;
+   width: 1024px;
+   margin-top : 20px;
+   text-align: center;
 }
 
 .notList{
-	text-align: center;
+   text-align: center;
 }
 
 .notList th{
-	padding: 20px 0;
+   padding: 20px 0;
 }
 
 
 /* order List */
 
 .list{
-	text-align: right;
-	margin-bottom: 5px;
+   text-align: right;
+   margin-bottom: 5px;
 }
 
 #orderList{
-	margin-top: 130px;
-	margin-left: 20px;
-	float: left;
+   margin-top: 130px;
+   margin-left: 20px;
+   float: left;
 }
 
 .orderTable{
-	width: 1024px;
-	border-top : solid 2px black;
-	border-collapse: collapse;
-	
+   width: 1024px;
+   border-top : solid 2px black;
+   border-collapse: collapse;
+   
 }
 
 .orderTable tr{
-	border-bottom: solid 1px black;
-	border-top: solid 1px black;
+   border-bottom: solid 1px black;
+   border-top: solid 1px black;
 }
 
 .orderTable tr{
-	height: 45px;
+   height: 45px;
 }
 
 
 .ool1{
-	width: 100px;
-	text-align: center;
+   width: 100px;
+   text-align: center;
 }
 
 .ool2{
-	width: 100px;
-	text-align: center;
+   width: 100px;
+   text-align: center;
 }
 
 .ool3{
-	width: 400px;
-	text-align: center;
+   width: 400px;
+   text-align: center;
 }
 
 .ool4{
-	width: 100px;
-	text-align: center;
+   width: 100px;
+   text-align: center;
 }
 
 .ool5{
-	width: 50px;
-	text-align: center;
+   width: 50px;
+   text-align: center;
 }
 
 .ool6{
-	width: 100px;
-	text-align: center;
+   width: 100px;
+   text-align: center;
 }
 
 .ool7{
-	width: 100px;
-	text-align: center;
+   width: 100px;
+   text-align: center;
 }
 
 .ool8{
-	width: 100px;
-	text-align: center;
+   width: 100px;
+   text-align: center;
 }
 
 .ool9{
-	width: 100px;
-	text-align: center;
+   width: 100px;
+   text-align: center;
 }
 
 #orderSubject{
-	float: left;
+   float: left;
 }
 
 .orderName{
-	text-align: left;
-	font-size: 30px;
-	font-weight: bold;
+   text-align: left;
+   font-size: 30px;
+   font-weight: bold;
 }
 
 .orderTot{
-	text-align: right;
+   text-align: right;
 }
 
 
 /* admin list */
 
 #orders_head{
-	text-align: right;
+   text-align: right;
 }
 
 .orderMain{
-	text-align: center;
-	font-size: 18px;
-	font-weight: bold;
+   text-align: center;
+   font-size: 18px;
+   font-weight: bold;
 }
 
 #adminOrderList{
-	margin-top: 150px;
-	float: left;
+   margin-top: 150px;
+   float: left;
 }
 
 #adminOrderList .listTable{
-	width: 100%;
-	border-top : solid 2px black;
-	border-collapse: collapse;
-	
+   width: 100%;
+   border-top : solid 2px black;
+   border-collapse: collapse;
+   
 }
 
 #adminOrderList .listTable tr{
-	border-bottom: solid 1px black;
-	border-top: solid 1px black;
+   border-bottom: solid 1px black;
+   border-top: solid 1px black;
 }
 
 #adminOrderList .listTable tr{
-	height: 45px;
+   height: 45px;
 }
 
 
 .orl1{
-	width: 60px;
-	text-align: center;
+   width: 60px;
+   text-align: center;
 }
 
 .orl2{
-	width: 100px;
-	text-align: center;
+   width: 100px;
+   text-align: center;
 }
 
 .orl3{
-	width: 250px;
-	text-align: center;
+   width: 250px;
+   text-align: center;
 }
 
 .orl4{
-	width: 250px;
-	text-align: center;
+   width: 250px;
+   text-align: center;
 }
 
 .orl5{
-	width: 150px;
-	text-align: center;
+   width: 150px;
+   text-align: center;
 }
 
 .orl6{
-	width: 100px;
-	text-align: center;
+   width: 100px;
+   text-align: center;
 }
 
 .orl7{
-	width: 100px;
-	text-align: center;
+   width: 100px;
+   text-align: center;
 }
 
 #odmBtn{
-	margin-top: 20px;
-	margin-left: 920px;
+   margin-top: 20px;
+   margin-left: 920px;
 }
 
 #odmBtn .orderUpBtn{
-	color : #064695;
-	padding : 5px 20px 5px 20px;
-	background-color : #fefae9;
-	border : solid 1px #064695;
-	text-align: center;
+   color : #064695;
+   padding : 5px 20px 5px 20px;
+   background-color : #fefae9;
+   border : solid 1px #064695;
+   text-align: center;
 }
 
 #odmBtn .orderUpBtn:hover{
@@ -231,80 +231,80 @@
 /* detail */
 
 #OrderDetail{
-	height: 80px;
-	text-align: center;
-	font-size: 18px;
-	font-weight: bold;
+   height: 80px;
+   text-align: center;
+   font-size: 18px;
+   font-weight: bold;
 }
 
 .ordList{
-	height: 25px;
-	text-align: right;
-	border-bottom: solid 1px black;
+   height: 25px;
+   text-align: right;
+   border-bottom: solid 1px black;
 }
 
 .ordList:hover{
-	color: #064695;
-	font-weight: bold;
+   color: #064695;
+   font-weight: bold;
 }
 
 #orderDetailMain{
-	width : 800px;
-	margin-left: 220px;
-	margin-top: 50px;
+   width : 800px;
+   margin-left: 220px;
+   margin-top: 50px;
 }
 
 .oll{
-	width: 500px;
-	padding: 10px;
+   width: 500px;
+   padding: 10px;
 }
 
 .ol1{
-	width : 70px;
-	display: inline-block;
-	text-align: right;
-	margin-left: 85px;
-	margin-right: 10px;
-	
+   width : 70px;
+   display: inline-block;
+   text-align: right;
+   margin-left: 85px;
+   margin-right: 10px;
+   
 }
 
 .line {
-	width: 450px;
-	border-top: solid #042958 1px;
-	margin: 5px 0;
-	margin-left: 55px;
+   width: 450px;
+   border-top: solid #042958 1px;
+   margin: 5px 0;
+   margin-left: 55px;
 }
 
 .orderImg{
-	width: 400px;
-	height: 400px;
-	margin-left: 70px;
+   width: 400px;
+   height: 400px;
+   margin-left: 70px;
 }
 
 .ol2 .in{
-	border-radius: 7px;
-	border: solid 1px #eeeeee;
-	height: 40px;
-	box-sizing: border-box;
-	outline: none;
-	padding: 0 10px;
+   border-radius: 7px;
+   border: solid 1px #eeeeee;
+   height: 40px;
+   box-sizing: border-box;
+   outline: none;
+   padding: 0 10px;
 }
 
 #o_state{
-	border-radius: 7px;
-	border: solid 1px #eeeeee;
-	height: 35px;
-	box-sizing: border-box;
-	outline: none;
-	padding: 0 10px;
+   border-radius: 7px;
+   border: solid 1px #eeeeee;
+   height: 35px;
+   box-sizing: border-box;
+   outline: none;
+   padding: 0 10px;
 }
 
-.stateUpBtn{
-	width: 80px;
-	height: 32px;
-	border-radius: 7px;
-	border : solid 1px #ECE4D3;
-	background-color: #F5ECDC; 
+.stateUpBtn, .orderCancel{
+   width: 80px;
+   height: 32px;
+   border-radius: 7px;
+   border : solid 1px #ECE4D3;
+   background-color: #F5ECDC; 
 }
 
 
@@ -313,69 +313,71 @@
 /* order cake */
 
 .orderCakeImg{
-	width: 200px;
-	height: 250px;
+   width: 200px;
+   height: 250px;
 }
 
 .nocake{
-	width: 100px;
-	height: 100px;
-	padding: 70px 50px;
+   width: 100px;
+   height: 100px;
+   padding: 70px 50px;
 }
 
 .o_cakeBox1, .o_cakeBox2, .o_cakeBox3, .o_cakeBox4{
-	display: inline-block;
+   display: inline-block;
 }
 
 .o_cakeBox2{
-	width: 200px;
+   width: 200px;
 }
 
 .o_cakeBox3{
-	width: 250px;
+   width: 250px;
 }
 
 .o_cakeBox4{
-	width: 350px;
-	margin-left: 10px;
+   width: 350px;
+   margin-left: 10px;
 }
 
 #cakeContentBox{
-	width: 1024px;
-	margin: 50px 0;
-	padding-bottom: 50px; 
-	border-bottom: solid 1px black;
+   width: 1024px;
+   margin: 50px 0;
+   padding-bottom: 50px; 
+   border-bottom: solid 1px black;
 }
 
 .in{
-	height: 35px;
-	border-radius: 5px;
-	border: solid 1px #eeeeee;
-	box-sizing: border-box;
-	outline: none;
-	padding: 0 10px;
-	margin: 10px 0;
-	font-size: 12px;
+   height: 35px;
+   border-radius: 5px;
+   border: solid 1px #eeeeee;
+   box-sizing: border-box;
+   outline: none;
+   padding: 0 10px;
+   margin: 10px 0;
+   font-size: 12px;
 }
 
 textarea {
-	width: 270px;
-	height: 200px;
+   width: 270px;
+   height: 200px;
     border-radius: 5px;
-	border: solid 1px #eeeeee;
+   border: solid 1px #eeeeee;
     resize: none;
-	box-sizing: border-box;
-	outline: none;
+   box-sizing: border-box;
+   outline: none;
 }
 
 .cakeName{
-	display: inline-block;
-	text-align: right;
-	width: 70px;
+   display: inline-block;
+   text-align: right;
+   width: 70px;
 }
 
-
-
+#chooseBox{
+   margin-top: 100px; 
+   float: left;
+}
 
 
 

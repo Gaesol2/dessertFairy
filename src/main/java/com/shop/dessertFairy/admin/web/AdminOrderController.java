@@ -176,4 +176,40 @@ public class AdminOrderController {
 		
 		return page;
 	}
+	
+	@RequestMapping("orderDel")
+	   public String OrderCancel(   HttpServletRequest request,
+	                        HttpServletResponse response,
+	                        OrderDTO odto,
+	                        Model model) {
+	      String page = null;
+	      String msg = null;
+	      String url = null;
+	      HttpSession session = request.getSession();
+	      MemberDTO ssKey = (MemberDTO) session.getAttribute("ssKey");
+	      
+	      
+	      if(ssKey != null && ssKey.getM_role().equals("admin")) {
+	         int result = orderService.orderCancel(odto);
+	         System.out.println("결과 : "+result);
+	         if(result>0) {
+	            msg = "주문 취소 완료";
+	            url = "/orderMgt";
+	         }else {
+	            msg = "주문 삭제 실패";
+	            url = "redirect:/";
+	         }
+	            
+	      }else {
+	         msg = "관리자 권한이 필요합니다.";
+	         url = "/login";
+	      }
+	      
+	      session.setAttribute("ssKey", ssKey);
+	      model.addAttribute("msg", msg);
+	        model.addAttribute("url", url);
+	      page = "MsgPage";
+	      
+	      return page;
+	   }
 }

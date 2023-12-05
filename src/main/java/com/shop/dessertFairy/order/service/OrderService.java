@@ -37,5 +37,6 @@ public interface OrderService {
 
 	public int getOrderDetailCnt(OrderDTO odto);
 
+	public int orderCancel(OrderDTO odto);
 	
 }

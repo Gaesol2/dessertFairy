@@ -234,4 +234,7 @@
 		ORDER BY C_NO DESC) A)
 	</select>
 
+	<delete id="orderCancel" parameterType="odto">
+      DELETE FROM ORDERT WHERE O_NO = #{o_no}
+   </delete>
 </mapper>

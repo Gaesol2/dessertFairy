@@ -40,5 +40,7 @@ public interface OrderDAO {
 	OrderDTO getOrderDetail(OrderDTO odto);
 
 	int getOrderDetailCnt(OrderDTO odto);
+	
+	int orderCancel(OrderDTO odto);
 
 }

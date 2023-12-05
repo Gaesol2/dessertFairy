@@ -173,5 +173,11 @@ public class OrderServiceImpl implements OrderService {
 	   
 	   return resultSet;
 	}
+	
+	@Override
+	public int orderCancel(OrderDTO odto) {
+      
+      return orderDao.orderCancel(odto);
+   }
 
 }
