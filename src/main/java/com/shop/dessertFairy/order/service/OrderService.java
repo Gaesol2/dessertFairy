@@ -16,6 +16,8 @@ public interface OrderService {
 	public Map<String, Object> getOrderList(OrderDTO odto);				// 주문 목록
 
 	public Map<String, Object> getAdminOrderList(OrderDTO odto);			// admin 주문 목록
+	
+	public Map<String, Object> getAdminCakeOrderList(OrderDTO odto);			// admin cake주문 목록
 
 	public void orderStateUpdate(ArrayList<String> tdArr);								//admin 주문 목록페이지에서 상태 수정
 

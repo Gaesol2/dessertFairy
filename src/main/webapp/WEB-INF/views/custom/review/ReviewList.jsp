@@ -52,7 +52,7 @@
 				</c:when>
 				<c:when test="${fn:length(reviewList)==0}">
 					<tr class="notList">
-						<th colspan="5">등록된 상품이 없습니다.</th>
+						<th colspan="5">등록된 후기 없습니다.</th>
 					</tr>
 				</c:when>
 			</c:choose>

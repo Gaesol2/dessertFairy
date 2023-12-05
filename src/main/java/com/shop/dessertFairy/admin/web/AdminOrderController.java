@@ -141,4 +141,39 @@ public class AdminOrderController {
 		
 		return page;
 	}
+	
+	@RequestMapping("cakeOrderMgt")											// 주문 목록
+	public String CakeOrderMgt( HttpServletRequest request,
+							HttpServletResponse response,
+							Model model,
+							MemberDTO mdto,
+							OrderDTO odto) {
+		String page = null;
+		String url = null;
+		String msg = null;
+		HttpSession session = request.getSession();
+		Map<String, Object> resultSet = null;
+		MemberDTO ssKey = (MemberDTO) session.getAttribute("ssKey");
+		
+		if(session.getAttribute("ssKey") != null) {
+			
+			if(ssKey.getM_role().equals("admin")) {
+				 resultSet = orderService.getAdminCakeOrderList(odto);
+				   model.addAttribute("adminCakeOrderList", resultSet.get("adminCakeOrderList"));
+				   model.addAttribute("totalPrice",resultSet.get("totalPrice"));
+				   model.addAttribute("contentsJsp", "admin/order/OrderCakeMgt");
+				   session.setAttribute("ssKey", ssKey);
+				   page = "Main";
+			}
+			else page = "redirect:/";
+		}else {
+	         msg = "로그인 먼저 필요합니다.";
+	         url = "/login";
+	         model.addAttribute("msg", msg);
+	         model.addAttribute("url", url);
+	         page = "MsgPage";
+	      }
+		
+		return page;
+	}
 }

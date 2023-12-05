@@ -16,6 +16,8 @@ public interface OrderDAO {
 	List<OrderDTO> getOrderList(OrderDTO odto);			// 주문 목록
 
 	List<OrderDTO> getAdminOrderList(OrderDTO odto);	// admin 주문 목록
+	
+	List<OrderDTO> getAdminCakeOrderList(OrderDTO odto);	// admin cake주문 목록
 
 	void updateOrderState(List<OrderDTO> list);			// admin 주문 목록페이지에서 상태 수정
 

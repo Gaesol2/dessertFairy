@@ -6,6 +6,7 @@ import lombok.ToString;
 @Data
 @ToString
 public class CakeDTO {
+	private int c_rr;
 	private int c_no;
 	private String c_sheet;
 	private String c_incream;
