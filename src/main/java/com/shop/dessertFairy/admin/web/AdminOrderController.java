@@ -71,22 +71,18 @@ public class AdminOrderController {
 								Model model,
 								PageDTO pdto,
 								@RequestParam(value="tdArr[]") ArrayList<String> tdArr) {
-		String msg = null;
-		String url = null;
 		
 		HttpSession session = request.getSession();
 		MemberDTO ssKey = (MemberDTO) session.getAttribute("ssKey");
 		if(ssKey != null && ssKey.getM_role().equals("admin")) {
 			try {
 				orderService.orderStateUpdate(tdArr);
-				session.setAttribute("ssKey", ssKey);
 			}catch (Exception e) {
 				e.getMessage();
 			}
-		}else {
-			url = "redirect:/";
-			msg = "잘못된 경로 접근입니다.";
 		}
+		
+		session.setAttribute("ssKey", ssKey);
 		
 	}
 	

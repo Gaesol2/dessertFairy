@@ -239,7 +239,6 @@
    </delete>
    
    <update id="dessertMgt" parameterType="odto">
-   	<!-- UPDATE DESSERT SET (D_STOCK, D_SALE) =(#{d_stock}+#{o_quantity}, #{d_sale}-#{o_quantity}) -->
    	UPDATE DESSERT SET D_STOCK=d_stock+#{o_quantity}, D_SALE = d_sale-#{o_quantity}
    	WHERE D_NO = #{d_no}
    </update>
