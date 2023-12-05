@@ -1,5 +1,7 @@
 package com.shop.dessertFairy.cake.web;
 
+import java.util.Hashtable;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -11,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.shop.dessertFairy.cake.dto.CakeDTO;
 import com.shop.dessertFairy.cake.service.CakeService;
 import com.shop.dessertFairy.member.dto.MemberDTO;
+import com.shop.dessertFairy.order.dto.OrderDTO;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -61,9 +64,17 @@ public class CakeController {
 			cdto.setC_path(resourcesLocation);
 			cdto.setM_id(sdto.getM_id());
 			int result = cakeService.cakeOrderProc(cdto, file);
+
+			//최신 ono 받아오기
+			int cno = cakeService.getRecentCno();
+			
+			cdto.setC_no(cno);
+			cdto = cakeService.getOrderDetail(cdto);
+			
+			page = "Main";
+			contentsJsp = "custom/pay/PayForm";
 		}
 		
-		System.out.println("케이크=========>"+cdto);
 		model.addAttribute("msg",msg);
 		model.addAttribute("url",url);
 		model.addAttribute("contentsJsp",contentsJsp);
@@ -72,4 +83,5 @@ public class CakeController {
 		
 		return page;
 	}
+	   
 }

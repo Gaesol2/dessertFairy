@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.shop.dessertFairy.cake.dto.CakeDTO;
 import com.shop.dessertFairy.order.dto.OrderDTO;
 import com.shop.dessertFairy.order.service.OrderService;
 import com.shop.dessertFairy.pay.service.PayService;
@@ -28,17 +29,26 @@ public class RestPayController {
 	
 	@RequestMapping("/payOrder")
 	public Map<String,Object> payOrder(HttpServletRequest request, HttpServletResponse response,
-			Model model, OrderDTO odto){
-		
-		System.out.println(model.toString());
-		System.out.println(odto.getO_amount());
+			Model model, OrderDTO odto, CakeDTO cdto){
 		
 		//주문요청 API 호출
+		String orderNumber=null;
+		String amount=null;
+		String itemName=null;
+		String userName=null;
+		
+		if(cdto.getC_no()!=0) {
+			orderNumber = String.valueOf(cdto.getC_no());
+			amount = String.valueOf(cdto.getC_price());
+		} 
+		if(odto.getO_totalprice()!=0) { 
+			orderNumber = String.valueOf(odto.getO_no());
+			amount = String.valueOf(odto.getO_totalprice());
+		}
+		
+		itemName = odto.getD_name();
+		userName = odto.getM_id();
 		String merchantId = "himedia";
-		String orderNumber = String.valueOf(odto.getO_no());
-		String amount = String.valueOf(odto.getO_totalprice());
-		String itemName = odto.getD_name();
-		String userName = odto.getM_id();
 		String userAgent = "WP";
 		String returnUrl = "returnUrl";
 		String signature = "";
@@ -47,7 +57,6 @@ public class RestPayController {
 		String url = "";
 		String pay = request.getParameter("pay");
 		
-		System.out.println("pay========="+pay);
 		
 		try {
 			signature = payService.getSHA256Hash(merchantId + "|" + orderNumber + "|" + amount + "|" + "ac805b30517f4fd08e3e80490e559f8e" + "|" + timestamp);

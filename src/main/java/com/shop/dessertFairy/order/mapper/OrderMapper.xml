@@ -51,7 +51,7 @@
 		 INNER JOIN DESSERT D
 		 	ON O.D_NO = D.D_NO
 		 WHERE M_ID = #{m_id}
-		 ORDER BY O_NO ASC) A)
+		 ORDER BY O_NO DESC) A)
 	</select>
 
 	<select id="getAdminOrderList" parameterType="odto" resultType="odto">				<!-- admin 주문 목록 페이지 -->
@@ -114,7 +114,8 @@
 	          O.M_ID, 
 	          M.M_NAME,
 	         O.O_REGDATE, O.O_PRICE, 
-	          D.D_STOCK, 
+	          D.D_STOCK,
+	         O.O_AMOUNT, 
 	         O.O_STATE,
 	         O.O_TOTALPRICE
          FROM ORDERT O
@@ -122,7 +123,7 @@
 		  ON O.D_NO = D.D_NO
 		INNER JOIN MEMBER M
 		  ON O.M_ID = M.M_ID
-	       WHERE O_NO = #{o_no}
+	       WHERE O_NO = #{o_no} 
    </select>
    
    <update id="updateOrder" parameterType="odto">		<!-- admin 주문 수정 페이지 -->
@@ -153,8 +154,8 @@
    		UPDATE ORDERT
    		SET O_STATE = #{o_state}
    		WHERE O_NO = #{o_no}
-   		AND D_NO = #{d_no}
-   		AND M_ID = #{m_id}
+   		<!-- AND D_NO = #{d_no}
+   		AND M_ID = #{m_id} -->
    </update>
    
    <delete id="cancelOrder" parameterType="odto">

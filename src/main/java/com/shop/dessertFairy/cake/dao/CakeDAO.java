@@ -9,4 +9,8 @@ public interface CakeDAO {
 
 	int cakeOrderProc(CakeDTO cdto);
 
+	int getRecentCno();
+
+	CakeDTO getOrderDetail(CakeDTO cdto);
+
 }

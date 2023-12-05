@@ -23,7 +23,8 @@
 			,C_MONTH
 			,M_ID
 			,C_PATH
-			,C_DAY)
+			,C_DAY
+			,c_pickupdate)
 		VALUES(
 			#{c_no      }
 			,#{c_sheet   }
@@ -39,7 +40,39 @@
 			,#{c_month   }
 			,#{m_id      }
 			,#{c_path    }
-			,#{c_day     })	
+			,#{c_day     }
+			,#{c_pickupdate})	
 	</insert>
 	
+	<select id="getRecentCno" resultType="int">
+		SELECT c_no
+		FROM (
+         	SELECT c_no
+            FROM cake
+            ORDER BY c_regdate DESC
+       	)
+ 		WHERE ROWNUM = 1
+	</select>
+	
+	<select id="getOrderDetail" parameterType="cdto" resultType="cdto">
+		SELECT
+			C_NO
+			,C_SHEET
+			,C_INCREAM
+			,C_OUTCREAM
+			,C_SIZE
+			,C_WRITE
+			,C_IMAGE
+			,C_REQUEST
+			,C_PRICE
+			,TO_CHAR(C_REGDATE,'YYYY-MM-DD') AS C_REGDATE
+			,C_STATE
+			,C_MONTH
+			,M_ID
+			,C_PATH
+			,C_DAY
+			,c_pickupdate
+		FROM cake
+		WHERE c_no = #{c_no}
+	</select>
 </mapper>

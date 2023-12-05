@@ -60,6 +60,59 @@ $().ready(function(){
 		});
 	}
 
+	function cakeAjax(obj){
+		var id = obj.id;
+		var pay = "";
+		if("payBtn"==id){
+			pay = "auth";
+			  $("form[name=kcp_order_info]").attr("action","/authPay?pay=auth");
+		} else {
+			pay = "kakao";
+			  $("form[name=kcp_order_info]").attr("action","/authPay?pay=kakao");
+		}
+		
+		var cno = $("input[name=c_no]").val();
+		var amount = $("input[name=c_price]").val();
+		var itemname = $("input[name=c_size]").val();
+		var username = $("input[name=m_id]").val();
+		$.ajax({
+			async: true,
+			type: 'post',
+			data: {
+				"pay":pay,
+				"c_no":cno,
+				"c_price":amount,
+				"d_name":itemname,
+				"m_id":username
+				},
+			url: "payOrder",
+			dataType: "json",
+			success: function(data){
+				console.log(data);
+				if('auth' == data.pay){
+					$("input[name=kakaopay_direct]").val("N");
+				} else if ('kakao' == data.pay){
+					$("input[name=kakaopay_direct]").val("Y");
+				}
+				
+				if(data.responseCode == "0000"){
+					//정상 주문일 경우 
+					$("input[name=ordr_idxx]").val(data.ordr_idxx);
+					$("input[name=good_name]").val(data.good_name);
+					$("input[name=good_mny]").val(data.good_mny);
+					$("input[name=buyr_name]").val(data.buyr_name);
+					$("input[name=site_cd]").val(data.site_cd);
+					
+					jsf__pay();
+					
+				} else {
+					//실패일 경우
+					alert("결제 실패");
+				}
+			}
+		});
+	}
+
 
 /****************************************************************/
 /* m_Completepayment 설명 */

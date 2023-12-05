@@ -19,7 +19,6 @@
 				<ul class="list">
 					<li><a href="/shopMgt">후기 목록</a></li>
 					<li><a href="/adminContact">문의 목록</a></li>
-					<li><a href="/reviewWrite">배너 변경</a></li>
 				</ul>
 			</div>
 		</div>

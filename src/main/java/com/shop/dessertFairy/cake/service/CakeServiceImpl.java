@@ -34,8 +34,15 @@ public class CakeServiceImpl implements CakeService {
 	    
 		return cakeDao.cakeOrderProc(cdto);
 	}
-	
-	
-	
+
+	@Override
+	public int getRecentCno() {
+		return cakeDao.getRecentCno();
+	}
+
+	@Override
+	public CakeDTO getOrderDetail(CakeDTO cdto) {
+		return cakeDao.getOrderDetail(cdto);
+	}
 
 }

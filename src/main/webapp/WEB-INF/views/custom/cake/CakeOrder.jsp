@@ -62,7 +62,7 @@
 			안크림 선택 :
 				<select name="c_incream" title="안크림" class="chk" onFocus="incream_focus()"> 
 				  <option value="none">선택</option>
-				  <option value="바닐라">생크림</option>
+				  <option value="생크림">생크림</option>
 				  <option value="초코">초코 (+1000원)</option>
 				  <option value="크림치즈">크림치즈 (+1000원)</option>
 				  <option value="쿠앤크">쿠앤크 (+1500원)</option>

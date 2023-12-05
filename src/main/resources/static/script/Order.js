@@ -17,7 +17,7 @@ $().ready(function(){
          tr.find(td).find("input[name=check]").prop("checked", true); 
     });
    
-     $(".stateUpBtn").click(function(){ 
+     $(".orderUpBtn").click(function(){ 
          var tdArr = new Array();
          // 체크된 체크박스 값을 가져온다
          var checkbox = $("input[name=check]:checked");

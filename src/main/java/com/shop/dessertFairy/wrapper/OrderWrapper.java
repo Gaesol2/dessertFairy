@@ -23,6 +23,20 @@ public class OrderWrapper {
 	@Autowired
 	PayService payService;
 	
+	public Hashtable<Integer, OrderDTO> directOrderProc(OrderDTO odto, Hashtable<Integer, OrderDTO> hDirectPay) {
+		
+		// 재고 수 감소
+		dessertService.updateStocks(hDirectPay);
+		
+		System.out.println("hDircetPay==========="+hDirectPay);
+		
+		//주문 insert
+		int r = orderService.insertOrder(hDirectPay);
+		
+		hDirectPay.clear();
+		return hDirectPay;
+	}
+
 	public Hashtable<Integer, OrderDTO> orderProc(OrderDTO odto, Hashtable<Integer, OrderDTO> hCartList) {
 		
 		// 재고 수 감소

@@ -13,6 +13,12 @@
     <div id="orderSubject">
 		<h2 class="orderName">주문관리</h2>
 	</div>
+	<div class="topList">
+      <ul class="list">
+        <li class="reList"><a href="orderMgt">디저트 목록</a></li>
+        <li><a href="">케이크 목록</a></li>
+      </ul>
+    </div>
    
    <div id="adminOrderList">
       <table class="listTable" id="orderTable">
@@ -47,7 +53,7 @@
                      <td class="price orl5">${order.o_totalprice}</td>
                      <td class="orl6">${order.o_regdate}</td>
                      <td class="state orl7">
-                        <select name="o_state" id="state${i.count}">
+                        <select name="o_state" id="state${i.count}"  class="stateUpBtn">
                            <option value="1">결제중</option>
                            <option value="2">배송준비</option>
                            <option value="3">배송중</option>
@@ -73,7 +79,7 @@
          </c:choose>
       </table>
       <div id="odmBtn">
-         <input type="button" class="stateUpBtn adminOrderBtn" value="상태수정">
+         <input type="button" class="orderUpBtn" value="상태수정">
       </div>
    </div>
    <form action="" name="content" method="post">
