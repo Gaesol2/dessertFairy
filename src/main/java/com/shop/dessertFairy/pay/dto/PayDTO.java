@@ -18,10 +18,8 @@ public class PayDTO {
 	
 	String p_transactionid;
 	String p_ordernumber;
-	String p_type;
 	String p_authdatetime;
 	String p_amount;
-	String p_cashreceipt;
 	String p_authnumber;
 	String p_cardname;
 	String p_cardno;

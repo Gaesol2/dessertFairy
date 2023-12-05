@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace = "com.shop.dessertFairy.cake.dao.CakeDAO">
+<mapper namespace = "com.shop.dessertFairy.pay.dao.PayDAO">
 	<insert id="insertPay" parameterType="paydto">
 	INSERT INTO pay (
 		p_transactionid
 		,p_ordernumber
-		,p_type
 		,p_authdatetime
 		,p_amount
-		,p_cashreceipt
 		,p_authnumber
 		,p_cardname
 		,p_cardno
@@ -18,10 +16,8 @@
 	VALUES(
 		#{p_transactionid}
 		,#{p_ordernumber  }
-		,#{p_type         }
 		,#{p_authdatetime }
 		,#{p_amount       }
-		,#{p_cashreceipt  }
 		,#{p_authnumber   }
 		,#{p_cardname     }
 		,#{p_cardno       }

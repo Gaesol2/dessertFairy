@@ -71,8 +71,14 @@ public class PayController {
 	        page = "Main";
 	        contentsJsp = "custom/order/OrderDone";
 
-	        
-	        payDto.setP_transactionid(orderResult.get("p_transactionid"));
+	        payDto.setP_transactionid(String.valueOf(orderResult.get("transactionId")));
+	        payDto.setP_ordernumber(String.valueOf(orderResult.get("orderNumber")));
+	        payDto.setP_authdatetime(String.valueOf(orderResult.get("authDateTime")));
+	        payDto.setP_amount(String.valueOf(orderResult.get("amount")));
+	        payDto.setP_authnumber(String.valueOf(orderResult.get("authNumber")));
+	        payDto.setP_cardname(String.valueOf(orderResult.get("cardName")));
+	        payDto.setP_cardno(String.valueOf(orderResult.get("cardNo")));
+	        payDto.setP_quota(String.valueOf(orderResult.get("quota")));
 	        
 	        payService.insertPay(payDto);
 	      }
