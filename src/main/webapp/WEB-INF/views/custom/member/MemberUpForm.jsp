@@ -51,8 +51,8 @@
 				<div class="mpl">
 					<p class="mpl1">연락처</p>
 					<span class="mpl2">
-						<input type="text" class="chk1 in" name="m_phone" value="010"size="10">
-						<input type="text" class="chk1 in" name="m_phone1" value="${mdto.m_phone}"size="10">
+						<input type="text" class="chk1 in" name="m_phone1" value="010"size="5">
+						<input type="text" class="chk1 in" name="m_phone" value="${mdto.m_phone}" size="10">
 					</span>
 				</div>
 				<div class="mpl">
