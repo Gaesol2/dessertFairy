@@ -46,8 +46,8 @@
 			<div class="mpl">
 				<p class="mpl1">연락처</p>
 				<span class="mpl2">
-					<input type="text" class="in" name="m_phone" readonly="readonly" value="010"size="5">
-					<input type="text" class="in" name="m_phone" readonly="readonly" value="${mdto.m_phone}"size="20">
+					<input type="text" class="in" name="m_phone1" readonly="readonly" value="010"size="5">
+					<input type="text" class="in" name="m_phone" readonly="readonly" value="${mdto.m_phone}"size="10">
 				</span>
 			</div>
 			<div class="mpl">
