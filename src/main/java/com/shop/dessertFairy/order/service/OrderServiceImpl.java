@@ -160,4 +160,18 @@ public class OrderServiceImpl implements OrderService {
 		return orderDao.getOrderDetailCnt(odto);
 	}
 
+	@Override
+	public Map<String, Object> getAdminCakeOrderList(OrderDTO odto) {				// admin 주문목록
+		Map<String, Object> resultSet = new HashMap<String, Object>();
+	   
+		List<OrderDTO> getTotalPrice = orderDao.getTotalPrice(odto);
+		orderDao.updateTotalPrice(getTotalPrice);
+		
+		
+	   List<OrderDTO> adminCakeOrderList = orderDao.getAdminCakeOrderList(odto);
+	   resultSet.put("adminCakeOrderList", adminCakeOrderList);
+	   
+	   return resultSet;
+	}
+
 }

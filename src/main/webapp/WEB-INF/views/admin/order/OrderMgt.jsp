@@ -16,7 +16,7 @@
 	<div class="topList">
       <ul class="list">
         <li class="reList"><a href="orderMgt">디저트 목록</a></li>
-        <li><a href="">케이크 목록</a></li>
+        <li><a href="cakeOrderMgt">케이크 목록</a></li>
       </ul>
     </div>
    
