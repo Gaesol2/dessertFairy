@@ -374,7 +374,10 @@ textarea {
 	width: 70px;
 }
 
-
+#chooseBox{
+	margin-top: 100px; 
+	float: left;
+}
 
 
 
