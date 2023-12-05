@@ -90,6 +90,7 @@
 						})
 					</script>
 					<input type="submit" value="상태수정" class="stateUpBtn">
+					<input type="submit" value="주문취소" class="orderCancel">
 				</div>
 			</div>
 		</div>

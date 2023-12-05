@@ -52,6 +52,29 @@ $().ready(function(){
                tr.find(td).find("input[name=check]").prop("checked", false);   
            } 
          });
+        
+        /*주문관리 -> 주문 상세 페이지에서 상태 수정*/ 
+      $(".stateUpBtn").on('click', function(){
+		  $('form[name=orderDetailForm]').attr('action', '/updateOrder');
+		  $('form[name=orderDetailForm').submit();
+	  });
+      
+      $('.orderCancel').on('click', function(){
+		 ono = $('input[name=o_no]').val();
+		 ostate = $('input[name=stateInput]').val();
+		 if(ostate<=1){
+			 del = confirm('주문을 취소하시겠습니까?');
+			 if(del){
+				 $('form[name=orderDetailForm]').attr('action', '/orderDel');
+				 $('form[name=orderDetailForm]').submit();
+			 }
+		 }else{
+			 alert('배송이 진행중입니다. \n 취소 불가');
+			
+			 return false;
+		 }
+		 
+	  });				/*.orderCancel END*/
       
       //동적 셀 병합 (admin 용)
       $(".orl2").each(function(){
