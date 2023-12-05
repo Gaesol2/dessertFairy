@@ -175,9 +175,15 @@ public class OrderServiceImpl implements OrderService {
 	}
 	
 	@Override
-	public int orderCancel(OrderDTO odto) {
+	public void orderCancel(OrderDTO odto) {
       
-      return orderDao.orderCancel(odto);
+      orderDao.orderCancel(odto);
    }
+
+	@Override
+	public void dessertMgt(OrderDTO odto) {
+		orderDao.dessertMgt(odto);
+		
+	}
 
 }

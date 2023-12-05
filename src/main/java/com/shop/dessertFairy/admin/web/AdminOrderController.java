@@ -190,16 +190,11 @@ public class AdminOrderController {
 	      
 	      
 	      if(ssKey != null && ssKey.getM_role().equals("admin")) {
-	         int result = orderService.orderCancel(odto);
-	         System.out.println("결과 : "+result);
-	         if(result>0) {
-	            msg = "주문 취소 완료";
-	            url = "/orderMgt";
-	         }else {
-	            msg = "주문 삭제 실패";
-	            url = "redirect:/";
-	         }
-	            
+	    	 orderService.dessertMgt(odto);
+	         orderService.orderCancel(odto);
+	         msg = "주문취소 완료.";
+	         url = "/orderMgt";
+	         
 	      }else {
 	         msg = "관리자 권한이 필요합니다.";
 	         url = "/login";

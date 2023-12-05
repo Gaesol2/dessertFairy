@@ -41,6 +41,8 @@ public interface OrderDAO {
 
 	int getOrderDetailCnt(OrderDTO odto);
 	
-	int orderCancel(OrderDTO odto);
+	void orderCancel(OrderDTO odto);				//admin 주문 취소
+
+	void dessertMgt(OrderDTO odto);				//admin 주문 취소후 재고 판매량 재조정
 
 }
