@@ -26,6 +26,10 @@
 	
     
     <div id="orderList">
+    	<ul class="dessertOrderList">
+    		<li class="reList"><a href="/orderList">디저트 목록</a></li>
+    		<li><a href="/cakeOrderList">케이크 목록</a></li>
+    	</ul>
 		<table class="orderTable">
 			<tr>
 				<th>주문번호</th>

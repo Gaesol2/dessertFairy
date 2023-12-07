@@ -40,5 +40,7 @@ public interface OrderService {
 	public void orderCancel(OrderDTO odto);
 
 	public void dessertMgt(OrderDTO odto);
+
+	public Map<String, Object> getCakeOrderList(OrderDTO odto);
 	
 }
