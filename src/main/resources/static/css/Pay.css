@@ -90,12 +90,14 @@ textarea {
 
 #dessertOrderBox{
 	display: inline-block;
-	margin-left: 200px;
+	margin-left: 170px;
 	margin-top: 50px;
+	border-right: solid 1px #ECE4D3;
+	padding-right: 40px;
 }
 
 #payBox1{
-	width: 400px;
+	width: 450px;
 	float: right;
 	margin-top: 50px;
 }
