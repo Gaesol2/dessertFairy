@@ -233,6 +233,31 @@
 		  </if>
 		ORDER BY C_NO DESC) A)
 	</select>
+	
+	<select id="getCakeOrderList" parameterType="odto" resultType="cdto">				<!-- admin cake 주문 목록 페이지 -->
+		SELECT * FROM
+	    (SELECT ROWNUM AS C_RR, A.*
+	      FROM
+		  (SELECT    C_NO
+					,C_SHEET
+					,C_INCREAM
+					,C_OUTCREAM
+					,C_SIZE
+					,C_WRITE
+					,C_IMAGE
+					,C_REQUEST
+					,C_PRICE
+					,TO_CHAR(C_REGDATE,'YYYY-MM-DD') AS C_REGDATE
+					,C_STATE
+					,C_MONTH
+					,M_ID
+					,C_PATH
+					,C_DAY
+					,c_pickupdate
+			FROM CAKE
+			ORDER BY C_NO DESC) A)
+     		WHERE M_ID= #{m_id}
+	</select>
 
 	<delete id="orderCancel" parameterType="odto">
       DELETE FROM ORDERT WHERE O_NO = #{o_no}

@@ -186,4 +186,18 @@ public class OrderServiceImpl implements OrderService {
 		
 	}
 
+	@Override
+	public Map<String, Object> getCakeOrderList(OrderDTO odto) {
+		Map<String, Object> resultSet = new HashMap<String, Object>();
+		   
+		List<OrderDTO> getTotalPrice = orderDao.getTotalPrice(odto);
+		orderDao.updateTotalPrice(getTotalPrice);
+		
+		
+	   List<OrderDTO> CakeOrderList = orderDao.getCakeOrderList(odto);
+	   resultSet.put("CakeOrderList", CakeOrderList);
+	   
+	   return resultSet;
+	}
+
 }

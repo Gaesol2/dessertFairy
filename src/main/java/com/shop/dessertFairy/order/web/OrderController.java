@@ -15,8 +15,10 @@ import com.shop.dessertFairy.cart.service.CartService;
 import com.shop.dessertFairy.common.RowInterPage;
 import com.shop.dessertFairy.common.dto.PageDTO;
 import com.shop.dessertFairy.member.dto.MemberDTO;
+import com.shop.dessertFairy.member.service.MemberService;
 import com.shop.dessertFairy.order.dto.OrderDTO;
 import com.shop.dessertFairy.order.service.OrderService;
+import com.shop.dessertFairy.review.dto.ReviewDTO;
 import com.shop.dessertFairy.wrapper.OrderWrapper;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -34,6 +36,9 @@ public class OrderController {
    
    @Autowired
    OrderService orderService;
+   
+   @Autowired
+   MemberService memberService;
    
    
    @RequestMapping("/orderList")
@@ -238,6 +243,56 @@ public class OrderController {
 			contentsJsp = "redirect:orderList";
 			orderWrapper.orderCancel(odto);
 		}
+	   
+	   return page;
+   }
+   
+   @RequestMapping("cakeOrderList")											// 주문 목록
+	public String CakeOrderList( HttpServletRequest request,
+							HttpServletResponse response,
+							Model model,
+							MemberDTO mdto,
+							OrderDTO odto) {
+	 //변수 선언
+	   String page = null;
+	   String msg = null;
+	   String url = null;
+	   MemberDTO ssKey = null;
+	   String contentsJsp = "/custom/mypage/OrderCakeList";
+	   
+	   //HttpSession 세션 객체 생성 및 세션 정보 받아오기
+	   HttpSession session = request.getSession();
+	   
+	   //세션이 있으면 ReviewMyList 페이지로 보내고 없으면 로그인 창으로 보내기
+	   if(session.getAttribute("ssKey")!=null) {
+		   ssKey = (MemberDTO) session.getAttribute("ssKey");
+		   MemberDTO sdto = memberService.getMember(ssKey);
+		   odto.setM_id(ssKey.getM_id());
+		   page = "Main";
+		   url = "cakeOrderList";
+	   }
+	   else {
+		   msg = "로그인이 필요합니다.";
+		   page = "MsgPage";
+		   url = "login";
+	   }
+	   
+	   
+	   //리스트 목록과 페이지 수 계산한것을 불러온 것
+	   Map<String, Object> resultSet = orderService.getCakeOrderList(odto);
+	   List<OrderDTO>CakeOrderList=(List<OrderDTO>) resultSet.get("CakeOrderList");
+		
+	   //세션 저장
+	   session.setAttribute("sdto", ssKey);
+	   //데이터 저장
+	   model.addAttribute("cnt", resultSet.get("cnt"));
+	   model.addAttribute("CakeOrderList", CakeOrderList);
+	   model.addAttribute("contentsJsp",contentsJsp);
+	   model.addAttribute("totalPrice",resultSet.get("totalPrice"));
+	   model.addAttribute("page",page);
+	   model.addAttribute("url",url);
+	   model.addAttribute("msg",msg);
+	   
 	   
 	   return page;
    }
