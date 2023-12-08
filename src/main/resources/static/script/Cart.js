@@ -163,4 +163,5 @@ function total(){
 	let delivery = Number($(".delivery").text().replace(",",""));
 	//view화면을 위한 text에 숫자 입력 (, 추가)
 	$(".total_amount").text((amount+delivery).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g,","));
+	$("input[name='o_totalprice']").val((amount+delivery));
 }
