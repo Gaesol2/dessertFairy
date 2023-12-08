@@ -40,11 +40,11 @@
 			<div id="payBox1">
 				<div id="dessert_payBtn">
 					<img src="../image/pay.png" class="payImg">
-					<input type="button" class="payName1" value="결제하기" id="payBtn" onclick="javascript:cakeAjax(this)">
+					<input type="button" class="payName1" value="결제하기" id="payBtn" onclick="javascript:orderAjax(this)">
 				</div>
 				<div id="dessert_kakaoBtn">
 					<img src="../image/kakao.png" class="payImg">
-					<input type="button" class="payName2" value="카카오페이" id="kakoPayBtn" onclick="javascript:cakeAjax(this)">
+					<input type="button" class="payName2" value="카카오페이" id="kakoPayBtn" onclick="javascript:orderAjax(this)">
 				</div>
 			</div>
 		</c:when>
