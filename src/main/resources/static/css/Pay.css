@@ -48,7 +48,7 @@ textarea {
 	outline: none;
 }
 
-#payBox{
+#payBox2{
 	float: right;
 	margin-right: 50px;
 	margin-top: 50px;
@@ -81,6 +81,59 @@ textarea {
 	background-color: #F5D042;
 	border: none;
 }
+
+
+
+
+
+/*dessert */
+
+#dessertOrderBox{
+	display: inline-block;
+	margin-left: 170px;
+	margin-top: 50px;
+	border-right: solid 1px #ECE4D3;
+	padding-right: 40px;
+}
+
+#payBox1{
+	width: 450px;
+	float: right;
+	margin-top: 50px;
+}
+
+#dessert_payBtn, #dessert_kakaoBtn{
+	margin: 50px 15px;	
+	width: 120px;
+	height: 120px;
+	border-radius: 70px;
+	border: solid 1px #eeeeee;
+	background-color: #F5D042;
+	display: inline-block;
+}
+
+.payImg{
+	width: 50px;
+	height: 50px;
+	margin-left: 35px;
+	margin-top: 20px;
+}
+
+.payName3{
+	margin-left: 30px;
+	background-color: #F5D042;
+	border: none;
+}
+
+.payName4{
+	margin-left: 25px;
+	background-color: #F5D042;
+	border: none;
+}
+
+
+
+
 
 
 

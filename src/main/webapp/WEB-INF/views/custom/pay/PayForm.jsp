@@ -10,35 +10,43 @@
 <div id="detail_order">
 	<c:choose>
 		<c:when test="${odto!=null}">
-			<div>
-				<p>총 가격</p>
-				<span>
-					<input type="text" name="o_totalprice" value="${odto.o_totalprice }" readonly="readonly">
-				</span>
+			<div id="dessertOrderBox">
+				<div>
+					<p class="c_orderP">주문자 아이디</p>
+					<span>
+						<input type="text" name="m_id" class="in" value="${odto.m_id }" readonly="readonly">
+					</span>
+				</div>
+				<div>
+					<p class="c_orderP">상품 이름</p>
+					<span>
+						<input type="text" name="d_name" class="in" value="${odto.d_name }" readonly="readonly">
+						<input type="hidden" name="o_no" value="${odto.o_no }" readonly="readonly">
+					</span>
+				</div>
+				<div>
+					<p class="c_orderP">총 가격</p>
+		            <span>
+		               <input type="text" name="o_totalprice" class="in" value="${odto.o_totalprice }" readonly="readonly">
+		            </span>
+				</div>
+				<div>
+					<p class="c_orderP">주문 날짜</p>
+					<span>
+						<input type="text" name="o_regdate" class="in" value="${odto.o_regdate }" readonly="readonly" size="10">
+					</span>
+				</div>
 			</div>
-			<div>
-				<p>상품 이름</p>
-				<span>
-					<input type="text" name="d_name" value="${odto.d_name }" readonly="readonly">
-					<input type="hidden" name="o_no" value="${odto.o_no }" readonly="readonly">
-				</span>
+			<div id="payBox1">
+				<div id="dessert_payBtn">
+					<img src="../image/pay.png" class="payImg">
+					<input type="button" class="payName1" value="결제하기" id="payBtn" onclick="javascript:orderAjax(this)">
+				</div>
+				<div id="dessert_kakaoBtn">
+					<img src="../image/kakao.png" class="payImg">
+					<input type="button" class="payName2" value="카카오페이" id="kakoPayBtn" onclick="javascript:orderAjax(this)">
+				</div>
 			</div>
-			<div>
-				<p>주문자 아이디</p>
-				<span>
-					<input type="text" name="m_id" value="${odto.m_id }" readonly="readonly">
-				</span>
-			</div>
-			<div>
-				<p>주문 시각</p>
-				<span>
-					<input type="text" name="o_regdate" value="${odto.o_regdate }" readonly="readonly">
-				</span>
-			</div>
-			<div>
-				<input type="button" value="결제하기" id="payBtn" onclick="javascript:orderAjax(this)">
-				<input type="button" value="카카오페이" id="kakoPayBtn" onclick="javascript:orderAjax(this)">
-			</div> 
 		</c:when>
 		<c:when test="${cdto!=null}">
 			<div id="c_orderBox1">
@@ -113,14 +121,14 @@
 					</span>
 				</div>
 			</div>
-			<div id="payBox">
+			<div id="payBox2">
 				<div id="order_payBtn">
 					<img src="../image/pay.png" class="payImg">
-					<input type="button" class="payName1" value="결제하기" id="payBtn" onclick="javascript:cakeAjax(this)">
+					<input type="button" class="payName3" value="결제하기" id="payBtn" onclick="javascript:cakeAjax(this)">
 				</div>
 				<div id="order_kakaoBtn">
 					<img src="../image/kakao.png" class="payImg">
-					<input type="button" class="payName2" value="카카오페이" id="kakoPayBtn" onclick="javascript:cakeAjax(this)">
+					<input type="button" class="payName4" value="카카오페이" id="kakoPayBtn" onclick="javascript:cakeAjax(this)">
 				</div>
 			</div>
 		</c:when>

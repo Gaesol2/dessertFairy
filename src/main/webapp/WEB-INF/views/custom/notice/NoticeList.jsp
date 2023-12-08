@@ -4,7 +4,7 @@
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
  
 <meta charset="UTF-8">    
-<link rel="stylesheet" type="text/css" href="/css/notice.css">
+<link rel="stylesheet" type="text/css" href="/css/Notice.css">
 <script src="/script/Notice.js"></script>
 
 <div id="notice">
@@ -61,5 +61,10 @@
 				</td>
 			</tr>
 		</table>
+		<form action="" name="content" method="post">
+			<input type="hidden" name="bno" value="">
+			<input type="hidden" name="curPage" value="${pdto.curPage}">
+			<input type="hidden" name="curBlock" value="${pdto.curBlock}">
+		</form>
 	</div>
 </div>
