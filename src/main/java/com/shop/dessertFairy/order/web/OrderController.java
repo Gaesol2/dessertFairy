@@ -99,7 +99,6 @@ public class OrderController {
     	  session.setAttribute("hDirectPay", hDirectPay);
 		  cartService.setDirectPay(hDirectPay);
 		  //장바구니에 상품 담기
-		  cartService.setDirectPay(hDirectPay);
 		  hDirectPay = cartService.addDirectPay(odto);
 		  
 		  odto.setM_id(sdto.getM_id());
