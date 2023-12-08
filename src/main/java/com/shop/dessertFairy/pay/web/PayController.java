@@ -1,7 +1,7 @@
 package com.shop.dessertFairy.pay.web;
 
 import java.util.HashMap;
-
+import java.util.Hashtable;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +9,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.shop.dessertFairy.cart.service.CartService;
 import com.shop.dessertFairy.member.dto.MemberDTO;
 import com.shop.dessertFairy.order.dto.OrderDTO;
 import com.shop.dessertFairy.order.service.OrderService;
 import com.shop.dessertFairy.pay.dto.PayDTO;
 import com.shop.dessertFairy.pay.service.PayService;
+import com.shop.dessertFairy.wrapper.OrderWrapper;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -26,6 +28,10 @@ public class PayController {
 	PayService payService;
 	@Autowired
 	OrderService orderService;
+	@Autowired
+	OrderWrapper orderWrapper;
+	@Autowired
+	CartService cartService;
 	
 	@RequestMapping("/authPay")
 	public String pay(HttpServletRequest request, HttpServletResponse response,
@@ -88,11 +94,11 @@ public class PayController {
 	        result = payService.insertPay(payDto);
 	        
 	        if(result > 0) orderService.payAfterState(odto);
+	        
 	      }
 	  
 	  
       
-      //model.addAttribute("odto", odto);
 	  model.addAttribute("msg", msg);
       model.addAttribute("url", url);
       model.addAttribute("contentsJsp",contentsJsp);

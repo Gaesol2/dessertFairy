@@ -57,9 +57,6 @@
 											<input type="hidden" class="overStock" name="overStock" value="${cart.value.overStock}">
 											<input type="hidden" name="o_price" value="${cart.value.o_price}">
 											<input type="hidden" name="m_id" value="${cart.value.m_id}">
-				
-											
-											
 										</td>
 										<td class="col5 price total_price">
 											${cart.value.o_price * cart.value.o_quantity}

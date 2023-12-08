@@ -185,6 +185,7 @@
 
 		<!-- 카카오 -->
 		<input type="hidden" name="card_pay_method" value=""/>
+		
 	</form>
 </div>
 </body>
