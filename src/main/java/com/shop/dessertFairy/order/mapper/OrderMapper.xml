@@ -133,6 +133,12 @@
    		<!-- AND D_NO = #{d_no}
    		AND M_ID = #{m_id} -->
    </update>
+
+   <update id="payAfterState" parameterType="odto">		<!-- 결제 후 상태 수정 -->
+   		UPDATE ORDERT
+   		SET O_STATE = 2
+   		WHERE O_NO = #{o_no}
+   </update>
    
    <select id="memOrderDetail" parameterType="odto" resultType="odto">			<!-- admin 고객관리-주문상세 -->
    		SELECT  O.O_NO, O.D_NO,

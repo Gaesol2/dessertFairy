@@ -1,8 +1,7 @@
 package com.shop.dessertFairy.pay.web;
 
-import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
-import java.util.Hashtable;
+
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;

@@ -117,6 +117,7 @@ public class OrderController {
       
       model.addAttribute("msg", msg);
       model.addAttribute("url", url);
+      model.addAttribute("odto", odto);
       model.addAttribute("contentsJsp",contentsJsp);
       session.setAttribute("ssKey", sdto);
       

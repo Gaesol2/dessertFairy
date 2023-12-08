@@ -186,4 +186,10 @@ public class OrderServiceImpl implements OrderService {
 		
 	}
 
+	@Override
+	public void payAfterState(OrderDTO odto) {
+		orderDao.payAfterState(odto);
+		
+	}
+
 }
