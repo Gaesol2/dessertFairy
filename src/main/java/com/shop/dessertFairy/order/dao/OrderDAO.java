@@ -45,6 +45,7 @@ public interface OrderDAO {
 	void dessertMgt(OrderDTO odto);				//admin 주문 취소후 재고 판매량 재조정
 
 	void payAfterState(OrderDTO odto);
+	
 	List<OrderDTO> getCakeOrderList(OrderDTO odto);
 
 }

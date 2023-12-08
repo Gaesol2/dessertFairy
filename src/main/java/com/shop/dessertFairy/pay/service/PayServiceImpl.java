@@ -90,7 +90,7 @@ public class PayServiceImpl implements PayService {
 	    }
 
 	@Override
-	public void insertPay(PayDTO payDto) {
-		payDao.insertPay(payDto);
+	public int insertPay(PayDTO payDto) {
+		return payDao.insertPay(payDto);
 	}
 }

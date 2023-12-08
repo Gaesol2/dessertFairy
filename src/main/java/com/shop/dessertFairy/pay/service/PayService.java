@@ -11,6 +11,6 @@ public interface PayService {
 	
 	public String getSHA256Hash(String input) throws NoSuchAlgorithmException;
 
-	public void insertPay(PayDTO payDto);
+	public int insertPay(PayDTO payDto);
 	
 }
