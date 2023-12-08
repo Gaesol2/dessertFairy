@@ -85,6 +85,7 @@
 					</table>
 					<div>
 						<input type="submit" value="주문하기" class="CartorderBtn" id="cartBtn">
+						<input type="hidden" name="o_totalprice" value="">
 					</div>
 				</c:when>
 			</c:choose>

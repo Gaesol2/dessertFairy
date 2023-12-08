@@ -153,7 +153,11 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public OrderDTO getOrderDetail(OrderDTO odto) {
-		return orderDao.getOrderDetail(odto);
+		OrderDTO orderDetail = orderDao.getOrderDetail(odto);
+		if(orderDetail.getO_totalprice()<50000) {
+			orderDetail.setO_totalprice(orderDetail.getO_totalprice()+3000);
+		}
+		return orderDetail;
 	}
 
 	@Override
