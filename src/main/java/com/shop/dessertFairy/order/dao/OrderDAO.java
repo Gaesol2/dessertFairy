@@ -1,7 +1,6 @@
 package com.shop.dessertFairy.order.dao;
 
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -45,7 +44,8 @@ public interface OrderDAO {
 
 	void dessertMgt(OrderDTO odto);				//admin 주문 취소후 재고 판매량 재조정
 
-
+	void payAfterState(OrderDTO odto);
+	
 	List<OrderDTO> getCakeOrderList(OrderDTO odto);
 
 }

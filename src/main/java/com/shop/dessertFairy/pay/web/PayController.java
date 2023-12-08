@@ -1,8 +1,7 @@
 package com.shop.dessertFairy.pay.web;
 
-import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
-import java.util.Hashtable;
+
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.shop.dessertFairy.member.dto.MemberDTO;
+import com.shop.dessertFairy.order.dto.OrderDTO;
+import com.shop.dessertFairy.order.service.OrderService;
 import com.shop.dessertFairy.pay.dto.PayDTO;
 import com.shop.dessertFairy.pay.service.PayService;
 
@@ -23,10 +24,12 @@ public class PayController {
 
 	@Autowired
 	PayService payService;
+	@Autowired
+	OrderService orderService;
 	
 	@RequestMapping("/authPay")
 	public String pay(HttpServletRequest request, HttpServletResponse response,
-			Model model, PayDTO payDto) {
+			Model model, PayDTO payDto, OrderDTO odto) {
 
 		//세션 받아와서 저장
 	      HttpSession session = request.getSession();
@@ -44,6 +47,8 @@ public class PayController {
 	         
 	      } else {
 	         
+	    	int result = 0;
+	    	
 	    	String ordr_idxx = payDto.getOrdr_idxx();
 	  		String res_cd = payDto.getRes_cd();
 	  		String res_msg = payDto.getRes_msg();
@@ -80,16 +85,19 @@ public class PayController {
 	        payDto.setP_cardno(String.valueOf(orderResult.get("cardNo")));
 	        payDto.setP_quota(String.valueOf(orderResult.get("quota")));
 	        
-	        payService.insertPay(payDto);
+	        result = payService.insertPay(payDto);
+	        
+	        if(result > 0) orderService.payAfterState(odto);
 	      }
 	  
 	  
       
+      //model.addAttribute("odto", odto);
 	  model.addAttribute("msg", msg);
       model.addAttribute("url", url);
       model.addAttribute("contentsJsp",contentsJsp);
       session.setAttribute("ssKey", sdto);
-		
+      
       return page;
 	}
 	

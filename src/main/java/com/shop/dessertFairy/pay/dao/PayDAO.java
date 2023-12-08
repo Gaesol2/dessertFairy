@@ -7,6 +7,6 @@ import com.shop.dessertFairy.pay.dto.PayDTO;
 @Mapper
 public interface PayDAO {
 
-	void insertPay(PayDTO payDto);
+	int insertPay(PayDTO payDto);
 
 }

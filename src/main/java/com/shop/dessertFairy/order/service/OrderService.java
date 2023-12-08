@@ -1,6 +1,7 @@
 package com.shop.dessertFairy.order.service;
 
 import java.util.ArrayList;
+
 import java.util.HashMap;
 
 import java.util.Hashtable;
@@ -41,6 +42,8 @@ public interface OrderService {
 
 	public void dessertMgt(OrderDTO odto);
 
+	public void payAfterState(OrderDTO odto);
+	
 	public Map<String, Object> getCakeOrderList(OrderDTO odto);
 	
 }

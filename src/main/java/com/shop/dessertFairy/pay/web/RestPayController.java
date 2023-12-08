@@ -88,6 +88,7 @@ public class RestPayController {
 		Map<String,Object> orderResult = payService.JsonApi(url, map);
 		orderResult.put("pay", pay);
 		
+		model.addAttribute("odto", odto);
 		return orderResult;
 	}
 }

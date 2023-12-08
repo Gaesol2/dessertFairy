@@ -24,4 +24,5 @@ public class PayDTO {
 	String p_cardname;
 	String p_cardno;
 	String p_quota;
+	
 }
