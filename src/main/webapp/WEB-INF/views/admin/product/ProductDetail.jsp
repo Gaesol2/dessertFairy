@@ -39,7 +39,7 @@
 			<div class="po">
 				<p class="pol">상품설명</p>
 				<span><input type="text" class="in" name="d_detail" value="${dessert.d_detail}" 
-				       size="58" readonly="readonly"></span>
+				       size="56" readonly="readonly"></span>
 			</div>
 			
 			<div class="po">
