@@ -4,7 +4,6 @@
 $().ready(function(){
   //결제 버튼	
   
-	
 })//ready 끝
 	function orderAjax(obj){
 		var id = obj.id;
