@@ -16,7 +16,6 @@ public class NoticeDTO {
 	private String n_content;
 	private int n_readcount;
 	private String n_writer;
-	private String n_vdate;
 	private String n_regdate;
 	private String n_state;
 	

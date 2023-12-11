@@ -20,7 +20,6 @@
 				<th class="nol3">작성자</th>
 				<th class="nol4">조회수</th>
 				<th class="nol5">등록일</th>
-				<th class="nol6">유효일</th>
 			</tr>
 			<c:choose>
 				<c:when test="${fn:length(nList)>0}">
@@ -29,11 +28,10 @@
 							<td class="nol1">${notice.n_rr}
 								<input type="hidden" value="${notice.n_no}">
 							</td>
-							<td class="nol2"><a href="/noticeDetail?n_no=${notice.n_no}">${notice.n_subject}</a></td>
+							<td class="nol2"><a class="noticeLink" href="/noticeDetail?n_no=${notice.n_no}">${notice.n_subject}</a></td>
 							<td class="nol3" style="text-align: center;">${notice.n_writer}</td>
 							<td class="nol4 price">${notice.n_readcount}</td>
 							<td class="nol5">${notice.n_regdate}</td>
-							<td class="nol6">${notice.n_vdate}</td>
 						</tr>
 					</c:forEach>
 				</c:when>
