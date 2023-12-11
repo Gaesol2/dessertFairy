@@ -16,25 +16,19 @@
 					<tr class="nl">
 						<td class="nl1">제목</td>
 						<td class="nl2">
-							<input type="text" name="n_subject" class="chk in" title="제목" size="52">
+							<input type="text" name="n_subject" class="chk in" title="제목" size="85">
 						</td>
 					</tr>
 					<tr class="nl">
 						<td class="nl1">작성자</td>
 						<td class="nl2">
-							<input type="text" name="n_writer" readonly="readonly" class="chk in" title="작성자" value="${ssKey.m_name}" size="3">
+							<input type="text" name="n_writer" readonly="readonly" class="chk in" title="작성자" value="${ssKey.m_name}" size="85">
 						</td>
 					</tr>
 					<tr class="nl">
 						<td class="nl1">내용</td>
 						<td class="nl2">
 							<textarea class="chk" title="공지사항 내용" name="n_content" ></textarea>
-						</td>
-					</tr>
-					<tr class="nl">
-						<td class="nl1">공지종료</td>
-						<td class="nl2">
-							<input type="date"  name="n_vdate" class="chk in" title="종료일">  
 						</td>
 					</tr>
 				</tbody>

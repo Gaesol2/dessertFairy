@@ -16,13 +16,13 @@
 					<tr class="nl">
 						<td class="nl1">제목</td>
 						<td class="nl2">
-							<input type="text" name="n_subject" readonly="readonly" class="chk in" title="제목" size="52" value="${notice.n_subject}">
+							<input type="text" name="n_subject" readonly="readonly" class="chk in" title="제목" size="85" value="${notice.n_subject}">
 						</td>
 					</tr>
 					<tr class="nl">
 						<td class="nl1">작성자</td>
 						<td class="nl2">
-							<input type="text" name="n_writer" class="chk in" readonly="readonly" value="${notice.n_writer}" si>
+							<input type="text" name="n_writer" class="chk in" readonly="readonly" value="${notice.n_writer}" size="85">
 
 						</td>
 					</tr>
@@ -31,12 +31,6 @@
 						<td class="nl2">
 							<textarea class="chk in" rows="10" cols="60" name="n_content" readonly="readonly">${notice.n_content}</textarea>
 
-						</td>
-					</tr>
-					<tr class="nl">
-						<td class="nl1">공지종료</td>
-						<td class="nl2">
-							<input type="date"  name="n_vdate" readonly="readonly" class="chk in" title="종료일" value="${notice.n_vdate}">  
 						</td>
 					</tr>
 				</tbody>

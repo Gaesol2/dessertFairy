@@ -23,7 +23,6 @@
 			  <th class="nol2">제목</th>
 			  <th class="nol4">조회수</th>
 			  <th class="nol5">등록일</th>
-			  <th class="nol6">공지마감일</th>
 			</tr>
 			<c:choose>
 				<c:when test="${fn:length(nList)>0}">
@@ -36,7 +35,6 @@
 							<td class="nol2"><a href="/noticeDetail?n_no=${notice.n_no}">${notice.n_subject}</a></td>
 							<td class="nol4 price">${notice.n_readcount}</td>
 							<td class="nol5">${notice.n_regdate}</td>
-							<td class="nol6">${notice.n_vdate}</td>
 						</tr>
 					</c:forEach>
 				</c:when>

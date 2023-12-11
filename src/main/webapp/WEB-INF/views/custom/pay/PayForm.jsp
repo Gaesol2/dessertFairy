@@ -21,7 +21,7 @@
 					<p class="c_orderP">상품 이름</p>
 					<span>
 						<input type="text" name="d_name" class="in" value="${odto.d_name }" readonly="readonly">
-						<input type="hidden" name="o_no" value="${odto.o_no }" readonly="readonly">
+						<input type="hidden" name="o_no" value="${odto.o_no}" readonly="readonly">
 					</span>
 				</div>
 				<div>
@@ -39,11 +39,11 @@
 			</div>
 			<div id="payBox1">
 				<div id="dessert_payBtn">
-					<img src="../image/pay.png" class="payImg">
+					<img src="../image/pay.png" class="payImg" id="payBtn" onclick="javascript:orderAjax(this)">
 					<input type="button" class="payName1" value="결제하기" id="payBtn" onclick="javascript:orderAjax(this)">
 				</div>
 				<div id="dessert_kakaoBtn">
-					<img src="../image/kakao.png" class="payImg">
+					<img src="../image/kakao.png" class="payImg" id="kakoPayBtn" onclick="javascript:orderAjax(this)">
 					<input type="button" class="payName2" value="카카오페이" id="kakoPayBtn" onclick="javascript:orderAjax(this)">
 				</div>
 			</div>
@@ -54,7 +54,7 @@
 					<p class="c_orderP">주문자 아이디</p>
 					<span>
 						<input type="text" name="m_id" class="in" value="${cdto.m_id }" readonly="readonly" size="20">
-						<input type="hidden" name="c_no" value="${cdto.c_no }" readonly="readonly">
+						<input type="hidden" name="c_no" value="${cdto.c_no}" readonly="readonly">
 					</span>
 				</div>
 				<div>
@@ -123,11 +123,11 @@
 			</div>
 			<div id="payBox2">
 				<div id="order_payBtn">
-					<img src="../image/pay.png" class="payImg">
+					<img src="../image/pay.png" class="payImg" id="payBtn" onclick="javascript:cakeAjax(this)">
 					<input type="button" class="payName3" value="결제하기" id="payBtn" onclick="javascript:cakeAjax(this)">
 				</div>
 				<div id="order_kakaoBtn">
-					<img src="../image/kakao.png" class="payImg">
+					<img src="../image/kakao.png" class="payImg" id="kakoPayBtn" onclick="javascript:cakeAjax(this)">
 					<input type="button" class="payName4" value="카카오페이" id="kakoPayBtn" onclick="javascript:cakeAjax(this)">
 				</div>
 			</div>
