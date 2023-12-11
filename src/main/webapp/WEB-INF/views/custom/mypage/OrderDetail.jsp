@@ -84,10 +84,12 @@
 			</div>
 		</div>
 	</form>
-	<c:if test="${DetailList[0].o_state==1}">
-		<form action="orderListPay" method="post" name="onoForm">
-			<input type="hidden" name="o_no" value="${DetailList[0].o_no}">
-			<input class="button" type="submit" value="결제하기">
-		</form>
-	</c:if>
+	<div id="order_button">
+		<c:if test="${DetailList[0].o_state==1}">
+			<form action="orderListPay" method="post" name="onoForm">
+				<input type="hidden" name="o_no" value="${DetailList[0].o_no}">
+				<input class="button" type="submit" value="결제하기">
+			</form>
+		</c:if>
+	</div>
 </div>
