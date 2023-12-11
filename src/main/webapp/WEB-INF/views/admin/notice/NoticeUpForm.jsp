@@ -18,13 +18,13 @@
 					<tr class="nl">
 						<td class="nl1">제목</td>
 						<td class="nl2">
-							<input type="text" name="n_subject" class="chk in" title="제목" size="52" value="${notice.n_subject}">
+							<input type="text" name="n_subject" class="chk in" title="제목" size="85" value="${notice.n_subject}">
 						</td>
 					</tr>
 					<tr class="nl">
 						<td class="nl1">작성자</td>
 						<td class="nl2">
-							<input type="text" name="n_writer" readonly="readonly" class="chk in" title="작성자" value="${notice.n_writer}" size="3">
+							<input type="text" name="n_writer" readonly="readonly" class="chk in" title="작성자" value="${notice.n_writer}" size="85">
 						</td>
 					</tr>
 					<tr class="nl">
@@ -33,20 +33,14 @@
 							<textarea class="chk" title="공지사항 내용" name="n_content" >${notice.n_content}</textarea>
 						</td>
 					</tr>
-					<tr class="nl">
-						<td class="nl1">공지종료</td>
-						<td class="nl2">
-							<input type="date"  name="n_vdate" class="chk in" title="종료일" value="${notice.n_vdate}">  
-						</td>
-					</tr>
 				</tbody>
 			</table>
 			
 			<div class="line"></div>
 			
 			<div id="noticeBtnBox">
-				<button type="button" class="submit">공지사항 수정</button>
-                <button type="button" onclick="location.href='notice'">공지사항 목록</button>
+				<button type="button" class="submit nDetailBtn">공지사항 수정</button>
+                <button type="button" class="nDetailBtn" onclick="location.href='notice'">공지사항 목록</button>
 			</div>
 		</div>
 		<input type="hidden" name="flag" value="insert">

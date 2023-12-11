@@ -11,7 +11,7 @@
 			FROM
 			(SELECT
 				N_NO, N_SUBJECT, N_CONTENT, N_READCOUNT,
-				N_WRITER, N_VDATE, N_REGDATE, N_STATE
+				N_WRITER, N_REGDATE, N_STATE
 				FROM NOTICE
 				WHERE N_STATE ='A'
 				<if test="n_no!=0">
@@ -30,14 +30,12 @@
 							   N_SUBJECT, 
 							   N_CONTENT,
 							   N_WRITER, 
-							   N_VDATE, 
 							   N_REGDATE, 
 							   N_STATE)
 				VALUES(#{n_no},
 				       #{n_subject}, 
 				       #{n_content},
 				       #{n_writer}, 
-				       #{n_vdate}, 
 				       sysdate, 
 				       'A')
 		</insert>
@@ -50,7 +48,6 @@
 		        N_SUBJECT = #{n_subject},
 		        N_CONTENT = #{n_content},
 		        N_WRITER = #{n_writer},
-				N_VDATE = #{n_vdate},
 				N_REGDATE = SYSDATE
 				WHERE N_NO = #{n_no}
 		</update>

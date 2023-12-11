@@ -84,8 +84,6 @@
 
 
 
-
-
 /* custom noticeList */
 
 #customNoticeList{
@@ -150,14 +148,15 @@
 	border-top: solid 2px black;
 }
 
-.ganerate{
-	margin-left: 200px;
-}
 
 .nl1{
 	text-align: right;
 	width: 100px;
 	padding-right: 50px;
+}
+
+.ganerate{
+	margin-left: 50px;
 }
 
 .in{
@@ -171,8 +170,8 @@
 }
 
 .ganerate textarea {
-	width : 400px;
-    height: 200px;
+	width : 618px;
+    height: 400px;
     border-radius: 5px;
 	border: solid 1px #eeeeee;
     resize: none;
@@ -230,8 +229,8 @@
 }
 
 .noticeDetailTable textarea {
-	width : 400px;
-    height: 200px;
+	width : 618px;
+    height: 400px;
     border-radius: 5px;
 	border: solid 1px #eeeeee;
     resize: none;
