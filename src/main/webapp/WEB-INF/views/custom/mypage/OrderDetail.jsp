@@ -74,14 +74,22 @@
 				<div class="oll">
 					<p class="ol1">배송상태</p>
 					 <c:choose>
-	                     <c:when test="${odto.o_state==1}">결제중</c:when>
-	                     <c:when test="${odto.o_state==2}">배송준비</c:when>
-	                     <c:when test="${odto.o_state==3}">배송중</c:when>
-	                     <c:when test="${odto.o_state==4}">배송완료</c:when>
-	                     <c:when test="${odto.o_state==5}">구매확정</c:when>
+	                     <c:when test="${DetailList[0].o_state==1}">결제중</c:when>
+	                     <c:when test="${DetailList[0].o_state==2}">배송준비</c:when>
+	                     <c:when test="${DetailList[0].o_state==3}">배송중</c:when>
+	                     <c:when test="${DetailList[0].o_state==4}">배송완료</c:when>
+	                     <c:when test="${DetailList[0].o_state==5}">구매확정</c:when>
 	                   </c:choose>
 				</div>
 			</div>
 		</div>
 	</form>
+	<div id="order_button">
+		<c:if test="${DetailList[0].o_state==1}">
+			<form action="orderListPay" method="post" name="onoForm">
+				<input type="hidden" name="o_no" value="${DetailList[0].o_no}">
+				<input class="button" type="submit" value="결제하기">
+			</form>
+		</c:if>
+	</div>
 </div>

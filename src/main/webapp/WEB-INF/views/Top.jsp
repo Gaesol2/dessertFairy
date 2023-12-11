@@ -19,7 +19,7 @@
 <div id="header">
 	<div id="searchBox">
 		<div id="searchlogo">
-			<a href="/">dessertFairy</a>
+			<a href="/" class="mainLogo">dessertFairy</a>
 		</div>
 		<div>
 			<button class="upBtn"><img src="../image/x.png"></button>
@@ -39,25 +39,25 @@
 		</form>
 	</div>
 	<div id="logo">
-		<a href="/">dessertFairy</a>
+		<a href="/" class="mainLogo">dessertFairy</a>
 	</div>   <!-- top logo -->
 	<div id="mainmenu">
 		<c:choose>
 			<c:when test="${ssKey!=null and ssKey.m_role=='admin'}">
 				<ul>
-					<li><a href="/shopMgt">상점 관리</a></li>
-					<li><a href="/productMgt">상품 관리</a></li>
-					<li><a href="/orderMgt">주문 관리</a></li>
-					<li><a href="/memberMgt">고객 관리</a></li>
+					<li><a href="/shopMgt" class="mainLogo">상점 관리</a></li>
+					<li><a href="/productMgt" class="mainLogo">상품 관리</a></li>
+					<li><a href="/orderMgt" class="mainLogo">주문 관리</a></li>
+					<li><a href="/memberMgt" class="mainLogo">고객 관리</a></li>
 				</ul>
 			</c:when>
 		
 			<c:when test="${ssKey==null or ssKey.m_role=='mem'}">
 				<ul>
-					<li><a href="/cake">주문제작 케이크</a></li>
-					<li><a href="/dessert">디저트</a></li>
-					<li><a href="/reviewList">포토후기</a></li>
-					<li><a href="/myPage">마이페이지</a></li>
+					<li><a href="/cake" class="mainLogo">주문제작 케이크</a></li>
+					<li><a href="/dessert" class="mainLogo">디저트</a></li>
+					<li><a href="/reviewList" class="mainLogo">포토후기</a></li>
+					<li><a href="/myPage" class="mainLogo">마이페이지</a></li>
 				</ul>
 			</c:when>
 		</c:choose>

@@ -113,6 +113,7 @@ public class OrderController {
          odto = orderWrapper.getOrderDetail(odto);
          
          model.addAttribute("odto",odto);
+         model.addAttribute("o_no",ono);
 
          page = "Main";
          contentsJsp = "custom/pay/PayForm";
@@ -166,7 +167,10 @@ public class OrderController {
 	         odto.setO_no(ono);
 	         odto = orderWrapper.getOrderDetail(odto);
 	         
+	         System.out.println("odto=========="+odto);
+	         
 	         model.addAttribute("odto",odto);
+	         model.addAttribute("o_no",ono);
 	
 	         page = "Main";
 	         contentsJsp = "custom/pay/PayForm";
@@ -296,4 +300,40 @@ public class OrderController {
 	   
 	   return page;
    }
+   
+	@RequestMapping("orderListPay")
+	   public String orderListPay(HttpServletRequest request, HttpServletResponse response,
+	         Model model, OrderDTO odto) {
+	      //세션 받아와서 저장
+	      HttpSession session = request.getSession();
+	      MemberDTO sdto = (MemberDTO) session.getAttribute("ssKey");
+	      
+	      String msg = null;
+	      String url = null;
+	      String page = null;
+	      String contentsJsp = null;
+	      
+	      if(sdto==null) {
+	         msg = "로그인이 필요합니다.";
+	         url = "login";
+	         page = "MsgPage";
+	         
+	      } else {
+	         odto = orderWrapper.getOrderDetail(odto);
+
+	         page = "Main";
+	         contentsJsp = "custom/pay/PayForm";
+
+	      }
+	      
+	      model.addAttribute("msg", msg);
+	      model.addAttribute("url", url);
+	      model.addAttribute("odto", odto);
+	      model.addAttribute("o_no",odto.getO_no());
+	      model.addAttribute("contentsJsp",contentsJsp);
+	      session.setAttribute("ssKey", sdto);
+		      
+		      return page;
+		   }
+		
 }
