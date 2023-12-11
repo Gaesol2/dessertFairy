@@ -123,11 +123,11 @@
 			</div>
 			<div id="payBox2">
 				<div id="order_payBtn">
-					<img src="../image/pay.png" class="payImg" id="payBtn"  onclick="javascript:orderAjax(this)">
+					<img src="../image/pay.png" class="payImg" id="payBtn"  onclick="javascript:cakeAjax(this)">
 					<input type="button" class="payName3" value="결제하기" id="payBtn" onclick="javascript:cakeAjax(this)">
 				</div>
 				<div id="order_kakaoBtn">
-					<img src="../image/kakao.png" class="payImg" id="kakoPayBtn"  onclick="javascript:orderAjax(this)">
+					<img src="../image/kakao.png" class="payImg" id="kakoPayBtn"  onclick="javascript:cakeAjax(this)">
 					<input type="button" class="payName4" value="카카오페이" id="kakoPayBtn" onclick="javascript:cakeAjax(this)">
 				</div>
 			</div>
