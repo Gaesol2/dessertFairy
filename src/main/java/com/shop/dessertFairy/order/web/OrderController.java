@@ -320,9 +320,6 @@ public class OrderController {
 	         
 	      } else {
 	         odto = orderWrapper.getOrderDetail(odto);
-	         
-	         model.addAttribute("odto",odto);
-	         model.addAttribute("o_no",odto.getO_no());
 
 	         page = "Main";
 	         contentsJsp = "custom/pay/PayForm";
@@ -332,6 +329,7 @@ public class OrderController {
 	      model.addAttribute("msg", msg);
 	      model.addAttribute("url", url);
 	      model.addAttribute("odto", odto);
+	      model.addAttribute("o_no",odto.getO_no());
 	      model.addAttribute("contentsJsp",contentsJsp);
 	      session.setAttribute("ssKey", sdto);
 		      

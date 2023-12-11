@@ -181,7 +181,8 @@
 	
 	<select id="getOrderDetail" parameterType="odto" resultType="odto">
 		SELECT 
-		o_price
+		o_no
+		,o_price
 		,o_quantity
 		,o_regdate
 		,o_state
@@ -191,7 +192,8 @@
 		,o_totalprice
 		FROM (
 			SELECT 
-			o_price
+			o_no
+			,o_price
 			,o_quantity
 			,TO_CHAR(O_REGDATE,'YYYY-MM-DD') AS O_REGDATE
 			,o_state
