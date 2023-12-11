@@ -92,7 +92,7 @@ public class PayController {
 	  
 	  
       
-      model.addAttribute("odto", odto);
+      //model.addAttribute("odto", odto);
 	  model.addAttribute("msg", msg);
       model.addAttribute("url", url);
       model.addAttribute("contentsJsp",contentsJsp);
