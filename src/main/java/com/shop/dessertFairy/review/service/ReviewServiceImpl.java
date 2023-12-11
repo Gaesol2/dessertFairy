@@ -93,7 +93,7 @@ public class ReviewServiceImpl implements ReviewService {
 				if(rdto.getR_no()>0) {
 					reviewDao.updateReadCnt(rdto);
 				}
-					int cnt = reviewDao.getReviewCnt();
+					int cnt = reviewDao.getMyReviewCnt(rdto);
 					   pdto = Page.page(cnt, pdto);
 					   rdto.setStart(pdto.getStart());
 					   rdto.setEnd(pdto.getEnd());
