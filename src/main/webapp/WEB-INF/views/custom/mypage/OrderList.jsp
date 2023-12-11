@@ -61,7 +61,9 @@
 							</td>
 							<td  class="ool9">
 								<c:if test="${order.o_state==5}">
-									<a href="/reviewWrite">리뷰쓰기</a>
+									<c:if test="${order.o_review==0}">
+										<a href="/reviewWrite?o_no=${order.o_no}">리뷰쓰기</a>
+									</c:if>
 								</c:if>
 							</td>
 						</tr>

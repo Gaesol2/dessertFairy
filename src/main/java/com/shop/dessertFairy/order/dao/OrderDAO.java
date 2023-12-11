@@ -48,4 +48,7 @@ public interface OrderDAO {
 	
 	List<OrderDTO> getCakeOrderList(OrderDTO odto);
 
+
+	void reivew(OrderDTO odto);
+
 }

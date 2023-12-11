@@ -21,6 +21,7 @@ import com.shop.dessertFairy.review.dto.ReviewDTO;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import jakarta.websocket.Session;
 
 @Controller
 public class ContactController {
@@ -191,17 +192,16 @@ public class ContactController {
 		   String page = null;
 		   String msg = null;
 		   String url = null;
-		   MemberDTO ssKey = null;
 		   String contentsJsp = "/custom/mypage/MyContactList";
 		   
 		   //HttpSession 세션 객체 생성 및 세션 정보 받아오기
 		   HttpSession session = request.getSession();
+		   MemberDTO sdto = (MemberDTO) session.getAttribute("ssKey");
 		   
 		   //세션이 있으면 ReviewMyList 페이지로 보내고 없으면 로그인 창으로 보내기
-		   if(session.getAttribute("ssKey")!=null) {
-			   ssKey = (MemberDTO) session.getAttribute("ssKey");
-			   MemberDTO sdto = memberService.getMember(ssKey);
-			   tdto.setM_id(ssKey.getM_id());
+		   if(sdto != null) {
+			   sdto = memberService.getMember(sdto);
+			   tdto.setM_id(sdto.getM_id());
 			   page = "Main";
 			   url = "myContact";
 		   }
@@ -218,11 +218,10 @@ public class ContactController {
 		   
 		   List<ContactDTO>list=(List<ContactDTO>) reSet.get("myContact");
 		   //세션 저장
-		   session.setAttribute("ssKey", ssKey);
+		   session.setAttribute("sdto", sdto);
 		   //데이터 저장
 		   model.addAttribute("cnt", reSet.get("cnt"));
 		   model.addAttribute("myContact", list);
-		   model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
 		   model.addAttribute("contentsJsp",contentsJsp);
 		   model.addAttribute("pdto",pdto);
 		   model.addAttribute("page",page);

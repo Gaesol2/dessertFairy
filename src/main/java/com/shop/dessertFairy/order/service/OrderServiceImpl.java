@@ -209,4 +209,10 @@ public class OrderServiceImpl implements OrderService {
 	   return resultSet;
 	}
 
+	@Override
+	public void review(OrderDTO odto) {
+		orderDao.reivew(odto);
+		
+	}
+
 }

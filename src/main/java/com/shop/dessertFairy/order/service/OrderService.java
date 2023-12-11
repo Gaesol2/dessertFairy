@@ -45,5 +45,7 @@ public interface OrderService {
 	public void payAfterState(OrderDTO odto);
 	
 	public Map<String, Object> getCakeOrderList(OrderDTO odto);
+
+	public void review(OrderDTO odto);
 	
 }

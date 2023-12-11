@@ -63,7 +63,7 @@ public class ContactServiceImpl implements ContactService {
 		Map<String, Object> reSet = new HashMap<String, Object>();
 		
 		List<ContactDTO> myContact = null;
-		int cnt= contactDao.getContactCnt();
+		int cnt= contactDao.getMyContactCnt(tdto);
 		   pdto = Page.page(cnt, pdto);
 		   tdto.setStart(pdto.getStart());
 		   tdto.setEnd(pdto.getEnd());

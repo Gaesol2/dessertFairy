@@ -12,6 +12,8 @@ public interface ContactDAO {
 
 	int getContactCnt();
 
+	int getMyContactCnt(ContactDTO tdto);
+
 	List<ContactDTO> getContactList(ContactDTO tdto);
 
 	int contactWrite(ContactDTO tdto);

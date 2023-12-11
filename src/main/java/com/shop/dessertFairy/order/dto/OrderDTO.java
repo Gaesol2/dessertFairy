@@ -27,4 +27,6 @@ public class OrderDTO {
 	
 	private String m_role;
 	private String m_name;
+	
+	private int o_review;
 }

@@ -46,6 +46,7 @@
 				 O.M_ID,
 				 O.D_NO,
 				 D.D_NAME,
+				 O.O_REVIEW,
 				 O.O_TOTALPRICE
 		 FROM ORDERT O
 		 INNER JOIN DESSERT D
@@ -272,5 +273,10 @@
    <update id="dessertMgt" parameterType="odto">
    	UPDATE DESSERT SET D_STOCK=d_stock+#{o_quantity}, D_SALE = d_sale-#{o_quantity}
    	WHERE D_NO = #{d_no}
+   </update>
+   
+   <update id="reivew" parameterType="odto">
+   	UPDATE ORDERT SET O_REVIEW = +1
+   	WHERE O_NO = #{o_no}
    </update>
 </mapper>

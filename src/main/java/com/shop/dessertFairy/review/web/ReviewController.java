@@ -15,6 +15,8 @@ import com.shop.dessertFairy.common.RowInterPage;
 import com.shop.dessertFairy.common.dto.PageDTO;
 import com.shop.dessertFairy.member.dto.MemberDTO;
 import com.shop.dessertFairy.member.service.MemberService;
+import com.shop.dessertFairy.order.dto.OrderDTO;
+import com.shop.dessertFairy.order.service.OrderService;
 import com.shop.dessertFairy.review.dto.ReviewDTO;
 import com.shop.dessertFairy.review.service.ReviewService;
 
@@ -27,6 +29,9 @@ public class ReviewController {
    
    @Autowired
    ReviewService reviewService;
+   
+   @Autowired
+   OrderService orderService;
    
    @Autowired
    MemberService memberService;
@@ -98,7 +103,7 @@ public class ReviewController {
 
    @RequestMapping("/reviewWrite") //리뷰 글쓰기 경로
    public String ReviewWrite (HttpServletRequest request, HttpServletResponse response,
-         Model model, ReviewDTO rdto) {
+         Model model, ReviewDTO rdto, OrderDTO odto) {
 
 	   //HttpSession 세션 객체 생성 및 세션 정보 받아오기
 	   HttpSession session = request.getSession();
@@ -127,6 +132,7 @@ public class ReviewController {
 	   model.addAttribute("contentsJsp",contentsJsp);
 	   model.addAttribute("msg",msg);
 	   model.addAttribute("url",url);
+	   model.addAttribute("odto",odto);
       
 	   //세션 저장해주기
 	   session.setAttribute("ssKey", sdto);
@@ -137,7 +143,7 @@ public class ReviewController {
 
    @RequestMapping("/reviewWriteProc") //리뷰글쓰기 폼
    public String ReviewWriteProc (HttpServletRequest request, HttpServletResponse response,
-         Model model, ReviewDTO rdto, @RequestParam("image2") MultipartFile file) {
+         Model model, OrderDTO odto, ReviewDTO rdto, @RequestParam("image2") MultipartFile file) {
 
 	   //변수 선언
 	   String msg = null;
@@ -159,6 +165,8 @@ public class ReviewController {
 	   //결과에 따른 메세지 출력
 	   if(result>0) {
 		   msg = "포토리뷰가 등록되었습니다.";
+		   orderService.review(odto);					// 리뷰 등록 성공시 주문테이블에 리뷰 필드 값 +1
+		   
 	   } else {
 		   msg = "포토리뷰 등록에 실패했습니다.";
 	   }
@@ -166,6 +174,7 @@ public class ReviewController {
 	   //경로 및 메세지 저장
 	   model.addAttribute("url",url);
 	   model.addAttribute("msg",msg);
+	   model.addAttribute("result",result);
       
 	   //세션 저장
 	   session.setAttribute("ssKey", sdto);
@@ -278,6 +287,7 @@ public class ReviewController {
 	   //데이터 저장
 	   model.addAttribute("cnt", reSet.get("cnt"));
 	   model.addAttribute("myList", list);
+	   model.addAttribute("rdto", reSet);
 	   model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
 	   model.addAttribute("contentsJsp",contentsJsp);
 	   model.addAttribute("pdto",pdto);
@@ -285,7 +295,6 @@ public class ReviewController {
 	   model.addAttribute("page",page);
 	   model.addAttribute("url",url);
 	   model.addAttribute("msg",msg);
-	   
 	   
 	   return page;
    }

@@ -62,5 +62,7 @@
 			<label for="button" class="writeSubmit regis">등록</label>
 			<input id="button" type="hidden">
 		</div>
+		
+		<input type="text" value="${odto.o_no}" name="o_no">
 	</form>
 </div>
