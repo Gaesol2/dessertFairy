@@ -17,7 +17,7 @@
 				<if test="n_no!=0">
 					AND N_NO = #{n_no}
 				</if>
-				ORDER BY N_NO) A)
+				ORDER BY N_NO DESC) A)
 				<if test="start!=0 and end!=0">
 				WHERE N_RR BETWEEN #{start} and #{end}
 				</if>
@@ -47,8 +47,7 @@
 		   UPDATE NOTICE SET
 		        N_SUBJECT = #{n_subject},
 		        N_CONTENT = #{n_content},
-		        N_WRITER = #{n_writer},
-				N_REGDATE = SYSDATE
+		        N_WRITER = #{n_writer}
 				WHERE N_NO = #{n_no}
 		</update>
 		<update id="deleteProc" parameterType="ndto">
