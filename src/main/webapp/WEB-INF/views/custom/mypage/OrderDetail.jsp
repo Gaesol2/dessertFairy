@@ -81,6 +81,7 @@
 	                     <c:when test="${odto.o_state==5}">구매확정</c:when>
 	                   </c:choose>
 				</div>
+				<input class="button" type="button" value="결제하기">
 			</div>
 		</div>
 	</form>

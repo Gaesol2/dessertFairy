@@ -14,6 +14,7 @@ import com.shop.dessertFairy.cake.dto.CakeDTO;
 import com.shop.dessertFairy.cake.service.CakeService;
 import com.shop.dessertFairy.member.dto.MemberDTO;
 import com.shop.dessertFairy.order.dto.OrderDTO;
+import com.shop.dessertFairy.order.service.OrderService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -24,6 +25,9 @@ public class CakeController {
 	
 	@Autowired
 	CakeService cakeService;
+	
+	@Autowired
+	OrderService orderService;
 	
     @Value("${resources.location}")
     String resourcesLocation;
@@ -53,6 +57,7 @@ public class CakeController {
 		String page = null;
 		String url = null;
 		String contentsJsp = null;
+		int ono = 0;
 		
 		if(sdto==null) {
 			msg = "로그인이 필요합니다.";
@@ -66,6 +71,9 @@ public class CakeController {
 			int result = cakeService.cakeOrderProc(cdto, file);
 
 			//최신 ono 받아오기
+	         ono = orderService.getRecentOno();
+			
+			//최신 ono 받아오기
 			int cno = cakeService.getRecentCno();
 			
 			cdto.setC_no(cno);
@@ -78,6 +86,7 @@ public class CakeController {
 		model.addAttribute("msg",msg);
 		model.addAttribute("url",url);
 		model.addAttribute("contentsJsp",contentsJsp);
+		model.addAttribute("o_no",ono);
 		model.addAttribute("cdto",cdto);
 		session.setAttribute("ssKey", sdto);
 		
