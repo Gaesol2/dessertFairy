@@ -61,7 +61,7 @@
 				<div class="oll">
 					<p class="ol1">결제금액</p>
 					<span class="ol2">
-						<input type="text" class="in" name="o_amount" readonly="readonly" value="${total}"size="10">원
+						<input type="text" class="in" name="o_amount" readonly="readonly" value="${DetailList[0].o_totalprice}"size="10">원
 					</span>
 				</div>
 				<div class="oll">
