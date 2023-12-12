@@ -34,10 +34,7 @@
 		</div>
 		<div class="form-inline">
 			<div class="secretBox">
-				<input type="radio" name="t_secret" id="cs_open" value="Y" class="radio" />
-				<span class="ml_10">공개</span>&nbsp;&nbsp;&nbsp;&nbsp;
-				<input type="radio" name="t_secret" id="cs_open" value="N" class="radio" />
-				<span class="ml_10">비공개</span>&nbsp;
+				<input type="hidden" name="t_secret" value="${contact.t_secret}"/>
 			</div>
 		</div>
 	  
