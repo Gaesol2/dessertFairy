@@ -53,6 +53,10 @@ $().ready(function(){
            } 
          });
         
+        /*관리자 주문 상세 페이지 - 주문상태 기본 값*/
+        var ostate = $("input[name='stateInput']").val();
+        $("select[name='o_state']").val(ostate);
+        
         /*주문관리 -> 주문 상세 페이지에서 상태 수정*/ 
       $(".stateUpBtn").on('click', function(){
 		  $('form[name=orderDetailForm]').attr('action', '/updateOrder');
