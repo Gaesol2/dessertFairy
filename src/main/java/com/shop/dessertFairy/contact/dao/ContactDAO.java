@@ -42,6 +42,10 @@ public interface ContactDAO {
 
 	void contactAdmin(ContactDTO tdto);
 
+	int contactUpProc(ContactDTO tdto);
+
+	int contactDelProc(ContactDTO tdto);
+
 
 
 

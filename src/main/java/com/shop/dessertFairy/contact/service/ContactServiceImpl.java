@@ -92,7 +92,6 @@ public class ContactServiceImpl implements ContactService {
 	
 	@Override
 	public int contactupProc(ContactDTO tdto) {
-		System.out.println("이거 버려?");
 		return contactDao.contactupProc(tdto);
 	}
 	
@@ -101,6 +100,28 @@ public class ContactServiceImpl implements ContactService {
 		return contactDao.MyContactDelProc(tdto);
 	}
 	
+	@Override
+	public ContactDTO getAdminContent(ContactDTO tdto) {
+		return contactDao.getAdminContent(tdto);
+	}
+	
+	
+	@Override
+	public int contactWrite(String m_id) {		//admin 글쓰기
+		return contactDao.replyWrite(m_id);
+	}
+
+
+	@Override
+	public int contactUpProc(ContactDTO tdto) {
+		return contactDao.contactUpProc(tdto);
+	}
+
+
+	@Override
+	public int contactDelProc(ContactDTO tdto) {
+		return contactDao.contactDelProc(tdto);
+	}
 	
 	
 	
@@ -141,16 +162,6 @@ public class ContactServiceImpl implements ContactService {
 	 * reSet.put("contactList", contactList); return reSet; }
 	 */
 	
-	@Override
-	public ContactDTO getAdminContent(ContactDTO tdto) {
-		return contactDao.getAdminContent(tdto);
-	}
-
-
-	@Override
-	public int contactWrite(String m_id) {		//admin 글쓰기
-		return contactDao.replyWrite(m_id);
-	}
 
 
 	

@@ -34,6 +34,10 @@ public interface ContactService {
 
 	int contactWrite(String m_id);
 
+	int contactUpProc(ContactDTO tdto);
+
+	int contactDelProc(ContactDTO tdto);
+
 
 
 
