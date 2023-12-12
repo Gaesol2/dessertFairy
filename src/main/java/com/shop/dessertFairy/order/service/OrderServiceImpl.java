@@ -86,6 +86,13 @@ public class OrderServiceImpl implements OrderService {
 		
 		
 	   List<OrderDTO> adminOrderList = orderDao.getAdminOrderList(odto);
+	   
+	   for(OrderDTO list:adminOrderList) {
+		   if(50000>list.getO_totalprice()) {
+			   list.setO_totalprice(list.getO_totalprice()+3000);
+		   }
+	   }
+	   
 	   resultSet.put("adminOrderList", adminOrderList);
 	   
 	   return resultSet;

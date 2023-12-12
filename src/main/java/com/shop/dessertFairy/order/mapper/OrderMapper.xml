@@ -97,7 +97,7 @@
 	</update>
 	
 	<update id="updateOrderState" parameterType="list">						<!-- admin 주문목록에서 상태 수정 -->
-	  <foreach collection="list" item="item" 
+	  <!-- <foreach collection="list" item="item" 
 	     index="index" separator=";" open="DECLARE BEGIN" close="; END;">
 			UPDATE ORDERT SET
 	        O_STATE = #{item.o_state},
@@ -105,7 +105,14 @@
 			WHERE O_NO=#{item.o_no}
 			AND D_NO = #{item.d_no}
 			AND M_ID = #{item.m_id}
-	 </foreach>
+	 </foreach> -->
+	 <foreach collection="list" item="item" 
+	     index="index" separator=";" open="DECLARE BEGIN" close="; END;">
+			UPDATE ORDERT SET
+	        O_STATE = #{item.o_state},
+	        O_REGDATE = SYSDATE
+			WHERE O_NO=#{item.o_no}
+	 </foreach> 
    </update>
    
    <select id="OrderDetail" parameterType="odto" resultType="odto">			<!-- admin 주문 상세 페이지 -->

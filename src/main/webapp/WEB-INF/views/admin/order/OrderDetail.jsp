@@ -61,7 +61,7 @@
 				<div class="oll">
 					<p class="ol1">결제금액</p>
 					<span class="ol2">
-						<input type="text" class="in" name="o_amount" readonly="readonly" value="${total}"size="10">원
+						<input type="text" class="in" name="o_amount" readonly="readonly" value="${DetailList[0].o_totalprice}"size="10">원
 					</span>
 				</div>
 				<div class="oll">
@@ -72,14 +72,13 @@
 				</div>
 				<div class="oll">
 					<p class="ol1">배송상태</p>
-					<input type="hidden" value="${DetailList[0].o_state}" name="stateInput" id="stateInput">
+					<input type="hidden" value="${DetailList[4].o_state}" name="stateInput" id="stateInput">
 					<select name="o_state" id="o_state">
 						<option value="1">결제중</option>
 						<option value="2">배송준비</option>
 						<option value="3">배송중</option>
 						<option value="4">배송완료</option>
 						<option value="5">구매확정</option>
-						<%-- <option selected>${DetailList[0].o_state}</option> --%>
 					</select>
 			
 					<script type="text/javascript">
