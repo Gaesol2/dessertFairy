@@ -40,6 +40,8 @@ public interface ContactDAO {
 
 	int replyWrite(String m_id);
 
+	void contactAdmin(ContactDTO tdto);
+
 
 
 

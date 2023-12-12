@@ -17,7 +17,7 @@
 			<span>
 				<c:choose>
 					<c:when test = "${tdto.t_no > 0}">
-						<input type="text" name="t_subject" title="제목" class="chkc in" size="30" value="[답글]">
+						<input type="text" name="t_subject" title="제목" class="chkc in" size="30" value="[답글] ${tdto.t_subject}">
 					</c:when>
 					<c:when test = "${tdto.t_no == 0}">
 						<input type="text" name="t_subject" title="제목" value="">
@@ -26,7 +26,8 @@
 			</span>
 			<p class="spanWrite">작성자</p>
 			<span>
-				<input type="text" name="m_id" class="chkc in" title="작성자" size="30" value="${ssKey.m_id}" disabled="disabled">
+				<input type="text" class="chkc in" title="작성자" size="30" value="${ssKey.m_id}" disabled="disabled">
+				<input type="hidden" name="m_id" value="${tdto.m_id}">
 			</span>
 		</div>
 	      

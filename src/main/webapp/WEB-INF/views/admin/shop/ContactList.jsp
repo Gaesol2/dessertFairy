@@ -37,10 +37,9 @@
 					        	<input type="hidden" name="t_level" value="${contact.t_level}">
 					        </td> 
 					        <td class="con6">
-					        	<c:if test="${contact.t_level}>0">
-					        		<img src="image/level.gif" width="${contact.t_level*10}px;">
-					        		<img src="image/re.gif">
-					        	</c:if>
+					        	<c:if test="${contact.t_level>=1}">
+									<span class="replyL">└</span>
+								</c:if>   
 						        <c:if test="${contact.t_secret eq 'N'}" >
 						            <img src="${pageContext.request.contextPath}/image/secret.png" class="secretImg" width="20" height="20" alt="비밀글" />
 						            <c:choose>
@@ -54,7 +53,12 @@
 						            <a href="/adminContactContent?t_no=${contact.t_no}">${contact.t_subject}</a>
 						        </c:if>
 					        </td>
-					        <td class="con7"><c:out value="${contact.m_id}"/></td>            
+					        <td class="con7">
+					        	<c:choose>
+									<c:when test="${contact.t_level>=1}"><span>관리자</span></c:when>
+									<c:otherwise>${contact.m_id}</c:otherwise>
+								</c:choose>
+					        </td>            
 					        <td class="con8"><c:out value="${contact.t_regdate}"/></td>
 					    </tr>
 					</c:forEach>

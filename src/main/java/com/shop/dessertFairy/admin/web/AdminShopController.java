@@ -316,7 +316,6 @@ public class AdminShopController {
 	   String url = null;
 	   String msg = null;
 	   String page = null;
-	   System.out.println("넘버는 : "+tdto);
 	   //HttpSession 세션 객체 생성 및 세션 정보 받아오기
 	   HttpSession session = request.getSession();
 
@@ -357,7 +356,6 @@ public class AdminShopController {
 	   //세션 받아오기
 	   HttpSession session = request.getSession();
 	   MemberDTO sdto = (MemberDTO) session.getAttribute("ssKey");
-	   tdto.setM_id(sdto.getM_id());
 	   //결과 처리
 	   int result = contactService.contactWrite(tdto);
 
