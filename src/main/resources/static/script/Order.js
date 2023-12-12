@@ -127,14 +127,14 @@ $().ready(function(){
          
    
    /*OrderDetail.jsp의 selectBOX 기본값 넣어주기*/
-   var stateSelect = document.getElementById('o_state');
+ /*  var stateSelect = document.getElementById('o_state');
    var leng = stateSelect.options.length;
    var state = document.getElementById("stateInput").value;
    for(let i=0; i<leng; i++){
       if(stateSelect.options[i].value == state){
          stateSelect.options[i].selected = true;
       }
-   }
+   }*/
          
    $('#orderTable').on(function(){         
      ono = $('input[name=o_no]').val();
@@ -163,7 +163,21 @@ $().ready(function(){
       });
   });
   
+   $('.cakeCancel').on('click', function(){
+	   var cake = confirm('주문을 취소하시겠습니까?');
+	   if(cake)
+       $('form[name=cakeCancelForm]').submit();
+   });
+
 })//ready 끝
+
+   function adminCakeCancel(obj){
+	   var cake = confirm('주문을 취소하시겠습니까?');
+	   if(cake){
+		   var cno = $(obj).prev().val();		/*this의 앞의 값*/
+		   location.href="cakeCancel?c_no="+cno;
+	   } else{return false;}
+   };
 
    function orderDetail(obj){
    var ono = $(obj).closest('tr').find('input[name=o_no]').val();

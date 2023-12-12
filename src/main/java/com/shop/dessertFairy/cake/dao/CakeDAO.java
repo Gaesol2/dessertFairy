@@ -13,4 +13,6 @@ public interface CakeDAO {
 
 	CakeDTO getOrderDetail(CakeDTO cdto);
 
+	int cakeCancel(CakeDTO cdto);
+
 }

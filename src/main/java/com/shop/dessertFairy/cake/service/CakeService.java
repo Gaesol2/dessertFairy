@@ -11,5 +11,7 @@ public interface CakeService {
 	int getRecentCno();
 
 	CakeDTO getOrderDetail(CakeDTO cdto);
+
+	int cakeCancel(CakeDTO cdto);
 	
 }
