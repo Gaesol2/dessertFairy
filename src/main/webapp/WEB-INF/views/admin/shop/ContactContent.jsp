@@ -35,13 +35,13 @@
 			<div id="contentBtn">
 				<c:choose>
 					<c:when test="${contact.t_level==0}">
-						<span class="contentBtnBox">
+						<span class="contentBtnBox1">
 							<button type="button" class="regis" onclick="location.href='/adminContact'">목록으로</button>
 							<button type="submit" class="regis">답변하기</button>
 						</span>
 					</c:when>
 					<c:when test="${contact.t_level>=1}">
-						<span class="contentBtnBox">
+						<span class="contentBtnBox2">
 							<button type="button" class="adminReContact regis">수정하기</button>
 							<button type="button" class="adminDelContact regis">삭제하기</button>
 							<button type="button" class="regis" onclick="location.href='/adminContact'">목록으로</button>
