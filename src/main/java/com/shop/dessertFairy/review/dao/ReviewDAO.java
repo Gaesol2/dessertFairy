@@ -51,6 +51,8 @@ public interface ReviewDAO {
 	List<ReviewDTO> getMemList(ReviewDTO rdto);
 
 	int getMyReviewCnt(ReviewDTO rdto);
+	
+	int getAdminReviewCnt(ReviewDTO rdto);
 
 
 

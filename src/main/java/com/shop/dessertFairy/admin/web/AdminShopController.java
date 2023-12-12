@@ -84,7 +84,7 @@ public class AdminShopController {
 		   HttpServletResponse response,
 		   Model model,
 		   ReviewDTO rdto,
-		   PageDTO pageDto) {
+		   PageDTO pdto) {
 	   
 	 //세션 받아오기
 	   HttpSession session = request.getSession();
@@ -163,7 +163,7 @@ public class AdminShopController {
 	public String ReplyUpProc(HttpServletRequest request, HttpServletResponse response,
 			ReviewDTO rdto,
 			Model model,
-			PageDTO pageDto) {
+			PageDTO pdto) {
 	   
 		HttpSession session = request.getSession();
 		String contentsJsp = null;
@@ -216,7 +216,7 @@ public class AdminShopController {
    public String ReplyDelProc(HttpServletRequest request, HttpServletResponse response,
 		   ReviewDTO rdto,
 		   Model model,
-		   PageDTO pageDto) {
+		   PageDTO pdto) {
 	   
 	   
 	   HttpSession session = request.getSession();
@@ -286,7 +286,7 @@ public class AdminShopController {
 		   HttpServletResponse response,
 		   Model model,
 		   ContactDTO tdto,
-		   PageDTO pageDto) {
+		   PageDTO pdto) {
 	   
 	   String page = null;
 
@@ -374,6 +374,109 @@ public class AdminShopController {
 	   session.setAttribute("ssKey", sdto);
 	   
 	   return "MsgPage";
+   }
+   
+   @RequestMapping("/adminContactUpForm") //문의 글 답변폼 경로
+   public String adminContactUpForm ( HttpServletRequest request,
+		   						HttpServletResponse response,
+		   						Model model,
+		   						ContactDTO tdto) {
+	   String url = null;
+	   String msg = null;
+	   String page = null;
+	   //HttpSession 세션 객체 생성 및 세션 정보 받아오기
+	   HttpSession session = request.getSession();
+
+	   //ssKey 세션에 있는 정보를 MemberDTO 타입의 sdto에 저장
+	   MemberDTO sdto = (MemberDTO) session.getAttribute("ssKey");
+
+	   //세션이 없으면 로그인 먼저 하라고 로그인 페이지로 보내기
+	   if(sdto!=null && sdto.getM_role().equals("admin")) {
+		   model.addAttribute("contentsJsp","/admin/shop/ContactUpForm");
+		   page = "Main";
+		   model.addAttribute("t_no",tdto.getT_no());
+		   model.addAttribute("tdto",tdto);
+	   } else {
+		   msg = "권한이 없습니다.";
+		   url = "login";
+		   page = "MsgPage";
+	   }
+	   
+	   //데이터 저장
+	   model.addAttribute("msg",msg);
+	   model.addAttribute("url",url);
+      
+	   //세션 저장해주기
+	   session.setAttribute("ssKey", sdto);
+	   
+	   return page;
+   }
+   
+   @RequestMapping("/contactReUpProc")
+   public String ContactReUpProc ( HttpServletRequest request,
+		   							HttpServletResponse response,
+		   							Model model,
+		   							ContactDTO tdto) {
+
+	   //변수 선언
+	   String msg = null;
+	   String url = "/adminContact";
+	   //세션 받아오기
+	   HttpSession session = request.getSession();
+	   MemberDTO sdto = (MemberDTO) session.getAttribute("ssKey");
+	   //결과 처리
+	   int result = contactService.contactUpProc(tdto);
+
+	   //결과에 따른 메세지 출력
+	   if(result>0) {
+		   msg = "수정이 완료되었습니다.";
+	   } else {
+		   msg = "수정에 실패했습니다.";
+	   }
+      
+	   //경로 및 메세지 저장
+	   model.addAttribute("url",url);
+	   model.addAttribute("msg",msg);
+      
+	   //세션 저장
+	   session.setAttribute("ssKey", sdto);
+	   
+	   return "MsgPage";
+   }
+   
+   @RequestMapping("/adminContactDelProc")
+   public String AdminContactDelProc(HttpServletRequest request, HttpServletResponse response,
+		   ContactDTO tdto,
+		   Model model,
+		   PageDTO pdto) {
+	   
+	   
+	   HttpSession session = request.getSession();
+	   String contentsJsp = null;
+	   String page = null;
+	   MemberDTO mdto = (MemberDTO) session.getAttribute("ssKey");
+	   if(session.getAttribute("ssKey")!=null) {
+		   String msg = null;
+		   String url = null;
+		  
+			   page = "MsgPage";
+			   int r = contactService.contactDelProc(tdto);
+			   if(r>0) msg = "문의답글 삭제가 완료 되었습니다.";
+			   else msg = "문의답글 삭제를 실패했습니다.";
+			   url = "/adminContact";
+		
+		   if(url!=null) model.addAttribute("url", url);
+		   if(msg!=null) model.addAttribute("msg", msg);
+		   
+	   }else {
+		   page = "Main";
+		   contentsJsp = "./admin/shop/ContactList";
+	   }
+	   
+	   session.setAttribute("ssKey", mdto);
+	   model.addAttribute("contentsJsp", contentsJsp);
+	   
+	   return page;
    }
    
 }

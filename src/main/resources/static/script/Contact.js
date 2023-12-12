@@ -31,7 +31,22 @@
    	   $("form[name=contactUpForm]").attr('action', "/contactupProc")
    	   $("form[name=contactUpForm]").submit();
    });
-	   
+   
+   
+   
+   
+	   //admin 수정 및 삭제 
+    $('.adminReContact').on('click', function(){
+   	   $("form[name=replyForm]").attr('action', "/adminContactUpForm")
+   	   $("form[name=replyForm]").submit();
+  	 
+   });
+   
+     $('.adminDelContact').on('click', function(){
+   	   $("form[name=replyForm]").attr('action', "/adminContactDelProc")
+   	   $("form[name=replyForm]").submit();
+   });
+   
 	   
 	   
 
