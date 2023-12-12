@@ -62,13 +62,17 @@ $().ready(function(){
       $('.orderCancel').on('click', function(){
 		 ono = $('input[name=o_no]').val();
 		 ostate = $('input[name=stateInput]').val();
-		 if(ostate<=2){
+		 if(ostate==2){
+			 alert('고객 결제가 완료되었습니다. \n 취소 불가');
+			
+			 return false;
+		 }else if(ostate==1){
 			 del = confirm('주문을 취소하시겠습니까?');
 			 if(del){
 				 $('form[name=orderDetailForm]').attr('action', '/orderDel');
 				 $('form[name=orderDetailForm]').submit();
 			 }
-		 }else{
+		 }else {
 			 alert('배송이 진행중입니다. \n 취소 불가');
 			
 			 return false;
