@@ -66,6 +66,12 @@ public class OrderServiceImpl implements OrderService {
 		   
 		   List<OrderDTO> orderList = orderDao.getOrderList(odto);
 		   
+		   for(OrderDTO list:orderList) {
+			   if(50000>list.getO_totalprice()) {
+				   list.setO_totalprice(list.getO_totalprice()+3000);
+			   }
+		   }
+		   
 		   resultSet.put("orderList", orderList);
 		   
 		return resultSet;
@@ -121,6 +127,12 @@ public class OrderServiceImpl implements OrderService {
 	public List<OrderDTO> OrderDetail(OrderDTO odto) {			// admin  주문 상세
 		List<OrderDTO> DetailList = new ArrayList<>();
 		DetailList = orderDao.OrderDetail(odto);
+		
+		for(OrderDTO list:DetailList) {
+			   if(50000>list.getO_totalprice()) {
+				   list.setO_totalprice(list.getO_totalprice()+3000);
+			   }
+		   }
 		
 		return DetailList;
 	}

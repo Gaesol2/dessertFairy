@@ -279,4 +279,5 @@
    	UPDATE ORDERT SET O_REVIEW = +1
    	WHERE O_NO = #{o_no}
    </update>
+   
 </mapper>
