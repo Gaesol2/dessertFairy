@@ -62,7 +62,7 @@ $().ready(function(){
       $('.orderCancel').on('click', function(){
 		 ono = $('input[name=o_no]').val();
 		 ostate = $('input[name=stateInput]').val();
-		 if(ostate<=1){
+		 if(ostate<=2){
 			 del = confirm('주문을 취소하시겠습니까?');
 			 if(del){
 				 $('form[name=orderDetailForm]').attr('action', '/orderDel');
