@@ -45,4 +45,9 @@ public class CakeServiceImpl implements CakeService {
 		return cakeDao.getOrderDetail(cdto);
 	}
 
+	@Override
+	public int cakeCancel(CakeDTO cdto) {
+		return cakeDao.cakeCancel(cdto);
+	}
+
 }

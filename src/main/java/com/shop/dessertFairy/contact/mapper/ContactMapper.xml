@@ -188,4 +188,17 @@
          ,#{m_id}
       )
    </insert>
+   
+   <update id="contactUpProc" parameterType="tdto">
+	   UPDATE CONTACT SET
+		   T_SUBJECT = #{t_subject},
+		   T_SECRET = #{t_secret},
+		   T_CONTENT = #{t_content},
+		   T_PASSWD = #{t_passwd}
+	   WHERE T_NO = #{t_no}
+   </update>
+   
+   <delete id="contactDelProc" parameterType="tdto">
+	  DELETE FROM CONTACT WHERE T_NO = #{t_no}
+	</delete>
 </mapper>

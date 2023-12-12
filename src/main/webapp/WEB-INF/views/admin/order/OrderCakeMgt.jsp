@@ -20,6 +20,7 @@
 		<c:choose>
 				<c:when test="${fn:length(adminCakeOrderList)>0}">
 					<c:forEach var = "cake" items = "${adminCakeOrderList}" varStatus = "i">
+					<form action="cakeCancel" method="post" name="cakeCancelForm+${status.index}">
 						<div id="cakeContentBox">
 							<c:choose>
 								<c:when test="${cake.c_image!=null}">
@@ -106,7 +107,10 @@
 									</span>
 								</div>
 							</div>
+							<input type="text" name="c_no" value="${cake.c_no}">
+							<input type="button" value="주문취소" class="adminCakeCancel" onclick="adminCakeCancel(this)">
 						</div>
+					</form>
 					</c:forEach>
 				</c:when>
 		

@@ -31,7 +31,22 @@
    	   $("form[name=contactUpForm]").attr('action', "/contactupProc")
    	   $("form[name=contactUpForm]").submit();
    });
-	   
+   
+   
+   
+   
+	   //admin 수정 및 삭제 
+    $('.adminReContact').on('click', function(){
+   	   $("form[name=replyForm]").attr('action', "/adminContactUpForm")
+   	   $("form[name=replyForm]").submit();
+  	 
+   });
+   
+     $('.adminDelContact').on('click', function(){
+   	   $("form[name=replyForm]").attr('action', "/adminContactDelProc")
+   	   $("form[name=replyForm]").submit();
+   });
+   
 	   
 	   
 
@@ -81,4 +96,26 @@ function validate(){
 	  }
 	  return true;
 }
+
+	function validate2(){
+		  var flen2 = $("form[name=contactUpForm] .chkc").length;
+		  
+		  if($('input[name=t_secret]').checked){
+				alert("공개 여부를 체크해주세요")
+				$('#cs_open').focus();
+				return false;
+			}
+		  for(var i = 0; i < flen2; i++){
+			  if( $('.chkc').eq(i).val()=="" || 
+			      $('.chkc').eq(i).val()==null ||
+			      $('.chkc').eq(i).val().trim()==""){
+			   alert($('.chkc').eq(i).attr('title') + '은/는 필수 입력');
+			   $('.chkc').eq(i).focus();
+			   return false;
+			  }  
+		  }
+		  return true;
+	}
+
+	
 }

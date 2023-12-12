@@ -92,5 +92,55 @@ public class CakeController {
 		
 		return page;
 	}
+	
+	 @RequestMapping("cakeCancel")											// 주문 목록
+		public String CakeCancel( HttpServletRequest request,
+								HttpServletResponse response,
+								Model model,
+								MemberDTO mdto,
+								CakeDTO cdto) {
+		 //변수 선언
+		   String msg = null;
+		   String url = null;
+		   String contentsJsp = "/custom/mypage/OrderCakeList";
+		   HttpSession session = request.getSession();
+		   MemberDTO sdto = (MemberDTO) session.getAttribute("ssKey");
+		   
+		   System.out.println("결과 : "+cdto);
+		   if(sdto!=null) {
+			   int result = cakeService.cakeCancel(cdto);
+			   if(result>0) {
+				   if(sdto.getM_role().equals("admin")) {
+					   msg = "주문취소 완료";
+					   url = "cakeOrderMgt";
+				   }else {
+					   msg = "주문취소 완료";
+					   url = "cakeOrderList";
+				   }
+			   }else {
+				   if(sdto.getM_role().equals("admin")) {
+					   msg = "주문취소 실패.";
+					   url = "cakeOrderMgt";
+				   }else {
+					   msg = "주문취소 실패. 관리자에게 문의해주세요.";
+					   url = "cakeOrderList";
+				   }
+			   }
+		   }else {
+			   msg = "로그인이 필요합니다.";
+			   url = "login";
+		   }
+		   
+		   String page = "MsgPage";
+		   
+		   session.setAttribute("sdto", sdto);
+		   model.addAttribute("contentsJsp",contentsJsp);
+		   model.addAttribute("page",page);
+		   model.addAttribute("url",url);
+		   model.addAttribute("msg",msg);
+		   
+		   
+		   return page;
+	   }
 	   
 }
