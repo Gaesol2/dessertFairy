@@ -25,9 +25,6 @@ public class ContactServiceImpl implements ContactService {
 		//결과를 반환할 HashMap 선언
 		   Map<String, Object> reSet = new HashMap<String, Object>();
 		   
-		   
-		   
-		   
 		   List<ContactDTO> contactList = null;
 		   int cnt = contactDao.getContactCnt();
 		   pdto = Page.page(cnt, pdto);	// 페이지 계산 메소드 호출
@@ -36,7 +33,6 @@ public class ContactServiceImpl implements ContactService {
 		   
 		   contactList = contactDao.getContactList(tdto);		
 		   
-		   System.out.println("결과 : "+contactList);
 		   reSet.put("pdto", pdto);
 		   reSet.put("cnt", cnt);
 		   reSet.put("contactList", contactList);
@@ -67,11 +63,8 @@ public class ContactServiceImpl implements ContactService {
 		   pdto = Page.page(cnt, pdto);
 		   tdto.setStart(pdto.getStart());
 		   tdto.setEnd(pdto.getEnd());
-		  
 		
 		myContact = contactDao.getMyContactList(tdto);
-		
-		
 		
 		reSet.put("pdto", pdto);
 		reSet.put("cnt", cnt);

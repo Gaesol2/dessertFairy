@@ -18,7 +18,11 @@
 					<input type="hidden" name="t_subject" readonly="readonly" value="${contact.t_subject}" class="chkb" size="40">
 				</span>
 				
-				<span class="contentWrite">${contact.m_id}
+				<span class="contentWrite">
+					<c:choose>
+						<c:when test="${contact.t_level>=1}"><span>관리자</span></c:when>
+						<c:otherwise>${contact.m_id}</c:otherwise>
+					</c:choose>
 					<input type="hidden" name="m_id" readonly="readonly" value="${contact.m_id}" class="chkb" size="15">
 				</span>
 			

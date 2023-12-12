@@ -257,6 +257,7 @@
 #ContentContact{
 	float: left;
 	margin-top: 170px;
+	border-bottom: solid 1px black;
 }
 
 #contactMain{
@@ -325,6 +326,7 @@
 	margin-top : 100px;
 	margin-left: 220px;
 	white-space: pre-line;
+	border-bottom: solid 1px bla;
 }
 
 .contentContent{
@@ -364,6 +366,27 @@
 }
 
 #contentBtn .regis:hover{
+    text-shadow: 0 0 0 #fefae9;
+    background-color : #064695;
+    color : #fefae9;
+}
+
+#contentBtnBox{
+	float: left;
+	margin-top : 65px;
+	margin-left: 780px;
+}
+
+#contentBtnBox .regis{
+	font-size: 18px;
+	color : #064695;
+	padding : 10px 30px 10px 30px;
+	background-color : #fefae9;
+	border : solid 1px #064695;
+	text-align: center;
+}
+
+#contentBtnBox .regis:hover{
     text-shadow: 0 0 0 #fefae9;
     background-color : #064695;
     color : #fefae9;

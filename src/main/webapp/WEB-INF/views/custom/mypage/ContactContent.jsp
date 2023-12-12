@@ -12,7 +12,7 @@
 </head>
 <body>
 <div id="contact">
-	<div>
+	<div id="contactMainBox">
 		<div id="contactList">
 			<p class="introduction">문의 글</p>
 		</div>
@@ -24,26 +24,30 @@
 				<li><a href="/contactList">문의하기</a></li>
 			</ul>
 		</div>
-	</div>
-	<div id="ContentContact">
-		<div id="contactMain">
-			<span class="contentSubject">${contact.t_subject}
-				<input type="hidden" name="t_subject" readonly="readonly" value="${contact.t_subject}" size="40">
-			</span>
-			
-			<span class="contentWrite">${contact.m_id}
-				<input type="hidden" name="m_id" readonly="readonly" value="${contact.m_id}" size="15">
-			</span>
-			
-			<span class="contentRegdate">${contact.t_regdate}
-				<input type="hidden" name="t_regdate" readonly="readonly" value="${contact.t_regdate}" size="10">
-			</span>
-		       
-		</div>
-		<div id="contentBottom">
-		 	<span class="contentContent">${contact.t_content}
-		 		<input type="hidden" name="t_content" readonly="readonly" value="${contact.t_content}" size="10">
-		 	</span>
+		<div id="ContentContact">
+			<div id="contactMain">
+				<span class="contentSubject">${contact.t_subject}
+					<input type="hidden" name="t_subject" readonly="readonly" value="${contact.t_subject}" size="40">
+				</span>
+				
+				<span class="contentWrite">
+					<c:choose>
+						<c:when test="${contact.t_level>=1}"><span>관리자</span></c:when>
+						<c:otherwise>${contact.m_id}</c:otherwise>
+					</c:choose>
+					<input type="hidden" name="m_id" readonly="readonly" value="${contact.m_id}" size="15">
+				</span>
+				
+				<span class="contentRegdate">${contact.t_regdate}
+					<input type="hidden" name="t_regdate" readonly="readonly" value="${contact.t_regdate}" size="10">
+				</span>
+			       
+			</div>
+			<div id="contentBottom">
+			 	<span class="contentContent">${contact.t_content}
+			 		<input type="hidden" name="t_content" readonly="readonly" value="${contact.t_content}" size="10">
+			 	</span>
+			</div>
 		</div>
 	</div>
 <!-- 	<div id="replybox"> -->
@@ -54,5 +58,8 @@
 <!-- 			    </span> -->
 <!-- 	</div> -->
 </div>
+	<div id="contentBtnBox">
+		<button type="button" class="regis" onclick="location.href='/contactList'">목록으로</button>
+	</div>
 </body>
 </html>
