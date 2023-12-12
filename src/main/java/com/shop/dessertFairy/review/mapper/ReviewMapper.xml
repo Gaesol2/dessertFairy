@@ -12,6 +12,11 @@
 		WHERE M_ID = #{m_id}
 	</select>
 	
+	<select id="getAdminReviewCnt" parameterType="rdto" resultType="int">
+		SELECT COUNT(R_NO) FROM REVIEW
+		WHERE M_ID = #{m_id}
+	</select>
+	
     <select id="getReviewList" resultType="rdto">
 		SELECT * FROM 
        (SELECT ROWNUM AS R_RR, A.* 

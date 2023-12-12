@@ -135,7 +135,6 @@ public class AdminMemberController {
 	   model.addAttribute("rdto", rdto);
 	   model.addAttribute("cnt", reSet.get("cnt"));
 	   model.addAttribute("memList", list);
-	   model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
 	   model.addAttribute("contentsJsp",contentsJsp);
 	   model.addAttribute("pdto",pdto);
 	   model.addAttribute("page",page);
