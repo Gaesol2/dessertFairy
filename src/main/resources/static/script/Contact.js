@@ -96,4 +96,26 @@ function validate(){
 	  }
 	  return true;
 }
+
+	function validate2(){
+		  var flen2 = $("form[name=contactUpForm] .chkc").length;
+		  
+		  if($('input[name=t_secret]').checked){
+				alert("공개 여부를 체크해주세요")
+				$('#cs_open').focus();
+				return false;
+			}
+		  for(var i = 0; i < flen2; i++){
+			  if( $('.chkc').eq(i).val()=="" || 
+			      $('.chkc').eq(i).val()==null ||
+			      $('.chkc').eq(i).val().trim()==""){
+			   alert($('.chkc').eq(i).attr('title') + '은/는 필수 입력');
+			   $('.chkc').eq(i).focus();
+			   return false;
+			  }  
+		  }
+		  return true;
+	}
+
+	
 }

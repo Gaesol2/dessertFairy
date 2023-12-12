@@ -169,7 +169,7 @@
    		DELETE FROM OREDERT
    		WHERE o_no = #{o_no}
    </delete>
-
+   
 	<select id="getRecentOno" resultType="int">
 		SELECT o_no
 		FROM (

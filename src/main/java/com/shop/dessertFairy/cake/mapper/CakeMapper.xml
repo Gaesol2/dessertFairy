@@ -75,4 +75,10 @@
 		FROM cake
 		WHERE c_no = #{c_no}
 	</select>
+	
+	<delete id="cakeCancel" parameterType="cdto">
+   		DELETE FROM CAKE
+   		WHERE C_NO = #{c_no}
+   </delete>
+   
 </mapper>
