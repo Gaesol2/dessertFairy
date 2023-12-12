@@ -99,7 +99,7 @@ public class AdminOrderController {
 		if(ssKey != null && ssKey.getM_role().equals("admin")) {
 			List<OrderDTO> DetailList = new ArrayList<>();
 			 DetailList = orderService.OrderDetail(odto);
-			
+			System.out.println("결과:"+DetailList);
 			model.addAttribute("DetailList", DetailList);
 			model.addAttribute("contentsJsp", "admin/order/OrderDetail");
 			session.setAttribute("ssKey", ssKey);
