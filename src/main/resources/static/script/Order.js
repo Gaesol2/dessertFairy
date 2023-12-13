@@ -173,7 +173,7 @@ $().ready(function(){
   
 })//ready 끝
 
-   function adminCakeCancel(obj){
+   function cakeCancel(obj){
 	   var cno = $(obj).prev().val();		/*this의 앞의 값*/
 	   if(confirm('주문을 취소하시겠습니까?')){
 		   location.href="cakeCancel?c_no="+cno;
