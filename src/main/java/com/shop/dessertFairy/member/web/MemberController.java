@@ -370,7 +370,7 @@ public class MemberController {
 			 String msg = null;
 			 String url = "/";
 			 
-			 System.out.println("아아아아아"+mdto.getM_id());
+			 mdto.setM_id(request.getParameter("m_id"));
 			 
 			 if(mdto != null) {
 				 result = memberService.updatePasswd(mdto);
@@ -386,6 +386,7 @@ public class MemberController {
 			 
 			 model.addAttribute("msg", msg);
 			 model.addAttribute("url", url);
+			 model.addAttribute("mdto", mdto);
 			 
 			 return "MsgPage";
 		 }
