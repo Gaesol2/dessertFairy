@@ -211,9 +211,10 @@ public class MemberController {
 		         if(r>0) {
 		            msg = "회원정보가 수정되었습니다.\\n 재로그인이 필요합니다.";
 		            session.invalidate();
+		         } else {
+		        	 msg = "수정되지 않았습니다. \\n 관리자에게 문의바랍니다.";
+		        	 url = "/";
 		         }
-		         else msg = "수정되지 않았습니다. \\n 관리자에게 문의바랍니다.";
-		         url = "/";
 		      }else {
 		         msg = "로그인 먼저 필요합니다.";
 		         url = "/login";
@@ -299,6 +300,8 @@ public class MemberController {
 				 Model model, 
 				 MemberDTO mdto) {
 			 
+			 HttpSession session = request.getSession();
+		      
 			 int result = 0;
 			 String id = null;
 			 String msg = null;
@@ -315,6 +318,8 @@ public class MemberController {
 					 } else msg = "회원정보가 없습니다.";
 					 url = "/memberIdSearch";
 				 }
+			 } else {
+				 session.invalidate();
 			 }
 			 
 			 model.addAttribute("msg", msg);
@@ -365,8 +370,8 @@ public class MemberController {
 				 Model model, 
 				 MemberDTO mdto) {
 			 
+			 HttpSession session = request.getSession();
 			 int result = 0;
-			 String id = null;
 			 String msg = null;
 			 String url = "/";
 			 
@@ -376,11 +381,12 @@ public class MemberController {
 				 result = memberService.updatePasswd(mdto);
 				 
 				 if(result > 0) {
-					 msg = "비밀번호가 변경되었습니다.";
+					 msg = "비밀번호가 변경되었습니다. 재로그인 해주세요";
+					 session.invalidate();
 					 url = "login";
 				 }else {
 					 msg = "비밀번호 변경 실패. 관리자에게 문의하세요";
-					 url = "memberPwSearch";
+					 url = "/";
 				 }
 			 }
 			 

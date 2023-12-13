@@ -4,7 +4,8 @@
 
  $().ready(function(){
 	$(".update_pw").on("click", function(){
-			location.href="pwSearchForm";
+			var m_id = $("input[name='m_id']").val();
+			location.href="pwSearchForm?m_id="+m_id;
 		})
 		
 	  $('.submit1').on("click",function(){
