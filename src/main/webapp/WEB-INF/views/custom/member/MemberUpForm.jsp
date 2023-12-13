@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="/css/Mypage.css">
 <script src="/script/mypage.js"></script>
+<script src="/script/MemberJoin.js"></script>
 
 <form action="memUpProc" name="topForm1" method="post" >
 	<div id="mypage">
@@ -58,14 +59,16 @@
 				<div class="mpl">
 					<p class="mpl1">우편번호</p>
 					<span class="mpl2">
-						<input type="text" class="chk1 in" name="m_zipcode" value="${mdto.m_zipcode}"size="30">
+						<input type="text" class="chk1 in" name="m_zipcode" value="${mdto.m_zipcode}"size="30" title="우편번호" readonly="readonly" id="sample6_postcode">
+						<button type="button" onclick="zipCheck()">우편번호 찾기</button>
 					</span>
 				</div>
 				<div class="mpl">
 					<p class="mpl1">주소</p>
 					<span class="mpl2">
-						<input type="text" class="chk1 in" name="m_address" value="${mdto.m_address}"size="40">
-						<input type="text" class="chk1 in" name="m_address2" value="${mdto.m_address2}"size="15">
+						<input type="text" class="chk1 in" name="m_address" value="${mdto.m_address}"size="40" title="주소" readonly="readonly" id="sample6_address">
+						<input type="text" class="chk1 in" name="m_address2" value="${mdto.m_address2}"size="15" id="sample6_detailAddress">
+						<input type="hidden" id="sample6_extraAddress">
 					</span>
 				</div>
 			</div>
