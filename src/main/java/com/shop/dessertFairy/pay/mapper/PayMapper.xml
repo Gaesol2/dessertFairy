@@ -41,4 +41,9 @@
 		FROM pay
 		WHERE o_no = #{o_no}
 	</select>
+	
+	<delete id="deletePay" parameterType="odto">
+		DELETE FROM pay
+		WHERE o_no = #{o_no}
+	</delete>
 </mapper>

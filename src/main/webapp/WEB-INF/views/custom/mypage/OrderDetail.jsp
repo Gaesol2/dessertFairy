@@ -86,15 +86,14 @@
 	</form>
 	<div id="order_button">
 		<c:if test="${DetailList[0].o_state==1}">
-			<form action="orderListPay" method="post" name="onoForm">
+			<form action="orderListPay" method="post" name="onoForm1">
 				<input type="hidden" name="o_no" value="${DetailList[0].o_no}">
 				<input class="button" type="submit" value="결제하기">
 			</form>
 		</c:if>
 		<c:if test="${DetailList[0].o_state==2}">
-			<form action="cancelPay" method="post" name="onoForm">
+			<form action="cancelPay" method="post" name="onoForm2">
 				<input type="hidden" name="o_no" value="${DetailList[0].o_no}">
-				<input type="hidden" name="p_transactionid" value="">
 				<input class="button" type="submit" value="결제 취소하기">
 			</form>
 		</c:if>

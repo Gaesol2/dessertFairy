@@ -104,4 +104,9 @@ public class PayServiceImpl implements PayService {
 	public String getType(OrderDTO odto) {
 		return payDao.getType(odto);
 	}
+
+	@Override
+	public void deletePay(OrderDTO odto) {
+		payDao.deletePay(odto);
+	}
 }

@@ -234,4 +234,9 @@ public class OrderServiceImpl implements OrderService {
 		
 	}
 
+	@Override
+	public void deleteOrder(OrderDTO odto) {
+		orderDao.deleteOrder(odto);
+	}
+
 }

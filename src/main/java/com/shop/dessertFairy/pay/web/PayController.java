@@ -119,8 +119,7 @@ public class PayController {
 	      String msg = null;
 	      String url = null;
 	      String page = null;
-	      String contentsJsp = null;
-	      
+
 	      if(sdto==null) {
 	         msg = "로그인이 필요합니다.";
 	         url = "login";
@@ -137,11 +136,9 @@ public class PayController {
 			
 			if("auth".equals(pay)){
 				//인증 결제
-				System.out.println("인증결제");
 				payUrl = "https://api.testpayup.co.kr/v2/api/payment/" + merchantId + "/cancel2";
 			} else {
 				//카카오 결제
-				System.out.println("카카오결제");
 				payUrl = "https://api.testpayup.co.kr/ep/api/kakao/" + merchantId + "/cancel";
 			}
 			
@@ -157,19 +154,28 @@ public class PayController {
 			map.put("cancelReason",cancelReason);
 			
 			Map<String,Object> cancelResult = payService.JsonApi(payUrl, map);
-			System.out.println("결제 취소");
-			System.out.println(cancelResult);
+			System.out.println("결과"+cancelResult.get("responseCode"));
+			
 			if("0000".equals(cancelResult.get("responseCode"))) {
+				
+				System.out.println("완료처리");
+				payService.deletePay(odto);
+				orderService.deleteOrder(odto);
+				
 				msg="결제가 취소되었습니다.";
 				url="orderList";
 				page = "MsgPage";
 			} else {
-				msg="결제가 취소에 실패하였습니다.";
+				System.out.println("실패 처리");
+				msg="결제 취소에 실패하였습니다.";
 				url="orderList";
 				page = "MsgPage";
 			}
 	      }
-		
+
+	      model.addAttribute("msg", msg);
+	      model.addAttribute("url", url);
+	      
 		return page;
 	}
 }

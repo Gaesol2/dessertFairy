@@ -48,5 +48,7 @@ public interface OrderService {
 
 	public void review(OrderDTO odto);
 
+	public void deleteOrder(OrderDTO odto);
+
 	
 }

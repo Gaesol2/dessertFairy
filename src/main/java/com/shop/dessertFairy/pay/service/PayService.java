@@ -17,5 +17,7 @@ public interface PayService {
 	public String getTransactionId(OrderDTO odto);
 
 	public String getType(OrderDTO odto);
+
+	public void deletePay(OrderDTO odto);
 	
 }
