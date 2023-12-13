@@ -89,7 +89,9 @@
 						})
 					</script>
 					<input type="submit" value="상태수정" class="stateUpBtn">
-					<input type="submit" value="주문취소" class="orderCancel">
+					<c:if test="${DetailList[0].o_state<5}">
+						<input type="submit" value="주문취소" class="orderCancel">
+					</c:if>
 				</div>
 			</div>
 		</div>
