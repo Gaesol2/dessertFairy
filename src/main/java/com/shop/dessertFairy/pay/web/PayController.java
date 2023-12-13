@@ -154,11 +154,9 @@ public class PayController {
 			map.put("cancelReason",cancelReason);
 			
 			Map<String,Object> cancelResult = payService.JsonApi(payUrl, map);
-			System.out.println("결과"+cancelResult.get("responseCode"));
 			
 			if("0000".equals(cancelResult.get("responseCode"))) {
 				
-				System.out.println("완료처리");
 				payService.deletePay(odto);
 				orderService.deleteOrder(odto);
 				
@@ -166,7 +164,6 @@ public class PayController {
 				url="orderList";
 				page = "MsgPage";
 			} else {
-				System.out.println("실패 처리");
 				msg="결제 취소에 실패하였습니다.";
 				url="orderList";
 				page = "MsgPage";
