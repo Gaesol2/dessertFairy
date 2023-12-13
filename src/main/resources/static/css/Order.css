@@ -494,8 +494,27 @@ textarea {
     color : #fefae9;
 }
 
+/* 케이크 주문 취소 버튼 Start*/
+#cakeOrder_cancel{
+	width: 1024px;
+	margin-top : 80px;
+	margin-left: 470px;
+}
 
+#cakeOrder_cancel .adminCakeCancel{
+	color : #064695;
+	padding : 5px 15px 5px 15px;
+	background-color : #fefae9;
+	border : solid 1px #064695;
+	text-align: center;
+}
 
+#cakeOrder_cancel .adminCakeCancel:hover{
+    text-shadow: 0 0 0 #fefae9;
+    background-color : #064695;
+    color : #fefae9;
+}
+/* 케이크 주문 취소 버튼 END */
 
 
 

@@ -107,8 +107,10 @@
 									</span>
 								</div>
 							</div>
-							<input type="text" name="c_no" value="${cake.c_no}">
-							<input type="button" value="주문취소" class="adminCakeCancel" onclick="adminCakeCancel(this)">
+							<div id="cakeOrder_cancel">
+								<input type="hidden" name="c_no" value="${cake.c_no}">
+								<input type="button" value="주문취소" class="adminCakeCancel" onclick="adminCakeCancel(this)">
+							</div>	
 						</div>
 					</form>
 					</c:forEach>

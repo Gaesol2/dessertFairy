@@ -58,7 +58,7 @@
 		</div>
 		<div id="reviewPasswd">
 			<p class="spanPasswd">비밀번호</p>
-			<span><input type="password" name="r_passwd" title="비밀번호" class="chkb in" size="20" maxlength="6"></span>
+			<span><input type="password" id="r_passwd" name="r_passwd" title="비밀번호" class="chkb in" size="20" maxlength="6"></span>
 			<span class="explanation">*비밀번호는 숫자만 입력 가능하며 4~6글자 입력하시오.</span>
 		</div>
 		<div id="myBtn">

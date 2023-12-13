@@ -32,6 +32,13 @@ $().ready(function(){
    });
    
    $('.reviewUpdate').on('click', function(){
+	   var pattern = /^[0-9]{4,6}$/;
+		var pw = $('#r_passwd').val();
+		
+		if(!pattern.test(pw)){
+			alert('4~6자리 숫자만 가능합니다');
+			return false;
+		}
    	   $("form[name=reviewForm]").attr('action', "/upProc")
    	   $("form[name=reviewForm]").submit();
    });
@@ -59,7 +66,6 @@ $().ready(function(){
 		 else if(ratingLength==3) $("#rate3").attr("checked","checked");
 		 else if(ratingLength==2) $("#rate4").attr("checked","checked");
 		 else $("#rate5").attr("checked","checked");		 
-	 
 	 
    });//ready 끝
    
@@ -105,13 +111,6 @@ function validate(){
 		  }  
 	  }
 	  
-		var pattern = /^[0-9]{4,6}$/;
-		var pw = $('#r_passwd').val();
-		if(!pattern.test(pw)){
-			alert('4~6자리 숫자만 가능합니다');
-			return false;
-		}
-		
 	  return true;
 }
 
