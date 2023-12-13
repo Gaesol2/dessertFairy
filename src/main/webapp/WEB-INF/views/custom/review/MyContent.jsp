@@ -64,9 +64,7 @@
 					<input type="hidden" name="r_content" readonly="readonly" value="${review.r_content}" class="chkb" size="10">
 				</span>
 			</div>
-			<div id="contentPasswd">
 				<input type="hidden" name="r_passwd" readonly="readonly" value="${review.r_passwd}" class="chkb in" size="10">
-			</div>
 		</div>
 	
 		<div id="replybox">

@@ -4,6 +4,7 @@
 $().ready(function(){
 	let idchk=1;
  	let pcheck = true;	//두개가 다르면 true,같으면 false
+ 	let pCombiCheck = true;
 	
 		$('#idSearch').on('click', function(){
 		var flen = $("form[name=idSearchForm] .idChk").length;
@@ -30,11 +31,19 @@ $().ready(function(){
 			  return false;
 			}
 		}
+		if(pCombiCheck){
+			 alert('패스워드 형식이 잘못되었습니다.');
+			 $('#password').focus();
+			 $('font[id=pcombiCheck]').text('');
+			 return false;
+		  }
+		
 		if(pcheck){
 			alert("비밀번호가 일치하지 않습니다.")
 		} else {
 			$("form[name=pwChangeForm]").submit();
 		}
+		
 	}); 
 		
 		$('#password, #cpassword').keyup(function(){				// 회원가입 비밀번호 확인
