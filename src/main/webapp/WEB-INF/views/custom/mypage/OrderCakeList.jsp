@@ -10,7 +10,7 @@
 <div id="order">
 	<div>
 		<div id="mainList">
-			<p class="introduction" name="m_id">${m_name}님의 주문목록</p>
+			<p class="introduction" name="m_id">${ssKey.m_name}님의 주문목록</p>
 		</div>
 		<div class="topList">
 			<ul class="list">
