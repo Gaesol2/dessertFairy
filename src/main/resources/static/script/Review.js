@@ -104,6 +104,14 @@ function validate(){
 		   return false;
 		  }  
 	  }
+	  
+		var pattern = /^[0-9]{4,6}$/;
+		var pw = $('#r_passwd').val();
+		if(!pattern.test(pw)){
+			alert('4~6자리 숫자만 가능합니다');
+			return false;
+		}
+		
 	  return true;
 }
 
