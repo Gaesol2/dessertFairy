@@ -14,9 +14,6 @@
 	
 	
 	<div id="orderList">
-		<div id="memlist">
-			<a href= "/memberMgt" class="mmlist">회원 목록</a>
-		</div>
 		<table class="orderTable">
 			<tr>
 				<th class="mml1">주문 번호</th>
@@ -56,6 +53,9 @@
 				</c:when>
 			</c:choose>
 		</table>
+		<div id="memberListBtn">
+			<a href="/memberMgt" class="memListBtn">회원목록</a>
+		</div>	
 		
 	
 		<form action="" name="content" method="post">
@@ -70,4 +70,5 @@
 		<input type="hidden" name="o_no" value="${order.o_no}">
 		<input type="hidden" name="m_id" value="${order.m_id}">
 	</form>
+	
 </div>
