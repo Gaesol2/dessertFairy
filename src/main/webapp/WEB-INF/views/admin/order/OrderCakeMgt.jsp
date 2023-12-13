@@ -109,7 +109,7 @@
 								</div>
 								<div id="cakeOrder_cancel">
 									<input type="hidden" name="c_no" value="${cake.c_no}">
-									<input type="button" value="주문취소" class="adminCakeCancel" onclick="adminCakeCancel(this)">
+									<input type="button" value="주문취소" class="adminCakeCancel" onclick="cakeCancel(this)">
 								</div>	
 							</div>
 						</form>

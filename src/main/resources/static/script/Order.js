@@ -171,20 +171,13 @@ $().ready(function(){
       });
   });
   
-   $('.cakeCancel').on('click', function(){
-	   var cake = confirm('주문을 취소하시겠습니까?');
-	   if(cake)
-       $('form[name=cakeCancelForm]').submit();
-   });
-
 })//ready 끝
 
    function adminCakeCancel(obj){
-	   var cake = confirm('주문을 취소하시겠습니까?');
-	   if(cake){
-		   var cno = $(obj).prev().val();		/*this의 앞의 값*/
+	   var cno = $(obj).prev().val();		/*this의 앞의 값*/
+	   if(confirm('주문을 취소하시겠습니까?')){
 		   location.href="cakeCancel?c_no="+cno;
-	   } else{return false;}
+	   } else { return false; }
    };
 
    function orderDetail(obj){

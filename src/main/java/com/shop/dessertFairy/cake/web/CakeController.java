@@ -102,11 +102,11 @@ public class CakeController {
 		 //변수 선언
 		   String msg = null;
 		   String url = null;
-		   String contentsJsp = "/custom/mypage/OrderCakeList";
 		   HttpSession session = request.getSession();
 		   MemberDTO sdto = (MemberDTO) session.getAttribute("ssKey");
 		   
-		   System.out.println("결과 : "+cdto);
+		   cdto.setC_no(Integer.parseInt(request.getParameter("c_no")));
+		   
 		   if(sdto!=null) {
 			   int result = cakeService.cakeCancel(cdto);
 			   if(result>0) {
@@ -134,7 +134,6 @@ public class CakeController {
 		   String page = "MsgPage";
 		   
 		   session.setAttribute("sdto", sdto);
-		   model.addAttribute("contentsJsp",contentsJsp);
 		   model.addAttribute("page",page);
 		   model.addAttribute("url",url);
 		   model.addAttribute("msg",msg);
