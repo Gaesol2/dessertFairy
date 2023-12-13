@@ -11,9 +11,11 @@ $().ready(function(){
 		if("payBtn"==id){
 			pay = "auth";
 			  $("form[name=kcp_order_info]").attr("action","/authPay?pay=auth");
+			  $("input[name='p_type']").val("auth");
 		} else {
 			pay = "kakao";
 			  $("form[name=kcp_order_info]").attr("action","/authPay?pay=kakao");
+			  $("input[name='p_type']").val("kakao");
 		}
 		
 		var ono = $("input[name=o_no]").val();

@@ -12,6 +12,8 @@
 		,p_cardname
 		,p_cardno
 		,p_quota
+		,o_no
+		,p_type
 	)
 	VALUES(
 		#{p_transactionid}
@@ -22,7 +24,21 @@
 		,#{p_cardname     }
 		,#{p_cardno       }
 		,#{p_quota        }
+		,#{o_no        }
+		,#{p_type        }
 	)
 	
 	</insert>
+	
+	<select id="getTransactionId" parameterType="odto">
+		SELECT p_transactionid
+		FROM pay
+		WHERE o_no = #{o_no}
+	</select>
+
+	<select id="getType" parameterType="odto">
+		SELECT p_type
+		FROM pay
+		WHERE o_no = #{o_no}
+	</select>
 </mapper>

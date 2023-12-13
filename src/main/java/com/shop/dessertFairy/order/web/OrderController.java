@@ -167,8 +167,6 @@ public class OrderController {
 	         odto.setO_no(ono);
 	         odto = orderWrapper.getOrderDetail(odto);
 	         
-	         System.out.println("odto=========="+odto);
-	         
 	         model.addAttribute("odto",odto);
 	         model.addAttribute("o_no",ono);
 	

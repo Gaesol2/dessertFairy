@@ -1,5 +1,6 @@
 package com.shop.dessertFairy.pay.web;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
@@ -37,7 +38,7 @@ public class PayController {
 	public String pay(HttpServletRequest request, HttpServletResponse response,
 			Model model, PayDTO payDto, OrderDTO odto) {
 
-		//세션 받아와서 저장
+		  //세션 받아와서 저장
 	      HttpSession session = request.getSession();
 	      MemberDTO sdto = (MemberDTO) session.getAttribute("ssKey");
 	      
@@ -107,4 +108,68 @@ public class PayController {
       return page;
 	}
 	
+	@RequestMapping("cancelPay")
+	public String cancelPay(HttpServletRequest request, HttpServletResponse response,
+			Model model, PayDTO payDto, OrderDTO odto) {
+	
+		 //세션 받아와서 저장
+	      HttpSession session = request.getSession();
+	      MemberDTO sdto = (MemberDTO) session.getAttribute("ssKey");
+	      
+	      String msg = null;
+	      String url = null;
+	      String page = null;
+	      String contentsJsp = null;
+	      
+	      if(sdto==null) {
+	         msg = "로그인이 필요합니다.";
+	         url = "login";
+	         page = "MsgPage";
+	         
+	      } else {
+	    	  
+			String merchantId = "himedia";
+			String transactionId = payService.getTransactionId(odto);
+			String payUrl = "";
+			String cancelReason = "";
+			String signature = "";
+			String pay = payService.getType(odto);
+			
+			if("auth".equals(pay)){
+				//인증 결제
+				System.out.println("인증결제");
+				payUrl = "https://api.testpayup.co.kr/v2/api/payment/" + merchantId + "/cancel2";
+			} else {
+				//카카오 결제
+				System.out.println("카카오결제");
+				payUrl = "https://api.testpayup.co.kr/ep/api/kakao/" + merchantId + "/cancel";
+			}
+			
+			try {
+				signature = payService.getSHA256Hash(merchantId + "|" + transactionId + "|" + "ac805b30517f4fd08e3e80490e559f8e");
+			} catch (NoSuchAlgorithmException e) {
+				e.printStackTrace();
+			}
+			
+			Map<String,String> map = new HashMap<>();
+			map.put("transactionId",transactionId);
+			map.put("signature",signature);
+			map.put("cancelReason",cancelReason);
+			
+			Map<String,Object> cancelResult = payService.JsonApi(payUrl, map);
+			System.out.println("결제 취소");
+			System.out.println(cancelResult);
+			if("0000".equals(cancelResult.get("responseCode"))) {
+				msg="결제가 취소되었습니다.";
+				url="orderList";
+				page = "MsgPage";
+			} else {
+				msg="결제가 취소에 실패하였습니다.";
+				url="orderList";
+				page = "MsgPage";
+			}
+	      }
+		
+		return page;
+	}
 }

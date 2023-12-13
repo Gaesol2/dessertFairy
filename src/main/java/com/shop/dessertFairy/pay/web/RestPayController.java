@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.shop.dessertFairy.cake.dto.CakeDTO;
 import com.shop.dessertFairy.order.dto.OrderDTO;
 import com.shop.dessertFairy.order.service.OrderService;
+import com.shop.dessertFairy.pay.dto.PayDTO;
 import com.shop.dessertFairy.pay.service.PayService;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -65,11 +66,11 @@ public class RestPayController {
 		}
 
 		if("auth".equals(pay)) {
+			//일반 결제
 			url = "https://api.testpayup.co.kr/ap/api/payment/" + merchantId + "/order";
-			System.out.println("일반결제");
 		} else {
+			//카카오 결제
 			url = "https://api.testpayup.co.kr/ep/api/kakao/"+merchantId+"/order";
-			System.out.println("카카오 결제");
 		}
 		
 		//api 통신 서비스 만들기

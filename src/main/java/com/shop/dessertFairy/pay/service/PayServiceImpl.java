@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.shop.dessertFairy.order.dto.OrderDTO;
 import com.shop.dessertFairy.pay.dao.PayDAO;
 import com.shop.dessertFairy.pay.dto.PayDTO;
 
@@ -92,5 +93,15 @@ public class PayServiceImpl implements PayService {
 	@Override
 	public int insertPay(PayDTO payDto) {
 		return payDao.insertPay(payDto);
+	}
+
+	@Override
+	public String getTransactionId(OrderDTO odto) {
+		return payDao.getTransactionId(odto);
+	}
+
+	@Override
+	public String getType(OrderDTO odto) {
+		return payDao.getType(odto);
 	}
 }
