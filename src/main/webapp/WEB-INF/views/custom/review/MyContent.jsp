@@ -65,7 +65,7 @@
 				</span>
 			</div>
 			<div id="contentPasswd">
-				<input type="password" name="r_passwd" readonly="readonly" value="${review.r_passwd}" class="chkb in" size="10">
+				<input type="hidden" name="r_passwd" readonly="readonly" value="${review.r_passwd}" class="chkb in" size="10">
 			</div>
 		</div>
 	
