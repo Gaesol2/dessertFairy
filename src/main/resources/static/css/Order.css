@@ -501,7 +501,7 @@ textarea {
 	margin-left: 470px;
 }
 
-#cakeOrder_cancel .adminCakeCancel{
+#cakeOrder_cancel .cakeCancel{
 	color : #064695;
 	padding : 5px 15px 5px 15px;
 	background-color : #fefae9;
@@ -509,7 +509,7 @@ textarea {
 	text-align: center;
 }
 
-#cakeOrder_cancel .adminCakeCancel:hover{
+#cakeOrder_cancel .cakeCancel:hover{
     text-shadow: 0 0 0 #fefae9;
     background-color : #064695;
     color : #fefae9;

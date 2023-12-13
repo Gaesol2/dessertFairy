@@ -183,7 +183,7 @@ public class AdminOrderController {
 	      String url = null;
 	      HttpSession session = request.getSession();
 	      MemberDTO ssKey = (MemberDTO) session.getAttribute("ssKey");
-	      
+	      System.out.println("결과 "+odto);
 	      
 	      if(ssKey != null && ssKey.getM_role().equals("admin")) {
 	    	 orderService.dessertMgt(odto);
