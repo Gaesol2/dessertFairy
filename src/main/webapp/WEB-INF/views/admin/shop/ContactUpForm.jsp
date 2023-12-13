@@ -39,14 +39,6 @@
 				<input type="text" name="t_content" class="chkc contactReContent in" title="내용" value="${tdto.t_content}">
 			</span>
 		</div>
-		<div id="conPasswd">
-			<p class="spanPasswd">비밀번호</p>
-			<span>
-				<input type="password" name="t_passwd" title="비밀번호" class="chkc in" size="20"
-		        maxlength="6">
-		    </span>
-			<span class="explanation">*비밀번호는 숫자만 입력 가능하며 4~6글자 입력하시오.</span>
-		</div>
 		<div id="conBtn">
 			<input type="submit" class="regis" value="수정">
 		</div>
