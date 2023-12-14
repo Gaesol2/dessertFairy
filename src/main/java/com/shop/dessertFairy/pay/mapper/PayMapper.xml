@@ -12,7 +12,6 @@
 		,p_cardname
 		,p_cardno
 		,p_quota
-		,o_no
 		,p_type
 	)
 	VALUES(
@@ -24,26 +23,25 @@
 		,#{p_cardname     }
 		,#{p_cardno       }
 		,#{p_quota        }
-		,#{o_no        }
 		,#{p_type        }
 	)
 	
 	</insert>
 	
-	<select id="getTransactionId" parameterType="odto">
+	<select id="getTransactionId" parameterType="paydto">
 		SELECT p_transactionid
 		FROM pay
-		WHERE o_no = #{o_no}
+		WHERE p_ordernumber = #{o_no}
 	</select>
 
-	<select id="getType" parameterType="odto">
+	<select id="getType" parameterType="paydto">
 		SELECT p_type
 		FROM pay
-		WHERE o_no = #{o_no}
+		WHERE p_ordernumber = #{o_no}
 	</select>
 	
-	<delete id="deletePay" parameterType="odto">
+	<delete id="deletePay" parameterType="paydto">
 		DELETE FROM pay
-		WHERE o_no = #{o_no}
+		WHERE p_ordernumber = #{o_no}
 	</delete>
 </mapper>

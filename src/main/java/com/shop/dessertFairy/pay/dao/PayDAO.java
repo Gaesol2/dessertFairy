@@ -10,10 +10,10 @@ public interface PayDAO {
 
 	int insertPay(PayDTO payDto);
 
-	String getTransactionId(OrderDTO odto);
+	String getTransactionId(PayDTO payDto);
 
-	String getType(OrderDTO odto);
+	String getType(PayDTO payDto);
 
-	void deletePay(OrderDTO odto);
+	void deletePay(PayDTO payDto);
 
 }

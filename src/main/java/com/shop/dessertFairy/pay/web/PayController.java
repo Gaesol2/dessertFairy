@@ -82,6 +82,8 @@ public class PayController {
 	        
 	        page = "Main";
 	        contentsJsp = "custom/order/OrderDone";
+	        
+	        System.out.println("결과" + orderResult);
 
 	        payDto.setP_transactionid(String.valueOf(orderResult.get("transactionId")));
 	        payDto.setP_ordernumber(String.valueOf(orderResult.get("orderNumber")));
@@ -92,7 +94,7 @@ public class PayController {
 	        payDto.setP_cardno(String.valueOf(orderResult.get("cardNo")));
 	        payDto.setP_quota(String.valueOf(orderResult.get("quota")));
 	        
-	        result = payService.insertPay(payDto);
+        	result = payService.insertPay(payDto);
 	        
 	        if(result > 0) orderService.payAfterState(odto);
 	        
@@ -128,11 +130,11 @@ public class PayController {
 	      } else {
 	    	  
 			String merchantId = "himedia";
-			String transactionId = payService.getTransactionId(odto);
+			String transactionId = payService.getTransactionId(payDto);
 			String payUrl = "";
 			String cancelReason = "";
 			String signature = "";
-			String pay = payService.getType(odto);
+			String pay = payService.getType(payDto);
 			
 			if("auth".equals(pay)){
 				//인증 결제
@@ -157,7 +159,7 @@ public class PayController {
 			
 			if("0000".equals(cancelResult.get("responseCode"))) {
 				
-				payService.deletePay(odto);
+				payService.deletePay(payDto);
 				orderService.deleteOrder(odto);
 				
 				msg="결제가 취소되었습니다.";
@@ -165,7 +167,7 @@ public class PayController {
 				page = "MsgPage";
 			} else {
 				msg="결제 취소에 실패하였습니다.";
-				url="orderList";
+				url="/";
 				page = "MsgPage";
 			}
 	      }

@@ -96,17 +96,17 @@ public class PayServiceImpl implements PayService {
 	}
 
 	@Override
-	public String getTransactionId(OrderDTO odto) {
-		return payDao.getTransactionId(odto);
+	public String getTransactionId(PayDTO payDto) {
+		return payDao.getTransactionId(payDto);
 	}
 
 	@Override
-	public String getType(OrderDTO odto) {
-		return payDao.getType(odto);
+	public String getType(PayDTO payDto) {
+		return payDao.getType(payDto);
 	}
 
 	@Override
-	public void deletePay(OrderDTO odto) {
-		payDao.deletePay(odto);
+	public void deletePay(PayDTO payDto) {
+		payDao.deletePay(payDto);
 	}
 }
