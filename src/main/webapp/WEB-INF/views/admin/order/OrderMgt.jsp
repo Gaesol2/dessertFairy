@@ -21,6 +21,9 @@
     </div>
    
    <div id="adminOrderList">
+      <div id="odmBtn">
+         <input type="button" class="orderUpBtn" value="상태수정">
+      </div>
       <table class="listTable" id="orderTable">
          <tr>
             <th>선택</th>
@@ -72,9 +75,6 @@
             </c:when>
          </c:choose>
       </table>
-      <div id="odmBtn">
-         <input type="button" class="orderUpBtn" value="상태수정">
-      </div>
    </div>
    <form action="" name="content" method="post">
       <input type="hidden" name="bno" value="">
