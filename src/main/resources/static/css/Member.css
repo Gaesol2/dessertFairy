@@ -220,6 +220,11 @@
 	width: 200PX; 
 }
 
+.mol1:hover{
+	color:  rgb(0, 128, 0);
+    text-decoration: none; font-weight: bold;
+}
+
 .mol2{
 	text-align: center;
 	width: 220PX; 
@@ -387,6 +392,11 @@
 .mml3{
 	width: 300px;
 	text-align: center;
+}
+
+.mml3:hover{
+	color:  rgb(0, 128, 0);
+    text-decoration: none; font-weight: bold;
 }
 
 .mml4{

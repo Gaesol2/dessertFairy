@@ -81,6 +81,11 @@
 	text-align: center;
 }
 
+.dol4:hover{
+	color:  rgb(0, 128, 0);
+    text-decoration: none; font-weight: bold;
+}
+
 .dol5{
 	width: 80px;
 	text-align: center;
