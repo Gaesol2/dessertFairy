@@ -11,7 +11,7 @@
 			<p class="introduction">답글쓰기</p>
 	    </div>
   	</div>
-	<form action="contactReplyProc" name="conReplyForm" id="conReplyForm" method="post">
+	<form action="contactReplyProc" name="contactForm" id="conReplyForm" method="post">
 		<div id="conWrite">
 			<p class="spanName">제목</p>
 			<span>
@@ -48,7 +48,7 @@
 		</div>
 
 		<div id="conBtn">
-			<input type="submit" class="conSubmit regis" value="등록">
+			<input type="button" class="conSubmit regis" value="등록">
 		</div>
 		<input type="hidden" name="t_no" value="${tdto.t_no}">
 		<input type="hidden" name="t_level" value="${tdto.t_level}">

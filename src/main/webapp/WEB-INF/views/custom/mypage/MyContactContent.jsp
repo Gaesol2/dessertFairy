@@ -52,13 +52,6 @@
 		<div id="contentPasswd">
 			<input type="hidden" name="t_passwd" readonly="readonly" value="${contact.t_passwd}" class="chkc in" size="10">
 		</div>
-<!-- 	<div id="replybox"> -->
-<!-- 				<p class="adminReply">사장님 답글</p> -->
-<!-- 				<span class="replycontent"> -->
-<!-- 			         <input type="text" class="replys" name="r_reply" -->
-<%-- 			             value="${contact.r_reply}" placeholder="아직 답글이 없습니다." readonly="readonly"> --%>
-<!-- 			    </span> -->
-<!-- 	</div> -->
 		<div id="myBtn">
 			<c:if test="${ssKey.m_id == contact.m_id}">
 				<button type="button" name="update" class="contactUp" onclick="update('u')">수정</button>

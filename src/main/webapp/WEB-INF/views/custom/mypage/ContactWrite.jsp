@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="/css/Contact.css">
 <script src="/script/Contact.js"></script>
 
@@ -19,7 +18,7 @@
 			</ul>
 		</div>
 	</div>
-	<form action="contactWriteProc" name="conForm" id="myform" method="post">
+	<form action="contactWriteProc" name="contactForm" id="myform" method="post">
 		<div id="conWrite">
 			<p class="spanName">제목</p>
 			<span>
@@ -49,13 +48,13 @@
 		<div id="conPasswd">
 			<p class="spanPasswd">비밀번호</p>
 			<span>
-				<input type="password" name="t_passwd" title="비밀번호" class="chkc in" size="20"
+				<input type="password" name="t_passwd" id="t_passwd" title="비밀번호" class="chkc in" size="20"
 		        maxlength="6">
 		    </span>
 			<span class="explanation">*비밀번호는 숫자만 입력 가능하며 4~6글자 입력하시오.</span>
 		</div>
 		<div id="conBtn">
-			<input type="submit" class="conSubmit regis" value="등록">
+			<input type="button" class="conSubmit regis" value="등록">
 		</div>
 	</form>
 </div>
