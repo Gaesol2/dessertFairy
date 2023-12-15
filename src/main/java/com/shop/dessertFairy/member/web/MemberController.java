@@ -238,8 +238,8 @@ public class MemberController {
 		      String msg = null;
 		      String url = null;
 		      if(custom!=null) {
-		         int r = memberWrapper.memDelete(custom);
-		         if(r>0) {
+		         boolean r = memberWrapper.memDelete(custom);
+		         if(r) {
 		            msg = "회원탈퇴 처리 되었습니다";
 		            session.invalidate(); //세션삭제
 		         }
@@ -254,6 +254,7 @@ public class MemberController {
 		      page = "MsgPage";
 		      model.addAttribute("msg", msg);
 		      model.addAttribute("url", url);
+		      model.addAttribute("mdto", custom);
 		   
 		      return page;
 		   }

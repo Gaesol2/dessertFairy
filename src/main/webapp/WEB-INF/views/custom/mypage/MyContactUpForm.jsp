@@ -19,7 +19,7 @@
 			</ul>
 		</div>
 	</div>
-	<form action="" name="contactUpForm" id="myupform" method="post">
+	<form action="" name="contactForm" id="myupform" method="post">
 		<input type="hidden" name="t_no" value="${contact.t_no}">
 		<div id="conWrite">
 			<p class="spanName">제목</p>
@@ -34,7 +34,10 @@
 		</div>
 		<div class="form-inline">
 			<div class="secretBox">
-				<input type="hidden" name="t_secret" value="${contact.t_secret}"/>
+				<input type="radio" name="t_secret" id="cs_open" value="Y" class="radio" />
+				<span class="ml_10">공개</span>&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="t_secret" id="cs_open" value="N" class="radio" />
+				<span class="ml_10">비공개</span>&nbsp;
 			</div>
 		</div>
 	  
@@ -46,12 +49,12 @@
 		</div>
 		<div id="conPasswd">
 			<p class="spanPasswd">비밀번호</p>
-			<span><input type="password" name="t_passwd" title="비밀번호" class="chkc in" size="20"
+			<span><input type="password" name="t_passwd" id="t_passwd" title="비밀번호" class="chkc in" size="20"
 			         maxlength="6"></span>
 			<span class="explanation">*비밀번호는 숫자만 입력 가능하며 4~6글자 입력하시오.</span>
 		</div>
 		<div id="conBtn">
-			<input type="submit" class="contactUpdate" value="등록">
+			<input type="button" class="contactUpdate" value="등록">
 		</div>
 	</form>
 </div>
