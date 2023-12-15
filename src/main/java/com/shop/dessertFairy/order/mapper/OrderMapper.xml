@@ -293,4 +293,9 @@
    	WHERE O_NO = #{o_no}
    </update>
    
+   <select id="orderCheck" parameterType="mdto" resultType="int">
+         SELECT O_STATE FROM ORDERT
+         WHERE M_ID = #{m_id}
+   </select>
+   
 </mapper>

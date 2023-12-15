@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.shop.dessertFairy.dessert.dto.DessertDTO;
+import com.shop.dessertFairy.member.dto.MemberDTO;
 import com.shop.dessertFairy.order.dto.OrderDTO;
 
 @Mapper
@@ -51,4 +52,5 @@ public interface OrderDAO {
 
 	void reivew(OrderDTO odto);
 
+	List<Integer> orderCheck(MemberDTO custom);
 }
