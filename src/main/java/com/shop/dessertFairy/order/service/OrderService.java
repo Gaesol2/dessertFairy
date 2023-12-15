@@ -10,6 +10,7 @@ import java.util.Map;
 
 import com.shop.dessertFairy.common.dto.PageDTO;
 import com.shop.dessertFairy.dessert.dto.DessertDTO;
+import com.shop.dessertFairy.member.dto.MemberDTO;
 import com.shop.dessertFairy.order.dto.OrderDTO;
 
 public interface OrderService {
@@ -52,6 +53,8 @@ public interface OrderService {
 	public void review(OrderDTO odto);
 
 	public void deleteOrder(OrderDTO odto);
+
+	public List<Integer> orderCheck(MemberDTO custom);
 
 
 	
