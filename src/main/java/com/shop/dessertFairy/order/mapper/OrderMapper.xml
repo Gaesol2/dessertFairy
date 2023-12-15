@@ -294,8 +294,8 @@
    </update>
    
    <delete id="deleteOrder" parameterType="odto">
-   	DELETE FROM ordert
-   	WHERE o_no = #{o_no}
+   	DELETE FROM ORDERT
+   	WHERE O_NO = #{o_no}
    </delete>
    
    <select id="orderCheck" parameterType="mdto" resultType="int">

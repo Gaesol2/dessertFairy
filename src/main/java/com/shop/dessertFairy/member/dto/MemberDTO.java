@@ -18,7 +18,7 @@ public class MemberDTO {
 	private String m_role;
 	private String m_quest;
 	private String m_answer;
-	
+	private String m_state;
 	private int start;
 	private int end;
 	private int m_rr;

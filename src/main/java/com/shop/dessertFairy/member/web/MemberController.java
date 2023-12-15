@@ -101,16 +101,21 @@ public class MemberController {
 		MemberDTO sdto = memberService.getMember(mdto);		// MemberDTO sdto 객체 생성 후 getMember()의 결과 값을 넣음
 		String url="/";
 	    String msg;
-		if(sdto!=null) {								
+		if(sdto!=null && sdto.getM_state().equals("N")) {								
 		//회원 맞음
 			MemberDTO ssKey = new MemberDTO();				
 			ssKey.setM_id(sdto.getM_id());					// 로그인 한 유저의 정보를 불러옴
 			ssKey.setM_passwd(sdto.getM_passwd());
 			ssKey.setM_name(sdto.getM_name());
 			ssKey.setM_role(sdto.getM_role());
+			
 		    msg =  sdto.getM_name()+"님 반갑습니다.!!";
 			session.setAttribute("ssKey", ssKey);			//로그인한 유저의 세션을 저장
-		} else msg="아이디 또는 패스워드 맞지 않습니다.";				// 로그인 실패 시 메시지 출력
+		}else if(sdto!=null && sdto.getM_state().equals("Y")){
+			
+			msg="탈퇴한 회원입니다.";				// 로그인 실패 시 메시지 출력
+			
+		}else msg="아이디 또는 패스워드 맞지 않습니다.";				// 로그인 실패 시 메시지 출력
 			
 		model.addAttribute("msg",msg);						// 메시지 저장
 		model.addAttribute("url", url);						// URL 저장
