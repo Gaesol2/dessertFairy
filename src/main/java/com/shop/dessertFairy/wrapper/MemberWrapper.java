@@ -29,7 +29,6 @@ public class MemberWrapper {
 		for(int i=0; i<orderState.size(); i++) {
 			if(orderState.get(i) > 1 && orderState.get(i) < 5) {
 				orderCheck.add(orderState.get(i));
-				System.out.println("결과 : "+orderState.get(i));
 			}
 		}
 		
