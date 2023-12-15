@@ -16,6 +16,7 @@ import com.shop.dessertFairy.common.Page;
 import com.shop.dessertFairy.common.RowInterPage;
 import com.shop.dessertFairy.common.dto.PageDTO;
 import com.shop.dessertFairy.dessert.dao.DessertDAO;
+import com.shop.dessertFairy.dessert.dto.DessertDTO;
 import com.shop.dessertFairy.order.dao.OrderDAO;
 import com.shop.dessertFairy.order.dto.OrderDTO;
 
@@ -205,8 +206,8 @@ public class OrderServiceImpl implements OrderService {
    }
 
 	@Override
-	public void dessertMgt(OrderDTO odto) {
-		orderDao.dessertMgt(odto);
+	public List<Integer> dessertMgt(OrderDTO odto) {
+		return orderDao.dessertMgt(odto);
 		
 	}
 

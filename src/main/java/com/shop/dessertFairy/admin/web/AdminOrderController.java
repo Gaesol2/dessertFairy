@@ -1,22 +1,17 @@
 package com.shop.dessertFairy.admin.web;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 
-import com.shop.dessertFairy.common.RowInterPage;
 import com.shop.dessertFairy.common.dto.PageDTO;
+import com.shop.dessertFairy.dessert.dto.DessertDTO;
 import com.shop.dessertFairy.member.dto.MemberDTO;
 import com.shop.dessertFairy.order.dto.OrderDTO;
 import com.shop.dessertFairy.order.service.OrderService;
@@ -99,7 +94,6 @@ public class AdminOrderController {
 		if(ssKey != null && ssKey.getM_role().equals("admin")) {
 			List<OrderDTO> DetailList = new ArrayList<>();
 			 DetailList = orderService.OrderDetail(odto);
-			System.out.println("결과:"+DetailList);
 			model.addAttribute("DetailList", DetailList);
 			model.addAttribute("contentsJsp", "admin/order/OrderDetail");
 			session.setAttribute("ssKey", ssKey);
@@ -183,10 +177,18 @@ public class AdminOrderController {
 	      String url = null;
 	      HttpSession session = request.getSession();
 	      MemberDTO ssKey = (MemberDTO) session.getAttribute("ssKey");
-	      System.out.println("결과 "+odto);
-	      
+
 	      if(ssKey != null && ssKey.getM_role().equals("admin")) {
-	    	 orderService.dessertMgt(odto);
+	    	 List<OrderDTO> dessert = new ArrayList<>();
+	    	 List<Integer> dnoList = orderService.dessertMgt(odto);
+	    	 
+	    	 for(int i=0;i<dnoList.size();i++) {
+	    		 OrderDTO list = new OrderDTO();
+	    		 list.setD_no(dnoList[i]);
+	    		 dessert.add(list);
+	    	 }
+	    	 
+	    	 System.out.println("결과 : "+dessert);
 	         orderService.orderCancel(odto);
 	         msg = "주문취소 완료.";
 	         url = "/orderMgt";

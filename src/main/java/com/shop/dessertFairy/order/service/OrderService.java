@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.shop.dessertFairy.common.dto.PageDTO;
+import com.shop.dessertFairy.dessert.dto.DessertDTO;
 import com.shop.dessertFairy.order.dto.OrderDTO;
 
 public interface OrderService {
@@ -40,7 +41,7 @@ public interface OrderService {
 
 	public void orderCancel(OrderDTO odto);
 
-	public void dessertMgt(OrderDTO odto);
+	public List<Integer> dessertMgt(OrderDTO odto);
 
 	public void payAfterState(OrderDTO odto);
 	

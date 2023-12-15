@@ -33,6 +33,7 @@
 						<p class="ol1">상품명</p>
 						<span class="ol2">
 							<input type="text" class="in" name="d_name" readonly="readonly" value="${odto.d_name}"size="35">
+							<input type="hidden" name="d_no" readonly="readonly" value="${odto.d_no}">
 						</span>
 					</div>
 					<div class="oll">

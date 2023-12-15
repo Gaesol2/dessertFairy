@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.shop.dessertFairy.dessert.dto.DessertDTO;
 import com.shop.dessertFairy.order.dto.OrderDTO;
 
 @Mapper
@@ -42,7 +43,7 @@ public interface OrderDAO {
 	
 	void orderCancel(OrderDTO odto);				//admin 주문 취소
 
-	void dessertMgt(OrderDTO odto);				//admin 주문 취소후 재고 판매량 재조정
+	List<Integer> dessertMgt(OrderDTO odto);				//admin 주문 취소후 재고 판매량 재조정
 
 	void payAfterState(OrderDTO odto);
 	
