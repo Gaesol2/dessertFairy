@@ -46,7 +46,8 @@
 	     		M_ZIPCODE, 
 	     		M_ADDRESS,
 	     		M_ADDRESS2, 
-	     		M_ROLE
+	     		M_ROLE,
+	     		M_STATE
 	     FROM MEMBER
 	     WHERE M_ID = #{m_id} and M_PASSWD = #{m_passwd}
   </select>
@@ -61,10 +62,11 @@ UPDATE MEMBER SET
                 
                 WHERE M_ID =#{m_id}
 </update>
-<delete id="memDelete" parameterType="mdto">
-DELETE FROM MEMBER
-WHERE M_ID = #{m_id}
-</delete>
+
+	<update id="memDelete" parameterType="mdto">		<!-- 회원탈퇴 -->
+		UPDATE MEMBER SET M_STATE = 'Y'
+		WHERE M_ID = #{m_id}
+	</update>
 
 	<select id="searchId" parameterType="mdto" resultType="string">		<!-- 회원 아이디 찾기 -->
 		SELECT M_ID FROM MEMBER

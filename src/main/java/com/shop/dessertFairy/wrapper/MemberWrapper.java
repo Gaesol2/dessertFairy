@@ -34,10 +34,10 @@ public class MemberWrapper {
 		
 		if(orderCheck.size() > 0) {
 			return false;
-			
 		}else {
-			memberService.memDelete(custom);
-			return true;
+			int result = memberService.memDelete(custom);
+			if(result > 0) return true;
+			else return false;
 		}
 		
 	}
