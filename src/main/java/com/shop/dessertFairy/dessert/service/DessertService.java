@@ -32,8 +32,6 @@ public interface DessertService {
 
    Map<String, Object> getSearchList(DessertDTO ddto);
 
-   void cancelStocks(OrderDTO odto);
-
    String getDname(int d_no);
 
 }

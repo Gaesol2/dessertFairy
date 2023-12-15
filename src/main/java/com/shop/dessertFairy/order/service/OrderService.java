@@ -31,8 +31,6 @@ public interface OrderService {
 
 	public int MUpdateOrder(OrderDTO odto);							//admin 고객관리-고객주문 수정
 
-	public void cancelOrder(OrderDTO odto);
-
 	public int getRecentOno();
 
 	public OrderDTO getOrderDetail(OrderDTO odto);
@@ -50,9 +48,5 @@ public interface OrderService {
 	public Map<String, Object> getCakeOrderList(OrderDTO odto);
 
 	public void review(OrderDTO odto);
-
-	public void deleteOrder(OrderDTO odto);
-
-
 	
 }

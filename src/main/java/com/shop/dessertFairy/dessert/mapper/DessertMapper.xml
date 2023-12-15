@@ -200,15 +200,6 @@
       D_NAME LIKE '%'||#{keyword}||'%'
 	</select>
 	
-	<update id="cancelStocks" parameterType="list">
-		<foreach collection="list" item="odto" separator=";" open="DECLARE BEGIN" close="; END;">
-			UPDATE dessert
-			SET d_stock = d_stock + #{odto.o_quantity},
-			d_sale = d_sale - #{odto.o_quantity}
-			WHERE d_no = #{odto.d_no}
-		</foreach>
-	</update>
-	
 	<select id="getDname" parameterType="int" resultType="String">
 		SELECT d_name
 		FROM dessert

@@ -159,8 +159,8 @@ public class PayController {
 			
 			if("0000".equals(cancelResult.get("responseCode"))) {
 				
-				payService.deletePay(payDto);
-				orderService.deleteOrder(odto);
+				payService.deletePay(odto);
+				orderService.orderCancel(odto);
 				
 				msg="결제가 취소되었습니다.";
 				url="orderList";

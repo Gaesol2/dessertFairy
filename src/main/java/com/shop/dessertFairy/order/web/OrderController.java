@@ -232,20 +232,33 @@ public class OrderController {
 		MemberDTO sdto = (MemberDTO) session.getAttribute("ssKey");
 		
 		String msg = null;
-		String page = null;
+		String page = "MsgPage";
 		String url = null;
 		String contentsJsp = null;
 		
 		if(sdto==null) {
 			msg = "로그인이 필요합니다.";
-			page = "MsgPage";
 			url = "login";
 		} else {
-			page = "Main";
-			contentsJsp = "redirect:orderList";
-			orderWrapper.orderCancel(odto);
+			
+			List<OrderDTO> dessert = new ArrayList<>();
+	    	 dessert = orderService.cancelDessert(odto);
+	    	 
+	    	 for(OrderDTO dList : dessert) {
+	    		 orderService.dessertMgt(dList);
+	    	 }
+	    	 
+	         orderService.orderCancel(odto);
+	         
+	         msg = "주문취소 완료.";
+	         url = "/orderList";
+			
 		}
 	   
+		model.addAttribute("msg",msg);
+		model.addAttribute("url",url);
+		session.setAttribute("ssKey", sdto);
+		
 	   return page;
    }
    
@@ -333,5 +346,6 @@ public class OrderController {
 		      
 		      return page;
 		   }
+	
 	
 }
