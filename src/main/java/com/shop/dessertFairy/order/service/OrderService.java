@@ -39,15 +39,20 @@ public interface OrderService {
 
 	public int getOrderDetailCnt(OrderDTO odto);
 
-	public void orderCancel(OrderDTO odto);
+	public List<OrderDTO> cancelDessert(OrderDTO odto);		//admin 주문취소할 디저트 정보 받아옴
+	
+	public void dessertMgt(OrderDTO dList);					//admin 주문취소할 디저트 재고, 판매량 수정
 
-	public List<Integer> dessertMgt(OrderDTO odto);
+	public void orderCancel(OrderDTO odto);					//admin 주문 취소
 
 	public void payAfterState(OrderDTO odto);
 	
 	public Map<String, Object> getCakeOrderList(OrderDTO odto);
 
 	public void review(OrderDTO odto);
+
+	public void deleteOrder(OrderDTO odto);
+
 
 	
 }

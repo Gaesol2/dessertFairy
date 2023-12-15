@@ -200,15 +200,20 @@ public class OrderServiceImpl implements OrderService {
 	}
 	
 	@Override
-	public void orderCancel(OrderDTO odto) {
-      
-      orderDao.orderCancel(odto);
-   }
-
-	@Override
-	public List<Integer> dessertMgt(OrderDTO odto) {
-		return orderDao.dessertMgt(odto);
+	public List<OrderDTO> cancelDessert(OrderDTO odto) {	//admin 주문취소할 디저트 정보 받아옴
+		return orderDao.cancelDessert(odto);
 		
+	}
+	
+	@Override
+	public void dessertMgt(OrderDTO dList) {		//admin 주문취소할 디저트 재고, 판매량 수정
+		orderDao.dessertMgt(dList);
+		
+	}
+	
+	@Override
+	public void orderCancel(OrderDTO odto) {		//admin 주문 취소
+		orderDao.orderCancel(odto);
 	}
 
 	@Override
@@ -234,5 +239,11 @@ public class OrderServiceImpl implements OrderService {
 		orderDao.reivew(odto);
 		
 	}
+
+	@Override
+	public void deleteOrder(OrderDTO odto) {
+		orderDao.deleteOrder(odto);
+	}
+
 
 }

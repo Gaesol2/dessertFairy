@@ -43,14 +43,18 @@ public interface OrderDAO {
 	
 	void orderCancel(OrderDTO odto);				//admin 주문 취소
 
-	List<Integer> dessertMgt(OrderDTO odto);				//admin 주문 취소후 재고 판매량 재조정
+	List<OrderDTO> cancelDessert(OrderDTO odto);				//admin 주문 취소후 재고 판매량 재조정
+
+	void dessertMgt(OrderDTO dList);
 
 	void payAfterState(OrderDTO odto);
 	
 	List<OrderDTO> getCakeOrderList(OrderDTO odto);
 
-
 	void reivew(OrderDTO odto);
+
+	void deleteOrder(OrderDTO odto);
+
 
 
 }

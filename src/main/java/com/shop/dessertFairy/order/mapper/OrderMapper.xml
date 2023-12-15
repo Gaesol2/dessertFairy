@@ -272,27 +272,30 @@
 			ORDER BY C_NO DESC) A)
      		WHERE M_ID= #{m_id}
 	</select>
-
-	<delete id="orderCancel" parameterType="odto">
+	
+	<!-- admin 주문취소 START -->
+   <select id="cancelDessert" parameterType="odto" resultType="odto">		<!-- admin 주문 취소할 디저트의 D_NO와 O_quantity 받아옴 -->
+   	SELECT D_NO, O_QUANTITY FROM ORDERT WHERE O_NO = #{o_no}
+   </select>
+   
+ 	<update id="dessertMgt" parameterType="odto">							<!-- 주문 취소할 디저트의 재고와 판매량 수정 -->
+	   	UPDATE DESSERT SET D_STOCK = D_STOCK + #{o_quantity}, D_SALE = D_SALE - #{o_quantity}
+	   	WHERE D_NO = #{d_no}
+   </update> 
+   
+	<delete id="orderCancel" parameterType="odto">		<!-- 주문 취소 -->
       DELETE FROM ORDERT WHERE O_NO = #{o_no}
    </delete>
-   
-  <!--  <update id="dessertMgt" parameterType="odto">
-   	UPDATE DESSERT SET D_STOCK = D_STOCK + #{o_quantity}, D_SALE = D_SALE - #{o_quantity}
-   	WHERE D_NO = #{d_no}
-   </update> -->
-   
-   <select id="dessertMgt" parameterType="list" resultType="int">
-	    <foreach collection="list" item="o_no" 
-		     index="index" separator=";" open="DECLARE BEGIN" close="; END;">
-				SELECT D_NO FROM ORDERT
-   				WHERE O_NO = #{o_no}
-		</foreach>
-   </select>
+   <!-- admin 주문취소 END -->
    
    <update id="reivew" parameterType="odto">
    	UPDATE ORDERT SET O_REVIEW = +1
    	WHERE O_NO = #{o_no}
    </update>
+   
+   <delete id="deleteOrder" parameterType="odto">
+   	DELETE FROM ordert
+   	WHERE o_no = #{o_no}
+   </delete>
    
 </mapper>

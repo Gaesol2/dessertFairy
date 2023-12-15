@@ -14,8 +14,10 @@ public interface PayService {
 
 	public int insertPay(PayDTO payDto);
 
-	public String getTransactionId(OrderDTO odto);
+	public String getTransactionId(PayDTO payDto);
 
-	public String getType(OrderDTO odto);
+	public String getType(PayDTO payDto);
+
+	public void deletePay(PayDTO payDto);
 	
 }

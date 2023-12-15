@@ -180,16 +180,14 @@ public class AdminOrderController {
 
 	      if(ssKey != null && ssKey.getM_role().equals("admin")) {
 	    	 List<OrderDTO> dessert = new ArrayList<>();
-	    	 List<Integer> dnoList = orderService.dessertMgt(odto);
+	    	 dessert = orderService.cancelDessert(odto);
 	    	 
-	    	 for(int i=0;i<dnoList.size();i++) {
-	    		 OrderDTO list = new OrderDTO();
-	    		 list.setD_no(dnoList[i]);
-	    		 dessert.add(list);
+	    	 for(OrderDTO dList : dessert) {
+	    		 orderService.dessertMgt(dList);
 	    	 }
 	    	 
-	    	 System.out.println("결과 : "+dessert);
 	         orderService.orderCancel(odto);
+	         
 	         msg = "주문취소 완료.";
 	         url = "/orderMgt";
 	         

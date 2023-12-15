@@ -138,7 +138,7 @@
 <div class="container">
 	<form name="kcp_order_info" id="kcp_order_info" action="/authPay" method="post" accept-charset="euc-kr">
 		<input type="hidden" name="o_no" value="${o_no}">
-		<input type="text" name="p_type" value="${pay}">
+		<input type="hidden" name="p_type" value="${pay}">
 		<input type="hidden" name="ordr_idxx" value=""> 
 		<input type="hidden" name="good_name" value=""> 
 	    <input type="hidden" name="good_mny" value=""> 
