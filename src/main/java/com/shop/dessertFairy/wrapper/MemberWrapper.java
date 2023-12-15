@@ -27,7 +27,7 @@ public class MemberWrapper {
 		orderState = orderService.orderCheck(custom);
 		
 		for(int i=0; i<orderState.size(); i++) {
-			if(orderState.get(i) > 1 && orderState.get(i) < 5) {
+			if(orderState.get(i) < 5) {
 				orderCheck.add(orderState.get(i));
 			}
 		}
