@@ -41,7 +41,7 @@
    text-align: center;
 }
 
-.notList th{
+.notListCon{
    padding: 20px 0;
 }
 
@@ -418,11 +418,16 @@ textarea {
 
 /* cakeList */
 
+.cakeListBox{
+	width: 1024px;
+	border-bottom: solid 1px black;
+}
+
 .cakeList{
    text-align: right;
    margin-bottom: 5px;
    padding: 10px 0;
-   border-bottom: solid 1px black;
+   
 }
 
 .cakeList li{

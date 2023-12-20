@@ -22,10 +22,12 @@
 		</div>
 	</div>
     <div id="chooseBox">
-    	<ul class="cakeList">
-    		<li><a href="/orderList">디저트 목록</a></li>
-    		<li class="reList"><a href="/cakeOrderList">케이크 목록</a></li>
-    	</ul>
+    	<div class="cakeListBox">
+	    	<ul class="cakeList">
+	    		<li><a href="/orderList">디저트 목록</a></li>
+	    		<li class="reList"><a href="/cakeOrderList">케이크 목록</a></li>
+	    	</ul>
+    	</div>
 		<c:choose>
 				<c:when test="${fn:length(CakeOrderList)>0}">
 						<c:forEach var = "cake" items = "${CakeOrderList}" varStatus = "i">
@@ -126,9 +128,9 @@
 				</c:when>
 		
 			<c:when test="${fn:length(CakeOrderList)==0}">
-				<tr class="notList">
-					<th>주문내역이 없습니다.</th>
-				</tr>
+				<div class="notList">
+					<p class="notListCon">주문내역이 없습니다.</p>
+				</div>
 			</c:when>
 		</c:choose>
     </div>
