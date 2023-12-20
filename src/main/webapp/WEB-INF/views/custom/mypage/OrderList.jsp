@@ -56,11 +56,10 @@
 									<c:when test="${order.o_state==2}">배송준비</c:when>
 									<c:when test="${order.o_state==3}">배송중</c:when>
 									<c:when test="${order.o_state==4}">배송완료</c:when>
-									<c:when test="${order.o_state==5}">구매확정</c:when>
 								</c:choose>
 							</td>
 							<td  class="ool9">
-								<c:if test="${order.o_state==5}">
+								<c:if test="${order.o_state==4}">
 									<c:if test="${order.o_review==0}">
 										<a href="/reviewWrite?o_no=${order.o_no}">리뷰쓰기</a>
 									</c:if>

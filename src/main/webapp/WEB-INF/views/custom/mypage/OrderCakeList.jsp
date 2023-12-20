@@ -116,7 +116,7 @@
 											</span>
 										</div>
 									</div>
-									<div>
+									<div id="cakeOrder_cancel">
 										<input type="hidden" name="c_no" value="${cake.c_no}">
 										<input type="button" value="주문취소" class="cakeCancel" onclick="cakeCancel(this)">
 									</div>
