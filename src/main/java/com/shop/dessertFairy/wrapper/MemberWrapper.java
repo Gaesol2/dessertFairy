@@ -24,7 +24,7 @@ public class MemberWrapper {
 	public boolean memDelete(MemberDTO custom) {
 		List<Integer> orderState = new ArrayList<>();
 		orderState = orderService.orderCheck(custom);
-		System.out.println("결과 : "+orderState);
+		
 		if(orderState.size() > 0) {
 			return false;
 		}else {
