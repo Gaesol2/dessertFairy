@@ -56,6 +56,7 @@
 									<c:when test="${order.o_state==2}">배송준비</c:when>
 									<c:when test="${order.o_state==3}">배송중</c:when>
 									<c:when test="${order.o_state==4}">배송완료</c:when>
+									<c:when test="${order.o_state==5}">배송완료</c:when>
 								</c:choose>
 							</td>
 							<td  class="ool9">
