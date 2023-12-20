@@ -2,18 +2,27 @@
  * 
  */
 $().ready(function(){
+	var pwCheck = false;
+	
    $(".writeSubmit").on("click",function(){
 	   if(validate()){
+		    if(pwCheck){
+					alert('4~6자리 숫자만 가능합니다');
+					$('#r_passwd').focus();
+					
+					return false;
+			}
       $("form[name=writeForm]").submit();
       }
    });
    
-   $(".writeSubmit").on("click",function(){
-	   if(validate()){
-      $("form[name=replyForm]").submit();
-      }
-   });
-   
+   $('#r_passwd').keyup(function(){		// 비밀번호 숫자4~6자리 조합
+		 var pattern = /^[0-9]{4,6}$/;
+		 
+		 if(!pattern.test($('#r_passwd').val())) pwCheck = true;
+		 else pwCheck = false;
+			
+	});
   
     //custom 수정 및 삭제 
      $('.reviewUp').on('click', function(){
@@ -32,15 +41,16 @@ $().ready(function(){
    });
    
    $('.reviewUpdate').on('click', function(){
-	   var pattern = /^[0-9]{4,6}$/;
-		var pw = $('#r_passwd').val();
-		
-		if(!pattern.test(pw)){
-			alert('4~6자리 숫자만 가능합니다');
-			return false;
-		}
-   	   $("form[name=reviewForm]").attr('action', "/upProc")
-   	   $("form[name=reviewForm]").submit();
+	  if(validate()){
+		    if(pwCheck){
+					alert('4~6자리 숫자만 가능합니다');
+					$('#r_passwd').focus();
+					
+					return false;
+			}
+	   	   $("form[name=reviewForm]").attr('action', "/upProc")
+	   	   $("form[name=reviewForm]").submit();
+   	   }
    });
    
    //admin 답글 수정 및 삭제
@@ -100,7 +110,7 @@ $().ready(function(){
   
 //chk에 대해서 점검
 function validate(){
-	  var flen = $("form[name=writeForm] .chkb").length;
+	  var flen = $("form[name=reviewForm] .chkb").length;
 	  for(var i = 0; i < flen; i++){
 		  if( $('.chkb').eq(i).val()=="" || 
 		      $('.chkb').eq(i).val()==null ||

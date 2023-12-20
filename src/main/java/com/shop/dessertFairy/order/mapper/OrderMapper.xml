@@ -300,7 +300,7 @@
    
    <select id="orderCheck" parameterType="mdto" resultType="int">
    		SELECT O_STATE FROM ORDERT
-   		WHERE M_ID = #{m_id}
+   		WHERE M_ID = #{m_id} AND O_STATE <![CDATA[>]]> 1 AND O_STATE <![CDATA[<]]> 4
    </select>
    
 </mapper>

@@ -23,16 +23,9 @@ public class MemberWrapper {
 	@Transactional
 	public boolean memDelete(MemberDTO custom) {
 		List<Integer> orderState = new ArrayList<>();
-		List<Integer> orderCheck = new ArrayList<>();
 		orderState = orderService.orderCheck(custom);
-		
-		for(int i=0; i<orderState.size(); i++) {
-			if(orderState.get(i) < 5) {
-				orderCheck.add(orderState.get(i));
-			}
-		}
-		
-		if(orderCheck.size() > 0) {
+		System.out.println("결과 : "+orderState);
+		if(orderState.size() > 0) {
 			return false;
 		}else {
 			int result = memberService.memDelete(custom);
