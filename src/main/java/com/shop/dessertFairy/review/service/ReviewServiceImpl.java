@@ -43,6 +43,8 @@ public class ReviewServiceImpl implements ReviewService {
 	   } else {
 		   Map<String, Object> map = new HashMap<>();
 		   map.put("orderby", orderby);
+		   map.put("start", pdto.getStart());
+		   map.put("end", pdto.getEnd());
 		   reviewList = reviewDao.getReviewListOrderby(map);
 	   }
 	   
