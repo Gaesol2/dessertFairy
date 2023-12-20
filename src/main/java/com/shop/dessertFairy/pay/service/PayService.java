@@ -18,6 +18,6 @@ public interface PayService {
 
 	public String getType(PayDTO payDto);
 
-	public void deletePay(PayDTO payDto);
+	public void deletePay(OrderDTO odto);
 	
 }

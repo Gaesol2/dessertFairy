@@ -41,7 +41,7 @@
    text-align: center;
 }
 
-.notList th{
+.notListCon{
    padding: 20px 0;
 }
 
@@ -317,13 +317,13 @@
 	width: 1024px;
 	height: 100px;
 	margin-top : 65px;
-	margin-left: 440px;
+	margin-left: 400px;
 }
 
 #order_button .button{
-	font-size: 18px;
+	font-size: 13px;
 	color : #064695;
-	padding : 10px 30px 10px 30px;
+	padding : 5px 15px 5px 15px;
 	background-color : #fefae9;
 	border : solid 1px #064695;
 	text-align: center;
@@ -335,6 +335,10 @@
     color : #fefae9;
 }
 
+.orderListPay{
+	float: left;
+	margin-right: 10px;
+}
 
 /* order cake */
 
@@ -414,11 +418,16 @@ textarea {
 
 /* cakeList */
 
+.cakeListBox{
+	width: 1024px;
+	border-bottom: solid 1px black;
+}
+
 .cakeList{
    text-align: right;
    margin-bottom: 5px;
    padding: 10px 0;
-   border-bottom: solid 1px black;
+   
 }
 
 .cakeList li{

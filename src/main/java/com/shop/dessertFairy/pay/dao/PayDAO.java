@@ -14,6 +14,6 @@ public interface PayDAO {
 
 	String getType(PayDTO payDto);
 
-	void deletePay(PayDTO payDto);
+	void deletePay(OrderDTO odto);
 
 }

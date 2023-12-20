@@ -162,12 +162,6 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public void cancelOrder(OrderDTO odto) {
-		orderDao.cancelOrder(odto);
-		
-	}
-
-	@Override
 	public int getRecentOno() {
 		return orderDao.getRecentOno();
 	}
@@ -242,14 +236,7 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public void deleteOrder(OrderDTO odto) {
-		orderDao.deleteOrder(odto);
-	}
-
-	@Override
-	public List<Integer> orderCheck(MemberDTO custom) {
-		return orderDao.orderCheck(custom);
-	}
-
-
+	   public List<Integer> orderCheck(MemberDTO custom) {
+	      return orderDao.orderCheck(custom);
+	   }
 }

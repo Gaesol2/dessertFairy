@@ -40,7 +40,7 @@
 		WHERE p_ordernumber = #{o_no}
 	</select>
 	
-	<delete id="deletePay" parameterType="paydto">
+	<delete id="deletePay" parameterType="odto">
 		DELETE FROM pay
 		WHERE p_ordernumber = #{o_no}
 	</delete>

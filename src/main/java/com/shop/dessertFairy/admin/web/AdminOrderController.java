@@ -15,6 +15,7 @@ import com.shop.dessertFairy.dessert.dto.DessertDTO;
 import com.shop.dessertFairy.member.dto.MemberDTO;
 import com.shop.dessertFairy.order.dto.OrderDTO;
 import com.shop.dessertFairy.order.service.OrderService;
+import com.shop.dessertFairy.pay.service.PayService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -24,6 +25,9 @@ import jakarta.servlet.http.HttpSession;
 public class AdminOrderController {
 	@Autowired
 	OrderService orderService;
+	
+	@Autowired
+	PayService payService;
 	
 	@RequestMapping("orderMgt")											// 주문 목록
 	public String OrderMgt( HttpServletRequest request,
@@ -187,6 +191,7 @@ public class AdminOrderController {
 	    	 }
 	    	 
 	         orderService.orderCancel(odto);
+	         payService.deletePay(odto);
 	         
 	         msg = "주문취소 완료.";
 	         url = "/orderMgt";

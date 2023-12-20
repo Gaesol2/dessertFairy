@@ -106,7 +106,7 @@ public class PayServiceImpl implements PayService {
 	}
 
 	@Override
-	public void deletePay(PayDTO payDto) {
-		payDao.deletePay(payDto);
+	public void deletePay(OrderDTO odto) {
+		payDao.deletePay(odto);
 	}
 }

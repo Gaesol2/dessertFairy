@@ -191,11 +191,6 @@ public class DessertServiceImpl implements DessertService {
 		return resultSet;
 	}
 
-	@Override
-	public void cancelStocks(OrderDTO odto) {
-		dessertDao.cancelStocks(odto);
-		
-	}
 
 	@Override
 	public String getDname(int d_no) {

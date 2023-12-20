@@ -34,8 +34,6 @@ public interface OrderDAO {
 
 	void updateTotalPrice(List<OrderDTO> getTotalPrice);
 
-	void cancelOrder(OrderDTO odto);
-
 	int getRecentOno();
 
 	OrderDTO getOrderDetail(OrderDTO odto);
@@ -54,11 +52,5 @@ public interface OrderDAO {
 
 	void reivew(OrderDTO odto);
 
-	void deleteOrder(OrderDTO odto);
-
-
 	List<Integer> orderCheck(MemberDTO custom);
-
-
-
 }
