@@ -26,7 +26,7 @@
 	function update(flag){
 		//패스워드 확인하기
 		openWin = window.open("/pwCheck","pwCheak",
-		"width=400, height=150, toolbar=no, location=no, menubar=no, resizable=no, scrollbars=no")
+		"width=500, height=300, toolbar=no, location=no, menubar=no, resizable=no, scrollbars=no")
 		if(flag=='u'){
 			$("#upForm").attr("action", "/memUpForm");
 		}else if(flag=='d'){

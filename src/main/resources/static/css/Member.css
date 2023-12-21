@@ -496,8 +496,41 @@
 
 
 
+/* 비밀번호 팝업 */
+
+.pwPopUp{
+	background-color: #fefae9;
+}
+
+.pwCheckBtnBox{
+	width: 1024px;
+	height: 100px;
+	margin-top : 65px;
+	margin-left: 400px;
+}
+
+.pwCheckBtnBox .pwCheckBtn{
+	font-size: 16px;
+	color : #064695;
+	padding : 4px 10px 4px 10px;
+	background-color : #fefae9;
+	border : solid 1px #064695;
+	text-align: center;
+}
+
+.pwCheckBtnBox .pwCheckBtn:hover{
+    text-shadow: 0 0 0 #fefae9;
+    background-color : #064695;
+    color : #fefae9;
+}
 
 
-
-
+.pwin{
+	border-radius: 7px;
+	border: solid 1px #eeeeee;
+	height: 30px;
+	box-sizing: border-box;
+	outline: none;
+	padding: 0 10px;
+}
 
