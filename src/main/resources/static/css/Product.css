@@ -76,9 +76,14 @@
 	text-align: center;
 }
 
-.dol4{
+th.dol4{
 	width: 300px;
 	text-align: center;
+}
+
+.dol4{
+	width: 300px;
+	text-align: left;
 }
 
 .dol4:hover{

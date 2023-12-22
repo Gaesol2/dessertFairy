@@ -48,9 +48,14 @@
 	text-align: center;
 }
 
-.nol2{
+th.nol2{
 	width: 300px;
 	text-align: center;
+}
+
+.nol2{
+	width: 300px;
+	text-align: left;
 }
 
 .nol3{

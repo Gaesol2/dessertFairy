@@ -86,9 +86,15 @@
    text-align: center;
 }
 
-.ool3{
+th.ool3{
    width: 400px;
    text-align: center;
+}
+
+.ool3{
+   width: 400px;
+   padding-left: 30px;
+   text-align: left;
 }
 
 .ool4{
@@ -180,9 +186,14 @@
    text-align: center;
 }
 
-.orl3{
+th.orl3{
    width: 250px;
    text-align: center;
+}
+
+.orl3{
+   width: 250px;
+   text-align: left;
    cursor:pointer;
 }
 
