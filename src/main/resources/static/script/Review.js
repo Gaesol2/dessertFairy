@@ -54,6 +54,9 @@ $().ready(function(){
    });
    
    //admin 답글 수정 및 삭제
+	   $(".adminWriteSubmit").on("click",function(){
+	      $("form[name=replyForm]").submit();
+	   });
    
      $('.replyDel').on('click', function(){
    	   $("form[name=replyForm]").attr('action', "/replydelProc")

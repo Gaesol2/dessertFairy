@@ -73,7 +73,7 @@
 			<c:choose>
 				<c:when test="${review.r_reply == null}">
 					<span class="reviewBtn1">
-					      <button type="button" class="writeSubmit">답글 등록</button>
+					      <button type="button" class="adminWriteSubmit">답글 등록</button>
 					</span>          
 				</c:when>
 				
