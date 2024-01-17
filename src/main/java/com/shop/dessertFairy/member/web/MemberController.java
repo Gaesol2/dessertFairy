@@ -175,7 +175,9 @@ public class MemberController {
 		   }
 		
 		 @RequestMapping("/memUpForm")
-		   public String memUpForm(HttpServletRequest request, HttpServletResponse response, Model model) {
+		   public String memUpForm(HttpServletRequest request,
+				   					HttpServletResponse response,
+				   					Model model) {
 		      // session정보 갖고오기
 		      HttpSession session = request.getSession();
 		      MemberDTO custom = (MemberDTO) session.getAttribute("ssKey");

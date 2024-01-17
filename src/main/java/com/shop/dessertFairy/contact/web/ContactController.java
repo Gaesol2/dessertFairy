@@ -296,10 +296,11 @@ public class ContactController {
 	   
 	   
 	   @RequestMapping("/contactupProc")
-		public String ContactupProc(HttpServletRequest request, HttpServletResponse response,
-				ContactDTO tdto,
-				Model model,
-				PageDTO pageDto) {
+		public String ContactupProc(HttpServletRequest request,
+									HttpServletResponse response,
+									ContactDTO tdto,
+									Model model,
+									PageDTO pageDto) {
 		   
 			HttpSession session = request.getSession();
 			String contentsJsp = null;
@@ -336,10 +337,11 @@ public class ContactController {
 		}
 	   
 	   @RequestMapping("/contactDelProc")
-	   public String ContactDelProc(HttpServletRequest request, HttpServletResponse response,
-			   ContactDTO tdto,
-			   Model model,
-			   PageDTO pageDto) {
+	   public String ContactDelProc(HttpServletRequest request,
+									   HttpServletResponse response,
+									   ContactDTO tdto,
+									   Model model,
+									   PageDTO pageDto) {
 		   HttpSession session = request.getSession();
 		   String contentsJsp = null;
 		   String page = null;

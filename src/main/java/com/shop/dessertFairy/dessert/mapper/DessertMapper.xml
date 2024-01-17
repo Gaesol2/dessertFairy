@@ -85,7 +85,7 @@
 							D_SALE)
 	    VALUES(#{d_no}, #{d_category}, #{d_name}, #{d_detail},
 	           #{d_price}, #{d_stock}, #{d_image}, #{d_path},
-	            #{d_life}, #{d_storage}, #{d_allergy}, 0)
+	           #{d_life}, #{d_storage}, #{d_allergy}, 0)
 	  </insert>
 	
 	<select id="getProductCnt" resultType="int">		<!-- admin 상품 리스트 개수 -->

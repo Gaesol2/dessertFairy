@@ -36,7 +36,7 @@
 							#{m_answer})
 	 </insert>
 	 
-	 <select id="getMember" parameterType="mdto" resultType="mdto">		<!-- 로그인 -->
+	<select id="getMember" parameterType="mdto" resultType="mdto">		<!-- 로그인 -->
 	     SELECT M_ID, 
 	     		M_NAME, 
 	     		M_ROLE, 

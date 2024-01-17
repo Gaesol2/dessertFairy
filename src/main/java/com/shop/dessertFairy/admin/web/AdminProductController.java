@@ -46,16 +46,16 @@ public class AdminProductController {
 		if(session.getAttribute("ssKey") != null) {						// ssKey가 null이 아니면
 			ssKey = (MemberDTO) session.getAttribute("ssKey");			// 현재 세션의 ssKey를 받아옴
 			if(ssKey.getM_role().equals("admin")) {						// ssKey의 권한이 admin이면
+				Map<String, Object> resultSet = dessertService.getProductList(ddto, pdto);	// 상품리스트 메소드 호출해서 받아온 결과를 담아줌
+				model.addAttribute("pdto", resultSet.get("pdto"));						// 상품결과를 받아와서 저장
+				model.addAttribute("pcnt", resultSet.get("pcnt"));						// 상품결과를 받아와서 저장
+				model.addAttribute("pList", resultSet.get("pList"));					// 상품 목록을 받아와서 저장
 				model.addAttribute("contentsJsp", "admin/product/ProductList");		// 컨텐츠페이지에 상품 리스트 페이지를 넣음
 				page = "Main";														
 			}else page = "redirect:/";									// 사용자의 세션이 admin이 아니면 홈으로 보냄
 		}else page = "redirect:/";										// 세션의 ssKey값이 null=비회원  이면 홈으로 보냄
 		
-		Map<String, Object> resultSet = dessertService.getProductList(ddto, pdto);	// 상품리스트 메소드 호출해서 받아온 결과를 담아줌
 		model.addAttribute("pBlock", RowInterPage.PAGE_OF_BLOCK);
-		model.addAttribute("pdto", resultSet.get("pdto"));						// 상품결과를 받아와서 저장
-		model.addAttribute("pcnt", resultSet.get("pcnt"));						// 상품결과를 받아와서 저장
-		model.addAttribute("pList", resultSet.get("pList"));					// 상품 목록을 받아와서 저장
 		session.setAttribute("ssKey", ssKey);									// 세션 저장
 		
 		return page;
@@ -227,6 +227,10 @@ public class AdminProductController {
 		if(session.getAttribute("ssKey")!=null ) {							// 회원 비회원 구분
 			ssKey = (MemberDTO) session.getAttribute("ssKey");				// 회원이면 ssKey값 저장
 			if(ssKey.getM_role().equals("admin")) {							// 저장한 ssKey값으로 관리자와 일반 회원 구분. 관리자라면
+				DessertDTO dessert = dessertService.adminGetDessert(ddto.getD_no());	// 상품리스트 jsp페이지에서 받은 파라미터값인 상품번호를 기준으로 상품 정보 받아옴
+				dno = dessert.getD_no();												// 받아온 상품의 상품 번호 저장
+				model.addAttribute("dno", dno);											//상품 번호 저장
+				model.addAttribute("dessert", dessert);									// 상품 정보 저장
 				model.addAttribute("contentsJsp", "admin/product/ProductDetail");	// admin 상품 디테일 페이지로 이동
 				page="Main";
 			}
@@ -235,10 +239,6 @@ public class AdminProductController {
 		else {
 			page="redirect:/";
 		}
-		DessertDTO dessert = dessertService.adminGetDessert(ddto.getD_no());	// 상품리스트 jsp페이지에서 받은 파라미터값인 상품번호를 기준으로 상품 정보 받아옴
-		dno = dessert.getD_no();												// 받아온 상품의 상품 번호 저장
-		model.addAttribute("dessert", dessert);									// 상품 정보 저장
-		model.addAttribute("dno", dno);											//상품 번호 저장
 		session.setAttribute("ssKey", ssKey);									//세션 저장
 		
 		return page;

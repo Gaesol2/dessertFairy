@@ -293,7 +293,7 @@
    	WHERE O_NO = #{o_no}
    </update>
    
-   <select id="orderCheck" parameterType="mdto" resultType="int">
+   <select id="orderCheck" parameterType="mdto" resultType="int">	<!-- 회원 탈퇴 전 주문상태 체크 -->
    		SELECT O_STATE FROM ORDERT
    		WHERE M_ID = #{m_id} AND O_STATE <![CDATA[>]]> 1 AND O_STATE <![CDATA[<]]> 4
          SELECT O_STATE FROM ORDERT

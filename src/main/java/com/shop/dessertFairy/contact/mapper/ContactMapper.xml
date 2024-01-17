@@ -30,10 +30,10 @@
         WHERE T_RR BETWEEN #{start,jdbcType=NUMERIC} and #{end,jdbcType=NUMERIC}
 	 </select>
 	 
-	 <insert id="contactWrite" parameterType="tdto">
-   <selectKey keyProperty="nt_no" order="BEFORE" resultType="int">
-		SELECT NVL(MAX(T_NO),0)+1 AS NT_NO FROM CONTACT
-	</selectKey>
+	<insert id="contactWrite" parameterType="tdto">
+		<selectKey keyProperty="nt_no" order="BEFORE" resultType="int">
+			SELECT NVL(MAX(T_NO),0)+1 AS NT_NO FROM CONTACT
+		</selectKey>
       INSERT INTO CONTACT(
           T_NO
          ,T_GROUP

@@ -41,7 +41,8 @@
 									<span class="replyL">└</span>
 								</c:if>   
 						        <c:if test="${contact.t_secret eq 'N'}" >
-						            <img src="${pageContext.request.contextPath}/image/secret.png" class="secretImg" width="20" height="20" alt="비밀글" />
+						            <img src="${pageContext.request.contextPath}/image/secret.png" class="secretImg"
+						             width="20" height="20" alt="비밀글" />
 						            <c:choose>
 						                <c:when test="${ssKey.m_id == contact.m_id || ssKey.m_role=='admin'}">
 						                    <a href="/adminContactContent?t_no=${contact.t_no}">${contact.t_subject}</a>
